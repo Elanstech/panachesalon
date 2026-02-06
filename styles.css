@@ -158,9 +158,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-align: center;
 }
 
-.preloader-svg {
-  width: 100px;
-  height: 120px;
+.preloader-logo-img {
+  height: 80px;
+  width: auto;
   animation: float 2s ease-in-out infinite;
 }
 
@@ -221,13 +221,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex-shrink: 0;
 }
 
-.logo-svg {
-  width: 220px;
-  height: 46px;
+.logo-img {
+  height: 52px;
+  width: auto;
   transition: transform 0.3s ease;
 }
 
-.header-logo:hover .logo-svg {
+.header-logo:hover .logo-img {
   transform: scale(1.02);
 }
 
@@ -1341,9 +1341,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 3rem 0;
 }
 
-.footer-logo-svg {
-  width: 200px;
-  height: 44px;
+.footer-logo-img {
+  height: 48px;
+  width: auto;
   margin-bottom: 1rem;
 }
 
@@ -1467,7 +1467,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .header-inner { height: 68px; }
   #header.scrolled .header-inner { height: 60px; }
 
-  .logo-svg { width: 180px; }
+  .logo-img { height: 42px; }
 
   .intro-grid {
     grid-template-columns: 1fr;
@@ -1500,7 +1500,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     text-align: center;
   }
 
-  .footer-logo-svg {
+  .footer-logo-img {
     margin: 0 auto 1rem;
   }
 
