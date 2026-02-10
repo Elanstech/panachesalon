@@ -562,6 +562,185 @@ class DeviceParallax {
   }
 }
 
+/* ══════════════════════════════════════════════
+   NYC PANACHE SALON — SERVICES SECTION JS
+   Tabs, cinematic reveals, hover interactions
+   ══════════════════════════════════════════════ */
+
+class ServicesSection {
+  constructor() {
+    this.section = document.getElementById('services');
+    if (!this.section) return;
+
+    this.tabs = this.section.querySelectorAll('.services__tab');
+    this.panels = this.section.querySelectorAll('.services__panel');
+    this.tabContainer = this.section.querySelector('.services__tabs');
+
+    if (!this.tabs.length) return;
+
+    this._bindTabs();
+    this._bindScrollReveal();
+    this._bindHeroCardParallax();
+    this._bindItemHoverEffects();
+  }
+
+  /* ── TAB SWITCHING ── */
+
+  _bindTabs() {
+    this.tabs.forEach(tab => {
+      tab.addEventListener('click', () => this._activateTab(tab));
+    });
+
+    // Keyboard nav
+    this.tabContainer.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const currentIdx = Array.from(this.tabs).findIndex(t => t.classList.contains('is-active'));
+        let nextIdx;
+        if (e.key === 'ArrowRight') {
+          nextIdx = (currentIdx + 1) % this.tabs.length;
+        } else {
+          nextIdx = (currentIdx - 1 + this.tabs.length) % this.tabs.length;
+        }
+        this._activateTab(this.tabs[nextIdx]);
+        this.tabs[nextIdx].focus();
+      }
+    });
+  }
+
+  _activateTab(tab) {
+    const target = tab.dataset.svcTab;
+
+    // Deactivate all
+    this.tabs.forEach(t => {
+      t.classList.remove('is-active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    this.panels.forEach(p => {
+      p.classList.remove('is-active');
+    });
+
+    // Activate selected
+    tab.classList.add('is-active');
+    tab.setAttribute('aria-selected', 'true');
+
+    const panel = document.getElementById(`svc-panel-${target}`);
+    if (!panel) return;
+
+    // Slight delay for transition effect
+    requestAnimationFrame(() => {
+      panel.classList.add('is-active');
+
+      // Re-trigger staggered item animations
+      const items = panel.querySelectorAll('.svc-reveal');
+      items.forEach(item => {
+        item.style.animation = 'none';
+        item.offsetHeight; // force reflow
+        item.style.animation = '';
+      });
+    });
+
+    // Scroll tab into view on mobile
+    if (window.innerWidth <= 768) {
+      tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  }
+
+  /* ── SCROLL REVEAL FOR SECTION ── */
+
+  _bindScrollReveal() {
+    const reveals = this.section.querySelectorAll('.reveal');
+    if (!reveals.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const siblings = entry.target.parentElement.querySelectorAll('.reveal');
+          const idx = Array.from(siblings).indexOf(entry.target);
+          setTimeout(() => entry.target.classList.add('visible'), idx * 120);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+  }
+
+  /* ── HERO CARD SUBTLE PARALLAX ON MOUSE ── */
+
+  _bindHeroCardParallax() {
+    if (window.innerWidth <= 1024) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const cards = this.section.querySelectorAll('.services__hero-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        const img = card.querySelector('.services__hero-card-img');
+        if (img) {
+          img.style.transform = `scale(1.06) translate(${x * -8}px, ${y * -8}px)`;
+        }
+
+        // Subtle 3D tilt
+        card.style.transform = `perspective(1000px) rotateY(${x * 3}deg) rotateX(${-y * 3}deg)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        const img = card.querySelector('.services__hero-card-img');
+        if (img) {
+          img.style.transform = '';
+          img.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        }
+        card.style.transform = '';
+        card.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+
+        setTimeout(() => {
+          if (img) img.style.transition = '';
+          card.style.transition = '';
+        }, 800);
+      });
+    });
+  }
+
+  /* ── ITEM HOVER — MAGNETIC PRICE ── */
+
+  _bindItemHoverEffects() {
+    if (window.innerWidth <= 768) return;
+
+    const items = this.section.querySelectorAll('.services__item');
+    items.forEach(item => {
+      const price = item.querySelector('.services__item-price');
+      const line = item.querySelector('.services__item-line');
+
+      item.addEventListener('mouseenter', () => {
+        if (price) {
+          price.style.transform = 'scale(1.08)';
+          price.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        }
+      });
+
+      item.addEventListener('mouseleave', () => {
+        if (price) {
+          price.style.transform = '';
+          price.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+        }
+      });
+    });
+  }
+}
+
+
+/* ── INIT ── */
+// Integrates with existing App boot, or standalone
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => new ServicesSection());
+} else {
+  new ServicesSection();
+}
+
 /* ══════════════════════════════════
    APP — BOOT EVERYTHING
    ══════════════════════════════════ */
