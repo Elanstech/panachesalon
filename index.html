@@ -4,10 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NYC Panache Salon — Forest Hills, Queens</title>
-  <meta name="description" content="NYC Panache Salon. Luxury hair, nails, waxing & beauty in Forest Hills, Queens. Where elegance meets artistry." />
+  <meta name="description" content="NYC Panache Salon. Luxury hair, nails, waxing & beauty at 107-12 71st Rd, Forest Hills, Queens NY 11375. Where elegance meets artistry." />
+
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -15,168 +20,140 @@
   <!-- ========== PRELOADER ========== -->
   <div id="preloader">
     <div class="preloader-inner">
-      <div class="preloader-logo">
-        <img src="logo.svg" alt="NYC Panache Salon" class="preloader-logo-img" />
-      </div>
-      <div class="preloader-line">
-        <div class="preloader-line-fill"></div>
+      <img src="logo.svg" alt="NYC Panache Salon" class="preloader-logo" />
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill"></div>
       </div>
     </div>
   </div>
 
-  <!-- ========== HEADER / NAVIGATION ========== -->
+  <!-- ========== HEADER ========== -->
   <header id="header">
     <div class="header-inner">
-      <!-- Logo -->
-      <a href="#" class="header-logo" aria-label="NYC Panache Salon Home">
-        <img src="logo.svg" alt="NYC Panache Salon" class="logo-img" />
+      <a href="#" class="header-logo" aria-label="Home">
+        <img src="logo.svg" alt="NYC Panache Salon" class="header-logo-img" />
       </a>
 
-      <!-- Desktop Nav -->
       <nav class="header-nav" id="headerNav">
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#hair" class="nav-link">Hair</a>
-        <a href="#nails" class="nav-link">Nails</a>
-        <a href="#waxing" class="nav-link">Waxing</a>
         <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#showcase" class="nav-link">Gallery</a>
+        <a href="#waxing" class="nav-link">Waxing</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
-      <!-- Book CTA -->
-      <a href="#contact" class="header-cta">
-        <span>Book Now</span>
-      </a>
+      <a href="tel:+17185750532" class="header-cta"><span>Book Now</span></a>
 
-      <!-- Mobile Hamburger -->
+      <!-- Hamburger -->
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
+        <div class="hamburger-box">
+          <span class="h-line h-line-1"></span>
+          <span class="h-line h-line-2"></span>
+          <span class="h-line h-line-3"></span>
+        </div>
       </button>
     </div>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile Fullscreen Menu -->
     <div class="mobile-menu" id="mobileMenu">
-      <nav class="mobile-menu-nav">
-        <a href="#services" class="mobile-nav-link">Services</a>
-        <a href="#hair" class="mobile-nav-link">Hair</a>
-        <a href="#nails" class="mobile-nav-link">Nails</a>
-        <a href="#waxing" class="mobile-nav-link">Waxing</a>
-        <a href="#about" class="mobile-nav-link">About</a>
-        <a href="#contact" class="mobile-nav-link">Contact</a>
-        <a href="#contact" class="mobile-cta-btn">Book Appointment</a>
-      </nav>
+      <div class="mm-bg-circles">
+        <div class="mm-circle mm-circle-1"></div>
+        <div class="mm-circle mm-circle-2"></div>
+      </div>
+      <div class="mm-content">
+        <img src="logo.svg" alt="NYC Panache" class="mm-logo" />
+        <nav class="mm-nav">
+          <a href="#about" class="mm-link"><span class="mm-link-num">01</span>About</a>
+          <a href="#services" class="mm-link"><span class="mm-link-num">02</span>Services</a>
+          <a href="#showcase" class="mm-link"><span class="mm-link-num">03</span>Gallery</a>
+          <a href="#waxing" class="mm-link"><span class="mm-link-num">04</span>Waxing</a>
+          <a href="#contact" class="mm-link"><span class="mm-link-num">05</span>Contact</a>
+        </nav>
+        <a href="tel:+17185750532" class="mm-cta">Call (718) 575-0532</a>
+        <div class="mm-socials">
+          <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener">Yelp</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- ========== HERO SECTION ========== -->
+  <!-- ========== HERO ========== -->
   <section id="hero">
-    <div class="hero-video-wrap">
-      <video autoplay muted loop playsinline id="heroVideo" poster="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80">
-        <source src="hero-video.mp4" type="video/mp4" />
-      </video>
+    <div class="hero-bg">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80" alt="" class="hero-bg-img" />
       <div class="hero-overlay"></div>
     </div>
-
     <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="hero-line-left"></span>
-        <span class="hero-eyebrow-text">Forest Hills, Queens — New York</span>
-        <span class="hero-line-right"></span>
+      <div class="hero-badge anim-hero" data-d="0">
+        <span class="hero-badge-dot"></span>
+        Forest Hills, Queens — New York
       </div>
-
       <h1 class="hero-title">
-        <span class="hero-title-line hero-title-line-1">The Art of</span>
-        <span class="hero-title-line hero-title-line-2">
-          <em>Panache</em>
-        </span>
+        <span class="hero-line-1 anim-hero" data-d="1">The Art of</span>
+        <span class="hero-line-2 anim-hero" data-d="2">Panache</span>
       </h1>
-
-      <p class="hero-subtitle">Where elegance meets artistry. A luxury salon experience crafted for those who expect nothing less than extraordinary.</p>
-
-      <div class="hero-actions">
-        <a href="#services" class="btn-gold">Explore Services</a>
-        <a href="#contact" class="btn-outline">Book Consultation</a>
+      <p class="hero-sub anim-hero" data-d="3">Where elegance meets artistry. A luxury salon experience crafted for those who expect nothing less than extraordinary.</p>
+      <div class="hero-actions anim-hero" data-d="4">
+        <a href="#services" class="btn-primary">Explore Services</a>
+        <a href="tel:+17185750532" class="btn-ghost">Book Consultation</a>
       </div>
-
-      <div class="hero-scroll-indicator" id="scrollIndicator">
-        <span class="scroll-text">Scroll</span>
-        <span class="scroll-line"></span>
-      </div>
+      <!-- Floating Logo Watermark -->
+      <img src="logo.svg" alt="" class="hero-watermark" />
+      <div class="hero-scroll" id="heroScroll"><div class="hero-scroll-line"></div></div>
     </div>
   </section>
 
-  <!-- ========== MARQUEE RIBBON ========== -->
-  <div class="marquee-ribbon">
+  <!-- ========== MARQUEE ========== -->
+  <div class="marquee">
     <div class="marquee-track">
-      <span class="marquee-item">Hair Artistry</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Color Mastery</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Nail Couture</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Smoothing Treatments</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Balayage</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Waxing Perfection</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Keratin Complex</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Extensions</span>
-      <span class="marquee-dot">✦</span>
-      <!-- duplicate for seamless loop -->
-      <span class="marquee-item">Hair Artistry</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Color Mastery</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Nail Couture</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Smoothing Treatments</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Balayage</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Waxing Perfection</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Keratin Complex</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Extensions</span>
-      <span class="marquee-dot">✦</span>
+      <span>Hair Artistry</span><span class="mq-dot">✦</span>
+      <span>Color Mastery</span><span class="mq-dot">✦</span>
+      <span>Nail Couture</span><span class="mq-dot">✦</span>
+      <span>Smoothing Treatments</span><span class="mq-dot">✦</span>
+      <span>Balayage</span><span class="mq-dot">✦</span>
+      <span>Waxing Perfection</span><span class="mq-dot">✦</span>
+      <span>Keratin Complex</span><span class="mq-dot">✦</span>
+      <span>Extensions</span><span class="mq-dot">✦</span>
+      <span>Hair Artistry</span><span class="mq-dot">✦</span>
+      <span>Color Mastery</span><span class="mq-dot">✦</span>
+      <span>Nail Couture</span><span class="mq-dot">✦</span>
+      <span>Smoothing Treatments</span><span class="mq-dot">✦</span>
+      <span>Balayage</span><span class="mq-dot">✦</span>
+      <span>Waxing Perfection</span><span class="mq-dot">✦</span>
+      <span>Keratin Complex</span><span class="mq-dot">✦</span>
+      <span>Extensions</span><span class="mq-dot">✦</span>
     </div>
   </div>
 
-  <!-- ========== INTRO / ABOUT TEASER ========== -->
-  <section id="about" class="section section-intro">
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="section">
     <div class="container">
-      <div class="intro-grid">
-        <div class="intro-left reveal-el">
-          <span class="section-label">Est. Forest Hills, Queens</span>
-          <h2 class="section-heading">
-            A Sanctuary of <br /><em class="mirror-gold-text">Refined Beauty</em>
-          </h2>
-          <div class="gold-separator">
-            <span></span><span></span><span></span>
-          </div>
-          <p class="intro-text">
-            NYC Panache Salon is more than a destination — it is an experience. Every detail, from the moment you enter to the final reveal, is choreographed with intention and care. Our master stylists bring decades of artistry to every cut, every color, every transformation.
-          </p>
-          <p class="intro-text">
-            We believe beauty is personal. That's why every service begins with a conversation — understanding your vision, your lifestyle, your unique essence.
-          </p>
-          <a href="#services" class="text-link-gold">
+      <div class="about-grid">
+        <div class="about-left">
+          <span class="label reveal">Est. Forest Hills, Queens</span>
+          <h2 class="heading-lg reveal">A Sanctuary of<br/><em>Refined Beauty</em></h2>
+          <div class="gold-sep reveal"><span></span><span></span><span></span></div>
+          <p class="body-text reveal">Welcome to NYC Panache Salon, located in the heart of Forest Hills, Queens. We look forward to making your time here like no other. We provide the highest quality of services to all our guests.</p>
+          <p class="body-text reveal">Our salon ensures a personal consultation to help the stylist understand and achieve the client's desired look. We provide a variety of hair cutting techniques — point cutting, razor cuts, slicing, channeling, slide cutting and twist cutting — along with styling techniques such as Sleek &amp; Smooth, Beach Waves, Flip Out &amp; Volume Blowout.</p>
+          <p class="body-text reveal">We specialize in Hair Cuts, Blow Drys, Up-Dos, Color Corrections, Highlights, Balayage, Ombré, 1-Day Keratin Treatments, Brazilian Blow-Outs, Pro-Addiction Smoothing, Body Waves, Hair Extensions, Nails, Full Body Waxing, Massage and much more.</p>
+          <a href="#services" class="text-link reveal">
             Discover Our Services
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
-        <div class="intro-right reveal-el">
-          <div class="intro-image-stack">
-            <div class="intro-img intro-img-1">
-              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Salon interior" loading="lazy" />
-              <div class="img-gold-frame"></div>
+        <div class="about-right">
+          <div class="about-img-stack">
+            <div class="about-img about-img-1 reveal">
+              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Salon interior" loading="lazy"/>
             </div>
-            <div class="intro-img intro-img-2">
-              <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80" alt="Styling session" loading="lazy" />
-              <div class="img-gold-frame"></div>
+            <div class="about-img about-img-2 reveal">
+              <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80" alt="Styling session" loading="lazy"/>
+            </div>
+            <div class="about-float-badge reveal">
+              <img src="logo.svg" alt="" class="afb-logo" />
+              <span class="afb-text">NYC Panache<br/>Experience</span>
             </div>
           </div>
         </div>
@@ -184,424 +161,317 @@
     </div>
   </section>
 
-  <!-- ========== SERVICES OVERVIEW ========== -->
-  <section id="services" class="section section-services">
+  <!-- ========== APPLE DEVICE SHOWCASE ========== -->
+  <section id="showcase" class="section section-dark">
     <div class="container">
-      <div class="section-header reveal-el">
-        <span class="section-label">Our Craft</span>
-        <h2 class="section-heading">Services & <em class="mirror-gold-text">Pricing</em></h2>
-        <p class="section-desc">Artistry in every detail. Explore our full menu of luxury beauty services.</p>
-        <div class="gold-separator"><span></span><span></span><span></span></div>
+      <div class="section-header">
+        <span class="label label-light reveal">Digital Presence</span>
+        <h2 class="heading-lg heading-light reveal">Follow the <em>Experience</em></h2>
+        <p class="subtitle subtitle-light reveal">See our work across platforms. Book anywhere, anytime.</p>
+        <div class="gold-sep reveal"><span></span><span></span><span></span></div>
       </div>
 
-      <!-- Service Category Tabs -->
-      <div class="service-tabs reveal-el" id="serviceTabs">
-        <button class="service-tab active" data-tab="hair">Hair</button>
-        <button class="service-tab" data-tab="color">Color</button>
-        <button class="service-tab" data-tab="treatments">Treatments</button>
-        <button class="service-tab" data-tab="nails">Nails</button>
-        <button class="service-tab" data-tab="waxing">Waxing</button>
-      </div>
-
-      <!-- ====== HAIR TAB ====== -->
-      <div class="service-panel active" id="panel-hair">
-        <div class="panel-header reveal-el">
-          <h3 class="panel-title">Cuts & <em>Styling</em></h3>
-          <p class="panel-desc">Precision cuts and effortless styling by master artisans.</p>
+      <div class="devices-stage reveal">
+        <!-- MacBook -->
+        <div class="device device-macbook">
+          <div class="macbook-screen">
+            <div class="macbook-notch"></div>
+            <div class="macbook-display">
+              <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1200&q=80" alt="Salon showcase" class="device-screen-img" />
+              <div class="macbook-overlay">
+                <img src="logo.svg" alt="" class="device-logo" />
+              </div>
+            </div>
+          </div>
+          <div class="macbook-base">
+            <div class="macbook-hinge"></div>
+          </div>
         </div>
+
+        <!-- iPhone -->
+        <div class="device device-iphone">
+          <div class="iphone-frame">
+            <div class="iphone-notch"></div>
+            <div class="iphone-screen">
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Salon mobile" class="device-screen-img" />
+              <div class="iphone-overlay">
+                <img src="logo.svg" alt="" class="device-logo-sm" />
+                <span class="iphone-cta">@nycpanachesalon</span>
+              </div>
+            </div>
+            <div class="iphone-home-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="social-row reveal">
+        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="social-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="social-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </a>
+        <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener" class="social-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143zM8.4 14.89l4.406-2.635c.826-.494 1.703.48 1.325 1.47l-1.99 5.188c-.264.688-1.24.757-1.604.113l-1.667-2.95c-.252-.447-.108-1.012.33-1.286l-.8.1zM11.6.293C5.195.293 0 5.488 0 11.893s5.195 11.6 11.6 11.6 11.6-5.195 11.6-11.6S18.005.293 11.6.293zM8.69 7.1l2.675 5.168c.48.924-.49 1.91-1.397 1.42L4.9 10.82c-.634-.34-.596-1.25.063-1.537L8.06 7.82c.43-.197.95-.017 1.15.398l-.52-.118z"/></svg>
+          Yelp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="label reveal">Our Craft</span>
+        <h2 class="heading-lg reveal">Services &amp; <em>Pricing</em></h2>
+        <p class="subtitle reveal">Artistry in every detail. Explore our full menu of luxury beauty services.</p>
+        <div class="gold-sep reveal"><span></span><span></span><span></span></div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs reveal" id="serviceTabs">
+        <button class="tab active" data-tab="hair">Hair</button>
+        <button class="tab" data-tab="color">Color</button>
+        <button class="tab" data-tab="treatments">Treatments</button>
+        <button class="tab" data-tab="nails">Nails</button>
+        <button class="tab" data-tab="waxing">Waxing</button>
+      </div>
+
+      <!-- HAIR -->
+      <div class="panel active" id="panel-hair">
+        <div class="panel-head reveal"><h3 class="panel-title">Cuts &amp; <em>Styling</em></h3><p class="panel-desc">Precision cuts and effortless styling by master artisans.</p></div>
         <div class="service-grid">
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Wash & Cut</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$45<sup>+</sup></span>
-            </div>
-          </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Shampoo & Blowdry</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$45<sup>+</sup></span>
-            </div>
-          </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Wash, Cut & Blowdry</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$70<sup>+</sup></span>
-            </div>
-          </div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Wash &amp; Cut</h4><span class="scard-dots"></span><span class="scard-price">$45<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Shampoo &amp; Blowdry</h4><span class="scard-dots"></span><span class="scard-price">$45<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Wash, Cut &amp; Blowdry</h4><span class="scard-dots"></span><span class="scard-price">$70<sup>+</sup></span></div></div>
         </div>
         <p class="pricing-note">* Pricing may vary based on hair length, texture, and complexity.</p>
       </div>
 
-      <!-- ====== COLOR TAB ====== -->
-      <div class="service-panel" id="panel-color">
-        <div class="panel-header reveal-el">
-          <h3 class="panel-title">Color <em>Artistry</em></h3>
-          <p class="panel-desc">From subtle root touch-ups to breathtaking balayage transformations.</p>
-        </div>
-
-        <div class="panel-sub-label reveal-el">Root & Base Color</div>
+      <!-- COLOR -->
+      <div class="panel" id="panel-color">
+        <div class="panel-head reveal"><h3 class="panel-title">Color <em>Artistry</em></h3><p class="panel-desc">From subtle roots to breathtaking balayage transformations.</p></div>
+        <div class="panel-sub reveal">Root &amp; Base Color</div>
         <div class="service-grid">
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Root Touch-Up</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$70<sup>+</sup></span>
-            </div>
-          </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Root Shadow</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$50<sup>+</sup></span>
-            </div>
-          </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Single Process Color</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$120<sup>+</sup></span>
-            </div>
-          </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Double Process Color</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$250<sup>+</sup></span>
-            </div>
-          </div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Root Touch-Up</h4><span class="scard-dots"></span><span class="scard-price">$70<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Root Shadow</h4><span class="scard-dots"></span><span class="scard-price">$50<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Single Process Color</h4><span class="scard-dots"></span><span class="scard-price">$120<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Double Process Color</h4><span class="scard-dots"></span><span class="scard-price">$250<sup>+</sup></span></div></div>
         </div>
-
-        <div class="panel-sub-label reveal-el">Highlights & Lightening</div>
+        <div class="panel-sub reveal">Highlights &amp; Lightening</div>
         <div class="service-grid">
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Highlights — Half Head</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$185<sup>+</sup></span>
-            </div>
-          </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Highlights — Full Head</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$250<sup>+</sup></span>
-            </div>
-          </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Balayage — Full Head</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$250<sup>+</sup></span>
-            </div>
-          </div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Highlights — Half Head</h4><span class="scard-dots"></span><span class="scard-price">$185<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Highlights — Full Head</h4><span class="scard-dots"></span><span class="scard-price">$250<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Balayage — Full Head</h4><span class="scard-dots"></span><span class="scard-price">$250<sup>+</sup></span></div></div>
         </div>
-
-        <div class="panel-sub-label reveal-el">Toner & Finish</div>
+        <div class="panel-sub reveal">Toner &amp; Finish</div>
         <div class="service-grid">
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Gloss / Toner</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$50<sup>+</sup></span>
-            </div>
-          </div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Gloss / Toner</h4><span class="scard-dots"></span><span class="scard-price">$50<sup>+</sup></span></div></div>
         </div>
         <p class="pricing-note">* Pricing may vary based on hair length, texture, and complexity.</p>
       </div>
 
-      <!-- ====== TREATMENTS TAB ====== -->
-      <div class="service-panel" id="panel-treatments">
-        <div class="panel-header reveal-el">
-          <h3 class="panel-title">Smoothing & <em>Specialty</em></h3>
-          <p class="panel-desc">Transformative treatments for silk-smooth, frizz-free perfection.</p>
-        </div>
+      <!-- TREATMENTS -->
+      <div class="panel" id="panel-treatments">
+        <div class="panel-head reveal"><h3 class="panel-title">Smoothing &amp; <em>Specialty</em></h3><p class="panel-desc">Transformative treatments for silk-smooth, frizz-free perfection.</p></div>
         <div class="service-grid">
-          <div class="service-card service-card-premium reveal-el">
-            <div class="service-card-badge">Premium</div>
-            <div class="service-card-inner">
-              <h4 class="service-name">ProAddiction Smoothing</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$350<sup>+</sup></span>
-            </div>
-            <p class="service-card-note">Silk-smooth results lasting up to 12 weeks</p>
+          <div class="scard scard-premium reveal">
+            <span class="scard-badge">Premium</span>
+            <div class="scard-inner"><h4>ProAddiction Smoothing</h4><span class="scard-dots"></span><span class="scard-price">$350<sup>+</sup></span></div>
+            <p class="scard-note">Silk-smooth results lasting up to 12 weeks</p>
           </div>
-          <div class="service-card service-card-premium reveal-el">
-            <div class="service-card-badge">Premium</div>
-            <div class="service-card-inner">
-              <h4 class="service-name">Keratin Complex</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$300<sup>+</sup></span>
-            </div>
-            <p class="service-card-note">Professional-grade frizz elimination</p>
+          <div class="scard scard-premium reveal">
+            <span class="scard-badge">Premium</span>
+            <div class="scard-inner"><h4>Keratin Complex</h4><span class="scard-dots"></span><span class="scard-price">$300<sup>+</sup></span></div>
+            <p class="scard-note">Professional-grade frizz elimination</p>
           </div>
-          <div class="service-card service-card-consult reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Extensions / Up-dos</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">Consultation</span>
-            </div>
-            <a href="#contact" class="service-consult-btn">Book Consultation →</a>
+          <div class="scard reveal">
+            <div class="scard-inner"><h4>Extensions / Up-dos</h4><span class="scard-dots"></span><span class="scard-price">Consult</span></div>
+            <a href="tel:+17185750532" class="scard-link">Book Consultation →</a>
           </div>
         </div>
-
-        <div class="panel-sub-label reveal-el" style="margin-top:3rem;">Massage</div>
+        <div class="panel-sub reveal">Massage</div>
         <div class="service-grid">
-          <div class="service-card service-card-consult reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Massage Services</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">By Appointment</span>
-            </div>
-            <p class="service-card-note">Available upon request. Limited availability.</p>
-            <a href="#contact" class="service-consult-btn">Call to Schedule →</a>
+          <div class="scard reveal">
+            <div class="scard-inner"><h4>Massage Services</h4><span class="scard-dots"></span><span class="scard-price">By Appt</span></div>
+            <p class="scard-note">Available upon request. Limited availability.</p>
+            <a href="tel:+17185750532" class="scard-link">Call to Schedule →</a>
           </div>
         </div>
       </div>
 
-      <!-- ====== NAILS TAB ====== -->
-      <div class="service-panel" id="panel-nails">
-        <div class="panel-header reveal-el">
-          <h3 class="panel-title">Nail <em>Couture</em></h3>
-          <p class="panel-desc">Meticulous manicures and pedicures. Precision. Polish. Perfection.</p>
-        </div>
-
-        <div class="panel-sub-label reveal-el">Manicures</div>
+      <!-- NAILS -->
+      <div class="panel" id="panel-nails">
+        <div class="panel-head reveal"><h3 class="panel-title">Nail <em>Couture</em></h3><p class="panel-desc">Meticulous manicures and pedicures. Precision. Polish. Perfection.</p></div>
+        <div class="panel-sub reveal">Manicures</div>
         <div class="service-grid">
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Regular Manicure</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$15</span>
-            </div>
-          </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Spa Manicure</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$25</span>
-            </div>
-          </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Gel Manicure</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$40<sup>+</sup></span>
-            </div>
-          </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Color Powder Manicure</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$50<sup>+</sup></span>
-            </div>
-          </div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Regular Manicure</h4><span class="scard-dots"></span><span class="scard-price">$15</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Spa Manicure</h4><span class="scard-dots"></span><span class="scard-price">$25</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Gel Manicure</h4><span class="scard-dots"></span><span class="scard-price">$40<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Color Powder Manicure</h4><span class="scard-dots"></span><span class="scard-price">$50<sup>+</sup></span></div></div>
         </div>
-
-        <div class="panel-sub-label reveal-el">Fill-Ins</div>
+        <div class="panel-sub reveal">Fill-Ins</div>
         <div class="service-grid">
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Glue + Powder Fill</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$40<sup>+</sup></span>
-            </div>
-          </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Silk Wrap Fill</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$40<sup>+</sup></span>
-            </div>
-          </div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Glue + Powder Fill</h4><span class="scard-dots"></span><span class="scard-price">$40<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Silk Wrap Fill</h4><span class="scard-dots"></span><span class="scard-price">$40<sup>+</sup></span></div></div>
         </div>
-
-        <div class="panel-sub-label reveal-el">Pedicures</div>
+        <div class="panel-sub reveal">Pedicures</div>
         <div class="service-grid">
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Regular Pedicure</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$33</span>
-            </div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Regular Pedicure</h4><span class="scard-dots"></span><span class="scard-price">$33</span></div></div>
+          <div class="scard reveal">
+            <div class="scard-inner"><h4>Spa Pedicure</h4><span class="scard-dots"></span><span class="scard-price">$65</span></div>
+            <p class="scard-note">Includes 10-minute massage</p>
           </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Spa Pedicure</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$65</span>
-            </div>
-            <p class="service-card-note">Includes 10-minute massage</p>
-          </div>
-          <div class="service-card reveal-el">
-            <div class="service-card-inner">
-              <h4 class="service-name">Gel Pedicure</h4>
-              <div class="service-price-line"></div>
-              <span class="service-price">$55</span>
-            </div>
-          </div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Gel Pedicure</h4><span class="scard-dots"></span><span class="scard-price">$55</span></div></div>
         </div>
       </div>
 
-      <!-- ====== WAXING TAB ====== -->
-      <div class="service-panel" id="panel-waxing">
-        <div class="panel-header reveal-el">
-          <h3 class="panel-title">Waxing & <em>Hair Removal</em></h3>
-          <p class="panel-desc">Smooth, precise, and gentle. Expert waxing for face and body.</p>
+      <!-- WAXING -->
+      <div class="panel" id="panel-waxing">
+        <div class="panel-head reveal"><h3 class="panel-title">Waxing &amp; <em>Hair Removal</em></h3><p class="panel-desc">Smooth, precise, and gentle. Expert waxing for face and body.</p></div>
+        <div class="panel-sub reveal">Face</div>
+        <div class="service-grid service-grid-sm">
+          <div class="scard reveal"><div class="scard-inner"><h4>Eyebrow</h4><span class="scard-dots"></span><span class="scard-price">$15</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Lip</h4><span class="scard-dots"></span><span class="scard-price">$10</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Chin</h4><span class="scard-dots"></span><span class="scard-price">$10</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Nose / Ears</h4><span class="scard-dots"></span><span class="scard-price">$10</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Neck Line</h4><span class="scard-dots"></span><span class="scard-price">$10</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Side Burns</h4><span class="scard-dots"></span><span class="scard-price">$10</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Full Face</h4><span class="scard-dots"></span><span class="scard-price">$45</span></div></div>
         </div>
-
-        <div class="panel-sub-label reveal-el">Face</div>
-        <div class="service-grid service-grid-compact">
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Eyebrow</h4><div class="service-price-line"></div><span class="service-price">$15</span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Lip</h4><div class="service-price-line"></div><span class="service-price">$10</span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Chin</h4><div class="service-price-line"></div><span class="service-price">$10</span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Nose / Ears</h4><div class="service-price-line"></div><span class="service-price">$10</span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Neck Line</h4><div class="service-price-line"></div><span class="service-price">$10</span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Side Burns</h4><div class="service-price-line"></div><span class="service-price">$10</span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Full Face</h4><div class="service-price-line"></div><span class="service-price">$45</span></div></div>
+        <div class="panel-sub reveal">Arms &amp; Legs</div>
+        <div class="service-grid service-grid-sm">
+          <div class="scard reveal"><div class="scard-inner"><h4>Half Arm</h4><span class="scard-dots"></span><span class="scard-price">$20</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Full Arm</h4><span class="scard-dots"></span><span class="scard-price">$30</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Half Leg</h4><span class="scard-dots"></span><span class="scard-price">$25</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Full Leg</h4><span class="scard-dots"></span><span class="scard-price">$50</span></div></div>
         </div>
-
-        <div class="panel-sub-label reveal-el">Arms & Legs</div>
-        <div class="service-grid service-grid-compact">
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Half Arm</h4><div class="service-price-line"></div><span class="service-price">$20</span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Full Arm</h4><div class="service-price-line"></div><span class="service-price">$30</span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Half Leg</h4><div class="service-price-line"></div><span class="service-price">$25</span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Full Leg</h4><div class="service-price-line"></div><span class="service-price">$50</span></div></div>
+        <div class="panel-sub reveal">Body</div>
+        <div class="service-grid service-grid-sm">
+          <div class="scard reveal"><div class="scard-inner"><h4>Underarms</h4><span class="scard-dots"></span><span class="scard-price">$15<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Stomach</h4><span class="scard-dots"></span><span class="scard-price">$20<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Back</h4><span class="scard-dots"></span><span class="scard-price">$60<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Upper Chest</h4><span class="scard-dots"></span><span class="scard-price">$30<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Full Chest</h4><span class="scard-dots"></span><span class="scard-price">$50<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Bottom</h4><span class="scard-dots"></span><span class="scard-price">$20<sup>+</sup></span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Full Body</h4><span class="scard-dots"></span><span class="scard-price">$150<sup>+</sup></span></div></div>
         </div>
-
-        <div class="panel-sub-label reveal-el">Body</div>
-        <div class="service-grid service-grid-compact">
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Underarms</h4><div class="service-price-line"></div><span class="service-price">$15<sup>+</sup></span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Stomach</h4><div class="service-price-line"></div><span class="service-price">$20<sup>+</sup></span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Back</h4><div class="service-price-line"></div><span class="service-price">$60<sup>+</sup></span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Upper Chest</h4><div class="service-price-line"></div><span class="service-price">$30<sup>+</sup></span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Full Chest</h4><div class="service-price-line"></div><span class="service-price">$50<sup>+</sup></span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Bottom</h4><div class="service-price-line"></div><span class="service-price">$20<sup>+</sup></span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Full Body</h4><div class="service-price-line"></div><span class="service-price">$150<sup>+</sup></span></div></div>
-        </div>
-
-        <div class="panel-sub-label reveal-el">Bikini & Brazilian</div>
+        <div class="panel-sub reveal">Bikini &amp; Brazilian</div>
         <div class="service-grid">
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Bikini</h4><div class="service-price-line"></div><span class="service-price">$20</span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Brazilian — Honey Wax</h4><div class="service-price-line"></div><span class="service-price">$45</span></div></div>
-          <div class="service-card reveal-el"><div class="service-card-inner"><h4 class="service-name">Brazilian — Hard Wax</h4><div class="service-price-line"></div><span class="service-price">$65</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Bikini</h4><span class="scard-dots"></span><span class="scard-price">$20</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Brazilian — Honey Wax</h4><span class="scard-dots"></span><span class="scard-price">$45</span></div></div>
+          <div class="scard reveal"><div class="scard-inner"><h4>Brazilian — Hard Wax</h4><span class="scard-dots"></span><span class="scard-price">$65</span></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== FULL-WIDTH IMAGE BREAK ========== -->
-  <section class="section-image-break">
-    <div class="parallax-img" style="background-image:url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1920&q=80')"></div>
-    <div class="image-break-overlay"></div>
-    <div class="image-break-content reveal-el">
-      <blockquote class="luxury-quote">
-        <span class="quote-mark">"</span>
-        Beauty begins the moment you decide to be yourself.
+  <!-- ========== PARALLAX QUOTE ========== -->
+  <section class="section-parallax">
+    <div class="parallax-bg" style="background-image:url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=1920&q=80')"></div>
+    <div class="parallax-overlay"></div>
+    <div class="parallax-content reveal">
+      <img src="logo.svg" alt="" class="parallax-logo" />
+      <blockquote class="lux-quote">
+        <span class="qmark">"</span>Beauty begins the moment you decide to be yourself.
         <footer>— Coco Chanel</footer>
       </blockquote>
     </div>
   </section>
 
   <!-- ========== WHY PANACHE ========== -->
-  <section class="section section-why">
+  <section class="section section-alt" id="why">
     <div class="container">
-      <div class="section-header reveal-el">
-        <span class="section-label">The Panache Difference</span>
-        <h2 class="section-heading">Why <em class="mirror-gold-text">Panache</em></h2>
-        <div class="gold-separator"><span></span><span></span><span></span></div>
+      <div class="section-header">
+        <span class="label reveal">The Panache Difference</span>
+        <h2 class="heading-lg reveal">Why <em>Panache</em></h2>
+        <div class="gold-sep reveal"><span></span><span></span><span></span></div>
       </div>
       <div class="why-grid">
-        <div class="why-card reveal-el">
-          <div class="why-icon">
-            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="url(#g1)" stroke-width="1.5"/><path d="M16 24l6 6 10-12" stroke="url(#g1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <defs><linearGradient id="g1" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#CB9B51"/><stop offset="0.5" stop-color="#F6E27A"/><stop offset="1" stop-color="#CB9B51"/></linearGradient></defs>
-            </svg>
-          </div>
-          <h3 class="why-title">Master Artisans</h3>
-          <p class="why-desc">Every stylist at Panache is a seasoned expert — trained, passionate, and dedicated to the craft of beauty.</p>
+        <div class="why-card reveal">
+          <div class="why-icon">✦</div>
+          <h3>Master Artisans</h3>
+          <p>Every stylist at Panache is a seasoned expert — trained, passionate, and dedicated to the craft of beauty.</p>
         </div>
-        <div class="why-card reveal-el">
-          <div class="why-icon">
-            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="url(#g2)" stroke-width="1.5"/><path d="M24 14v10l6 4" stroke="url(#g2)" stroke-width="1.5" stroke-linecap="round"/>
-              <defs><linearGradient id="g2" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#CB9B51"/><stop offset="0.5" stop-color="#F6E27A"/><stop offset="1" stop-color="#CB9B51"/></linearGradient></defs>
-            </svg>
-          </div>
-          <h3 class="why-title">Your Time, Honored</h3>
-          <p class="why-desc">Efficient luxury. We respect your schedule while never rushing your experience.</p>
+        <div class="why-card reveal">
+          <div class="why-icon">✦</div>
+          <h3>Your Time, Honored</h3>
+          <p>Efficient luxury. We respect your schedule while never rushing your experience.</p>
         </div>
-        <div class="why-card reveal-el">
-          <div class="why-icon">
-            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="url(#g3)" stroke-width="1.5"/><path d="M24 16c-4 0-8 4-8 8s8 12 8 12 8-8 8-12-4-8-8-8z" stroke="url(#g3)" stroke-width="1.5"/>
-              <defs><linearGradient id="g3" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#CB9B51"/><stop offset="0.5" stop-color="#F6E27A"/><stop offset="1" stop-color="#CB9B51"/></linearGradient></defs>
-            </svg>
-          </div>
-          <h3 class="why-title">Tailored to You</h3>
-          <p class="why-desc">No two clients are alike. Every service is personalized to your unique vision.</p>
+        <div class="why-card reveal">
+          <div class="why-icon">✦</div>
+          <h3>Tailored to You</h3>
+          <p>No two clients are alike. Every service is personalized to your unique vision.</p>
         </div>
-        <div class="why-card reveal-el">
-          <div class="why-icon">
-            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="url(#g4)" stroke-width="1.5"/><path d="M18 30c2 2 4 3 6 3s4-1 6-3M18 20v2M30 20v2" stroke="url(#g4)" stroke-width="1.5" stroke-linecap="round"/>
-              <defs><linearGradient id="g4" x1="0" y1="0" x2="48" y2="48"><stop stop-color="#CB9B51"/><stop offset="0.5" stop-color="#F6E27A"/><stop offset="1" stop-color="#CB9B51"/></linearGradient></defs>
-            </svg>
-          </div>
-          <h3 class="why-title">Feel Extraordinary</h3>
-          <p class="why-desc">Walk out feeling like the best version of yourself. That's the Panache promise.</p>
+        <div class="why-card reveal">
+          <div class="why-icon">✦</div>
+          <h3>Feel Extraordinary</h3>
+          <p>Walk out feeling like the best version of yourself. That's the Panache promise.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ========== CONTACT / BOOKING CTA ========== -->
-  <section id="contact" class="section section-contact">
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="section">
     <div class="container">
       <div class="contact-grid">
-        <div class="contact-left reveal-el">
-          <span class="section-label">Get in Touch</span>
-          <h2 class="section-heading">Book Your <em class="mirror-gold-text">Experience</em></h2>
-          <div class="gold-separator"><span></span><span></span><span></span></div>
-          <p class="contact-text">Ready to experience the art of Panache? Reach out to schedule your appointment or consultation. Walk-ins are welcome, but we recommend booking ahead to ensure your preferred time.</p>
-
+        <div class="contact-left">
+          <span class="label reveal">Get in Touch</span>
+          <h2 class="heading-lg reveal">Book Your <em>Experience</em></h2>
+          <div class="gold-sep reveal"><span></span><span></span><span></span></div>
+          <p class="body-text reveal">Ready to experience the art of Panache? Reach out to schedule your appointment or consultation. Walk-ins welcome, but we recommend booking ahead.</p>
           <div class="contact-details">
-            <div class="contact-item">
-              <span class="contact-icon">
+            <div class="contact-item reveal">
+              <span class="ci-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </span>
-              <div>
-                <strong>Visit Us</strong>
-                <p>Forest Hills, Queens, NY</p>
-              </div>
+              <div><strong>Visit Us</strong><p>107-12 71st Rd, 2nd Floor<br/>Forest Hills, NY 11375</p></div>
             </div>
-            <div class="contact-item">
-              <span class="contact-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <div class="contact-item reveal">
+              <span class="ci-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
               </span>
-              <div>
-                <strong>Call Us</strong>
-                <p>(718) 555-HAIR</p>
-              </div>
+              <div><strong>Call Us</strong><p><a href="tel:+17185750532">(718) 575-0532</a></p></div>
             </div>
-            <div class="contact-item">
-              <span class="contact-icon">
+            <div class="contact-item reveal">
+              <span class="ci-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+              <div><strong>Email</strong><p><a href="mailto:nycpanache@yahoo.com">nycpanache@yahoo.com</a></p></div>
+            </div>
+            <div class="contact-item reveal">
+              <span class="ci-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
               </span>
-              <div>
-                <strong>Hours</strong>
-                <p>Mon – Sat: 10am – 7pm<br/>Sunday: 11am – 5pm</p>
-              </div>
+              <div><strong>Hours</strong><p>Mon – Sat: 10am – 7pm<br/>Sunday: 11am – 5pm</p></div>
             </div>
           </div>
         </div>
-        <div class="contact-right reveal-el">
-          <div class="contact-cta-card">
-            <div class="cta-card-glow"></div>
-            <h3 class="cta-card-title">Ready?</h3>
-            <p class="cta-card-text">Let's create something beautiful together.</p>
-            <a href="tel:+17185554247" class="btn-gold btn-gold-lg">Call to Book</a>
-            <span class="cta-card-or">or</span>
-            <a href="#" class="btn-outline btn-outline-light">Book Online</a>
+        <div class="contact-right">
+          <div class="cta-card reveal">
+            <div class="cta-glow"></div>
+            <img src="logo.svg" alt="" class="cta-logo" />
+            <h3>Ready?</h3>
+            <p>Let's create something beautiful together.</p>
+            <a href="tel:+17185750532" class="btn-primary btn-lg">Call to Book</a>
+            <span class="cta-or">or</span>
+            <a href="mailto:nycpanache@yahoo.com" class="btn-ghost-dark">Email Us</a>
+            <div class="cta-socials">
+              <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener" aria-label="Yelp">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143z"/></svg>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -609,43 +479,44 @@
   </section>
 
   <!-- ========== FOOTER ========== -->
-  <footer id="footer" class="site-footer">
+  <footer id="footer">
     <div class="footer-gold-line"></div>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="logo.svg" alt="NYC Panache Salon" class="footer-logo-img" />
+          <img src="logo.svg" alt="NYC Panache Salon" class="footer-logo" />
           <p class="footer-tagline">Where elegance meets artistry.</p>
+          <p class="footer-tagline-sm">NYC Panache Salon takes pride in providing top of the line customer service, trendy cuts, natural looking color and highlights, spectacular blow dries that last for days.</p>
         </div>
-        <div class="footer-links">
-          <h4 class="footer-heading">Quick Links</h4>
-          <a href="#services">Services & Pricing</a>
-          <a href="#hair">Hair</a>
-          <a href="#nails">Nails</a>
-          <a href="#waxing">Waxing</a>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="#services">Services &amp; Pricing</a>
           <a href="#about">About</a>
-        </div>
-        <div class="footer-links">
-          <h4 class="footer-heading">Connect</h4>
-          <a href="#">Instagram</a>
-          <a href="#">Facebook</a>
-          <a href="#">Yelp</a>
+          <a href="#showcase">Gallery</a>
           <a href="#contact">Contact</a>
         </div>
-        <div class="footer-links">
-          <h4 class="footer-heading">Location</h4>
-          <p>Forest Hills<br/>Queens, NY</p>
-          <p style="margin-top:.5rem;">(718) 555-HAIR</p>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener">Yelp</a>
+        </div>
+        <div class="footer-col">
+          <h4>Visit</h4>
+          <p>107-12 71st Rd, 2nd Floor<br/>Forest Hills, NY 11375</p>
+          <p style="margin-top:.5rem;"><a href="tel:+17185750532">(718) 575-0532</a></p>
+          <p><a href="mailto:nycpanache@yahoo.com">nycpanache@yahoo.com</a></p>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 NYC Panache Salon. All rights reserved.</p>
+        <p class="footer-credit">Designed by <a href="https://elanstechworld.com" target="_blank" rel="noopener">Elan's Tech World</a></p>
       </div>
     </div>
   </footer>
 
-  <!-- ========== BACK TO TOP ========== -->
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <!-- Back to Top -->
+  <button class="btt" id="backToTop" aria-label="Back to top">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
 
