@@ -114,15 +114,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   50% { transform: scale(1.15); opacity: 0.15; }
 }
 
-/* ── MIRROR GOLD TEXT ── */
+/* ── GOLD TEXT ── */
 em {
-  background: var(--gold-shimmer);
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: goldShimmer 6s ease-in-out infinite;
+  color: var(--gold-mid);
   font-style: italic;
+  -webkit-text-fill-color: var(--gold-mid);
 }
 
 /* ══════════════════════════════════
@@ -200,17 +196,16 @@ em {
 .header-cta {
   font-size: 0.68rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
   padding: 0.65rem 1.6rem; border-radius: var(--radius-pill);
-  background: var(--gold-gradient); color: var(--cream);
+  background: var(--black); color: var(--gold-mid);
+  border: 1px solid rgba(203,155,81,0.3);
   position: relative; overflow: hidden;
-  transition: all 0.4s ease; box-shadow: 0 4px 20px rgba(203,155,81,0.25);
+  transition: all 0.4s ease;
 }
-.header-cta::after {
-  content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  transition: left 0.6s ease;
+.header-cta:hover {
+  background: var(--text-primary); color: var(--gold-bright);
+  border-color: var(--gold-mid);
+  transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2);
 }
-.header-cta:hover::after { left: 150%; }
-.header-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(203,155,81,0.35); }
 .header-cta span { position: relative; z-index: 1; }
 
 /* ── HAMBURGER (Apple-style morph) ── */
@@ -285,7 +280,8 @@ em {
 .mm-cta {
   font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
   padding: 1rem 2.5rem; border-radius: var(--radius-pill);
-  background: var(--gold-gradient); color: var(--cream);
+  background: var(--black); color: var(--gold-mid);
+  border: 1px solid rgba(203,155,81,0.3);
   opacity: 0; transform: translateY(20px);
   transition: all 0.5s var(--ease-out) 0.4s;
 }
@@ -352,9 +348,9 @@ body.loaded .hero-bg-img { transform: scale(1); }
 .hero-line-2 {
   display: block; font-family: var(--font-display); font-size: clamp(3.8rem, 9vw, 8rem);
   font-weight: 400; font-style: italic; line-height: 1.05;
-  background: var(--gold-shimmer); background-size: 300% 100%;
+  background: linear-gradient(135deg, #CB9B51 0%, #F6E27A 40%, #CB9B51 70%, #F6E27A 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; animation: goldShimmer 6s ease-in-out infinite;
+  background-clip: text;
   filter: drop-shadow(0 4px 30px rgba(203,155,81,0.3));
 }
 .hero-sub {
@@ -394,16 +390,17 @@ body.loaded .hero-bg-img { transform: scale(1); }
   display: inline-block; font-size: 0.7rem; font-weight: 500;
   letter-spacing: 0.2em; text-transform: uppercase;
   padding: 1rem 2.5rem; border-radius: var(--radius-pill);
-  background: var(--gold-gradient); color: var(--cream);
+  background: var(--black); color: var(--gold-mid);
+  border: 1px solid rgba(203,155,81,0.3);
   position: relative; overflow: hidden;
-  transition: all 0.4s ease; box-shadow: 0 6px 30px rgba(203,155,81,0.3);
+  transition: all 0.5s var(--ease-out);
 }
-.btn-primary::after {
-  content: ''; position: absolute; top: 0; width: 40%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-  animation: shimmerSlide 3s ease-in-out infinite;
+.btn-primary:hover {
+  background: var(--text-primary); color: var(--gold-bright);
+  border-color: var(--gold-mid);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(203,155,81,0.4); }
 .btn-lg { padding: 1.2rem 3rem; font-size: 0.75rem; }
 
 .btn-ghost {
@@ -633,8 +630,7 @@ body.loaded .hero-bg-img { transform: scale(1); }
 }
 .tab:hover { border-color: var(--gold-mid); color: var(--gold-mid); }
 .tab.active {
-  background: var(--gold-gradient); color: var(--cream); border-color: transparent;
-  box-shadow: 0 4px 20px rgba(203,155,81,0.25);
+  background: var(--black); color: var(--gold-mid); border-color: rgba(203,155,81,0.3);
 }
 
 .panel { display: none; }
@@ -685,8 +681,8 @@ body.loaded .hero-bg-img { transform: scale(1); }
 .scard-dots { flex: 1; border-bottom: 1px dotted var(--cream-dark); min-width: 15px; }
 .scard-price {
   font-family: var(--font-display); font-size: 1.12rem; font-weight: 500;
-  background: var(--gold-gradient); -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; background-clip: text; white-space: nowrap;
+  color: var(--gold-deep); white-space: nowrap;
+  -webkit-text-fill-color: var(--gold-deep);
 }
 .scard-price sup { font-size: 0.6em; }
 .scard-note {
@@ -769,9 +765,8 @@ body.loaded .hero-bg-img { transform: scale(1); }
 }
 .why-icon {
   font-size: 1.5rem; margin-bottom: 1.2rem;
-  background: var(--gold-shimmer); background-size: 300% 100%;
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; animation: goldShimmer 6s ease-in-out infinite;
+  color: var(--gold-mid);
+  -webkit-text-fill-color: var(--gold-mid);
 }
 .why-card h3 {
   font-family: var(--font-display); font-size: 1.1rem; font-weight: 500;
@@ -823,9 +818,7 @@ body.loaded .hero-bg-img { transform: scale(1); }
 .cta-logo { height: 45px; width: auto; margin: 0 auto 1.5rem; opacity: 0.8; }
 .cta-card h3 {
   font-family: var(--font-display); font-size: 2.5rem; font-weight: 400; font-style: italic;
-  background: var(--gold-shimmer); background-size: 300% 100%;
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  background-clip: text; animation: goldShimmer 6s ease-in-out infinite;
+  color: var(--gold-mid); -webkit-text-fill-color: var(--gold-mid);
   margin-bottom: 0.4rem;
 }
 .cta-card > p {
@@ -906,6 +899,15 @@ body.loaded .hero-bg-img { transform: scale(1); }
   background: var(--gold-gradient); color: var(--cream);
   transform: translateY(-3px); border-color: transparent;
   box-shadow: 0 8px 30px rgba(203,155,81,0.3);
+}
+
+/* ══════════════════════════════════
+   ELFSIGHT WIDGETS
+   ══════════════════════════════════ */
+.elfsight-wrap {
+  border-radius: var(--radius-lg); overflow: hidden;
+  background: var(--cream-light); border: 1px solid rgba(203,155,81,0.08);
+  padding: 1.5rem; box-shadow: 0 10px 50px rgba(0,0,0,0.04);
 }
 
 /* ══════════════════════════════════
