@@ -1,6 +1,6 @@
 /* ============================================
    NYC PANACHE SALON — MASTER JAVASCRIPT
-   Apple-smooth animations & interactions
+   Sidebar Nav + Curtain Menu + Cinematic Hero
    ============================================ */
 
 /* ══════════════════════════════════
@@ -11,7 +11,7 @@ class Preloader {
     this.el = document.getElementById('preloader');
     if (!this.el) return;
     window.addEventListener('load', () => setTimeout(() => this.hide(), 2000));
-    setTimeout(() => this.hide(), 4000); // fallback
+    setTimeout(() => this.hide(), 4000);
   }
   hide() {
     this.el.classList.add('loaded');
@@ -20,51 +20,183 @@ class Preloader {
 }
 
 /* ══════════════════════════════════
-   HEADER
+   DESKTOP SIDEBAR NAV
+   Active section tracking + smooth scroll
    ══════════════════════════════════ */
-class Header {
+class SidebarNav {
   constructor() {
-    this.el = document.getElementById('header');
-    if (!this.el) return;
-    window.addEventListener('scroll', () => this.onScroll(), { passive: true });
-    this.onScroll();
+    this.sidebar = document.getElementById('sidebar');
+    if (!this.sidebar) return;
+
+    this.links = this.sidebar.querySelectorAll('.sidebar__link');
+    this.sections = [];
+
+    this.links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const section = document.querySelector(href);
+        if (section) this.sections.push({ el: section, link });
+      }
+    });
+
+    if (!this.sections.length) return;
+    this._bindScroll();
+    this.links.forEach(link => {
+      link.addEventListener('click', (e) => this._onClick(e, link));
+    });
   }
-  onScroll() {
-    this.el.classList.toggle('scrolled', window.scrollY > 50);
+
+  _bindScroll() {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => { this._update(); ticking = false; });
+      }
+    }, { passive: true });
+    this._update();
+  }
+
+  _update() {
+    const scrollY = window.scrollY + window.innerHeight * 0.35;
+    let activeLink = null;
+
+    this.sections.forEach(({ el, link }) => {
+      const top = el.offsetTop;
+      const bottom = top + el.offsetHeight;
+      if (scrollY >= top && scrollY < bottom) activeLink = link;
+    });
+
+    this.links.forEach(l => l.classList.remove('active'));
+    if (activeLink) activeLink.classList.add('active');
+  }
+
+  _onClick(e, link) {
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (!target) return;
+    const offset = window.innerWidth > 768 ? 20 : 84;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
   }
 }
 
 /* ══════════════════════════════════
-   MOBILE MENU
+   MOBILE CURTAIN MENU
+   Two-panel curtain reveal + staggered links
    ══════════════════════════════════ */
-class MobileMenu {
+class CurtainMenu {
   constructor() {
-    this.btn = document.getElementById('hamburger');
-    this.menu = document.getElementById('mobileMenu');
-    if (!this.btn || !this.menu) return;
-    this.links = this.menu.querySelectorAll('.mm-link, .mm-cta');
+    this.toggle = document.getElementById('menuToggle');
+    this.curtain = document.getElementById('curtainMenu');
+    this.bar = document.getElementById('mobileBar');
+    if (!this.toggle || !this.curtain) return;
+
+    this.links = this.curtain.querySelectorAll('.curtain__link');
     this.isOpen = false;
-    this.btn.addEventListener('click', () => this.toggle());
-    this.links.forEach(l => l.addEventListener('click', () => this.close()));
+    this.isAnimating = false;
+
+    this.toggle.addEventListener('click', () => this._toggle());
+
+    this.links.forEach(link => {
+      link.addEventListener('click', (e) => this._onLinkClick(e, link));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.isOpen) this._close();
+    });
+
+    this._bindBarScroll();
   }
-  toggle() {
-    this.isOpen = !this.isOpen;
-    this.btn.classList.toggle('active', this.isOpen);
-    this.menu.classList.toggle('open', this.isOpen);
-    document.body.style.overflow = this.isOpen ? 'hidden' : '';
+
+  _toggle() {
+    if (this.isAnimating) return;
+    this.isOpen ? this._close() : this._open();
   }
-  close() {
+
+  _open() {
+    this.isOpen = true;
+    this.isAnimating = true;
+
+    this.toggle.classList.add('is-open');
+    this.toggle.setAttribute('aria-expanded', 'true');
+    this.curtain.setAttribute('aria-hidden', 'false');
+    this.curtain.classList.remove('is-closing');
+    this.curtain.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+
+    // Reset link animations for re-trigger
+    this.links.forEach(link => {
+      link.style.opacity = '0';
+      link.style.transform = 'translateX(-40px)';
+    });
+    requestAnimationFrame(() => {
+      this.links.forEach(link => { link.style.opacity = ''; link.style.transform = ''; });
+    });
+
+    setTimeout(() => { this.isAnimating = false; }, 800);
+  }
+
+  _close() {
     this.isOpen = false;
-    this.btn.classList.remove('active');
-    this.menu.classList.remove('open');
-    document.body.style.overflow = '';
+    this.isAnimating = true;
+
+    this.toggle.classList.remove('is-open');
+    this.toggle.setAttribute('aria-expanded', 'false');
+    this.curtain.setAttribute('aria-hidden', 'true');
+    this.curtain.classList.add('is-closing');
+
+    setTimeout(() => {
+      this.curtain.classList.remove('is-open', 'is-closing');
+      document.body.style.overflow = '';
+      this.isAnimating = false;
+    }, 700);
+  }
+
+  _onLinkClick(e, link) {
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+    e.preventDefault();
+    this._close();
+
+    setTimeout(() => {
+      const target = document.querySelector(href);
+      if (!target) return;
+      const offset = this.bar ? this.bar.offsetHeight + 16 : 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }, 500);
+  }
+
+  _bindBarScroll() {
+    if (!this.bar) return;
+    let lastY = 0;
+    this.bar.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease';
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+
+      // Auto-hide on down, show on up
+      if (y > 200 && y > lastY && !this.isOpen) {
+        this.bar.style.transform = 'translateY(-100%)';
+      } else {
+        this.bar.style.transform = 'translateY(0)';
+      }
+
+      this.bar.style.background = y > 50
+        ? 'rgba(13, 11, 9, 0.9)'
+        : 'rgba(13, 11, 9, 0.7)';
+
+      lastY = y;
+    }, { passive: true });
   }
 }
 
 /* ══════════════════════════════════
    CINEMATIC HERO DIRECTOR
-   Replaces old HeroAnimator —
-   Choreographed entrance + parallax
+   Choreographed entrance + scroll parallax
    ══════════════════════════════════ */
 class HeroDirector {
   constructor() {
@@ -83,26 +215,20 @@ class HeroDirector {
     this.socials = this.hero.querySelector('[data-hero-anim="socials"]');
 
     this.hasPlayed = false;
-    this.rafId = null;
-
     this._init();
   }
 
   _init() {
-    // Start after preloader finishes
     const startDelay = document.getElementById('preloader') ? 2200 : 400;
     setTimeout(() => this._playEntrance(), startDelay);
-
     this._bindScroll();
     this._bindScrollHide();
 
-    // Scroll indicator click → next section
     if (this.scroll) {
       this.scroll.addEventListener('click', () => {
         const next = this.hero.nextElementSibling;
         if (next) {
-          const header = document.getElementById('header');
-          const offset = header ? header.offsetHeight + 20 : 80;
+          const offset = 20;
           const top = next.getBoundingClientRect().top + window.scrollY - offset;
           window.scrollTo({ top, behavior: 'smooth' });
         }
@@ -110,7 +236,6 @@ class HeroDirector {
     }
   }
 
-  /* Staggered cinematic reveal — Apple keynote style */
   _playEntrance() {
     if (this.hasPlayed) return;
     this.hasPlayed = true;
@@ -127,10 +252,7 @@ class HeroDirector {
     ];
 
     timeline.forEach(([delay, el, cls, fn]) => {
-      setTimeout(() => {
-        if (fn) return fn();
-        if (el) el.classList.add(cls);
-      }, delay);
+      setTimeout(() => { if (fn) return fn(); if (el) el.classList.add(cls); }, delay);
     });
   }
 
@@ -141,26 +263,20 @@ class HeroDirector {
     });
   }
 
-  /* Scroll-driven parallax depth */
   _bindScroll() {
     let ticking = false;
-    const onScroll = () => {
+    window.addEventListener('scroll', () => {
       if (!ticking) {
         ticking = true;
-        this.rafId = requestAnimationFrame(() => {
-          this._onScroll();
-          ticking = false;
-        });
+        requestAnimationFrame(() => { this._onScroll(); ticking = false; });
       }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
+    }, { passive: true });
   }
 
   _onScroll() {
     const scrollY = window.scrollY;
     const vh = window.innerHeight;
     if (scrollY > vh * 1.2) return;
-
     const progress = Math.min(scrollY / vh, 1);
 
     if (this.container) {
@@ -172,12 +288,10 @@ class HeroDirector {
     }
 
     if (this.video) {
-      const zoom = 1 + progress * 0.08;
-      this.video.style.transform = `scale(${zoom})`;
+      this.video.style.transform = `scale(${1 + progress * 0.08})`;
     }
   }
 
-  /* Fade out scroll indicator */
   _bindScrollHide() {
     if (!this.scroll) return;
     let hidden = false;
@@ -198,13 +312,11 @@ class HeroDirector {
 
 /* ══════════════════════════════════
    HERO MAGNETIC BUTTONS
-   Buttons subtly follow cursor
    ══════════════════════════════════ */
 class HeroMagneticButtons {
   constructor() {
     if (window.innerWidth <= 1024) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
     this.btns = document.querySelectorAll('.hero-btn');
     if (!this.btns.length) return;
 
@@ -213,7 +325,6 @@ class HeroMagneticButtons {
       btn.addEventListener('mouseleave', () => this._release(btn));
     });
   }
-
   _attract(e, btn) {
     const r = btn.getBoundingClientRect();
     const x = e.clientX - r.left - r.width / 2;
@@ -221,7 +332,6 @@ class HeroMagneticButtons {
     btn.style.transform = `translate(${x * 0.15}px, ${y * 0.2}px)`;
     btn.style.transition = 'transform 0.2s ease';
   }
-
   _release(btn) {
     btn.style.transform = '';
     btn.style.transition = 'all 0.55s cubic-bezier(0.16, 1, 0.3, 1)';
@@ -230,30 +340,22 @@ class HeroMagneticButtons {
 
 /* ══════════════════════════════════
    HERO VIDEO OPTIMIZER
-   Pauses video when out of view
    ══════════════════════════════════ */
 class HeroVideoOptimizer {
   constructor() {
     this.video = document.querySelector('.hero-video');
     if (!this.video) return;
-
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.video.play().catch(() => {});
-        } else {
-          this.video.pause();
-        }
+        entry.isIntersecting ? this.video.play().catch(() => {}) : this.video.pause();
       });
     }, { threshold: 0.1 });
-
     this.observer.observe(this.video.closest('#hero'));
   }
 }
 
 /* ══════════════════════════════════
    HERO TEXT SHIMMER
-   Gold shimmer on accent word hover
    ══════════════════════════════════ */
 class HeroTextShimmer {
   constructor() {
@@ -264,7 +366,6 @@ class HeroTextShimmer {
       this.accent.style.backgroundSize = '200% auto';
       this.accent.style.animation = 'heroTitleShimmer 2s ease infinite';
     });
-
     this.accent.addEventListener('mouseleave', () => {
       this.accent.style.animation = '';
       this.accent.style.backgroundSize = '';
@@ -273,12 +374,7 @@ class HeroTextShimmer {
     if (!document.querySelector('#heroTitleShimmerKF')) {
       const s = document.createElement('style');
       s.id = 'heroTitleShimmerKF';
-      s.textContent = `
-        @keyframes heroTitleShimmer {
-          0%   { background-position: 200% center; }
-          100% { background-position: -200% center; }
-        }
-      `;
+      s.textContent = `@keyframes heroTitleShimmer { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }`;
       document.head.appendChild(s);
     }
   }
@@ -333,43 +429,24 @@ class ServiceTabs {
 }
 
 /* ══════════════════════════════════
-   SMOOTH SCROLL
+   SMOOTH SCROLL (generic anchors)
    ══════════════════════════════════ */
 class SmoothScroll {
   constructor() {
-    const header = document.getElementById('header');
     document.querySelectorAll('a[href^="#"]').forEach(a => {
+      // Skip if handled by Sidebar or Curtain
+      if (a.closest('.sidebar') || a.closest('.curtain')) return;
+
       a.addEventListener('click', (e) => {
         const href = a.getAttribute('href');
         if (href === '#') return;
         e.preventDefault();
         const target = document.querySelector(href);
         if (!target) return;
-        const offset = header ? header.offsetHeight + 20 : 80;
+        const offset = window.innerWidth > 768 ? 20 : 80;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
       });
-    });
-  }
-}
-
-/* ══════════════════════════════════
-   ACTIVE NAV
-   ══════════════════════════════════ */
-class ActiveNav {
-  constructor() {
-    this.sections = document.querySelectorAll('section[id]');
-    this.links = document.querySelectorAll('.nav-link');
-    if (!this.sections.length || !this.links.length) return;
-    window.addEventListener('scroll', () => this.update(), { passive: true });
-  }
-  update() {
-    const scrollPos = window.scrollY + 150;
-    this.sections.forEach(s => {
-      const top = s.offsetTop, height = s.offsetHeight, id = s.getAttribute('id');
-      if (scrollPos >= top && scrollPos < top + height) {
-        this.links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
-      }
     });
   }
 }
@@ -495,8 +572,10 @@ class App {
   boot() {
     // Core
     new Preloader();
-    new Header();
-    new MobileMenu();
+
+    // Navigation (replaces old Header, MobileMenu, ActiveNav)
+    new SidebarNav();
+    new CurtainMenu();
 
     // Hero (cinematic)
     new HeroDirector();
@@ -504,11 +583,10 @@ class App {
     new HeroVideoOptimizer();
     new HeroTextShimmer();
 
-    // Page
+    // Page interactions
     new ScrollRevealer();
     new ServiceTabs();
     new SmoothScroll();
-    new ActiveNav();
     new BackToTop();
     new Parallax();
     new GoldTrail();
