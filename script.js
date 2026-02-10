@@ -3,6 +3,9 @@
    Apple-smooth animations & interactions
    ============================================ */
 
+/* ══════════════════════════════════
+   PRELOADER
+   ══════════════════════════════════ */
 class Preloader {
   constructor() {
     this.el = document.getElementById('preloader');
@@ -16,6 +19,9 @@ class Preloader {
   }
 }
 
+/* ══════════════════════════════════
+   HEADER
+   ══════════════════════════════════ */
 class Header {
   constructor() {
     this.el = document.getElementById('header');
@@ -28,6 +34,9 @@ class Header {
   }
 }
 
+/* ══════════════════════════════════
+   MOBILE MENU
+   ══════════════════════════════════ */
 class MobileMenu {
   constructor() {
     this.btn = document.getElementById('hamburger');
@@ -52,21 +61,232 @@ class MobileMenu {
   }
 }
 
-class HeroAnimator {
+/* ══════════════════════════════════
+   CINEMATIC HERO DIRECTOR
+   Replaces old HeroAnimator —
+   Choreographed entrance + parallax
+   ══════════════════════════════════ */
+class HeroDirector {
   constructor() {
-    this.els = document.querySelectorAll('.anim-hero');
-    if (!this.els.length) return;
-    // Trigger after preloader
-    setTimeout(() => this.reveal(), 2200);
+    this.hero = document.getElementById('hero');
+    if (!this.hero) return;
+
+    this.video = this.hero.querySelector('.hero-video');
+    this.container = this.hero.querySelector('.hero-container');
+    this.pill = this.hero.querySelector('[data-hero-anim="pill"]');
+    this.eyebrow = this.hero.querySelector('[data-hero-anim="eyebrow"]');
+    this.words = this.hero.querySelectorAll('[data-hero-anim="word"]');
+    this.sub = this.hero.querySelector('[data-hero-anim="sub"]');
+    this.rule = this.hero.querySelector('[data-hero-anim="rule"]');
+    this.ctas = this.hero.querySelector('[data-hero-anim="ctas"]');
+    this.scroll = this.hero.querySelector('[data-hero-anim="scroll"]');
+    this.socials = this.hero.querySelector('[data-hero-anim="socials"]');
+
+    this.hasPlayed = false;
+    this.rafId = null;
+
+    this._init();
   }
-  reveal() {
-    this.els.forEach(el => {
-      const d = parseInt(el.dataset.d || 0) * 150;
-      setTimeout(() => el.classList.add('visible'), d);
+
+  _init() {
+    // Start after preloader finishes
+    const startDelay = document.getElementById('preloader') ? 2200 : 400;
+    setTimeout(() => this._playEntrance(), startDelay);
+
+    this._bindScroll();
+    this._bindScrollHide();
+
+    // Scroll indicator click → next section
+    if (this.scroll) {
+      this.scroll.addEventListener('click', () => {
+        const next = this.hero.nextElementSibling;
+        if (next) {
+          const header = document.getElementById('header');
+          const offset = header ? header.offsetHeight + 20 : 80;
+          const top = next.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    }
+  }
+
+  /* Staggered cinematic reveal — Apple keynote style */
+  _playEntrance() {
+    if (this.hasPlayed) return;
+    this.hasPlayed = true;
+
+    const timeline = [
+      [0,    this.pill,    'is-visible'],
+      [300,  this.eyebrow, 'is-visible'],
+      [500,  null,         null,         () => this._revealWords()],
+      [1200, this.sub,     'is-visible'],
+      [1600, this.rule,    'is-visible'],
+      [1900, this.ctas,    'is-visible'],
+      [2400, this.scroll,  'is-visible'],
+      [2400, this.socials, 'is-visible'],
+    ];
+
+    timeline.forEach(([delay, el, cls, fn]) => {
+      setTimeout(() => {
+        if (fn) return fn();
+        if (el) el.classList.add(cls);
+      }, delay);
     });
+  }
+
+  _revealWords() {
+    this.words.forEach((word) => {
+      const d = parseInt(word.dataset.delay || 0, 10);
+      setTimeout(() => word.classList.add('is-visible'), d * 180);
+    });
+  }
+
+  /* Scroll-driven parallax depth */
+  _bindScroll() {
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        this.rafId = requestAnimationFrame(() => {
+          this._onScroll();
+          ticking = false;
+        });
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  _onScroll() {
+    const scrollY = window.scrollY;
+    const vh = window.innerHeight;
+    if (scrollY > vh * 1.2) return;
+
+    const progress = Math.min(scrollY / vh, 1);
+
+    if (this.container) {
+      const yShift = progress * 80;
+      const opacity = 1 - progress * 1.3;
+      const scale = 1 - progress * 0.05;
+      this.container.style.transform = `translateY(-${yShift}px) scale(${scale})`;
+      this.container.style.opacity = Math.max(opacity, 0);
+    }
+
+    if (this.video) {
+      const zoom = 1 + progress * 0.08;
+      this.video.style.transform = `scale(${zoom})`;
+    }
+  }
+
+  /* Fade out scroll indicator */
+  _bindScrollHide() {
+    if (!this.scroll) return;
+    let hidden = false;
+    window.addEventListener('scroll', () => {
+      if (!hidden && window.scrollY > 80) {
+        this.scroll.style.opacity = '0';
+        this.scroll.style.transition = 'opacity 0.6s ease';
+        this.scroll.style.pointerEvents = 'none';
+        hidden = true;
+      } else if (hidden && window.scrollY <= 80) {
+        this.scroll.style.opacity = '1';
+        this.scroll.style.pointerEvents = 'auto';
+        hidden = false;
+      }
+    }, { passive: true });
   }
 }
 
+/* ══════════════════════════════════
+   HERO MAGNETIC BUTTONS
+   Buttons subtly follow cursor
+   ══════════════════════════════════ */
+class HeroMagneticButtons {
+  constructor() {
+    if (window.innerWidth <= 1024) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    this.btns = document.querySelectorAll('.hero-btn');
+    if (!this.btns.length) return;
+
+    this.btns.forEach(btn => {
+      btn.addEventListener('mousemove', (e) => this._attract(e, btn));
+      btn.addEventListener('mouseleave', () => this._release(btn));
+    });
+  }
+
+  _attract(e, btn) {
+    const r = btn.getBoundingClientRect();
+    const x = e.clientX - r.left - r.width / 2;
+    const y = e.clientY - r.top - r.height / 2;
+    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.2}px)`;
+    btn.style.transition = 'transform 0.2s ease';
+  }
+
+  _release(btn) {
+    btn.style.transform = '';
+    btn.style.transition = 'all 0.55s cubic-bezier(0.16, 1, 0.3, 1)';
+  }
+}
+
+/* ══════════════════════════════════
+   HERO VIDEO OPTIMIZER
+   Pauses video when out of view
+   ══════════════════════════════════ */
+class HeroVideoOptimizer {
+  constructor() {
+    this.video = document.querySelector('.hero-video');
+    if (!this.video) return;
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.video.play().catch(() => {});
+        } else {
+          this.video.pause();
+        }
+      });
+    }, { threshold: 0.1 });
+
+    this.observer.observe(this.video.closest('#hero'));
+  }
+}
+
+/* ══════════════════════════════════
+   HERO TEXT SHIMMER
+   Gold shimmer on accent word hover
+   ══════════════════════════════════ */
+class HeroTextShimmer {
+  constructor() {
+    this.accent = document.querySelector('.hero-title__word--accent');
+    if (!this.accent || window.innerWidth <= 768) return;
+
+    this.accent.addEventListener('mouseenter', () => {
+      this.accent.style.backgroundSize = '200% auto';
+      this.accent.style.animation = 'heroTitleShimmer 2s ease infinite';
+    });
+
+    this.accent.addEventListener('mouseleave', () => {
+      this.accent.style.animation = '';
+      this.accent.style.backgroundSize = '';
+    });
+
+    if (!document.querySelector('#heroTitleShimmerKF')) {
+      const s = document.createElement('style');
+      s.id = 'heroTitleShimmerKF';
+      s.textContent = `
+        @keyframes heroTitleShimmer {
+          0%   { background-position: 200% center; }
+          100% { background-position: -200% center; }
+        }
+      `;
+      document.head.appendChild(s);
+    }
+  }
+}
+
+/* ══════════════════════════════════
+   SCROLL REVEALER
+   ══════════════════════════════════ */
 class ScrollRevealer {
   constructor() {
     this.els = document.querySelectorAll('.reveal');
@@ -74,7 +294,6 @@ class ScrollRevealer {
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          // Stagger siblings
           const parent = e.target.parentElement;
           const siblings = parent.querySelectorAll('.reveal');
           let idx = Array.from(siblings).indexOf(e.target);
@@ -87,6 +306,9 @@ class ScrollRevealer {
   }
 }
 
+/* ══════════════════════════════════
+   SERVICE TABS
+   ══════════════════════════════════ */
 class ServiceTabs {
   constructor() {
     this.tabs = document.querySelectorAll('.tab');
@@ -102,7 +324,6 @@ class ServiceTabs {
     const panel = document.getElementById(`panel-${target}`);
     if (!panel) return;
     panel.classList.add('active');
-    // Re-trigger reveal animations inside panel
     const reveals = panel.querySelectorAll('.reveal');
     reveals.forEach((el, i) => {
       el.classList.remove('visible');
@@ -111,6 +332,9 @@ class ServiceTabs {
   }
 }
 
+/* ══════════════════════════════════
+   SMOOTH SCROLL
+   ══════════════════════════════════ */
 class SmoothScroll {
   constructor() {
     const header = document.getElementById('header');
@@ -129,6 +353,9 @@ class SmoothScroll {
   }
 }
 
+/* ══════════════════════════════════
+   ACTIVE NAV
+   ══════════════════════════════════ */
 class ActiveNav {
   constructor() {
     this.sections = document.querySelectorAll('section[id]');
@@ -147,6 +374,9 @@ class ActiveNav {
   }
 }
 
+/* ══════════════════════════════════
+   BACK TO TOP
+   ══════════════════════════════════ */
 class BackToTop {
   constructor() {
     this.el = document.getElementById('backToTop');
@@ -159,18 +389,9 @@ class BackToTop {
   }
 }
 
-class HeroScroll {
-  constructor() {
-    this.el = document.getElementById('heroScroll');
-    if (!this.el) return;
-    window.addEventListener('scroll', () => {
-      const gone = window.scrollY > 200;
-      this.el.style.opacity = gone ? '0' : '1';
-      this.el.style.pointerEvents = gone ? 'none' : 'auto';
-    }, { passive: true });
-  }
-}
-
+/* ══════════════════════════════════
+   PARALLAX (Quote Section)
+   ══════════════════════════════════ */
 class Parallax {
   constructor() {
     this.el = document.querySelector('.parallax-bg');
@@ -186,6 +407,9 @@ class Parallax {
   }
 }
 
+/* ══════════════════════════════════
+   GOLD TRAIL (Cursor)
+   ══════════════════════════════════ */
 class GoldTrail {
   constructor() {
     if (window.innerWidth <= 1024) return;
@@ -214,6 +438,9 @@ class GoldTrail {
   }
 }
 
+/* ══════════════════════════════════
+   TILT CARDS
+   ══════════════════════════════════ */
 class TiltCards {
   constructor() {
     if (window.innerWidth <= 1024) return;
@@ -235,6 +462,9 @@ class TiltCards {
   }
 }
 
+/* ══════════════════════════════════
+   DEVICE PARALLAX (Showcase Section)
+   ══════════════════════════════════ */
 class DeviceParallax {
   constructor() {
     this.macbook = document.querySelector('.device-macbook');
@@ -255,28 +485,36 @@ class DeviceParallax {
   }
 }
 
-/* ============================================
-   BOOT
-   ============================================ */
+/* ══════════════════════════════════
+   APP — BOOT EVERYTHING
+   ══════════════════════════════════ */
 class App {
   constructor() {
     document.addEventListener('DOMContentLoaded', () => this.boot());
   }
   boot() {
+    // Core
     new Preloader();
     new Header();
     new MobileMenu();
-    new HeroAnimator();
+
+    // Hero (cinematic)
+    new HeroDirector();
+    new HeroMagneticButtons();
+    new HeroVideoOptimizer();
+    new HeroTextShimmer();
+
+    // Page
     new ScrollRevealer();
     new ServiceTabs();
     new SmoothScroll();
     new ActiveNav();
     new BackToTop();
-    new HeroScroll();
     new Parallax();
     new GoldTrail();
     new TiltCards();
     new DeviceParallax();
+
     console.log('%c✦ NYC Panache Salon — Loaded', 'color:#CB9B51;font-size:14px;font-weight:bold;');
   }
 }
