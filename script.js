@@ -1,7 +1,8 @@
-/* ============================================
-   NYC PANACHE SALON — MASTER JAVASCRIPT
-   Sidebar Nav + Curtain Menu + Cinematic Hero
-   ============================================ */
+/* ╔══════════════════════════════════════════════════╗
+   ║  NYC PANACHE SALON — MASTER JAVASCRIPT           ║
+   ║  Sidebar + Curtain + Hero + Services              ║
+   ╚══════════════════════════════════════════════════╝ */
+
 
 /* ══════════════════════════════════
    PRELOADER
@@ -19,18 +20,16 @@ class Preloader {
   }
 }
 
+
 /* ══════════════════════════════════
    DESKTOP SIDEBAR NAV
-   Active section tracking + smooth scroll
    ══════════════════════════════════ */
 class SidebarNav {
   constructor() {
     this.sidebar = document.getElementById('sidebar');
     if (!this.sidebar) return;
-
     this.links = this.sidebar.querySelectorAll('.sidebar__link');
     this.sections = [];
-
     this.links.forEach(link => {
       const href = link.getAttribute('href');
       if (href && href.startsWith('#')) {
@@ -38,54 +37,40 @@ class SidebarNav {
         if (section) this.sections.push({ el: section, link });
       }
     });
-
     if (!this.sections.length) return;
     this._bindScroll();
-    this.links.forEach(link => {
-      link.addEventListener('click', (e) => this._onClick(e, link));
-    });
+    this.links.forEach(link => link.addEventListener('click', e => this._onClick(e, link)));
   }
-
   _bindScroll() {
-    let ticking = false;
+    let t = false;
     window.addEventListener('scroll', () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(() => { this._update(); ticking = false; });
-      }
+      if (!t) { t = true; requestAnimationFrame(() => { this._update(); t = false; }); }
     }, { passive: true });
     this._update();
   }
-
   _update() {
-    const scrollY = window.scrollY + window.innerHeight * 0.35;
-    let activeLink = null;
-
+    const y = window.scrollY + window.innerHeight * 0.35;
+    let active = null;
     this.sections.forEach(({ el, link }) => {
-      const top = el.offsetTop;
-      const bottom = top + el.offsetHeight;
-      if (scrollY >= top && scrollY < bottom) activeLink = link;
+      if (y >= el.offsetTop && y < el.offsetTop + el.offsetHeight) active = link;
     });
-
     this.links.forEach(l => l.classList.remove('active'));
-    if (activeLink) activeLink.classList.add('active');
+    if (active) active.classList.add('active');
   }
-
   _onClick(e, link) {
     const href = link.getAttribute('href');
     if (!href || href === '#') return;
     e.preventDefault();
     const target = document.querySelector(href);
     if (!target) return;
-    const offset = window.innerWidth > 768 ? 20 : 84;
-    const top = target.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
+    const off = window.innerWidth > 768 ? 20 : 84;
+    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
   }
 }
 
+
 /* ══════════════════════════════════
    MOBILE CURTAIN MENU
-   Two-panel curtain reveal + staggered links
    ══════════════════════════════════ */
 class CurtainMenu {
   constructor() {
@@ -93,116 +78,73 @@ class CurtainMenu {
     this.curtain = document.getElementById('curtainMenu');
     this.bar = document.getElementById('mobileBar');
     if (!this.toggle || !this.curtain) return;
-
     this.links = this.curtain.querySelectorAll('.curtain__link');
     this.isOpen = false;
     this.isAnimating = false;
-
     this.toggle.addEventListener('click', () => this._toggle());
-
-    this.links.forEach(link => {
-      link.addEventListener('click', (e) => this._onLinkClick(e, link));
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.isOpen) this._close();
-    });
-
+    this.links.forEach(link => link.addEventListener('click', e => this._onLinkClick(e, link)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && this.isOpen) this._close(); });
     this._bindBarScroll();
   }
-
-  _toggle() {
-    if (this.isAnimating) return;
-    this.isOpen ? this._close() : this._open();
-  }
-
+  _toggle() { if (this.isAnimating) return; this.isOpen ? this._close() : this._open(); }
   _open() {
-    this.isOpen = true;
-    this.isAnimating = true;
-
+    this.isOpen = true; this.isAnimating = true;
     this.toggle.classList.add('is-open');
     this.toggle.setAttribute('aria-expanded', 'true');
     this.curtain.setAttribute('aria-hidden', 'false');
     this.curtain.classList.remove('is-closing');
     this.curtain.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-
-    // Reset link animations for re-trigger
-    this.links.forEach(link => {
-      link.style.opacity = '0';
-      link.style.transform = 'translateX(-40px)';
-    });
-    requestAnimationFrame(() => {
-      this.links.forEach(link => { link.style.opacity = ''; link.style.transform = ''; });
-    });
-
+    this.links.forEach(l => { l.style.opacity = '0'; l.style.transform = 'translateX(-40px)'; });
+    requestAnimationFrame(() => this.links.forEach(l => { l.style.opacity = ''; l.style.transform = ''; }));
     setTimeout(() => { this.isAnimating = false; }, 800);
   }
-
   _close() {
-    this.isOpen = false;
-    this.isAnimating = true;
-
+    this.isOpen = false; this.isAnimating = true;
     this.toggle.classList.remove('is-open');
     this.toggle.setAttribute('aria-expanded', 'false');
     this.curtain.setAttribute('aria-hidden', 'true');
     this.curtain.classList.add('is-closing');
-
     setTimeout(() => {
       this.curtain.classList.remove('is-open', 'is-closing');
       document.body.style.overflow = '';
       this.isAnimating = false;
     }, 700);
   }
-
   _onLinkClick(e, link) {
     const href = link.getAttribute('href');
     if (!href || href === '#') return;
     e.preventDefault();
     this._close();
-
     setTimeout(() => {
       const target = document.querySelector(href);
       if (!target) return;
-      const offset = this.bar ? this.bar.offsetHeight + 16 : 80;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
+      const off = this.bar ? this.bar.offsetHeight + 16 : 80;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
     }, 500);
   }
-
   _bindBarScroll() {
     if (!this.bar) return;
     let lastY = 0;
-    this.bar.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease';
-
+    this.bar.style.transition = 'transform 0.4s cubic-bezier(0.16,1,0.3,1), background 0.4s ease';
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
-
-      // Auto-hide on down, show on up
-      if (y > 200 && y > lastY && !this.isOpen) {
-        this.bar.style.transform = 'translateY(-100%)';
-      } else {
-        this.bar.style.transform = 'translateY(0)';
-      }
-
-      this.bar.style.background = y > 50
-        ? 'rgba(13, 11, 9, 0.9)'
-        : 'rgba(13, 11, 9, 0.7)';
-
+      if (y > 200 && y > lastY && !this.isOpen) this.bar.style.transform = 'translateY(-100%)';
+      else this.bar.style.transform = 'translateY(0)';
+      this.bar.style.background = y > 50 ? 'rgba(13,11,9,0.9)' : 'rgba(13,11,9,0.7)';
       lastY = y;
     }, { passive: true });
   }
 }
 
+
 /* ══════════════════════════════════
    CINEMATIC HERO DIRECTOR
-   Choreographed entrance + scroll parallax
    ══════════════════════════════════ */
 class HeroDirector {
   constructor() {
     this.hero = document.getElementById('hero');
     if (!this.hero) return;
-
     this.video = this.hero.querySelector('.hero-video');
     this.container = this.hero.querySelector('.hero-container');
     this.pill = this.hero.querySelector('[data-hero-anim="pill"]');
@@ -213,85 +155,49 @@ class HeroDirector {
     this.ctas = this.hero.querySelector('[data-hero-anim="ctas"]');
     this.scroll = this.hero.querySelector('[data-hero-anim="scroll"]');
     this.socials = this.hero.querySelector('[data-hero-anim="socials"]');
-
     this.hasPlayed = false;
     this._init();
   }
-
   _init() {
-    const startDelay = document.getElementById('preloader') ? 2200 : 400;
-    setTimeout(() => this._playEntrance(), startDelay);
+    const delay = document.getElementById('preloader') ? 2200 : 400;
+    setTimeout(() => this._play(), delay);
     this._bindScroll();
     this._bindScrollHide();
-
     if (this.scroll) {
       this.scroll.addEventListener('click', () => {
         const next = this.hero.nextElementSibling;
-        if (next) {
-          const offset = 20;
-          const top = next.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
+        if (next) window.scrollTo({ top: next.getBoundingClientRect().top + window.scrollY - 20, behavior: 'smooth' });
       });
     }
   }
-
-  _playEntrance() {
+  _play() {
     if (this.hasPlayed) return;
     this.hasPlayed = true;
-
-    const timeline = [
-      [0,    this.pill,    'is-visible'],
-      [300,  this.eyebrow, 'is-visible'],
-      [500,  null,         null,         () => this._revealWords()],
-      [1200, this.sub,     'is-visible'],
-      [1600, this.rule,    'is-visible'],
-      [1900, this.ctas,    'is-visible'],
-      [2400, this.scroll,  'is-visible'],
+    const tl = [
+      [0, this.pill, 'is-visible'], [300, this.eyebrow, 'is-visible'],
+      [500, null, null, () => this.words.forEach((w, i) => setTimeout(() => w.classList.add('is-visible'), i * 180))],
+      [1200, this.sub, 'is-visible'], [1600, this.rule, 'is-visible'],
+      [1900, this.ctas, 'is-visible'], [2400, this.scroll, 'is-visible'],
       [2400, this.socials, 'is-visible'],
     ];
-
-    timeline.forEach(([delay, el, cls, fn]) => {
-      setTimeout(() => { if (fn) return fn(); if (el) el.classList.add(cls); }, delay);
-    });
+    tl.forEach(([d, el, cls, fn]) => setTimeout(() => fn ? fn() : el && el.classList.add(cls), d));
   }
-
-  _revealWords() {
-    this.words.forEach((word) => {
-      const d = parseInt(word.dataset.delay || 0, 10);
-      setTimeout(() => word.classList.add('is-visible'), d * 180);
-    });
-  }
-
   _bindScroll() {
-    let ticking = false;
+    let t = false;
     window.addEventListener('scroll', () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(() => { this._onScroll(); ticking = false; });
-      }
+      if (!t) { t = true; requestAnimationFrame(() => { this._onScroll(); t = false; }); }
     }, { passive: true });
   }
-
   _onScroll() {
-    const scrollY = window.scrollY;
-    const vh = window.innerHeight;
-    if (scrollY > vh * 1.2) return;
-    const progress = Math.min(scrollY / vh, 1);
-
+    const y = window.scrollY, vh = window.innerHeight;
+    if (y > vh * 1.2) return;
+    const p = Math.min(y / vh, 1);
     if (this.container) {
-      const yShift = progress * 80;
-      const opacity = 1 - progress * 1.3;
-      const scale = 1 - progress * 0.05;
-      this.container.style.transform = `translateY(-${yShift}px) scale(${scale})`;
-      this.container.style.opacity = Math.max(opacity, 0);
+      this.container.style.transform = `translateY(-${p * 80}px) scale(${1 - p * 0.05})`;
+      this.container.style.opacity = Math.max(1 - p * 1.3, 0);
     }
-
-    if (this.video) {
-      this.video.style.transform = `scale(${1 + progress * 0.08})`;
-    }
+    if (this.video) this.video.style.transform = `scale(${1 + p * 0.08})`;
   }
-
   _bindScrollHide() {
     if (!this.scroll) return;
     let hidden = false;
@@ -310,67 +216,43 @@ class HeroDirector {
   }
 }
 
+
 /* ══════════════════════════════════
-   HERO MAGNETIC BUTTONS
+   HERO UTILITIES
    ══════════════════════════════════ */
 class HeroMagneticButtons {
   constructor() {
-    if (window.innerWidth <= 1024) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    this.btns = document.querySelectorAll('.hero-btn');
-    if (!this.btns.length) return;
-
-    this.btns.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => this._attract(e, btn));
-      btn.addEventListener('mouseleave', () => this._release(btn));
+    if (window.innerWidth <= 1024 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('.hero-btn').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        btn.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.15}px, ${(e.clientY - r.top - r.height / 2) * 0.2}px)`;
+        btn.style.transition = 'transform 0.2s ease';
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+        btn.style.transition = 'all 0.55s cubic-bezier(0.16,1,0.3,1)';
+      });
     });
-  }
-  _attract(e, btn) {
-    const r = btn.getBoundingClientRect();
-    const x = e.clientX - r.left - r.width / 2;
-    const y = e.clientY - r.top - r.height / 2;
-    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.2}px)`;
-    btn.style.transition = 'transform 0.2s ease';
-  }
-  _release(btn) {
-    btn.style.transform = '';
-    btn.style.transition = 'all 0.55s cubic-bezier(0.16, 1, 0.3, 1)';
   }
 }
 
-/* ══════════════════════════════════
-   HERO VIDEO OPTIMIZER
-   ══════════════════════════════════ */
 class HeroVideoOptimizer {
   constructor() {
     this.video = document.querySelector('.hero-video');
     if (!this.video) return;
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        entry.isIntersecting ? this.video.play().catch(() => {}) : this.video.pause();
-      });
-    }, { threshold: 0.1 });
-    this.observer.observe(this.video.closest('#hero'));
+    new IntersectionObserver(entries => {
+      entries.forEach(e => e.isIntersecting ? this.video.play().catch(() => {}) : this.video.pause());
+    }, { threshold: 0.1 }).observe(this.video.closest('#hero'));
   }
 }
 
-/* ══════════════════════════════════
-   HERO TEXT SHIMMER
-   ══════════════════════════════════ */
 class HeroTextShimmer {
   constructor() {
-    this.accent = document.querySelector('.hero-title__word--accent');
-    if (!this.accent || window.innerWidth <= 768) return;
-
-    this.accent.addEventListener('mouseenter', () => {
-      this.accent.style.backgroundSize = '200% auto';
-      this.accent.style.animation = 'heroTitleShimmer 2s ease infinite';
-    });
-    this.accent.addEventListener('mouseleave', () => {
-      this.accent.style.animation = '';
-      this.accent.style.backgroundSize = '';
-    });
-
+    const el = document.querySelector('.hero-title__word--accent');
+    if (!el || window.innerWidth <= 768) return;
+    el.addEventListener('mouseenter', () => { el.style.backgroundSize = '200% auto'; el.style.animation = 'heroTitleShimmer 2s ease infinite'; });
+    el.addEventListener('mouseleave', () => { el.style.animation = ''; el.style.backgroundSize = ''; });
     if (!document.querySelector('#heroTitleShimmerKF')) {
       const s = document.createElement('style');
       s.id = 'heroTitleShimmerKF';
@@ -380,53 +262,28 @@ class HeroTextShimmer {
   }
 }
 
+
 /* ══════════════════════════════════
-   SCROLL REVEALER
+   SCROLL REVEALER (generic .reveal)
    ══════════════════════════════════ */
 class ScrollRevealer {
   constructor() {
     this.els = document.querySelectorAll('.reveal');
     if (!this.els.length) return;
-    this.observer = new IntersectionObserver((entries) => {
+    const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          const parent = e.target.parentElement;
-          const siblings = parent.querySelectorAll('.reveal');
-          let idx = Array.from(siblings).indexOf(e.target);
+          const siblings = e.target.parentElement.querySelectorAll('.reveal');
+          const idx = Array.from(siblings).indexOf(e.target);
           setTimeout(() => e.target.classList.add('visible'), idx * 100);
-          this.observer.unobserve(e.target);
+          obs.unobserve(e.target);
         }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    this.els.forEach(el => this.observer.observe(el));
+    this.els.forEach(el => obs.observe(el));
   }
 }
 
-/* ══════════════════════════════════
-   SERVICE TABS
-   ══════════════════════════════════ */
-class ServiceTabs {
-  constructor() {
-    this.tabs = document.querySelectorAll('.tab');
-    this.panels = document.querySelectorAll('.panel');
-    if (!this.tabs.length) return;
-    this.tabs.forEach(t => t.addEventListener('click', () => this.activate(t)));
-  }
-  activate(tab) {
-    const target = tab.dataset.tab;
-    this.tabs.forEach(t => t.classList.remove('active'));
-    this.panels.forEach(p => p.classList.remove('active'));
-    tab.classList.add('active');
-    const panel = document.getElementById(`panel-${target}`);
-    if (!panel) return;
-    panel.classList.add('active');
-    const reveals = panel.querySelectorAll('.reveal');
-    reveals.forEach((el, i) => {
-      el.classList.remove('visible');
-      setTimeout(() => el.classList.add('visible'), 80 * i);
-    });
-  }
-}
 
 /* ══════════════════════════════════
    SMOOTH SCROLL (generic anchors)
@@ -434,22 +291,20 @@ class ServiceTabs {
 class SmoothScroll {
   constructor() {
     document.querySelectorAll('a[href^="#"]').forEach(a => {
-      // Skip if handled by Sidebar or Curtain
       if (a.closest('.sidebar') || a.closest('.curtain')) return;
-
-      a.addEventListener('click', (e) => {
+      a.addEventListener('click', e => {
         const href = a.getAttribute('href');
         if (href === '#') return;
         e.preventDefault();
         const target = document.querySelector(href);
         if (!target) return;
-        const offset = window.innerWidth > 768 ? 20 : 80;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+        const off = window.innerWidth > 768 ? 20 : 80;
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
       });
     });
   }
 }
+
 
 /* ══════════════════════════════════
    BACK TO TOP
@@ -458,13 +313,11 @@ class BackToTop {
   constructor() {
     this.el = document.getElementById('backToTop');
     if (!this.el) return;
-    window.addEventListener('scroll', () => this.toggle(), { passive: true });
+    window.addEventListener('scroll', () => this.el.classList.toggle('visible', window.scrollY > 500), { passive: true });
     this.el.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
-  toggle() {
-    this.el.classList.toggle('visible', window.scrollY > 500);
-  }
 }
+
 
 /* ══════════════════════════════════
    PARALLAX (Quote Section)
@@ -473,24 +326,20 @@ class Parallax {
   constructor() {
     this.el = document.querySelector('.parallax-bg');
     if (!this.el || window.innerWidth <= 768) return;
-    window.addEventListener('scroll', () => this.update(), { passive: true });
-  }
-  update() {
-    const section = this.el.parentElement;
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      this.el.style.transform = `translateY(${-(rect.top * 0.25)}px)`;
-    }
+    window.addEventListener('scroll', () => {
+      const r = this.el.parentElement.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) this.el.style.transform = `translateY(${-(r.top * 0.25)}px)`;
+    }, { passive: true });
   }
 }
+
 
 /* ══════════════════════════════════
    GOLD TRAIL (Cursor)
    ══════════════════════════════════ */
 class GoldTrail {
   constructor() {
-    if (window.innerWidth <= 1024) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.innerWidth <= 1024 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     this.mx = 0; this.my = 0; this.tx = 0; this.ty = 0;
     this.dot = document.createElement('div');
     Object.assign(this.dot.style, {
@@ -500,20 +349,19 @@ class GoldTrail {
       mixBlendMode: 'screen', transition: 'opacity 0.4s ease',
     });
     document.body.appendChild(this.dot);
-    document.addEventListener('mousemove', e => {
-      this.mx = e.clientX; this.my = e.clientY; this.dot.style.opacity = '1';
-    });
+    document.addEventListener('mousemove', e => { this.mx = e.clientX; this.my = e.clientY; this.dot.style.opacity = '1'; });
     document.addEventListener('mouseleave', () => this.dot.style.opacity = '0');
-    this.loop();
+    this._loop();
   }
-  loop() {
+  _loop() {
     this.tx += (this.mx - this.tx) * 0.12;
     this.ty += (this.my - this.ty) * 0.12;
     this.dot.style.left = `${this.tx - 4}px`;
     this.dot.style.top = `${this.ty - 4}px`;
-    requestAnimationFrame(() => this.loop());
+    requestAnimationFrame(() => this._loop());
   }
 }
+
 
 /* ══════════════════════════════════
    TILT CARDS
@@ -522,181 +370,182 @@ class TiltCards {
   constructor() {
     if (window.innerWidth <= 1024) return;
     document.querySelectorAll('.why-card, .cta-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => this.tilt(e, card));
-      card.addEventListener('mouseleave', () => this.reset(card));
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-5px)`;
+        card.style.transition = 'transform 0.1s ease';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.transition = 'all 0.5s cubic-bezier(0.16,1,0.3,1)';
+      });
     });
-  }
-  tilt(e, card) {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-5px)`;
-    card.style.transition = 'transform 0.1s ease';
-  }
-  reset(card) {
-    card.style.transform = '';
-    card.style.transition = 'all 0.5s cubic-bezier(0.16,1,0.3,1)';
   }
 }
 
+
 /* ══════════════════════════════════
-   DEVICE PARALLAX (Showcase Section)
+   DEVICE PARALLAX (Showcase)
    ══════════════════════════════════ */
 class DeviceParallax {
   constructor() {
     this.macbook = document.querySelector('.device-macbook');
     this.iphone = document.querySelector('.device-iphone');
     if (!this.macbook || window.innerWidth <= 768) return;
-    window.addEventListener('scroll', () => this.update(), { passive: true });
-  }
-  update() {
-    const section = document.getElementById('showcase');
-    if (!section) return;
-    const rect = section.getBoundingClientRect();
-    const progress = 1 - (rect.top / window.innerHeight);
-    if (progress > 0 && progress < 2) {
-      const shift = (progress - 0.5) * 20;
-      this.macbook.style.transform = `translateY(${-shift}px)`;
-      this.iphone.style.transform = `translateY(${shift * 0.6}px)`;
-    }
+    window.addEventListener('scroll', () => {
+      const section = document.getElementById('showcase');
+      if (!section) return;
+      const r = section.getBoundingClientRect();
+      const p = 1 - (r.top / window.innerHeight);
+      if (p > 0 && p < 2) {
+        const s = (p - 0.5) * 20;
+        this.macbook.style.transform = `translateY(${-s}px)`;
+        this.iphone.style.transform = `translateY(${s * 0.6}px)`;
+      }
+    }, { passive: true });
   }
 }
 
-/* ══════════════════════════════════════════════
-   NYC PANACHE SALON — SERVICES SECTION JS
-   Tabs, cinematic reveals, hover interactions
-   ══════════════════════════════════════════════ */
 
+/* ══════════════════════════════════════════════════════
+   SERVICES SECTION — Tabs + Reveals + Interactions
+   ══════════════════════════════════════════════════════ */
 class ServicesSection {
   constructor() {
     this.section = document.getElementById('services');
     if (!this.section) return;
 
-    this.tabs = this.section.querySelectorAll('.services__tab');
-    this.panels = this.section.querySelectorAll('.services__panel');
-    this.tabContainer = this.section.querySelector('.services__tabs');
+    this.tabs = this.section.querySelectorAll('.svc-tab');
+    this.panels = this.section.querySelectorAll('.svc-panel');
+    this.slider = this.section.querySelector('.svc-tab__slider');
 
     if (!this.tabs.length) return;
 
-    this._bindTabs();
-    this._bindScrollReveal();
-    this._bindHeroCardParallax();
-    this._bindItemHoverEffects();
+    this._initTabs();
+    this._initScrollReveal();
+    this._initShowcaseParallax();
+    this._initItemHover();
+    this._positionSlider();
   }
 
-  /* ── TAB SWITCHING ── */
-
-  _bindTabs() {
-    this.tabs.forEach(tab => {
-      tab.addEventListener('click', () => this._activateTab(tab));
-    });
+  /* ── TABS ── */
+  _initTabs() {
+    this.tabs.forEach(tab => tab.addEventListener('click', () => this._activate(tab)));
 
     // Keyboard nav
-    this.tabContainer.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        e.preventDefault();
-        const currentIdx = Array.from(this.tabs).findIndex(t => t.classList.contains('is-active'));
-        let nextIdx;
-        if (e.key === 'ArrowRight') {
-          nextIdx = (currentIdx + 1) % this.tabs.length;
-        } else {
-          nextIdx = (currentIdx - 1 + this.tabs.length) % this.tabs.length;
+    const container = this.section.querySelector('.svc-tabs');
+    if (container) {
+      container.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const cur = Array.from(this.tabs).findIndex(t => t.classList.contains('is-active'));
+          const next = e.key === 'ArrowRight'
+            ? (cur + 1) % this.tabs.length
+            : (cur - 1 + this.tabs.length) % this.tabs.length;
+          this._activate(this.tabs[next]);
+          this.tabs[next].focus();
         }
-        this._activateTab(this.tabs[nextIdx]);
-        this.tabs[nextIdx].focus();
-      }
-    });
+      });
+    }
+
+    // Recalculate slider on resize
+    window.addEventListener('resize', () => this._positionSlider());
   }
 
-  _activateTab(tab) {
-    const target = tab.dataset.svcTab;
+  _activate(tab) {
+    const target = tab.dataset.tab;
 
-    // Deactivate all
-    this.tabs.forEach(t => {
-      t.classList.remove('is-active');
-      t.setAttribute('aria-selected', 'false');
-    });
-    this.panels.forEach(p => {
-      p.classList.remove('is-active');
-    });
+    // Deactivate
+    this.tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+    this.panels.forEach(p => p.classList.remove('is-active'));
 
-    // Activate selected
+    // Activate
     tab.classList.add('is-active');
     tab.setAttribute('aria-selected', 'true');
 
-    const panel = document.getElementById(`svc-panel-${target}`);
+    const panel = document.getElementById(`panel-${target}`);
     if (!panel) return;
 
-    // Slight delay for transition effect
+    // Animate panel in
     requestAnimationFrame(() => {
       panel.classList.add('is-active');
-
-      // Re-trigger staggered item animations
-      const items = panel.querySelectorAll('.svc-reveal');
+      // Re-trigger reveal animations for items
+      const items = panel.querySelectorAll('[data-svc-reveal]');
       items.forEach(item => {
-        item.style.animation = 'none';
-        item.offsetHeight; // force reflow
-        item.style.animation = '';
+        item.classList.remove('is-revealed');
+        item.style.opacity = '0';
       });
+      // Staggered reveal
+      setTimeout(() => {
+        items.forEach((item, i) => {
+          const d = parseInt(item.dataset.delay || i, 10);
+          setTimeout(() => {
+            item.classList.add('is-revealed');
+            item.style.opacity = '';
+          }, d * 100 + 100);
+        });
+      }, 50);
     });
 
+    // Move slider
+    this._positionSlider();
+
     // Scroll tab into view on mobile
-    if (window.innerWidth <= 768) {
-      tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
+    if (window.innerWidth <= 768) tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }
 
-  /* ── SCROLL REVEAL FOR SECTION ── */
+  _positionSlider() {
+    if (!this.slider) return;
+    const active = this.section.querySelector('.svc-tab.is-active');
+    if (!active) return;
+    const container = this.slider.parentElement;
+    const cRect = container.getBoundingClientRect();
+    const tRect = active.getBoundingClientRect();
+    this.slider.style.left = `${tRect.left - cRect.left}px`;
+    this.slider.style.width = `${tRect.width}px`;
+  }
 
-  _bindScrollReveal() {
-    const reveals = this.section.querySelectorAll('.reveal');
-    if (!reveals.length) return;
+  /* ── SCROLL REVEAL ── */
+  _initScrollReveal() {
+    const items = this.section.querySelectorAll('[data-svc-reveal]');
+    if (!items.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
+    const obs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const siblings = entry.target.parentElement.querySelectorAll('.reveal');
-          const idx = Array.from(siblings).indexOf(entry.target);
-          setTimeout(() => entry.target.classList.add('visible'), idx * 120);
-          observer.unobserve(entry.target);
+          const el = entry.target;
+          const d = parseInt(el.dataset.delay || 0, 10);
+          setTimeout(() => el.classList.add('is-revealed'), d * 100 + 50);
+          obs.unobserve(el);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
 
-    reveals.forEach(el => observer.observe(el));
+    items.forEach(el => obs.observe(el));
   }
 
-  /* ── HERO CARD SUBTLE PARALLAX ON MOUSE ── */
+  /* ── SHOWCASE CARD PARALLAX ── */
+  _initShowcaseParallax() {
+    if (window.innerWidth <= 1024 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  _bindHeroCardParallax() {
-    if (window.innerWidth <= 1024) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this.section.querySelectorAll('.svc-showcase').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
 
-    const cards = this.section.querySelectorAll('.services__hero-card');
-    cards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-        const img = card.querySelector('.services__hero-card-img');
-        if (img) {
-          img.style.transform = `scale(1.06) translate(${x * -8}px, ${y * -8}px)`;
-        }
-
-        // Subtle 3D tilt
-        card.style.transform = `perspective(1000px) rotateY(${x * 3}deg) rotateX(${-y * 3}deg)`;
+        const img = card.querySelector('.svc-showcase__img');
+        if (img) img.style.transform = `scale(1.06) translate(${x * -10}px, ${y * -10}px)`;
+        card.style.transform = `perspective(1000px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
       });
 
       card.addEventListener('mouseleave', () => {
-        const img = card.querySelector('.services__hero-card-img');
-        if (img) {
-          img.style.transform = '';
-          img.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-        }
+        const img = card.querySelector('.svc-showcase__img');
+        if (img) { img.style.transform = ''; img.style.transition = 'transform 0.8s cubic-bezier(0.16,1,0.3,1)'; }
         card.style.transform = '';
-        card.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-
+        card.style.transition = 'transform 0.8s cubic-bezier(0.16,1,0.3,1)';
         setTimeout(() => {
           if (img) img.style.transition = '';
           card.style.transition = '';
@@ -705,27 +554,21 @@ class ServicesSection {
     });
   }
 
-  /* ── ITEM HOVER — MAGNETIC PRICE ── */
-
-  _bindItemHoverEffects() {
+  /* ── ITEM HOVER EFFECTS ── */
+  _initItemHover() {
     if (window.innerWidth <= 768) return;
-
-    const items = this.section.querySelectorAll('.services__item');
-    items.forEach(item => {
-      const price = item.querySelector('.services__item-price');
-      const line = item.querySelector('.services__item-line');
-
+    this.section.querySelectorAll('.svc-item').forEach(item => {
+      const price = item.querySelector('.svc-item__price');
       item.addEventListener('mouseenter', () => {
         if (price) {
           price.style.transform = 'scale(1.08)';
-          price.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          price.style.transition = 'transform 0.4s cubic-bezier(0.34,1.56,0.64,1)';
         }
       });
-
       item.addEventListener('mouseleave', () => {
         if (price) {
           price.style.transform = '';
-          price.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+          price.style.transition = 'transform 0.5s cubic-bezier(0.16,1,0.3,1)';
         }
       });
     });
@@ -733,38 +576,40 @@ class ServicesSection {
 }
 
 
-/* ── INIT ── */
-// Integrates with existing App boot, or standalone
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => new ServicesSection());
-} else {
-  new ServicesSection();
-}
-
 /* ══════════════════════════════════
    APP — BOOT EVERYTHING
    ══════════════════════════════════ */
 class App {
   constructor() {
-    document.addEventListener('DOMContentLoaded', () => this.boot());
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => this.boot());
+    } else {
+      this.boot();
+    }
   }
-  boot() {
-    // Core
-    new Preloader();
 
-    // Navigation (replaces old Header, MobileMenu, ActiveNav)
+  boot() {
+    // Ensure body loaded class
+    if (!document.body.classList.contains('loaded')) {
+      document.body.classList.add('loaded');
+    }
+
+    // Core navigation
+    new Preloader();
     new SidebarNav();
     new CurtainMenu();
 
-    // Hero (cinematic)
+    // Hero
     new HeroDirector();
     new HeroMagneticButtons();
     new HeroVideoOptimizer();
     new HeroTextShimmer();
 
+    // Services
+    new ServicesSection();
+
     // Page interactions
     new ScrollRevealer();
-    new ServiceTabs();
     new SmoothScroll();
     new BackToTop();
     new Parallax();
