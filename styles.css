@@ -355,7 +355,7 @@ ul, ol { list-style: none; }
 .sidebar__logo:hover { transform: scale(1.06); }
 
 .sidebar__logo-img {
-  height: 44px;
+  height: 250px;
   width: auto;
   filter: drop-shadow(0 4px 15px rgba(203, 155, 81, 0.3));
   transition: height 0.4s var(--ease-out);
