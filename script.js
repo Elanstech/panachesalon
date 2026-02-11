@@ -1,6 +1,6 @@
 /* ╔══════════════════════════════════════════════════╗
    ║  NYC PANACHE SALON — MASTER JAVASCRIPT           ║
-   ║  Sidebar + Curtain + Hero + Services              ║
+   ║  Sidebar + Curtain + Hero + Services             ║
    ╚══════════════════════════════════════════════════╝ */
 
 
