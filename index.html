@@ -825,6 +825,400 @@
   </div>
 </section>
 
+<!-- ========== SHOWCASE / GALLERY SECTION ========== -->
+<section id="showcase" class="gallery">
+
+  <!-- Ambient Background -->
+  <div class="gal-bg" aria-hidden="true">
+    <div class="gal-bg__grain"></div>
+    <div class="gal-bg__orb gal-bg__orb--1"></div>
+    <div class="gal-bg__orb gal-bg__orb--2"></div>
+    <div class="gal-bg__orb gal-bg__orb--3"></div>
+    <div class="gal-bg__line gal-bg__line--1"></div>
+    <div class="gal-bg__line gal-bg__line--2"></div>
+    <div class="gal-bg__line gal-bg__line--3"></div>
+    <div class="gal-bg__ring gal-bg__ring--1"></div>
+    <div class="gal-bg__ring gal-bg__ring--2"></div>
+    <!-- Floating particles -->
+    <div class="gal-bg__particles" id="galParticles"></div>
+  </div>
+
+  <div class="gal-container">
+
+    <!-- ═══════════════════════════════════
+         SECTION HEADER
+         ═══════════════════════════════════ -->
+    <header class="gal-header reveal">
+      <div class="gal-header__label">
+        <span class="gal-header__label-line"></span>
+        <span class="gal-header__label-text">Our Portfolio</span>
+        <span class="gal-header__label-line"></span>
+      </div>
+      <h2 class="gal-header__title">
+        The Art of <em>Transformation</em>
+      </h2>
+      <p class="gal-header__sub">
+        Every style tells a story. Explore real transformations by our master stylists —<br class="hide-mobile" />
+        from subtle refinements to dramatic reinventions.
+      </p>
+    </header>
+
+
+    <!-- ═══════════════════════════════════
+         BEFORE & AFTER SHOWCASE
+         ═══════════════════════════════════ -->
+    <div class="ba-section">
+
+      <div class="ba-section__header reveal">
+        <span class="ba-section__badge">
+          <span class="ba-section__badge-dot"></span>
+          Drag to Reveal
+        </span>
+        <h3 class="ba-section__title">Before & After</h3>
+        <p class="ba-section__sub">Slide to see the transformation</p>
+      </div>
+
+      <div class="ba-grid">
+
+        <!-- Slider 1 — Balayage -->
+        <div class="ba-card reveal" data-ba-slider>
+          <div class="ba-card__frame">
+            <div class="ba-card__before">
+              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80" alt="Before balayage" class="ba-card__img" />
+              <span class="ba-card__label ba-card__label--before">Before</span>
+            </div>
+            <div class="ba-card__after">
+              <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&q=80" alt="After balayage" class="ba-card__img" />
+              <span class="ba-card__label ba-card__label--after">After</span>
+            </div>
+            <!-- Slider Handle -->
+            <div class="ba-card__handle" aria-label="Drag to compare before and after">
+              <div class="ba-card__handle-line"></div>
+              <div class="ba-card__handle-knob">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8l4 4-4 4"/>
+                  <path d="M6 8l-4 4 4 4"/>
+                </svg>
+              </div>
+              <div class="ba-card__handle-line"></div>
+            </div>
+            <!-- Glow effect on drag -->
+            <div class="ba-card__glow"></div>
+          </div>
+          <div class="ba-card__info">
+            <h4 class="ba-card__name">Sun-Kissed Balayage</h4>
+            <p class="ba-card__desc">Hand-painted highlights for a natural, luminous dimension</p>
+            <span class="ba-card__tag">Color · Balayage</span>
+          </div>
+        </div>
+
+        <!-- Slider 2 — Color Correction -->
+        <div class="ba-card reveal" data-ba-slider>
+          <div class="ba-card__frame">
+            <div class="ba-card__before">
+              <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800&q=80" alt="Before color correction" class="ba-card__img" />
+              <span class="ba-card__label ba-card__label--before">Before</span>
+            </div>
+            <div class="ba-card__after">
+              <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&q=80" alt="After color correction" class="ba-card__img" />
+              <span class="ba-card__label ba-card__label--after">After</span>
+            </div>
+            <div class="ba-card__handle" aria-label="Drag to compare before and after">
+              <div class="ba-card__handle-line"></div>
+              <div class="ba-card__handle-knob">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8l4 4-4 4"/>
+                  <path d="M6 8l-4 4 4 4"/>
+                </svg>
+              </div>
+              <div class="ba-card__handle-line"></div>
+            </div>
+            <div class="ba-card__glow"></div>
+          </div>
+          <div class="ba-card__info">
+            <h4 class="ba-card__name">Platinum Transformation</h4>
+            <p class="ba-card__desc">Complete color correction to a flawless, icy blonde finish</p>
+            <span class="ba-card__tag">Color · Highlights</span>
+          </div>
+        </div>
+
+        <!-- Slider 3 — Keratin Smoothing -->
+        <div class="ba-card reveal" data-ba-slider>
+          <div class="ba-card__frame">
+            <div class="ba-card__before">
+              <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=80" alt="Before keratin treatment" class="ba-card__img" />
+              <span class="ba-card__label ba-card__label--before">Before</span>
+            </div>
+            <div class="ba-card__after">
+              <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=800&q=80" alt="After keratin treatment" class="ba-card__img" />
+              <span class="ba-card__label ba-card__label--after">After</span>
+            </div>
+            <div class="ba-card__handle" aria-label="Drag to compare before and after">
+              <div class="ba-card__handle-line"></div>
+              <div class="ba-card__handle-knob">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8l4 4-4 4"/>
+                  <path d="M6 8l-4 4 4 4"/>
+                </svg>
+              </div>
+              <div class="ba-card__handle-line"></div>
+            </div>
+            <div class="ba-card__glow"></div>
+          </div>
+          <div class="ba-card__info">
+            <h4 class="ba-card__name">Silk Keratin Treatment</h4>
+            <p class="ba-card__desc">From frizzy and unmanageable to mirror-smooth perfection</p>
+            <span class="ba-card__tag">Smoothing · Keratin</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════
+         MASONRY GALLERY GRID
+         ═══════════════════════════════════ -->
+    <div class="gal-mosaic-section">
+
+      <div class="gal-mosaic__header reveal">
+        <h3 class="gal-mosaic__title">Our Work</h3>
+        <!-- Filter Tabs -->
+        <div class="gal-filters" role="tablist">
+          <button class="gal-filter is-active" data-filter="all">All</button>
+          <button class="gal-filter" data-filter="color">Color</button>
+          <button class="gal-filter" data-filter="cut">Cuts</button>
+          <button class="gal-filter" data-filter="style">Styling</button>
+          <button class="gal-filter" data-filter="nails">Nails</button>
+        </div>
+      </div>
+
+      <div class="gal-mosaic" id="galMosaic">
+
+        <!-- Row 1 -->
+        <div class="gal-item gal-item--tall" data-category="color" data-gal-reveal>
+          <div class="gal-item__inner">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Balayage color work" class="gal-item__img" loading="lazy" />
+            <div class="gal-item__overlay">
+              <div class="gal-item__overlay-content">
+                <span class="gal-item__cat">Color</span>
+                <h4 class="gal-item__title">Golden Balayage</h4>
+                <p class="gal-item__sub">Hand-painted dimension</p>
+              </div>
+              <div class="gal-item__overlay-cta">
+                <span class="gal-item__view">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="gal-item__shine"></div>
+          </div>
+        </div>
+
+        <div class="gal-item" data-category="cut" data-gal-reveal>
+          <div class="gal-item__inner">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Precision cut" class="gal-item__img" loading="lazy" />
+            <div class="gal-item__overlay">
+              <div class="gal-item__overlay-content">
+                <span class="gal-item__cat">Cut</span>
+                <h4 class="gal-item__title">Textured Bob</h4>
+                <p class="gal-item__sub">Modern precision</p>
+              </div>
+              <div class="gal-item__overlay-cta">
+                <span class="gal-item__view">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="gal-item__shine"></div>
+          </div>
+        </div>
+
+        <div class="gal-item" data-category="style" data-gal-reveal>
+          <div class="gal-item__inner">
+            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80" alt="Blowout styling" class="gal-item__img" loading="lazy" />
+            <div class="gal-item__overlay">
+              <div class="gal-item__overlay-content">
+                <span class="gal-item__cat">Styling</span>
+                <h4 class="gal-item__title">Silk Blowout</h4>
+                <p class="gal-item__sub">Volume & movement</p>
+              </div>
+              <div class="gal-item__overlay-cta">
+                <span class="gal-item__view">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="gal-item__shine"></div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="gal-item" data-category="color" data-gal-reveal>
+          <div class="gal-item__inner">
+            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80" alt="Highlights" class="gal-item__img" loading="lazy" />
+            <div class="gal-item__overlay">
+              <div class="gal-item__overlay-content">
+                <span class="gal-item__cat">Color</span>
+                <h4 class="gal-item__title">Honey Highlights</h4>
+                <p class="gal-item__sub">Warm luminosity</p>
+              </div>
+              <div class="gal-item__overlay-cta">
+                <span class="gal-item__view">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="gal-item__shine"></div>
+          </div>
+        </div>
+
+        <div class="gal-item gal-item--tall" data-category="style" data-gal-reveal>
+          <div class="gal-item__inner">
+            <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&q=80" alt="Updo styling" class="gal-item__img" loading="lazy" />
+            <div class="gal-item__overlay">
+              <div class="gal-item__overlay-content">
+                <span class="gal-item__cat">Styling</span>
+                <h4 class="gal-item__title">Bridal Updo</h4>
+                <p class="gal-item__sub">Elegant occasion styling</p>
+              </div>
+              <div class="gal-item__overlay-cta">
+                <span class="gal-item__view">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="gal-item__shine"></div>
+          </div>
+        </div>
+
+        <div class="gal-item" data-category="nails" data-gal-reveal>
+          <div class="gal-item__inner">
+            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80" alt="Nail art" class="gal-item__img" loading="lazy" />
+            <div class="gal-item__overlay">
+              <div class="gal-item__overlay-content">
+                <span class="gal-item__cat">Nails</span>
+                <h4 class="gal-item__title">Luxury Manicure</h4>
+                <p class="gal-item__sub">Nail couture</p>
+              </div>
+              <div class="gal-item__overlay-cta">
+                <span class="gal-item__view">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="gal-item__shine"></div>
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="gal-item" data-category="cut" data-gal-reveal>
+          <div class="gal-item__inner">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=80" alt="Layered cut" class="gal-item__img" loading="lazy" />
+            <div class="gal-item__overlay">
+              <div class="gal-item__overlay-content">
+                <span class="gal-item__cat">Cut</span>
+                <h4 class="gal-item__title">Layered Lob</h4>
+                <p class="gal-item__sub">Effortless movement</p>
+              </div>
+              <div class="gal-item__overlay-cta">
+                <span class="gal-item__view">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="gal-item__shine"></div>
+          </div>
+        </div>
+
+        <div class="gal-item" data-category="color" data-gal-reveal>
+          <div class="gal-item__inner">
+            <img src="https://images.unsplash.com/photo-1500840216050-6ffa99d75160?w=600&q=80" alt="Vivid color" class="gal-item__img" loading="lazy" />
+            <div class="gal-item__overlay">
+              <div class="gal-item__overlay-content">
+                <span class="gal-item__cat">Color</span>
+                <h4 class="gal-item__title">Copper Gloss</h4>
+                <p class="gal-item__sub">Rich tonal depth</p>
+              </div>
+              <div class="gal-item__overlay-cta">
+                <span class="gal-item__view">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="gal-item__shine"></div>
+          </div>
+        </div>
+
+        <div class="gal-item" data-category="nails" data-gal-reveal>
+          <div class="gal-item__inner">
+            <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80" alt="Gel nails" class="gal-item__img" loading="lazy" />
+            <div class="gal-item__overlay">
+              <div class="gal-item__overlay-content">
+                <span class="gal-item__cat">Nails</span>
+                <h4 class="gal-item__title">Gel Extensions</h4>
+                <p class="gal-item__sub">Flawless finish</p>
+              </div>
+              <div class="gal-item__overlay-cta">
+                <span class="gal-item__view">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="gal-item__shine"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════
+         BOTTOM CTA
+         ═══════════════════════════════════ -->
+    <div class="gal-cta reveal">
+      <div class="gal-cta__rule">
+        <span class="gal-cta__rule-line"></span>
+        <span class="gal-cta__rule-diamond">✦</span>
+        <span class="gal-cta__rule-line"></span>
+      </div>
+      <p class="gal-cta__text">Ready for your own transformation?</p>
+      <div class="gal-cta__buttons">
+        <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="gal-cta__btn gal-cta__btn--primary">
+          <span class="gal-cta__btn-text">Book Your Appointment</span>
+          <span class="gal-cta__btn-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+          <span class="gal-cta__btn-shine"></span>
+        </a>
+        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="gal-cta__btn gal-cta__btn--outline">
+          <span class="gal-cta__btn-text">See More on Instagram</span>
+          <span class="gal-cta__btn-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Lightbox -->
+  <div class="gal-lightbox" id="galLightbox" aria-hidden="true">
+    <div class="gal-lightbox__backdrop"></div>
+    <div class="gal-lightbox__content">
+      <img src="" alt="" class="gal-lightbox__img" />
+      <button class="gal-lightbox__close" aria-label="Close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="gal-lightbox__info">
+        <h4 class="gal-lightbox__title"></h4>
+        <p class="gal-lightbox__sub"></p>
+      </div>
+    </div>
+  </div>
+
+</section>
+  
 <!-- ========== INSTAGRAM FEED SECTION ========== -->
 <section id="instagram" class="insta">
 
@@ -885,101 +1279,12 @@
 
   </div>
 </section>
-  
-<!-- ========== GOOGLE REVIEWS SECTION ========== -->
-<section id="reviews" class="reviews">
-
-  <!-- Ambient Background -->
-  <div class="rev-bg" aria-hidden="true">
-    <div class="rev-bg__grain"></div>
-    <div class="rev-bg__orb rev-bg__orb--1"></div>
-    <div class="rev-bg__orb rev-bg__orb--2"></div>
-    <div class="rev-bg__orb rev-bg__orb--3"></div>
-    <div class="rev-bg__ring rev-bg__ring--1"></div>
-    <div class="rev-bg__ring rev-bg__ring--2"></div>
-    <div class="rev-bg__line rev-bg__line--1"></div>
-    <div class="rev-bg__line rev-bg__line--2"></div>
-    <!-- Decorative quote marks -->
-    <div class="rev-bg__quote rev-bg__quote--left">"</div>
-    <div class="rev-bg__quote rev-bg__quote--right">"</div>
-  </div>
-
-  <div class="rev-container">
-
-    <!-- Section Header -->
-    <header class="rev-header reveal">
-      <div class="rev-header__label">
-        <span class="rev-header__label-line"></span>
-        <span class="rev-header__label-text">Client Love</span>
-        <span class="rev-header__label-line"></span>
-      </div>
-      <h2 class="rev-header__title">
-        Words That <em>Inspire</em> Us
-      </h2>
-      <p class="rev-header__sub">
-        Our greatest reward is the confidence our clients carry when they leave the chair.
-      </p>
-
-      <!-- Star Rating Display -->
-      <div class="rev-header__stars">
-        <div class="rev-header__stars-row">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <span class="rev-header__stars-text">5.0 on Google</span>
-      </div>
-    </header>
-
-    <!-- Elfsight Google Reviews Widget -->
-    <div class="rev-widget reveal">
-      <div class="rev-widget__frame">
-        <div class="rev-widget__border"></div>
-        <div class="rev-widget__inner">
-          <div class="elfsight-app-df4da5ed-9603-40b2-9108-8019162233d1" data-elfsight-app-lazy></div>
-        </div>
-        <!-- Corner Accents -->
-        <div class="rev-widget__corner rev-widget__corner--tl"></div>
-        <div class="rev-widget__corner rev-widget__corner--tr"></div>
-        <div class="rev-widget__corner rev-widget__corner--bl"></div>
-        <div class="rev-widget__corner rev-widget__corner--br"></div>
-      </div>
-    </div>
-
-    <!-- Bottom CTA -->
-    <div class="rev-cta reveal">
-      <div class="rev-cta__rule">
-        <span class="rev-cta__rule-line"></span>
-        <span class="rev-cta__rule-diamond">✦</span>
-        <span class="rev-cta__rule-line"></span>
-      </div>
-      <p class="rev-cta__text">Ready to experience the Panache difference?</p>
-      <div class="rev-cta__buttons">
-        <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="rev-cta__btn rev-cta__btn--primary">
-          <span class="rev-cta__btn-text">Book Your Visit</span>
-          <span class="rev-cta__btn-arrow">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
-          <span class="rev-cta__btn-shine"></span>
-        </a>
-        <a href="https://g.page/r/CeqhrRCCRgwcEBM/review" target="_blank" rel="noopener" class="rev-cta__btn rev-cta__btn--outline">
-          <span class="rev-cta__btn-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </span>
-          <span class="rev-cta__btn-text">Leave a Review</span>
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 
   
   <!-- Elfsight AI Chatbot (floating) -->
   <div class="elfsight-app-3fc0671f-332f-4f6f-be9c-1d5d478b085c" data-elfsight-app-lazy></div>
+
+  <div class="elfsight-app-df4da5ed-9603-40b2-9108-8019162233d1" data-elfsight-app-lazy></div>
 
   <script src="script.js"></script>
 </body>
