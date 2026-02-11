@@ -3619,8 +3619,6 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
 .insta-header__label-icon { animation: instaIconPulse 3s ease-in-out infinite; }
 .insta-cta__btn:hover .insta-cta__btn-shine { animation: instaBtnShine 0.7s ease forwards; }
 
-}
-
 /* ════════════════════════════════════════════════════
    CONTACT SECTION — CREAM THEME
    Paste this at the bottom of your styles.css
