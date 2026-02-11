@@ -443,8 +443,6 @@
 </section>
 
 <!-- ========== SERVICES SECTION ========== -->
-<!-- Place this after the closing </section> of the About section -->
-
 <section id="services" class="services">
 
   <!-- Ambient Background -->
@@ -503,15 +501,18 @@
         <span class="services__tab-text">Extensions</span>
         <span class="services__tab-glow"></span>
       </button>
+      <!-- Active indicator bar -->
+      <div class="services__tab-indicator" aria-hidden="true"></div>
     </div>
 
     <!-- Panels -->
     <div class="services__panels">
 
       <!-- Hair Services Panel -->
-      <div class="services__panel is-active" id="svc-panel-hair" role="tabpanel">
+      <div class="services__panel is-active" id="svc-panel-hair" role="tabpanel" aria-labelledby="tab-hair">
         <div class="services__panel-inner">
 
+          <!-- Panel Hero Card -->
           <div class="services__hero-card svc-reveal">
             <div class="services__hero-card-bg">
               <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Hair artistry" class="services__hero-card-img" />
@@ -524,6 +525,7 @@
             </div>
           </div>
 
+          <!-- Service Items Grid -->
           <div class="services__items">
             <div class="services__item svc-reveal">
               <div class="services__item-left">
@@ -571,7 +573,7 @@
       </div>
 
       <!-- Color Panel -->
-      <div class="services__panel" id="svc-panel-color" role="tabpanel">
+      <div class="services__panel" id="svc-panel-color" role="tabpanel" aria-labelledby="tab-color">
         <div class="services__panel-inner">
 
           <div class="services__hero-card svc-reveal">
@@ -703,7 +705,7 @@
       </div>
 
       <!-- Smoothing Panel -->
-      <div class="services__panel" id="svc-panel-smoothing" role="tabpanel">
+      <div class="services__panel" id="svc-panel-smoothing" role="tabpanel" aria-labelledby="tab-smoothing">
         <div class="services__panel-inner">
 
           <div class="services__hero-card svc-reveal">
@@ -751,7 +753,7 @@
       </div>
 
       <!-- Extensions Panel -->
-      <div class="services__panel" id="svc-panel-extensions" role="tabpanel">
+      <div class="services__panel" id="svc-panel-extensions" role="tabpanel" aria-labelledby="tab-extensions">
         <div class="services__panel-inner">
 
           <div class="services__hero-card services__hero-card--full svc-reveal">
@@ -772,6 +774,7 @@
             </div>
           </div>
 
+          <!-- Consultation CTA -->
           <div class="services__consult-cta svc-reveal">
             <div class="services__consult-card">
               <div class="services__consult-card-shine"></div>
@@ -793,7 +796,7 @@
     <div class="services__footer reveal">
       <div class="services__footer-rule">
         <span class="services__footer-rule-line"></span>
-        <span class="services__footer-rule-diamond">&#10022;</span>
+        <span class="services__footer-rule-diamond">✦</span>
         <span class="services__footer-rule-line"></span>
       </div>
       <p class="services__footer-note">Prices may vary based on hair length, texture, and thickness</p>
