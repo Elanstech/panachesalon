@@ -2147,6 +2147,74 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   transform: skewX(-25deg);
   pointer-events: none;
 }
+.svc-viewmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  padding: 1.2rem 0 0.4rem;
+  text-decoration: none;
+  transition: all 0.4s var(--ease-out);
+  opacity: 0.7;
+}
+
+.svc-viewmore:hover {
+  opacity: 1;
+  color: #5C4510;
+  gap: 12px;
+}
+
+.svc-viewmore__arrow {
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.svc-viewmore:hover .svc-viewmore__arrow {
+  transform: translateX(4px);
+}
+
+/* Centered variant (for Extensions consultation card) */
+.svc-viewmore--center {
+  justify-content: center;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+
+/* ── Services Footer: second outline button ── */
+
+.svc-footer__btn + .svc-footer__btn {
+  margin-top: 0.8rem;
+}
+
+.svc-footer__btn--outline {
+  background: transparent;
+  border-color: rgba(138,105,20,0.18);
+  color: var(--text-secondary);
+}
+
+.svc-footer__btn--outline:hover {
+  background: rgba(138,105,20,0.06);
+  border-color: rgba(138,105,20,0.35);
+  color: #5C4510;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(138,105,20,0.06);
+}
+
+.svc-footer__btn--outline:hover .svc-footer__btn-shine {
+  animation: svcFooterShine 0.7s ease forwards;
+}
+
+@media (max-width: 480px) {
+  .svc-viewmore { font-size: 0.55rem; letter-spacing: 0.14em; }
+  .svc-footer__btn--outline { padding: 14px 30px; font-size: 0.6rem; }
+}
 
 /* ── Services — Responsive ── */
 
