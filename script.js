@@ -440,6 +440,31 @@
 
 
   /* ══════════════════════════════════
+     FOOTER — Year + Link Scroll
+     ══════════════════════════════════ */
+  class Footer {
+    constructor() {
+      // Dynamic year
+      const yearEl = $('#footerYear');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Smooth scroll for footer nav links
+      $('.footer__nav-link').forEach(a => {
+        a.addEventListener('click', e => {
+          const href = a.getAttribute('href');
+          if (!href || !href.startsWith('#')) return;
+          e.preventDefault();
+          const target = $(href);
+          if (!target) return;
+          const off = isMobile() ? 80 : 20;
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
+        });
+      });
+    }
+  }
+
+
+  /* ══════════════════════════════════
      PARALLAX (Quote Section)
      ══════════════════════════════════ */
   class Parallax {
@@ -979,6 +1004,7 @@
     new ScrollRevealer();
     new SmoothScroll();
     new BackToTop();
+    new Footer();
     new Parallax();
     new GoldTrail();
     new TiltCards();
