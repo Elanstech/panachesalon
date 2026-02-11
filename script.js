@@ -38,15 +38,26 @@
     constructor() {
       this.el = $('#preloader');
       if (!this.el) { document.body.classList.add('loaded'); return; }
-      // Fast hide — 1.2s max wait
+      this.done = false;
+
+      // Hide once page is loaded + animation finishes
       const hide = () => {
         if (this.done) return;
         this.done = true;
-        this.el.classList.add('loaded');
-        document.body.classList.add('loaded');
+        // Let the bar fill to 100% before fading
+        setTimeout(() => {
+          this.el.classList.add('loaded');
+          document.body.classList.add('loaded');
+          // Remove from DOM after transition
+          setTimeout(() => { this.el.remove(); }, 700);
+        }, 300);
       };
-      window.addEventListener('load', () => setTimeout(hide, 600));
-      setTimeout(hide, 2500);
+
+      // Trigger: whichever comes first
+      // 1. window load + min display time (2.6s for the bar to fill)
+      window.addEventListener('load', () => setTimeout(hide, 2600));
+      // 2. Safety timeout — never block longer than 4s
+      setTimeout(hide, 4000);
     }
   }
 
@@ -212,8 +223,8 @@
         }, { once: true });
       }
 
-      // Entrance animation — fast start
-      const delay = $('#preloader') ? 1200 : 200;
+      // Entrance animation — syncs with preloader exit
+      const delay = $('#preloader') ? 2900 : 200;
       setTimeout(() => this._play(), delay);
 
       // Parallax scroll — ONLY when hero is in view
