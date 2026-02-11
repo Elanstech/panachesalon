@@ -575,6 +575,282 @@ class ServicesSection {
   }
 }
 
+/* ══════════════════════════════════════════════════════
+   BEFORE & AFTER SLIDERS
+   ══════════════════════════════════════════════════════ */
+class BeforeAfterSliders {
+  constructor() {
+    this.sliders = document.querySelectorAll('[data-ba-slider]');
+    if (!this.sliders.length) return;
+    this.sliders.forEach(s => this._init(s));
+  }
+
+  _init(card) {
+    const frame = card.querySelector('.ba-card__frame');
+    const after = card.querySelector('.ba-card__after');
+    const handle = card.querySelector('.ba-card__handle');
+    const glow = card.querySelector('.ba-card__glow');
+    if (!frame || !after || !handle) return;
+
+    let dragging = false, raf = null, pos = 50;
+
+    const setPos = (pct) => {
+      pos = Math.max(2, Math.min(98, pct));
+      after.style.clipPath = `inset(0 0 0 ${pos}%)`;
+      handle.style.left = `${pos}%`;
+      if (glow) glow.style.left = `${pos}%`;
+    };
+
+    const getPct = (clientX) => {
+      const r = frame.getBoundingClientRect();
+      return ((clientX - r.left) / r.width) * 100;
+    };
+
+    frame.addEventListener('mousedown', e => {
+      e.preventDefault(); dragging = true;
+      frame.classList.add('is-dragging');
+      setPos(getPct(e.clientX));
+    });
+    window.addEventListener('mousemove', e => {
+      if (!dragging) return;
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => setPos(getPct(e.clientX)));
+    });
+    window.addEventListener('mouseup', () => {
+      if (dragging) { dragging = false; frame.classList.remove('is-dragging'); }
+    });
+
+    frame.addEventListener('touchstart', e => {
+      dragging = true; frame.classList.add('is-dragging');
+      setPos(getPct(e.touches[0].clientX));
+    }, { passive: true });
+    frame.addEventListener('touchmove', e => {
+      if (!dragging) return;
+      e.preventDefault();
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => setPos(getPct(e.touches[0].clientX)));
+    }, { passive: false });
+    frame.addEventListener('touchend', () => {
+      dragging = false; frame.classList.remove('is-dragging');
+    });
+
+    frame.addEventListener('click', e => { if (!dragging) setPos(getPct(e.clientX)); });
+
+    this._idleWiggle(card, frame, after, handle, glow);
+  }
+
+  _idleWiggle(card, frame, after, handle, glow) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          let start = null;
+          const dur = 1200, from = 30, to = 50;
+          const anim = ts => {
+            if (!start) start = ts;
+            const p = Math.min((ts - start) / dur, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            const v = from + (to - from) * ease;
+            after.style.clipPath = `inset(0 0 0 ${v}%)`;
+            handle.style.left = `${v}%`;
+            if (glow) glow.style.left = `${v}%`;
+            if (p < 1) requestAnimationFrame(anim);
+          };
+          const idx = Array.from(document.querySelectorAll('[data-ba-slider]')).indexOf(card);
+          setTimeout(() => {
+            after.style.clipPath = 'inset(0 0 0 30%)';
+            handle.style.left = '30%';
+            requestAnimationFrame(anim);
+          }, 400 + idx * 250);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    obs.observe(frame);
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════
+   GALLERY FILTER & MOSAIC
+   ══════════════════════════════════════════════════════ */
+class GalleryFilter {
+  constructor() {
+    this.filters = document.querySelectorAll('.gal-filter');
+    this.items = document.querySelectorAll('.gal-item');
+    if (!this.filters.length || !this.items.length) return;
+    this.active = 'all';
+    this.filters.forEach(f => f.addEventListener('click', () => this._filter(f)));
+  }
+
+  _filter(btn) {
+    const cat = btn.dataset.filter;
+    if (cat === this.active) return;
+    this.active = cat;
+
+    this.filters.forEach(f => f.classList.remove('is-active'));
+    btn.classList.add('is-active');
+
+    let delay = 0;
+    this.items.forEach(item => {
+      const show = cat === 'all' || item.dataset.category === cat;
+      if (!show) {
+        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        item.classList.add('is-hidden');
+        item.style.position = 'absolute';
+        item.style.visibility = 'hidden';
+      } else {
+        item.classList.remove('is-hidden');
+        item.style.position = '';
+        item.style.visibility = '';
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px) scale(0.95)';
+        setTimeout(() => {
+          item.style.transition = 'opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out)';
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0) scale(1)';
+        }, 50 + delay);
+        delay += 80;
+      }
+    });
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════
+   GALLERY SCROLL REVEAL
+   ══════════════════════════════════════════════════════ */
+class GalleryReveal {
+  constructor() {
+    this.items = document.querySelectorAll('[data-gal-reveal]');
+    if (!this.items.length) return;
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = Array.from(this.items).indexOf(e.target);
+          setTimeout(() => e.target.classList.add('is-revealed'), (idx % 3) * 120);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.06, rootMargin: '0px 0px -60px 0px' });
+    this.items.forEach(el => obs.observe(el));
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════
+   GALLERY 3D TILT
+   ══════════════════════════════════════════════════════ */
+class GalleryTilt {
+  constructor() {
+    if (window.innerWidth <= 1024 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('.gal-item__inner').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) scale(1.02)`;
+        card.style.transition = 'transform 0.15s ease';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.transition = 'transform 0.7s cubic-bezier(0.16,1,0.3,1)';
+      });
+    });
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════
+   GALLERY LIGHTBOX
+   ══════════════════════════════════════════════════════ */
+class GalleryLightbox {
+  constructor() {
+    this.lb = document.getElementById('galLightbox');
+    if (!this.lb) return;
+    this.img = this.lb.querySelector('.gal-lightbox__img');
+    this.title = this.lb.querySelector('.gal-lightbox__title');
+    this.sub = this.lb.querySelector('.gal-lightbox__sub');
+
+    document.querySelectorAll('.gal-item').forEach(item => {
+      item.addEventListener('click', () => this._open(item));
+    });
+
+    const closeBtn = this.lb.querySelector('.gal-lightbox__close');
+    const backdrop = this.lb.querySelector('.gal-lightbox__backdrop');
+    if (closeBtn) closeBtn.addEventListener('click', () => this._close());
+    if (backdrop) backdrop.addEventListener('click', () => this._close());
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') this._close(); });
+  }
+
+  _open(item) {
+    const img = item.querySelector('.gal-item__img');
+    const t = item.querySelector('.gal-item__title');
+    const s = item.querySelector('.gal-item__sub');
+    if (img) this.img.src = img.src;
+    if (t && this.title) this.title.textContent = t.textContent;
+    if (s && this.sub) this.sub.textContent = s.textContent;
+    this.lb.classList.add('is-open');
+    this.lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  _close() {
+    this.lb.classList.remove('is-open');
+    this.lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════
+   GALLERY FLOATING PARTICLES
+   ══════════════════════════════════════════════════════ */
+class GalleryParticles {
+  constructor() {
+    this.c = document.getElementById('galParticles');
+    if (!this.c || window.innerWidth <= 768 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    for (let i = 0; i < 12; i++) {
+      const p = document.createElement('div');
+      const sz = Math.random() * 3 + 1;
+      const op = Math.random() * 0.3 + 0.1;
+      Object.assign(p.style, {
+        position: 'absolute', width: `${sz}px`, height: `${sz}px`, borderRadius: '50%',
+        background: `radial-gradient(circle, rgba(203,155,81,${op}) 0%, transparent 70%)`,
+        left: `${Math.random() * 100}%`, bottom: '-5%',
+        animation: `galParticleFloat ${Math.random() * 20 + 18}s linear ${Math.random() * 15}s infinite`,
+        pointerEvents: 'none', willChange: 'transform',
+      });
+      this.c.appendChild(p);
+    }
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════
+   GALLERY PARALLAX (Before/After cards)
+   ══════════════════════════════════════════════════════ */
+class GalleryScrollParallax {
+  constructor() {
+    if (window.innerWidth <= 1024) return;
+    this.cards = document.querySelectorAll('.ba-card');
+    if (!this.cards.length) return;
+    let t = false;
+    window.addEventListener('scroll', () => {
+      if (!t) { t = true; requestAnimationFrame(() => { this._tick(); t = false; }); }
+    }, { passive: true });
+  }
+
+  _tick() {
+    const vc = window.innerHeight / 2;
+    this.cards.forEach((card, i) => {
+      const r = card.getBoundingClientRect();
+      const off = (r.top + r.height / 2 - vc) / window.innerHeight;
+      card.style.transform = `translateY(${off * (i % 2 === 0 ? -15 : 15)}px)`;
+      card.style.transition = 'transform 0.1s linear';
+    });
+  }
+}
+
 
 /* ══════════════════════════════════
    APP — BOOT EVERYTHING
@@ -589,7 +865,6 @@ class App {
   }
 
   boot() {
-    // Ensure body loaded class
     if (!document.body.classList.contains('loaded')) {
       document.body.classList.add('loaded');
     }
@@ -607,6 +882,15 @@ class App {
 
     // Services
     new ServicesSection();
+
+    // Gallery & Before/After
+    new BeforeAfterSliders();
+    new GalleryFilter();
+    new GalleryReveal();
+    new GalleryTilt();
+    new GalleryLightbox();
+    new GalleryParticles();
+    new GalleryScrollParallax();
 
     // Page interactions
     new ScrollRevealer();
