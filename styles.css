@@ -2131,7 +2131,8 @@ body.loaded .hero-orb { opacity: 1; }
 
 /* ══════════════════════════════════════════════
    SERVICES SECTION — COMPLETE STYLESHEET
-   Light luxury aesthetic · Glass morphism · Modern
+   Light luxury · Glass morphism · Modern
+   File: services.css
    ══════════════════════════════════════════════ */
 
 
@@ -2213,19 +2214,20 @@ body.loaded .hero-orb { opacity: 1; }
   50%      { opacity: 0.05; }
 }
 
-@keyframes svcFloatBadge {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
-}
-
 @keyframes svcMeshRotate {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
+@keyframes svcNoiseMove {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(-5%, 5%); }
+  100% { transform: translate(5%, -5%); }
+}
+
 
 /* ══════════════════════════════════
-   SECTION BASE — LIGHT THEME
+   SECTION BASE
    ══════════════════════════════════ */
 
 .services {
@@ -2245,7 +2247,7 @@ body.loaded .hero-orb { opacity: 1; }
 
 
 /* ══════════════════════════════════
-   AMBIENT BACKGROUND — LIGHT
+   AMBIENT BACKGROUND
    ══════════════════════════════════ */
 
 .services__bg {
@@ -2306,9 +2308,9 @@ body.loaded .hero-orb { opacity: 1; }
   height: 200%;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
   opacity: 0.35;
+  animation: svcNoiseMove 12s steps(8) infinite;
 }
 
-/* ── Mesh gradient accent ── */
 .services__bg::after {
   content: '';
   position: absolute;
@@ -2997,7 +2999,7 @@ body.loaded .hero-orb { opacity: 1; }
 
 
 /* ══════════════════════════════════
-   RESPONSIVE — MOBILE
+   RESPONSIVE
    ══════════════════════════════════ */
 
 @media (max-width: 859px) {
