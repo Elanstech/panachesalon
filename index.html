@@ -446,368 +446,338 @@
 <section id="services" class="services">
 
   <!-- Ambient Background -->
-  <div class="services__bg" aria-hidden="true">
-    <div class="services__bg-orb services__bg-orb--1"></div>
-    <div class="services__bg-orb services__bg-orb--2"></div>
-    <div class="services__bg-orb services__bg-orb--3"></div>
-    <div class="services__bg-grid"></div>
-    <div class="services__bg-noise"></div>
+  <div class="svc-bg" aria-hidden="true">
+    <div class="svc-bg__grain"></div>
+    <div class="svc-bg__orb svc-bg__orb--1"></div>
+    <div class="svc-bg__orb svc-bg__orb--2"></div>
+    <div class="svc-bg__orb svc-bg__orb--3"></div>
+    <div class="svc-bg__ring svc-bg__ring--1"></div>
+    <div class="svc-bg__ring svc-bg__ring--2"></div>
+    <div class="svc-bg__line svc-bg__line--1"></div>
+    <div class="svc-bg__line svc-bg__line--2"></div>
+    <div class="svc-bg__line svc-bg__line--3"></div>
+    <svg class="svc-bg__curve" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,160 C360,260 720,60 1080,160 C1260,210 1380,180 1440,160 L1440,320 L0,320 Z" fill="rgba(138,105,20,0.015)"/>
+    </svg>
   </div>
 
-  <div class="services__container">
+  <div class="svc-container">
 
     <!-- Section Header -->
-    <div class="services__header reveal">
-      <span class="services__label">
-        <span class="services__label-line"></span>
-        <span class="services__label-text">Our Services</span>
-        <span class="services__label-line"></span>
-      </span>
-      <h2 class="services__title">
+    <header class="svc-header" data-svc-reveal="header">
+      <div class="svc-header__label">
+        <span class="svc-header__label-line"></span>
+        <span class="svc-header__label-text">Our Services</span>
+        <span class="svc-header__label-line"></span>
+      </div>
+      <h2 class="svc-header__title">
         Crafted for <em>Perfection</em>
       </h2>
-      <p class="services__subtitle">
-        Every service at Panache is an experience — precision artistry delivered with luxury-level care.
+      <p class="svc-header__sub">
+        Every service at Panache is an experience — precision artistry<br class="hide-mobile" /> delivered with luxury-level care.
       </p>
-    </div>
+    </header>
 
     <!-- Category Tabs -->
-    <div class="services__tabs reveal" role="tablist" aria-label="Service categories">
-      <button class="services__tab is-active" data-svc-tab="hair" role="tab" aria-selected="true" aria-controls="svc-panel-hair">
-        <span class="services__tab-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7c0 3-2 6-5 8l-3 2-3-2c-3-2-5-5-5-8a5 5 0 0110 0h0a5 5 0 0110 0h0z"/><path d="M12 17v5"/></svg>
-        </span>
-        <span class="services__tab-text">Hair</span>
-        <span class="services__tab-glow"></span>
+    <div class="svc-tabs" data-svc-reveal="tabs" role="tablist" aria-label="Service categories">
+      <button class="svc-tab is-active" data-tab="hair" role="tab" aria-selected="true">
+        <span class="svc-tab__text">Hair</span>
       </button>
-      <button class="services__tab" data-svc-tab="color" role="tab" aria-selected="false" aria-controls="svc-panel-color">
-        <span class="services__tab-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12a10 10 0 005.012 8.662"/></svg>
-        </span>
-        <span class="services__tab-text">Color</span>
-        <span class="services__tab-glow"></span>
+      <button class="svc-tab" data-tab="color" role="tab" aria-selected="false">
+        <span class="svc-tab__text">Color</span>
       </button>
-      <button class="services__tab" data-svc-tab="smoothing" role="tab" aria-selected="false" aria-controls="svc-panel-smoothing">
-        <span class="services__tab-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-1.2 0-2.4.6-3 1.7A3.6 3.6 0 004.6 9c-1 1.2-1.1 2.7-.4 4A3.5 3.5 0 006 17.3c.7.8 1.7 1.3 2.8 1.2 1-.1 2-.7 2.5-1.5h1.4c.5.8 1.5 1.4 2.5 1.5 1.1.1 2.1-.4 2.8-1.2A3.5 3.5 0 0019.8 13c.7-1.3.6-2.8-.4-4A3.6 3.6 0 0015 4.7C14.4 3.6 13.2 3 12 3z"/><path d="M12 3v18"/></svg>
-        </span>
-        <span class="services__tab-text">Smoothing</span>
-        <span class="services__tab-glow"></span>
+      <button class="svc-tab" data-tab="smoothing" role="tab" aria-selected="false">
+        <span class="svc-tab__text">Smoothing</span>
       </button>
-      <button class="services__tab" data-svc-tab="extensions" role="tab" aria-selected="false" aria-controls="svc-panel-extensions">
-        <span class="services__tab-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </span>
-        <span class="services__tab-text">Extensions</span>
-        <span class="services__tab-glow"></span>
+      <button class="svc-tab" data-tab="extensions" role="tab" aria-selected="false">
+        <span class="svc-tab__text">Extensions</span>
       </button>
-      <!-- Active indicator bar -->
-      <div class="services__tab-indicator" aria-hidden="true"></div>
+      <div class="svc-tab__slider" aria-hidden="true"></div>
     </div>
 
-    <!-- Panels -->
-    <div class="services__panels">
+    <!-- ═══ PANELS ═══ -->
+    <div class="svc-panels">
 
-      <!-- Hair Services Panel -->
-      <div class="services__panel is-active" id="svc-panel-hair" role="tabpanel" aria-labelledby="tab-hair">
-        <div class="services__panel-inner">
+      <!-- ── HAIR ── -->
+      <div class="svc-panel is-active" id="panel-hair" role="tabpanel">
+        <div class="svc-panel__grid">
 
-          <!-- Panel Hero Card -->
-          <div class="services__hero-card svc-reveal">
-            <div class="services__hero-card-bg">
-              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Hair artistry" class="services__hero-card-img" />
-              <div class="services__hero-card-overlay"></div>
+          <!-- Hero Showcase Card -->
+          <div class="svc-showcase" data-svc-reveal="card">
+            <div class="svc-showcase__media">
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Hair artistry at NYC Panache" class="svc-showcase__img" />
+              <div class="svc-showcase__overlay"></div>
             </div>
-            <div class="services__hero-card-content">
-              <span class="services__hero-card-label">Signature Collection</span>
-              <h3 class="services__hero-card-title">Hair Services</h3>
-              <p class="services__hero-card-desc">Expert cuts, blowouts, and styling by master-level artists with 25+ years of precision craft.</p>
+            <div class="svc-showcase__content">
+              <span class="svc-showcase__badge">Signature Collection</span>
+              <h3 class="svc-showcase__title">Hair Services</h3>
+              <p class="svc-showcase__desc">Expert cuts, blowouts & styling by master-level artists with 25+ years of precision craft.</p>
             </div>
           </div>
 
-          <!-- Service Items Grid -->
-          <div class="services__items">
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">01</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">Wash & Cut</h4>
-                  <p class="services__item-desc">Precision cutting tailored to your face shape and lifestyle</p>
-                </div>
+          <!-- Service Items -->
+          <div class="svc-list">
+            <div class="svc-item" data-svc-reveal="item" data-delay="0">
+              <div class="svc-item__index">01</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">Wash & Cut</h4>
+                <p class="svc-item__desc">Precision cutting tailored to your face shape and lifestyle</p>
               </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$45<sup>+</sup></span>
-              </div>
-            </div>
-
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">02</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">Shampoo & Blowdry</h4>
-                  <p class="services__item-desc">Luxurious wash with a polished, salon-perfect finish</p>
-                </div>
-              </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$45<sup>+</sup></span>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$45</span>
+                <span class="svc-item__plus">+</span>
               </div>
             </div>
 
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">03</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">Wash, Cut & Blow</h4>
-                  <p class="services__item-desc">The complete transformation — cut, styled, and camera-ready</p>
-                </div>
+            <div class="svc-item" data-svc-reveal="item" data-delay="1">
+              <div class="svc-item__index">02</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">Shampoo & Blowdry</h4>
+                <p class="svc-item__desc">Luxurious wash with a polished, salon-perfect finish</p>
               </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$70<sup>+</sup></span>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$45</span>
+                <span class="svc-item__plus">+</span>
+              </div>
+            </div>
+
+            <div class="svc-item" data-svc-reveal="item" data-delay="2">
+              <div class="svc-item__index">03</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">Wash, Cut & Blow</h4>
+                <p class="svc-item__desc">The complete transformation — cut, styled, and camera-ready</p>
+              </div>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$70</span>
+                <span class="svc-item__plus">+</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Color Panel -->
-      <div class="services__panel" id="svc-panel-color" role="tabpanel" aria-labelledby="tab-color">
-        <div class="services__panel-inner">
+      <!-- ── COLOR ── -->
+      <div class="svc-panel" id="panel-color" role="tabpanel">
+        <div class="svc-panel__grid">
 
-          <div class="services__hero-card svc-reveal">
-            <div class="services__hero-card-bg">
-              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80" alt="Color mastery" class="services__hero-card-img" />
-              <div class="services__hero-card-overlay"></div>
+          <div class="svc-showcase" data-svc-reveal="card">
+            <div class="svc-showcase__media">
+              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80" alt="Color mastery" class="svc-showcase__img" />
+              <div class="svc-showcase__overlay"></div>
             </div>
-            <div class="services__hero-card-content">
-              <span class="services__hero-card-label">Color Atelier</span>
-              <h3 class="services__hero-card-title">Color Services</h3>
-              <p class="services__hero-card-desc">From subtle dimension to bold transformation — bespoke color formulated exclusively for you.</p>
+            <div class="svc-showcase__content">
+              <span class="svc-showcase__badge">Color Atelier</span>
+              <h3 class="svc-showcase__title">Color Services</h3>
+              <p class="svc-showcase__desc">From subtle dimension to bold transformation — bespoke color formulated exclusively for you.</p>
             </div>
           </div>
 
-          <div class="services__items">
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">01</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">Touch-Up Roots</h4>
-                  <p class="services__item-desc">Seamless root coverage to maintain your perfect shade</p>
-                </div>
+          <div class="svc-list">
+            <div class="svc-item" data-svc-reveal="item" data-delay="0">
+              <div class="svc-item__index">01</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">Touch-Up Roots</h4>
+                <p class="svc-item__desc">Seamless root coverage to maintain your perfect shade</p>
               </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$70<sup>+</sup></span>
-              </div>
-            </div>
-
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">02</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">Root Shadow</h4>
-                  <p class="services__item-desc">Softened root transition for a natural, lived-in look</p>
-                </div>
-              </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$50<sup>+</sup></span>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$70</span>
+                <span class="svc-item__plus">+</span>
               </div>
             </div>
 
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">03</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">Single Process All Over</h4>
-                  <p class="services__item-desc">Complete color refresh — rich, even, and beautifully glossy</p>
-                </div>
+            <div class="svc-item" data-svc-reveal="item" data-delay="1">
+              <div class="svc-item__index">02</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">Root Shadow</h4>
+                <p class="svc-item__desc">Softened root transition for a natural, lived-in look</p>
               </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$120<sup>+</sup></span>
-              </div>
-            </div>
-
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">04</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">Double Process Color</h4>
-                  <p class="services__item-desc">Multi-step artistry for dramatic, show-stopping results</p>
-                </div>
-              </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$250<sup>+</sup></span>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$50</span>
+                <span class="svc-item__plus">+</span>
               </div>
             </div>
 
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">05</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">Highlights — Half Head</h4>
-                  <p class="services__item-desc">Strategically placed dimension where light naturally falls</p>
-                </div>
+            <div class="svc-item" data-svc-reveal="item" data-delay="2">
+              <div class="svc-item__index">03</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">Single Process All Over</h4>
+                <p class="svc-item__desc">Complete color refresh — rich, even, and beautifully glossy</p>
               </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$185<sup>+</sup></span>
-              </div>
-            </div>
-
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">06</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">Highlights — Full Head</h4>
-                  <p class="services__item-desc">All-over luminosity for maximum brightness and movement</p>
-                </div>
-              </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$250<sup>+</sup></span>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$120</span>
+                <span class="svc-item__plus">+</span>
               </div>
             </div>
 
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">07</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">Balayage — Full Head</h4>
-                  <p class="services__item-desc">Hand-painted, sun-kissed perfection — our signature technique</p>
-                </div>
+            <div class="svc-item" data-svc-reveal="item" data-delay="3">
+              <div class="svc-item__index">04</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">Double Process Color</h4>
+                <p class="svc-item__desc">Multi-step artistry for dramatic, show-stopping results</p>
               </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$250<sup>+</sup></span>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$250</span>
+                <span class="svc-item__plus">+</span>
               </div>
             </div>
 
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">08</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">Gloss Treatment</h4>
-                  <p class="services__item-desc">Mirror-like shine and tonal enhancement in minutes</p>
-                </div>
+            <div class="svc-item" data-svc-reveal="item" data-delay="4">
+              <div class="svc-item__index">05</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">Highlights — Half Head</h4>
+                <p class="svc-item__desc">Strategically placed dimension where light naturally falls</p>
               </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$50<sup>+</sup></span>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$185</span>
+                <span class="svc-item__plus">+</span>
+              </div>
+            </div>
+
+            <div class="svc-item" data-svc-reveal="item" data-delay="5">
+              <div class="svc-item__index">06</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">Highlights — Full Head</h4>
+                <p class="svc-item__desc">All-over luminosity for maximum brightness and movement</p>
+              </div>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$250</span>
+                <span class="svc-item__plus">+</span>
+              </div>
+            </div>
+
+            <div class="svc-item" data-svc-reveal="item" data-delay="6">
+              <div class="svc-item__index">07</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">Balayage — Full Head</h4>
+                <p class="svc-item__desc">Hand-painted, sun-kissed perfection — our signature technique</p>
+              </div>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$250</span>
+                <span class="svc-item__plus">+</span>
+              </div>
+            </div>
+
+            <div class="svc-item" data-svc-reveal="item" data-delay="7">
+              <div class="svc-item__index">08</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">Gloss Treatment</h4>
+                <p class="svc-item__desc">Mirror-like shine and tonal enhancement in minutes</p>
+              </div>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$50</span>
+                <span class="svc-item__plus">+</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Smoothing Panel -->
-      <div class="services__panel" id="svc-panel-smoothing" role="tabpanel" aria-labelledby="tab-smoothing">
-        <div class="services__panel-inner">
+      <!-- ── SMOOTHING ── -->
+      <div class="svc-panel" id="panel-smoothing" role="tabpanel">
+        <div class="svc-panel__grid">
 
-          <div class="services__hero-card svc-reveal">
-            <div class="services__hero-card-bg">
-              <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&q=80" alt="Smoothing treatments" class="services__hero-card-img" />
-              <div class="services__hero-card-overlay"></div>
+          <div class="svc-showcase" data-svc-reveal="card">
+            <div class="svc-showcase__media">
+              <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&q=80" alt="Smoothing treatments" class="svc-showcase__img" />
+              <div class="svc-showcase__overlay"></div>
             </div>
-            <div class="services__hero-card-content">
-              <span class="services__hero-card-label">Transformation Suite</span>
-              <h3 class="services__hero-card-title">Smoothing Treatments</h3>
-              <p class="services__hero-card-desc">Revolutionary frizz-free results that last for months — sleek, smooth, and effortlessly manageable.</p>
+            <div class="svc-showcase__content">
+              <span class="svc-showcase__badge">Transformation Suite</span>
+              <h3 class="svc-showcase__title">Smoothing Treatments</h3>
+              <p class="svc-showcase__desc">Revolutionary frizz-free results that last for months — sleek, smooth, and effortlessly manageable.</p>
             </div>
           </div>
 
-          <div class="services__items">
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">01</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">ProAddiction Treatment</h4>
-                  <p class="services__item-desc">Next-generation smoothing with long-lasting, frizz-free shine</p>
-                </div>
+          <div class="svc-list">
+            <div class="svc-item" data-svc-reveal="item" data-delay="0">
+              <div class="svc-item__index">01</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">ProAddiction Treatment</h4>
+                <p class="svc-item__desc">Next-generation smoothing with long-lasting, frizz-free shine</p>
               </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$350<sup>+</sup></span>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$350</span>
+                <span class="svc-item__plus">+</span>
               </div>
             </div>
 
-            <div class="services__item svc-reveal">
-              <div class="services__item-left">
-                <span class="services__item-num">02</span>
-                <div class="services__item-info">
-                  <h4 class="services__item-name">Keratin Complex</h4>
-                  <p class="services__item-desc">The gold standard in keratin smoothing — silky, manageable hair for months</p>
-                </div>
+            <div class="svc-item" data-svc-reveal="item" data-delay="1">
+              <div class="svc-item__index">02</div>
+              <div class="svc-item__body">
+                <h4 class="svc-item__name">Keratin Complex</h4>
+                <p class="svc-item__desc">The gold standard in keratin smoothing — silky, manageable hair for months</p>
               </div>
-              <div class="services__item-right">
-                <span class="services__item-line"></span>
-                <span class="services__item-price">$300<sup>+</sup></span>
+              <div class="svc-item__divider"></div>
+              <div class="svc-item__price">
+                <span class="svc-item__amount">$300</span>
+                <span class="svc-item__plus">+</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Extensions Panel -->
-      <div class="services__panel" id="svc-panel-extensions" role="tabpanel" aria-labelledby="tab-extensions">
-        <div class="services__panel-inner">
+      <!-- ── EXTENSIONS ── -->
+      <div class="svc-panel" id="panel-extensions" role="tabpanel">
+        <div class="svc-panel__grid svc-panel__grid--center">
 
-          <div class="services__hero-card services__hero-card--full svc-reveal">
-            <div class="services__hero-card-bg">
-              <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=80" alt="Extensions and updos" class="services__hero-card-img" />
-              <div class="services__hero-card-overlay"></div>
+          <div class="svc-showcase svc-showcase--full" data-svc-reveal="card">
+            <div class="svc-showcase__media">
+              <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=80" alt="Extensions & updos" class="svc-showcase__img" />
+              <div class="svc-showcase__overlay"></div>
             </div>
-            <div class="services__hero-card-content">
-              <span class="services__hero-card-label">Bespoke Artistry</span>
-              <h3 class="services__hero-card-title">Extensions & Up-dos</h3>
-              <p class="services__hero-card-desc">Every extension installation and updo is entirely custom — tailored to your hair length, texture, and thickness for a flawless, natural result.</p>
-              <div class="services__consult-badge">
-                <span class="services__consult-badge-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-                </span>
-                <span class="services__consult-badge-text">By Consultation Only</span>
-              </div>
+            <div class="svc-showcase__content">
+              <span class="svc-showcase__badge">Bespoke Artistry</span>
+              <h3 class="svc-showcase__title">Extensions & Up-dos</h3>
+              <p class="svc-showcase__desc">Every installation and updo is entirely custom — tailored to your hair length, texture, and thickness for a flawless, natural result.</p>
             </div>
           </div>
 
-          <!-- Consultation CTA -->
-          <div class="services__consult-cta svc-reveal">
-            <div class="services__consult-card">
-              <div class="services__consult-card-shine"></div>
-              <h4 class="services__consult-title">Book Your Free Consultation</h4>
-              <p class="services__consult-desc">Pricing is tailored to your unique needs — let's discuss your vision and create a custom plan.</p>
-              <a href="tel:+17185750532" class="services__consult-btn">
-                <span class="services__consult-btn-icon">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                </span>
-                <span>(718) 575-0532</span>
-              </a>
+          <!-- Consultation Card -->
+          <div class="svc-consult" data-svc-reveal="item" data-delay="0">
+            <div class="svc-consult__glow"></div>
+            <div class="svc-consult__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
             </div>
+            <h4 class="svc-consult__title">By Consultation Only</h4>
+            <p class="svc-consult__desc">Pricing is tailored to your unique needs — let's discuss your vision and create a custom plan.</p>
+            <a href="tel:+17185750532" class="svc-consult__btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span>(718) 575-0532</span>
+            </a>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Bottom CTA -->
-    <div class="services__footer reveal">
-      <div class="services__footer-rule">
-        <span class="services__footer-rule-line"></span>
-        <span class="services__footer-rule-diamond">✦</span>
-        <span class="services__footer-rule-line"></span>
+    <footer class="svc-footer" data-svc-reveal="footer">
+      <div class="svc-footer__rule">
+        <span class="svc-footer__rule-line"></span>
+        <span class="svc-footer__rule-diamond">✦</span>
+        <span class="svc-footer__rule-line"></span>
       </div>
-      <p class="services__footer-note">Prices may vary based on hair length, texture, and thickness</p>
-      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="services__footer-btn">
-        <span class="services__footer-btn-text">Book Your Appointment</span>
-        <span class="services__footer-btn-arrow">
+      <p class="svc-footer__note">Prices may vary based on hair length, texture, and thickness</p>
+      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-footer__btn">
+        <span class="svc-footer__btn-text">Book Your Appointment</span>
+        <span class="svc-footer__btn-arrow">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
-        <span class="services__footer-btn-shine"></span>
+        <span class="svc-footer__btn-shine"></span>
       </a>
-    </div>
+    </footer>
 
   </div>
 </section>
