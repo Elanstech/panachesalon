@@ -3623,20 +3623,21 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
 
 /* ════════════════════════════════════════════════════
    CONTACT SECTION — CREAM THEME
+   Paste this at the bottom of your styles.css
    ════════════════════════════════════════════════════ */
-
-/* ── Base ── */
 
 .contact {
   position: relative;
   padding: 8rem 0 6rem;
+  background: #FAF6F0;
   background: linear-gradient(180deg,
-    var(--cream) 0%,
+    #FAF6F0 0%,
     #F8F4EE 15%,
-    var(--cream-mid) 40%,
+    #F5F0E8 40%,
     #F8F4EE 70%,
-    var(--cream) 100%);
+    #FAF6F0 100%);
   overflow: hidden;
+  z-index: 1;
 }
 
 /* ── Ambient Background ── */
@@ -3708,15 +3709,31 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
 
 .contact-header { text-align: center; margin-bottom: 4rem; }
 
-.contact-header__label { display: inline-flex; align-items: center; gap: 14px; margin-bottom: 1.6rem; }
-.contact-header__label-line { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, #8B6914, transparent); opacity: 0.35; }
-.contact-header__label-text { font-family: var(--font-mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; color: #8B6914; }
+.contact-header__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 1.6rem;
+}
+.contact-header__label-line {
+  width: 40px; height: 1px;
+  background: linear-gradient(90deg, transparent, #8B6914, transparent);
+  opacity: 0.35;
+}
+.contact-header__label-text {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #8B6914;
+}
 
 .contact-header__title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 400;
-  color: var(--text-primary);
+  color: #2D2926;
   line-height: 1.25;
   margin: 0 0 1rem;
 }
@@ -3732,7 +3749,7 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   font-family: var(--font-accent);
   font-size: clamp(0.95rem, 2vw, 1.15rem);
   font-weight: 300;
-  color: var(--text-secondary);
+  color: #5C5552;
   line-height: 1.8;
   max-width: 520px;
   margin: 0 auto;
@@ -3758,12 +3775,11 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   }
 }
 
-/* ── Card Wrapper ── */
-
+/* Card Wrapper */
 .contact-duo__card {
   position: relative;
-  border-radius: var(--radius-lg);
-  background: var(--white);
+  border-radius: 28px;
+  background: #FFFDF9;
   border: 1px solid rgba(138,105,20,0.08);
   box-shadow:
     0 15px 50px rgba(45,41,38,0.06),
@@ -3771,7 +3787,7 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: all 0.5s var(--ease-out);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-duo__card:hover {
@@ -3807,7 +3823,7 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   font-size: 1.25rem;
   font-weight: 500;
   font-style: italic;
-  color: var(--text-primary);
+  color: #2D2926;
   margin: 0;
   line-height: 1.2;
 }
@@ -3816,7 +3832,7 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   font-family: var(--font-accent);
   font-size: 0.85rem;
   font-weight: 300;
-  color: var(--text-light);
+  color: #8A8280;
   margin: 0.15rem 0 0;
 }
 
@@ -3830,25 +3846,23 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   justify-content: center;
 }
 
-/* Vagaro widget tweaks */
 .contact-duo__widget--vagaro {
   align-items: center;
 }
 
-/* Override Vagaro's default title */
+/* Vagaro overrides */
 .contact-duo__widget--vagaro #frameTitle {
   font-family: var(--font-display) !important;
   font-size: 1.1rem !important;
   font-weight: 500 !important;
   font-style: italic !important;
-  color: var(--text-primary) !important;
+  color: #2D2926 !important;
   padding: 10px 10px 6px !important;
 }
 
-/* Clean up Vagaro credit links */
 .contact-duo__widget--vagaro .vagaro a {
   font-size: 10px !important;
-  color: var(--text-muted) !important;
+  color: #B0AAA6 !important;
 }
 
 
@@ -3871,19 +3885,18 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   .contact-info-row { grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
 }
 
-/* ── Info Card ── */
-
+/* Info Card */
 .contact-info-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 2rem 1.5rem;
-  border-radius: var(--radius-lg);
-  background: var(--white);
+  border-radius: 28px;
+  background: #FFFDF9;
   border: 1px solid rgba(138,105,20,0.06);
   box-shadow: 0 6px 24px rgba(45,41,38,0.04);
-  transition: all 0.5s var(--ease-out);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-info-card:hover {
@@ -3902,7 +3915,7 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   border: 1px solid rgba(138,105,20,0.1);
   color: #7A5C12;
   margin-bottom: 1rem;
-  transition: all 0.4s var(--ease-out);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-info-card:hover .contact-info-card__icon {
@@ -3917,7 +3930,7 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   font-weight: 600;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--text-primary);
+  color: #2D2926;
   margin: 0 0 0.6rem;
 }
 
@@ -3925,14 +3938,14 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   font-family: var(--font-accent);
   font-size: 0.92rem;
   font-weight: 300;
-  color: var(--text-secondary);
+  color: #5C5552;
   line-height: 1.7;
   margin: 0;
 }
 
 .contact-info-card__text--sm {
   font-size: 0.8rem;
-  color: var(--text-light);
+  color: #8A8280;
   margin-top: 0.3rem;
 }
 
@@ -3946,6 +3959,7 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   -webkit-text-fill-color: transparent;
   background-clip: text;
   transition: filter 0.3s ease;
+  text-decoration: none;
 }
 .contact-info-card__phone:hover {
   filter: brightness(1.3);
@@ -3960,10 +3974,11 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold-deep);
+  color: #8B6914;
   margin-top: 0.8rem;
-  transition: all 0.35s var(--ease-out);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0.7;
+  text-decoration: none;
 }
 .contact-info-card__link:hover {
   opacity: 1;
@@ -3986,7 +4001,7 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 400;
-  color: var(--text-secondary);
+  color: #5C5552;
   white-space: nowrap;
 }
 
@@ -4008,7 +4023,7 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.06em;
-  color: var(--text-primary);
+  color: #2D2926;
   white-space: nowrap;
 }
 
@@ -4026,16 +4041,17 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   align-items: center;
   gap: 6px;
   padding: 8px 14px;
-  border-radius: var(--radius-pill);
+  border-radius: 100px;
   border: 1px solid rgba(138,105,20,0.1);
   background: rgba(138,105,20,0.03);
-  color: var(--text-light);
+  color: #8A8280;
   font-family: var(--font-mono);
   font-size: 0.52rem;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  transition: all 0.4s var(--ease-out);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .contact-social-btn svg { width: 14px; height: 14px; }
 
@@ -4052,21 +4068,19 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
    MAP
    ══════════════════════════════════ */
 
-.contact-map {
-  margin-top: 0.5rem;
-}
+.contact-map { margin-top: 0.5rem; }
 
 .contact-map__frame {
   position: relative;
   width: 100%;
   height: 300px;
-  border-radius: var(--radius-lg);
+  border-radius: 28px;
   overflow: hidden;
   border: 1px solid rgba(138,105,20,0.1);
   box-shadow:
     0 15px 50px rgba(45,41,38,0.06),
     0 4px 16px rgba(45,41,38,0.03);
-  transition: all 0.5s var(--ease-out);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .contact-map__frame:hover {
   border-color: rgba(138,105,20,0.2);
@@ -4100,12 +4114,9 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
   .contact { padding: 5rem 0 4rem; }
   .contact-container { padding: 0 1.5rem; }
   .contact-header { margin-bottom: 3rem; }
-
   .contact-duo { gap: 1.5rem; margin-bottom: 2.5rem; }
   .contact-info-row { margin-bottom: 2.5rem; }
-
   .contact-map__frame { height: 250px; }
-
   .contact-bg__line { display: none; }
   .contact-bg__ring { display: none; }
 }
@@ -4113,16 +4124,15 @@ body.loaded .hero-video { animation: heroVideoZoom 14s var(--ease-smooth) forwar
 @media (max-width: 480px) {
   .contact { padding: 4rem 0 3rem; }
   .contact-header__label-line { width: 25px; }
-
   .contact-duo__card-header { padding: 1.2rem 1.2rem 0; gap: 10px; }
   .contact-duo__card-icon { width: 38px; height: 38px; }
   .contact-duo__card-title { font-size: 1.1rem; }
   .contact-duo__widget { padding: 0.8rem 0.8rem 1rem; min-height: 200px; }
-
   .contact-info-card { padding: 1.5rem 1.2rem; }
   .contact-info-card__icon { width: 42px; height: 42px; }
-
-  .contact-map__frame { height: 200px; border-radius: var(--radius-md); }
+  .contact-map__frame { height: 200px; border-radius: 20px; }
+  .contact-duo__card { border-radius: 20px; }
+  .contact-info-card { border-radius: 20px; }
 }
 
 
