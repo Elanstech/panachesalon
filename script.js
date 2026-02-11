@@ -815,7 +815,7 @@ class GalleryParticles {
       const op = Math.random() * 0.3 + 0.1;
       Object.assign(p.style, {
         position: 'absolute', width: `${sz}px`, height: `${sz}px`, borderRadius: '50%',
-        background: `radial-gradient(circle, rgba(203,155,81,${op}) 0%, transparent 70%)`,
+        background: `radial-gradient(circle, rgba(138,105,20,${op}) 0%, transparent 70%)`,
         left: `${Math.random() * 100}%`, bottom: '-5%',
         animation: `galParticleFloat ${Math.random() * 20 + 18}s linear ${Math.random() * 15}s infinite`,
         pointerEvents: 'none', willChange: 'transform',
