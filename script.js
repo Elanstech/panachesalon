@@ -62,127 +62,151 @@
   }
 
 
-  /* ══════════════════════════════════
-     DESKTOP SIDEBAR NAV
-     ══════════════════════════════════ */
-  class SidebarNav {
-    constructor() {
-      this.sidebar = $('#sidebar');
-      if (!this.sidebar) return;
-      this.links = $$('.sidebar__link', this.sidebar);
-      this.sections = [];
-      this.links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href?.startsWith('#')) {
-          const sec = $(href);
-          if (sec) this.sections.push({ el: sec, link });
-        }
-      });
-      if (!this.sections.length) return;
 
-      this._update = rafThrottle(() => this._onScroll());
-      window.addEventListener('scroll', this._update, { passive: true });
-      this.links.forEach(l => l.addEventListener('click', e => this._click(e, l)));
-      this._onScroll();
-    }
+/* ══════════════════════════════════
+   FLOATING NAV — Scroll Behavior + Active Links
+   Replace SidebarNav and CurtainMenu classes with these
+   ══════════════════════════════════ */
 
-    _onScroll() {
-      const y = window.scrollY + window.innerHeight * 0.35;
-      let active = null;
-      for (const { el, link } of this.sections) {
-        if (y >= el.offsetTop && y < el.offsetTop + el.offsetHeight) active = link;
+class FloatingNav {
+  constructor() {
+    this.nav = document.querySelector('#floatNav');
+    if (!this.nav) return;
+
+    this.links = Array.from(this.nav.querySelectorAll('.float-nav__link'));
+    this.sections = [];
+    this.lastY = 0;
+    this.ticking = false;
+
+    // Collect sections
+    this.links.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const sec = document.querySelector(href);
+        if (sec) this.sections.push({ el: sec, link });
       }
-      this.links.forEach(l => l.classList.toggle('active', l === active));
-    }
+    });
 
-    _click(e, link) {
-      const href = link.getAttribute('href');
-      if (!href || href === '#') return;
-      e.preventDefault();
-      const target = $(href);
-      if (!target) return;
-      const off = isMobile() ? 84 : 20;
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
-    }
+    // Scroll: hide/show + solid bg + active section
+    window.addEventListener('scroll', () => {
+      if (!this.ticking) {
+        this.ticking = true;
+        requestAnimationFrame(() => { this._onScroll(); this.ticking = false; });
+      }
+    }, { passive: true });
+
+    // Smooth scroll for links
+    this.links.forEach(l => l.addEventListener('click', e => this._click(e, l)));
+
+    this._onScroll();
   }
 
+  _onScroll() {
+    const y = window.scrollY;
 
-  /* ══════════════════════════════════
-     MOBILE CURTAIN MENU
-     ══════════════════════════════════ */
-  class CurtainMenu {
-    constructor() {
-      this.toggle = $('#menuToggle');
-      this.curtain = $('#curtainMenu');
-      this.bar = $('#mobileBar');
-      if (!this.toggle || !this.curtain) return;
-      this.links = $$('.curtain__link', this.curtain);
-      this.isOpen = false;
+    // Scrolled state — solid background
+    this.nav.classList.toggle('is-scrolled', y > 60);
+
+    // Hide on scroll down, show on scroll up
+    if (y > 300 && y > this.lastY + 8) {
+      this.nav.classList.add('is-hidden');
+    } else if (y < this.lastY - 4 || y < 100) {
+      this.nav.classList.remove('is-hidden');
+    }
+    this.lastY = y;
+
+    // Active section highlight
+    const trigger = y + window.innerHeight * 0.35;
+    let active = null;
+    for (const { el, link } of this.sections) {
+      if (trigger >= el.offsetTop && trigger < el.offsetTop + el.offsetHeight) {
+        active = link;
+      }
+    }
+    this.links.forEach(l => l.classList.toggle('active', l === active));
+  }
+
+  _click(e, link) {
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (!target) return;
+    const offset = 90; // account for floating nav height
+    window.scrollTo({
+      top: target.getBoundingClientRect().top + window.scrollY - offset,
+      behavior: 'smooth'
+    });
+  }
+}
+
+
+class MobileMenu {
+  constructor() {
+    this.burger = document.querySelector('#navBurger');
+    this.menu = document.querySelector('#mobMenu');
+    this.closeBtn = document.querySelector('#mobMenuClose');
+    this.backdrop = this.menu ? this.menu.querySelector('.mob-menu__backdrop') : null;
+    this.links = this.menu ? Array.from(this.menu.querySelectorAll('.mob-menu__link')) : [];
+
+    if (!this.burger || !this.menu) return;
+    this.isOpen = false;
+    this.animating = false;
+
+    this.burger.addEventListener('click', () => this._toggle());
+    if (this.closeBtn) this.closeBtn.addEventListener('click', () => this._close());
+    if (this.backdrop) this.backdrop.addEventListener('click', () => this._close());
+
+    this.links.forEach(l => l.addEventListener('click', e => this._linkClick(e, l)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && this.isOpen) this._close(); });
+  }
+
+  _toggle() {
+    if (this.animating) return;
+    this.isOpen ? this._close() : this._open();
+  }
+
+  _open() {
+    this.isOpen = true;
+    this.animating = true;
+    this.burger.classList.add('is-open');
+    this.burger.setAttribute('aria-expanded', 'true');
+    this.menu.setAttribute('aria-hidden', 'false');
+    this.menu.classList.remove('is-closing');
+    this.menu.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => { this.animating = false; }, 600);
+  }
+
+  _close() {
+    this.isOpen = false;
+    this.animating = true;
+    this.burger.classList.remove('is-open');
+    this.burger.setAttribute('aria-expanded', 'false');
+    this.menu.setAttribute('aria-hidden', 'true');
+    this.menu.classList.add('is-closing');
+    setTimeout(() => {
+      this.menu.classList.remove('is-open', 'is-closing');
+      document.body.style.overflow = '';
       this.animating = false;
-
-      this.toggle.addEventListener('click', () => this._toggle());
-      this.links.forEach(l => l.addEventListener('click', e => this._linkClick(e, l)));
-      document.addEventListener('keydown', e => { if (e.key === 'Escape' && this.isOpen) this._close(); });
-      this._barScroll();
-    }
-
-    _toggle() { if (!this.animating) this.isOpen ? this._close() : this._open(); }
-
-    _open() {
-      this.isOpen = true;
-      this.animating = true;
-      this.toggle.classList.add('is-open');
-      this.toggle.setAttribute('aria-expanded', 'true');
-      this.curtain.setAttribute('aria-hidden', 'false');
-      this.curtain.classList.remove('is-closing');
-      this.curtain.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
-      setTimeout(() => { this.animating = false; }, 700);
-    }
-
-    _close() {
-      this.isOpen = false;
-      this.animating = true;
-      this.toggle.classList.remove('is-open');
-      this.toggle.setAttribute('aria-expanded', 'false');
-      this.curtain.setAttribute('aria-hidden', 'true');
-      this.curtain.classList.add('is-closing');
-      setTimeout(() => {
-        this.curtain.classList.remove('is-open', 'is-closing');
-        document.body.style.overflow = '';
-        this.animating = false;
-      }, 650);
-    }
-
-    _linkClick(e, link) {
-      const href = link.getAttribute('href');
-      if (!href || href === '#') return;
-      e.preventDefault();
-      this._close();
-      setTimeout(() => {
-        const target = $(href);
-        if (!target) return;
-        const off = this.bar ? this.bar.offsetHeight + 16 : 80;
-        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
-      }, 450);
-    }
-
-    _barScroll() {
-      if (!this.bar) return;
-      let lastY = 0;
-      window.addEventListener('scroll', rafThrottle(() => {
-        const y = window.scrollY;
-        if (y > 200 && y > lastY && !this.isOpen) {
-          this.bar.style.transform = 'translateY(-100%)';
-        } else {
-          this.bar.style.transform = 'translateY(0)';
-        }
-        this.bar.style.background = y > 50 ? 'rgba(13,11,9,0.9)' : 'rgba(13,11,9,0.7)';
-        lastY = y;
-      }), { passive: true });
-    }
+    }, 550);
   }
 
+  _linkClick(e, link) {
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+    e.preventDefault();
+    this._close();
+    setTimeout(() => {
+      const target = document.querySelector(href);
+      if (!target) return;
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - 90,
+        behavior: 'smooth'
+      });
+    }, 400);
+  }
+}
 
   /* ══════════════════════════════════
      HERO DIRECTOR — FIXED & SNAPPY
@@ -980,8 +1004,8 @@
 
     // Core
     new Preloader();
-    new SidebarNav();
-    new CurtainMenu();
+    new FloatingNav();
+    new MobileMenu();
 
     // Hero
     new HeroDirector();
