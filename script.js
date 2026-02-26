@@ -29,40 +29,7 @@
     let t;
     return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
   }
-
-
-  /* ══════════════════════════════════
-     PRELOADER
-     ══════════════════════════════════ */
-  class Preloader {
-    constructor() {
-      this.el = $('#preloader');
-      if (!this.el) { document.body.classList.add('loaded'); return; }
-      this.done = false;
-
-      // Hide once page is loaded + animation finishes
-      const hide = () => {
-        if (this.done) return;
-        this.done = true;
-        // Let the bar fill to 100% before fading
-        setTimeout(() => {
-          this.el.classList.add('loaded');
-          document.body.classList.add('loaded');
-          // Remove from DOM after transition
-          setTimeout(() => { this.el.remove(); }, 700);
-        }, 300);
-      };
-
-      // Trigger: whichever comes first
-      // 1. window load + min display time (2.6s for the bar to fill)
-      window.addEventListener('load', () => setTimeout(hide, 2600));
-      // 2. Safety timeout — never block longer than 4s
-      setTimeout(hide, 4000);
-    }
-  }
-
-
-
+   
 /* ══════════════════════════════════
    FLOATING NAV — Scroll Behavior + Active Links
    Replace SidebarNav and CurtainMenu classes with these
@@ -1003,7 +970,6 @@ class MobileMenu {
     }
 
     // Core
-    new Preloader();
     new FloatingNav();
     new MobileMenu();
 
