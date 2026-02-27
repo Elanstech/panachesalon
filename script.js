@@ -1,5 +1,5 @@
 /* ╔══════════════════════════════════════════════════╗
-   ║  NYC PANACHE SALON — OPTIMIZED MASTER JS         ║
+   ║  NYC PANACHE SALON — MASTER JS (Fixed)           ║
    ║  Snappy · Fluid · Composed                       ║
    ╚══════════════════════════════════════════════════╝ */
 
@@ -14,7 +14,6 @@
   const isDesktop = () => window.innerWidth > 1024;
   const isMobile = () => window.innerWidth <= 768;
 
-  // Throttle helper — ensures func fires at most once per rAF
   function rafThrottle(fn) {
     let ticking = false;
     return function (...args) {
@@ -24,160 +23,159 @@
     };
   }
 
-  // Debounce for resize
   function debounce(fn, ms = 150) {
     let t;
     return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
   }
-   
-/* ══════════════════════════════════
-   FLOATING NAV — Scroll Behavior + Active Links
-   Replace SidebarNav and CurtainMenu classes with these
-   ══════════════════════════════════ */
 
-class FloatingNav {
-  constructor() {
-    this.nav = document.querySelector('#floatNav');
-    if (!this.nav) return;
 
-    this.links = Array.from(this.nav.querySelectorAll('.float-nav__link'));
-    this.sections = [];
-    this.lastY = 0;
-    this.ticking = false;
+  /* ══════════════════════════════════
+     FLOATING NAV
+     ══════════════════════════════════ */
 
-    // Collect sections
-    this.links.forEach(link => {
+  class FloatingNav {
+    constructor() {
+      this.nav = $('#floatNav');
+      if (!this.nav) return;
+
+      this.links = $$('.float-nav__link', this.nav);
+      this.sections = [];
+      this.lastY = 0;
+      this.ticking = false;
+
+      this.links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          const sec = $(href);
+          if (sec) this.sections.push({ el: sec, link });
+        }
+      });
+
+      window.addEventListener('scroll', () => {
+        if (!this.ticking) {
+          this.ticking = true;
+          raf(() => { this._onScroll(); this.ticking = false; });
+        }
+      }, { passive: true });
+
+      this.links.forEach(l => l.addEventListener('click', e => this._click(e, l)));
+      this._onScroll();
+    }
+
+    _onScroll() {
+      const y = window.scrollY;
+
+      this.nav.classList.toggle('is-scrolled', y > 60);
+
+      if (y > 300 && y > this.lastY + 8) {
+        this.nav.classList.add('is-hidden');
+      } else if (y < this.lastY - 4 || y < 100) {
+        this.nav.classList.remove('is-hidden');
+      }
+      this.lastY = y;
+
+      const trigger = y + window.innerHeight * 0.35;
+      let active = null;
+      for (const { el, link } of this.sections) {
+        if (trigger >= el.offsetTop && trigger < el.offsetTop + el.offsetHeight) {
+          active = link;
+        }
+      }
+      this.links.forEach(l => l.classList.toggle('active', l === active));
+    }
+
+    _click(e, link) {
       const href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        const sec = document.querySelector(href);
-        if (sec) this.sections.push({ el: sec, link });
-      }
-    });
-
-    // Scroll: hide/show + solid bg + active section
-    window.addEventListener('scroll', () => {
-      if (!this.ticking) {
-        this.ticking = true;
-        requestAnimationFrame(() => { this._onScroll(); this.ticking = false; });
-      }
-    }, { passive: true });
-
-    // Smooth scroll for links
-    this.links.forEach(l => l.addEventListener('click', e => this._click(e, l)));
-
-    this._onScroll();
-  }
-
-  _onScroll() {
-    const y = window.scrollY;
-
-    // Scrolled state — solid background
-    this.nav.classList.toggle('is-scrolled', y > 60);
-
-    // Hide on scroll down, show on scroll up
-    if (y > 300 && y > this.lastY + 8) {
-      this.nav.classList.add('is-hidden');
-    } else if (y < this.lastY - 4 || y < 100) {
-      this.nav.classList.remove('is-hidden');
-    }
-    this.lastY = y;
-
-    // Active section highlight
-    const trigger = y + window.innerHeight * 0.35;
-    let active = null;
-    for (const { el, link } of this.sections) {
-      if (trigger >= el.offsetTop && trigger < el.offsetTop + el.offsetHeight) {
-        active = link;
-      }
-    }
-    this.links.forEach(l => l.classList.toggle('active', l === active));
-  }
-
-  _click(e, link) {
-    const href = link.getAttribute('href');
-    if (!href || href === '#') return;
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (!target) return;
-    const offset = 90; // account for floating nav height
-    window.scrollTo({
-      top: target.getBoundingClientRect().top + window.scrollY - offset,
-      behavior: 'smooth'
-    });
-  }
-}
-
-
-class MobileMenu {
-  constructor() {
-    this.burger = document.querySelector('#navBurger');
-    this.menu = document.querySelector('#mobMenu');
-    this.closeBtn = document.querySelector('#mobMenuClose');
-    this.backdrop = this.menu ? this.menu.querySelector('.mob-menu__backdrop') : null;
-    this.links = this.menu ? Array.from(this.menu.querySelectorAll('.mob-menu__link')) : [];
-
-    if (!this.burger || !this.menu) return;
-    this.isOpen = false;
-    this.animating = false;
-
-    this.burger.addEventListener('click', () => this._toggle());
-    if (this.closeBtn) this.closeBtn.addEventListener('click', () => this._close());
-    if (this.backdrop) this.backdrop.addEventListener('click', () => this._close());
-
-    this.links.forEach(l => l.addEventListener('click', e => this._linkClick(e, l)));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && this.isOpen) this._close(); });
-  }
-
-  _toggle() {
-    if (this.animating) return;
-    this.isOpen ? this._close() : this._open();
-  }
-
-  _open() {
-    this.isOpen = true;
-    this.animating = true;
-    this.burger.classList.add('is-open');
-    this.burger.setAttribute('aria-expanded', 'true');
-    this.menu.setAttribute('aria-hidden', 'false');
-    this.menu.classList.remove('is-closing');
-    this.menu.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => { this.animating = false; }, 600);
-  }
-
-  _close() {
-    this.isOpen = false;
-    this.animating = true;
-    this.burger.classList.remove('is-open');
-    this.burger.setAttribute('aria-expanded', 'false');
-    this.menu.setAttribute('aria-hidden', 'true');
-    this.menu.classList.add('is-closing');
-    setTimeout(() => {
-      this.menu.classList.remove('is-open', 'is-closing');
-      document.body.style.overflow = '';
-      this.animating = false;
-    }, 550);
-  }
-
-  _linkClick(e, link) {
-    const href = link.getAttribute('href');
-    if (!href || href === '#') return;
-    e.preventDefault();
-    this._close();
-    setTimeout(() => {
-      const target = document.querySelector(href);
+      if (!href || href === '#') return;
+      e.preventDefault();
+      const target = $(href);
       if (!target) return;
       window.scrollTo({
         top: target.getBoundingClientRect().top + window.scrollY - 90,
         behavior: 'smooth'
       });
-    }, 400);
+    }
   }
-}
+
 
   /* ══════════════════════════════════
-     HERO DIRECTOR — FIXED & SNAPPY
+     MOBILE MENU
      ══════════════════════════════════ */
+
+  class MobileMenu {
+    constructor() {
+      this.burger = $('#navBurger');
+      this.menu = $('#mobMenu');
+      this.closeBtn = $('#mobMenuClose');
+      this.backdrop = this.menu ? $('.mob-menu__backdrop', this.menu) : null;
+      this.links = this.menu ? $$('.mob-menu__link', this.menu) : [];
+
+      if (!this.burger || !this.menu) return;
+      this.isOpen = false;
+      this.animating = false;
+
+      this.burger.addEventListener('click', () => this._toggle());
+      if (this.closeBtn) this.closeBtn.addEventListener('click', () => this._close());
+      if (this.backdrop) this.backdrop.addEventListener('click', () => this._close());
+      this.links.forEach(l => l.addEventListener('click', e => this._linkClick(e, l)));
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && this.isOpen) this._close(); });
+    }
+
+    _toggle() {
+      if (this.animating) return;
+      this.isOpen ? this._close() : this._open();
+    }
+
+    _open() {
+      this.isOpen = true;
+      this.animating = true;
+      this.burger.classList.add('is-open');
+      this.burger.setAttribute('aria-expanded', 'true');
+      this.menu.setAttribute('aria-hidden', 'false');
+      this.menu.classList.remove('is-closing');
+      this.menu.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => { this.animating = false; }, 600);
+    }
+
+    _close() {
+      this.isOpen = false;
+      this.animating = true;
+      this.burger.classList.remove('is-open');
+      this.burger.setAttribute('aria-expanded', 'false');
+      this.menu.setAttribute('aria-hidden', 'true');
+      this.menu.classList.add('is-closing');
+      setTimeout(() => {
+        this.menu.classList.remove('is-open', 'is-closing');
+        document.body.style.overflow = '';
+        this.animating = false;
+      }, 550);
+    }
+
+    _linkClick(e, link) {
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return;
+      e.preventDefault();
+      this._close();
+      setTimeout(() => {
+        const target = $(href);
+        if (!target) return;
+        window.scrollTo({
+          top: target.getBoundingClientRect().top + window.scrollY - 90,
+          behavior: 'smooth'
+        });
+      }, 400);
+    }
+  }
+
+
+  /* ══════════════════════════════════
+     HERO DIRECTOR — FIXED
+     • Video loops properly
+     • No preloader dependency
+     • Clean parallax bounds
+     ══════════════════════════════════ */
+
   class HeroDirector {
     constructor() {
       this.hero = $('#hero');
@@ -200,25 +198,29 @@ class MobileMenu {
     }
 
     _init() {
-      // Cache hero height
       this.heroH = this.hero.offsetHeight;
 
-      // Fix: video plays ONCE, no loop
+      // ── VIDEO: ensure it loops correctly ──
       if (this.video) {
-        this.video.loop = false;
-        this.video.removeAttribute('loop');
-        // When video ends, hold on last frame (poster stays via CSS)
-        this.video.addEventListener('ended', () => {
-          this.video.pause();
-          // Keep last frame visible — no action needed
-        }, { once: true });
+        this.video.loop = true;
+        this.video.muted = true;
+        this.video.playsInline = true;
+        this.video.setAttribute('loop', '');
+
+        // Attempt autoplay — handle browser restrictions gracefully
+        const playPromise = this.video.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // Autoplay blocked — video stays on poster, user can interact
+          });
+        }
       }
 
-      // Entrance animation — syncs with preloader exit
-      const delay = $('#preloader') ? 2900 : 200;
-      setTimeout(() => this._play(), delay);
+      // ── ENTRANCE ANIMATION — immediate, no preloader wait ──
+      // Small delay lets the DOM settle and feels intentional
+      setTimeout(() => this._play(), 300);
 
-      // Parallax scroll — ONLY when hero is in view
+      // Parallax scroll
       this._scrollHandler = rafThrottle(() => this._onScroll());
       window.addEventListener('scroll', this._scrollHandler, { passive: true });
 
@@ -226,15 +228,25 @@ class MobileMenu {
       if (this.scroll) {
         this.scroll.addEventListener('click', () => {
           const next = this.hero.nextElementSibling;
-          if (next) window.scrollTo({ top: next.getBoundingClientRect().top + window.scrollY - 20, behavior: 'smooth' });
+          if (next) {
+            window.scrollTo({
+              top: next.getBoundingClientRect().top + window.scrollY - 20,
+              behavior: 'smooth'
+            });
+          }
         });
       }
 
-      // Video visibility optimization
+      // Video visibility — pause when off-screen, play when visible
       this._initVideoObserver();
 
-      // Scroll indicator hide
+      // Hide scroll indicator on scroll
       this._initScrollHide();
+
+      // Recalculate hero height on resize
+      window.addEventListener('resize', debounce(() => {
+        this.heroH = this.hero.offsetHeight;
+      }));
     }
 
     _play() {
@@ -248,7 +260,6 @@ class MobileMenu {
       show(this.pill, 0);
       show(this.eyebrow, 200);
 
-      // Words — staggered
       setTimeout(() => {
         this.words.forEach((w, i) => setTimeout(() => w.classList.add('is-visible'), i * 150));
       }, 400);
@@ -262,8 +273,8 @@ class MobileMenu {
 
     _onScroll() {
       const y = window.scrollY;
-      // CRITICAL FIX: Only apply parallax within hero bounds
-      // Stop all transforms once scrolled past hero
+
+      // Only apply parallax within hero bounds
       if (y > this.heroH) {
         if (this.container) {
           this.container.style.opacity = '0';
@@ -279,6 +290,7 @@ class MobileMenu {
         this.container.style.transform = `translate3d(0, -${p * 60}px, 0)`;
         this.container.style.opacity = Math.max(1 - p * 1.5, 0);
       }
+
       if (this.video) {
         this.video.style.transform = `scale(${1 + p * 0.06})`;
       }
@@ -289,7 +301,7 @@ class MobileMenu {
       new IntersectionObserver(entries => {
         entries.forEach(e => {
           if (e.isIntersecting) {
-            if (this.video.paused && !this.video.ended) this.video.play().catch(() => {});
+            if (this.video.paused) this.video.play().catch(() => {});
           } else {
             this.video.pause();
           }
@@ -317,14 +329,14 @@ class MobileMenu {
 
 
   /* ══════════════════════════════════
-     HERO TEXT SHIMMER — FIXED (no glitch)
+     HERO TEXT SHIMMER
      ══════════════════════════════════ */
+
   class HeroTextShimmer {
     constructor() {
       this.el = $('.hero-title__word--accent');
       if (!this.el || isMobile()) return;
 
-      // Inject keyframes once
       if (!$('#heroTitleShimmerKF')) {
         const s = document.createElement('style');
         s.id = 'heroTitleShimmerKF';
@@ -332,16 +344,13 @@ class MobileMenu {
         document.head.appendChild(s);
       }
 
-      // FIX: Use a stable hover that doesn't affect layout or cause re-flow
-      // Only animate background-position, never transform or size on the text itself
       this.el.addEventListener('mouseenter', () => {
         this.el.style.backgroundSize = '200% auto';
         this.el.style.animation = 'heroTitleShimmer 2.5s ease infinite';
       });
+
       this.el.addEventListener('mouseleave', () => {
-        // Gracefully remove without layout shift
         this.el.style.animation = 'none';
-        // Force reflow then clear so next hover works
         void this.el.offsetHeight;
         this.el.style.animation = '';
         this.el.style.backgroundSize = '';
@@ -353,6 +362,7 @@ class MobileMenu {
   /* ══════════════════════════════════
      HERO MAGNETIC BUTTONS
      ══════════════════════════════════ */
+
   class HeroMagneticButtons {
     constructor() {
       if (!isDesktop() || prefersReduced) return;
@@ -363,25 +373,24 @@ class MobileMenu {
           const y = (e.clientY - r.top - r.height / 2) * 0.15;
           btn.style.transform = `translate3d(${x}px, ${y}px, 0)`;
         });
-        btn.addEventListener('mouseleave', () => {
-          btn.style.transform = '';
-        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
       });
     }
   }
 
 
   /* ══════════════════════════════════
-     SCROLL REVEALER (generic .reveal)
+     SCROLL REVEALER
      ══════════════════════════════════ */
+
   class ScrollRevealer {
     constructor() {
       const els = $$('.reveal');
       if (!els.length) return;
+
       const obs = new IntersectionObserver(entries => {
         entries.forEach(e => {
           if (e.isIntersecting) {
-            // Stagger siblings
             const siblings = $$('.reveal', e.target.parentElement);
             const idx = siblings.indexOf(e.target);
             setTimeout(() => e.target.classList.add('visible'), idx * 80);
@@ -389,18 +398,20 @@ class MobileMenu {
           }
         });
       }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
       els.forEach(el => obs.observe(el));
     }
   }
 
 
   /* ══════════════════════════════════
-     SMOOTH SCROLL (generic anchors)
+     SMOOTH SCROLL
      ══════════════════════════════════ */
+
   class SmoothScroll {
     constructor() {
       $$('a[href^="#"]').forEach(a => {
-        if (a.closest('.sidebar') || a.closest('.curtain')) return;
+        if (a.closest('.float-nav') || a.closest('.mob-menu')) return;
         a.addEventListener('click', e => {
           const href = a.getAttribute('href');
           if (href === '#') return;
@@ -408,7 +419,10 @@ class MobileMenu {
           const target = $(href);
           if (!target) return;
           const off = isMobile() ? 80 : 20;
-          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.scrollY - off,
+            behavior: 'smooth'
+          });
         });
       });
     }
@@ -418,6 +432,7 @@ class MobileMenu {
   /* ══════════════════════════════════
      BACK TO TOP
      ══════════════════════════════════ */
+
   class BackToTop {
     constructor() {
       this.el = $('#backToTop');
@@ -431,16 +446,16 @@ class MobileMenu {
 
 
   /* ══════════════════════════════════
-     FOOTER — Year + Link Scroll
+     FOOTER
      ══════════════════════════════════ */
+
   class Footer {
     constructor() {
-      // Dynamic year
       const yearEl = $('#footerYear');
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // Smooth scroll for footer nav links
-      $('.footer__nav-link').forEach(a => {
+      // Fixed: use $$ (querySelectorAll) instead of $ (querySelector)
+      $$('.footer__nav-link').forEach(a => {
         a.addEventListener('click', e => {
           const href = a.getAttribute('href');
           if (!href || !href.startsWith('#')) return;
@@ -448,7 +463,10 @@ class MobileMenu {
           const target = $(href);
           if (!target) return;
           const off = isMobile() ? 80 : 20;
-          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - off, behavior: 'smooth' });
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.scrollY - off,
+            behavior: 'smooth'
+          });
         });
       });
     }
@@ -458,6 +476,7 @@ class MobileMenu {
   /* ══════════════════════════════════
      PARALLAX (Quote Section)
      ══════════════════════════════════ */
+
   class Parallax {
     constructor() {
       this.el = $('.parallax-bg');
@@ -475,6 +494,7 @@ class MobileMenu {
   /* ══════════════════════════════════
      GOLD TRAIL (Cursor)
      ══════════════════════════════════ */
+
   class GoldTrail {
     constructor() {
       if (!isDesktop() || prefersReduced) return;
@@ -509,6 +529,7 @@ class MobileMenu {
   /* ══════════════════════════════════
      TILT CARDS
      ══════════════════════════════════ */
+
   class TiltCards {
     constructor() {
       if (!isDesktop()) return;
@@ -526,32 +547,9 @@ class MobileMenu {
 
 
   /* ══════════════════════════════════
-     DEVICE PARALLAX (Showcase)
+     SERVICES SECTION
      ══════════════════════════════════ */
-  class DeviceParallax {
-    constructor() {
-      this.macbook = $('.device-macbook');
-      this.iphone = $('.device-iphone');
-      if (!this.macbook || isMobile()) return;
-      const section = $('#showcase');
-      if (!section) return;
 
-      window.addEventListener('scroll', rafThrottle(() => {
-        const r = section.getBoundingClientRect();
-        const p = 1 - (r.top / window.innerHeight);
-        if (p > 0 && p < 2) {
-          const s = (p - 0.5) * 18;
-          this.macbook.style.transform = `translate3d(0, ${-s}px, 0)`;
-          if (this.iphone) this.iphone.style.transform = `translate3d(0, ${s * 0.5}px, 0)`;
-        }
-      }), { passive: true });
-    }
-  }
-
-
-  /* ══════════════════════════════════════════════════════
-     SERVICES SECTION — Tabs + Reveals + Interactions
-     ══════════════════════════════════════════════════════ */
   class ServicesSection {
     constructor() {
       this.section = $('#services');
@@ -594,7 +592,10 @@ class MobileMenu {
     _activate(tab) {
       const target = tab.dataset.tab;
 
-      this.tabs.forEach(t => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
+      this.tabs.forEach(t => {
+        t.classList.remove('is-active');
+        t.setAttribute('aria-selected', 'false');
+      });
       this.panels.forEach(p => p.classList.remove('is-active'));
 
       tab.classList.add('is-active');
@@ -616,7 +617,6 @@ class MobileMenu {
       });
 
       this._positionSlider();
-
       if (isMobile()) tab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     }
 
@@ -676,9 +676,10 @@ class MobileMenu {
   }
 
 
-  /* ══════════════════════════════════════════════════════
+  /* ══════════════════════════════════
      BEFORE & AFTER SLIDERS
-     ══════════════════════════════════════════════════════ */
+     ══════════════════════════════════ */
+
   class BeforeAfterSliders {
     constructor() {
       const sliders = $$('[data-ba-slider]');
@@ -707,7 +708,6 @@ class MobileMenu {
         return ((cx - r.left) / r.width) * 100;
       };
 
-      // Mouse
       frame.addEventListener('mousedown', e => {
         e.preventDefault();
         dragging = true;
@@ -722,7 +722,6 @@ class MobileMenu {
         if (dragging) { dragging = false; frame.classList.remove('is-dragging'); }
       });
 
-      // Touch
       frame.addEventListener('touchstart', e => {
         dragging = true;
         frame.classList.add('is-dragging');
@@ -738,10 +737,8 @@ class MobileMenu {
         frame.classList.remove('is-dragging');
       });
 
-      // Click
       frame.addEventListener('click', e => { if (!dragging) setPos(getPct(e.clientX)); });
 
-      // Idle intro wiggle
       this._introWiggle(card, after, handle, glow);
     }
 
@@ -780,9 +777,10 @@ class MobileMenu {
   }
 
 
-  /* ══════════════════════════════════════════════════════
+  /* ══════════════════════════════════
      GALLERY FILTER & MOSAIC
-     ══════════════════════════════════════════════════════ */
+     ══════════════════════════════════ */
+
   class GalleryFilter {
     constructor() {
       this.filters = $$('.gal-filter');
@@ -824,9 +822,10 @@ class MobileMenu {
   }
 
 
-  /* ══════════════════════════════════════════════════════
+  /* ══════════════════════════════════
      GALLERY SCROLL REVEAL
-     ══════════════════════════════════════════════════════ */
+     ══════════════════════════════════ */
+
   class GalleryReveal {
     constructor() {
       const items = $$('[data-gal-reveal]');
@@ -845,9 +844,10 @@ class MobileMenu {
   }
 
 
-  /* ══════════════════════════════════════════════════════
+  /* ══════════════════════════════════
      GALLERY 3D TILT
-     ══════════════════════════════════════════════════════ */
+     ══════════════════════════════════ */
+
   class GalleryTilt {
     constructor() {
       if (!isDesktop() || prefersReduced) return;
@@ -864,9 +864,10 @@ class MobileMenu {
   }
 
 
-  /* ══════════════════════════════════════════════════════
+  /* ══════════════════════════════════
      GALLERY LIGHTBOX
-     ══════════════════════════════════════════════════════ */
+     ══════════════════════════════════ */
+
   class GalleryLightbox {
     constructor() {
       this.lb = $('#galLightbox');
@@ -904,9 +905,10 @@ class MobileMenu {
   }
 
 
-  /* ══════════════════════════════════════════════════════
+  /* ══════════════════════════════════
      GALLERY FLOATING PARTICLES
-     ══════════════════════════════════════════════════════ */
+     ══════════════════════════════════ */
+
   class GalleryParticles {
     constructor() {
       const c = $('#galParticles');
@@ -930,16 +932,16 @@ class MobileMenu {
   }
 
 
-  /* ══════════════════════════════════════════════════════
-     GALLERY SCROLL PARALLAX (Before/After cards)
-     ══════════════════════════════════════════════════════ */
+  /* ══════════════════════════════════
+     GALLERY SCROLL PARALLAX
+     ══════════════════════════════════ */
+
   class GalleryScrollParallax {
     constructor() {
       if (!isDesktop()) return;
       this.cards = $$('.ba-card');
       if (!this.cards.length) return;
 
-      // ONLY run when gallery section is visible
       const section = $('#showcase');
       if (!section) return;
 
@@ -962,8 +964,9 @@ class MobileMenu {
 
 
   /* ══════════════════════════════════
-     APP — BOOT EVERYTHING
+     BOOT
      ══════════════════════════════════ */
+
   function boot() {
     if (!document.body.classList.contains('loaded')) {
       document.body.classList.add('loaded');
@@ -998,7 +1001,6 @@ class MobileMenu {
     new Parallax();
     new GoldTrail();
     new TiltCards();
-    new DeviceParallax();
 
     console.log('%c✦ NYC Panache Salon — Ready', 'color:#CB9B51;font-size:13px;font-weight:bold;');
   }
