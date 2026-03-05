@@ -8,38 +8,38 @@
 
   <link rel="icon" type="image/svg+xml" href="logo.png" />
 
-  <!-- Fonts -->
+  <!-- Critical: Preload hero video poster -->
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80" />
+
+  <!-- Fonts — display swap for faster text render -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Elfsight Platform (single load) -->
-  <script src="https://elfsightcdn.com/platform.js" async></script>
+  <!-- Elfsight — load after main content -->
+  <script src="https://elfsightcdn.com/platform.js" async defer></script>
 </head>
 <body>
 
 <!-- ========== FLOATING NAV BAR ========== -->
 <header class="float-nav" id="floatNav">
   <div class="float-nav__inner">
-
-    <!-- Logo -->
     <a href="#" class="float-nav__logo" aria-label="Home">
       <img src="logo.png" alt="NYC Panache" class="float-nav__logo-img" />
     </a>
 
-    <!-- Desktop Links -->
     <nav class="float-nav__links" id="navLinks">
       <a href="#about" class="float-nav__link" data-nav="about">About</a>
       <a href="#services" class="float-nav__link" data-nav="services">Services</a>
       <a href="#showcase" class="float-nav__link" data-nav="showcase">Gallery</a>
       <a href="#waxing" class="float-nav__link" data-nav="waxing">Waxing</a>
       <a href="#reviews" class="float-nav__link" data-nav="reviews">Reviews</a>
+      <a href="#faq" class="float-nav__link" data-nav="faq">FAQ</a>
       <a href="#contact" class="float-nav__link" data-nav="contact">Contact</a>
     </nav>
 
-    <!-- Right Side: Socials + CTA -->
     <div class="float-nav__right">
       <div class="float-nav__socials">
         <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="float-nav__social" aria-label="Instagram">
@@ -55,7 +55,6 @@
       </a>
     </div>
 
-    <!-- Mobile Hamburger -->
     <button class="float-nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
       <span class="burger-line burger-line--1"></span>
       <span class="burger-line burger-line--2"></span>
@@ -68,31 +67,23 @@
 <div class="mob-menu" id="mobMenu" aria-hidden="true">
   <div class="mob-menu__backdrop"></div>
   <div class="mob-menu__panel">
-    <!-- Close -->
     <button class="mob-menu__close" id="mobMenuClose" aria-label="Close menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
-
-    <!-- Logo -->
     <img src="logo.png" alt="NYC Panache" class="mob-menu__logo" />
-
-    <!-- Links -->
     <nav class="mob-menu__nav">
       <a href="#about" class="mob-menu__link">About</a>
       <a href="#services" class="mob-menu__link">Services</a>
       <a href="#showcase" class="mob-menu__link">Gallery</a>
       <a href="#waxing" class="mob-menu__link">Waxing</a>
       <a href="#reviews" class="mob-menu__link">Reviews</a>
+      <a href="#faq" class="mob-menu__link">FAQ</a>
       <a href="#contact" class="mob-menu__link">Contact</a>
     </nav>
-
-    <!-- CTA -->
     <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="mob-menu__cta">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Book Online via Vagaro
     </a>
-
-    <!-- Footer -->
     <div class="mob-menu__footer">
       <div class="mob-menu__socials">
         <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener">Instagram</a>
@@ -106,14 +97,11 @@
     </div>
   </div>
 </div>
-  
-<!-- ========== HERO SECTION ========== -->
 
+<!-- ========== HERO SECTION ========== -->
 <section id="hero">
-  <!-- Video Background -->
   <div class="hero-video-wrap">
     <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80">
-      <!-- Replace src with your video file -->
       <source src="https://github.com/Elanstech/panachesalon/releases/download/hero/hero.mp4" type="video/mp4" />
     </video>
     <div class="hero-gradient-overlay"></div>
@@ -121,23 +109,18 @@
     <div class="hero-vignette"></div>
   </div>
 
-  <!-- Floating Orbs (ambient light) -->
   <div class="hero-orbs" aria-hidden="true">
     <div class="hero-orb hero-orb--1"></div>
     <div class="hero-orb hero-orb--2"></div>
     <div class="hero-orb hero-orb--3"></div>
   </div>
 
-  <!-- Main Content -->
   <div class="hero-container">
-
-    <!-- Top Pill Badge -->
     <div class="hero-pill" data-hero-anim="pill">
       <span class="hero-pill__dot"></span>
-      <span class="hero-pill__text">Welcome To NYC Panache Salon </span>
+      <span class="hero-pill__text">Welcome To NYC Panache Salon</span>
     </div>
 
-    <!-- Headline Block -->
     <div class="hero-headline">
       <span class="hero-eyebrow" data-hero-anim="eyebrow">The Art of</span>
       <h1 class="hero-title" data-hero-anim="title">
@@ -147,19 +130,16 @@
       </h1>
     </div>
 
-    <!-- Subtext -->
     <p class="hero-sub" data-hero-anim="sub">
       Where elegance meets artistry. A luxury salon experience crafted for those who expect nothing less than extraordinary.
     </p>
 
-    <!-- Horizontal Gold Rule -->
     <div class="hero-rule" data-hero-anim="rule">
       <span class="hero-rule__line"></span>
       <span class="hero-rule__diamond">✦</span>
       <span class="hero-rule__line"></span>
     </div>
 
-    <!-- CTA Buttons -->
     <div class="hero-ctas" data-hero-anim="ctas">
       <a href="#services" class="hero-btn hero-btn--primary">
         <span class="hero-btn__text">Explore Services</span>
@@ -173,21 +153,16 @@
       </a>
     </div>
 
-    <!-- Floating Logo Watermark -->
     <img src="logo.png" alt="" class="hero-watermark" aria-hidden="true" />
   </div>
 
-  <!-- Bottom Bar -->
   <div class="hero-bottom">
-    <!-- Scroll Indicator -->
     <div class="hero-scroll" data-hero-anim="scroll">
       <span class="hero-scroll__label">Scroll</span>
       <div class="hero-scroll__track">
         <div class="hero-scroll__thumb"></div>
       </div>
     </div>
-
-    <!-- Social Strip -->
     <div class="hero-socials" data-hero-anim="socials">
       <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="hero-social" aria-label="Instagram">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -202,49 +177,30 @@
   </div>
 </section>
 
-  <!-- ========== MARQUEE RIBBON ========== -->
-  <div class="marquee-ribbon">
-    <div class="marquee-track">
-      <span class="marquee-item">Hair Artistry</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Color Mastery</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Nail Couture</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Smoothing Treatments</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Balayage</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Waxing Perfection</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Keratin Complex</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Extensions</span>
-      <span class="marquee-dot">✦</span>
-      <!-- duplicate for seamless loop -->
-      <span class="marquee-item">Hair Artistry</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Color Mastery</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Nail Couture</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Smoothing Treatments</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Balayage</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Waxing Perfection</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Keratin Complex</span>
-      <span class="marquee-dot">✦</span>
-      <span class="marquee-item">Extensions</span>
-      <span class="marquee-dot">✦</span>
-    </div>
+<!-- ========== MARQUEE RIBBON ========== -->
+<div class="marquee-ribbon">
+  <div class="marquee-track">
+    <span class="marquee-item">Hair Artistry</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Color Mastery</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Nail Couture</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Smoothing Treatments</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Balayage</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Waxing Perfection</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Keratin Complex</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Extensions</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Hair Artistry</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Color Mastery</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Nail Couture</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Smoothing Treatments</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Balayage</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Waxing Perfection</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Keratin Complex</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Extensions</span><span class="marquee-dot">✦</span>
   </div>
+</div>
 
 <!-- ========== ABOUT SECTION ========== -->
-
 <section id="about" class="about">
-  <!-- Ambient background elements -->
   <div class="about__bg" aria-hidden="true">
     <div class="about__bg-orb about__bg-orb--1"></div>
     <div class="about__bg-orb about__bg-orb--2"></div>
@@ -253,61 +209,45 @@
   </div>
 
   <div class="about__container">
-
-    <!-- Section Header -->
     <div class="about__header reveal">
       <span class="about__label">
         <span class="about__label-line"></span>
         <span class="about__label-text">Our Story</span>
         <span class="about__label-line"></span>
       </span>
-      <h2 class="about__title">
-        Where <em>Elegance</em> Meets <em>Artistry</em>
-      </h2>
+      <h2 class="about__title">Where <em>Elegance</em> Meets <em>Artistry</em></h2>
       <p class="about__subtitle">A quarter century of transforming beauty in the heart of Forest Hills</p>
     </div>
 
-    <!-- Content Grid -->
     <div class="about__grid">
-
-      <!-- Left — Image Column -->
       <div class="about__visual reveal">
         <div class="about__image-frame">
-          <img src="images/marina.jpeg" alt="Marina Iskiyaeva — Owner of NYC Panache Salon" class="about__image" />
+          <img src="images/marina.jpeg" alt="Marina Iskiyaeva — Owner of NYC Panache Salon" class="about__image" loading="lazy" />
           <div class="about__image-border"></div>
           <div class="about__image-shine"></div>
         </div>
-
-        <!-- Floating Experience Badge -->
         <div class="about__badge">
           <span class="about__badge-number">25<sup>+</sup></span>
           <span class="about__badge-text">Years of<br />Excellence</span>
         </div>
-
-        <!-- Decorative corner accents -->
         <div class="about__corner about__corner--tl"></div>
         <div class="about__corner about__corner--br"></div>
       </div>
 
-      <!-- Right — Text Column -->
       <div class="about__content">
-
         <div class="about__intro reveal">
           <p class="about__owner-name">Marina Iskiyaeva</p>
           <p class="about__owner-role">Founder & Master Stylist</p>
         </div>
-
         <div class="about__text reveal">
           <p>For over 25 years, Marina Iskiyaeva has dedicated her life to the art of hair — mastering cuts, color, and transformative styling that brings out the confidence in every client who sits in her chair.</p>
           <p>What began as a deep passion for beauty has evolved into NYC Panache Salon, a luxury destination in Forest Hills, Queens, where every detail is intentional and every visit feels like an indulgence. Marina's philosophy is simple: beauty should never feel rushed, and excellence should never be compromised.</p>
           <p>At Panache, the experience goes beyond hair. From precision nail artistry to flawless waxing, every service is delivered with the same meticulous care and attention to detail that Marina has spent decades perfecting.</p>
         </div>
-
-        <!-- Signature Values -->
         <div class="about__values reveal">
           <div class="about__value">
             <div class="about__value-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
             </div>
             <div class="about__value-text">
               <h4>Master-Level Craft</h4>
@@ -316,7 +256,7 @@
           </div>
           <div class="about__value">
             <div class="about__value-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
             </div>
             <div class="about__value-text">
               <h4>Personal Attention</h4>
@@ -325,7 +265,7 @@
           </div>
           <div class="about__value">
             <div class="about__value-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </div>
             <div class="about__value-text">
               <h4>Luxury Standard</h4>
@@ -333,94 +273,56 @@
             </div>
           </div>
         </div>
-
-        <!-- CTA Buttons -->
         <div class="about__cta reveal">
           <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="about__btn">
             <span class="about__btn-text">Book with Marina</span>
-            <span class="about__btn-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
+            <span class="about__btn-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             <span class="about__btn-shine"></span>
           </a>
           <a href="about.html" class="about__btn about__btn--secondary">
             <span class="about__btn-text">More About Us</span>
-            <span class="about__btn-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-            <span class="about__btn-shine"></span>
+            <span class="about__btn-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
           </a>
         </div>
-
       </div>
     </div>
   </div>
 </section>
-  
+
 <!-- ========== SERVICES SECTION ========== -->
 <section id="services" class="services">
-
-  <!-- Ambient Background -->
   <div class="svc-bg" aria-hidden="true">
     <div class="svc-bg__grain"></div>
     <div class="svc-bg__orb svc-bg__orb--1"></div>
     <div class="svc-bg__orb svc-bg__orb--2"></div>
-    <div class="svc-bg__orb svc-bg__orb--3"></div>
-    <div class="svc-bg__ring svc-bg__ring--1"></div>
-    <div class="svc-bg__ring svc-bg__ring--2"></div>
-    <div class="svc-bg__line svc-bg__line--1"></div>
-    <div class="svc-bg__line svc-bg__line--2"></div>
-    <div class="svc-bg__line svc-bg__line--3"></div>
-    <svg class="svc-bg__curve" viewBox="0 0 1440 320" preserveAspectRatio="none">
-      <path d="M0,160 C360,260 720,60 1080,160 C1260,210 1380,180 1440,160 L1440,320 L0,320 Z" fill="rgba(138,105,20,0.015)"/>
-    </svg>
   </div>
 
   <div class="svc-container">
-
-    <!-- Section Header -->
     <header class="svc-header" data-svc-reveal="header">
       <div class="svc-header__label">
         <span class="svc-header__label-line"></span>
         <span class="svc-header__label-text">Our Services</span>
         <span class="svc-header__label-line"></span>
       </div>
-      <h2 class="svc-header__title">
-        Crafted for <em>Perfection</em>
-      </h2>
-      <p class="svc-header__sub">
-        Every service at Panache is an experience — precision artistry<br class="hide-mobile" /> delivered with luxury-level care.
-      </p>
+      <h2 class="svc-header__title">Crafted for <em>Perfection</em></h2>
+      <p class="svc-header__sub">Every service at Panache is an experience — precision artistry<br class="hide-mobile" /> delivered with luxury-level care.</p>
     </header>
 
-    <!-- Category Tabs -->
     <div class="svc-tabs" data-svc-reveal="tabs" role="tablist" aria-label="Service categories">
-      <button class="svc-tab is-active" data-tab="hair" role="tab" aria-selected="true">
-        <span class="svc-tab__text">Hair</span>
-      </button>
-      <button class="svc-tab" data-tab="color" role="tab" aria-selected="false">
-        <span class="svc-tab__text">Color</span>
-      </button>
-      <button class="svc-tab" data-tab="smoothing" role="tab" aria-selected="false">
-        <span class="svc-tab__text">Smoothing</span>
-      </button>
-      <button class="svc-tab" data-tab="extensions" role="tab" aria-selected="false">
-        <span class="svc-tab__text">Extensions</span>
-      </button>
+      <button class="svc-tab is-active" data-tab="hair" role="tab" aria-selected="true"><span class="svc-tab__text">Hair</span></button>
+      <button class="svc-tab" data-tab="color" role="tab" aria-selected="false"><span class="svc-tab__text">Color</span></button>
+      <button class="svc-tab" data-tab="smoothing" role="tab" aria-selected="false"><span class="svc-tab__text">Smoothing</span></button>
+      <button class="svc-tab" data-tab="extensions" role="tab" aria-selected="false"><span class="svc-tab__text">Extensions</span></button>
       <div class="svc-tab__slider" aria-hidden="true"></div>
     </div>
 
-    <!-- ═══ PANELS ═══ -->
     <div class="svc-panels">
-
-      <!-- ── HAIR ── -->
+      <!-- HAIR -->
       <div class="svc-panel is-active" id="panel-hair" role="tabpanel">
         <div class="svc-panel__grid">
-
-          <!-- Hero Showcase Card -->
           <div class="svc-showcase" data-svc-reveal="card">
             <div class="svc-showcase__media">
-              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Hair artistry at NYC Panache" class="svc-showcase__img" />
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Hair artistry at NYC Panache" class="svc-showcase__img" loading="lazy" />
               <div class="svc-showcase__overlay"></div>
             </div>
             <div class="svc-showcase__content">
@@ -429,66 +331,39 @@
               <p class="svc-showcase__desc">Expert cuts, blowouts & styling by master-level artists with 25+ years of precision craft.</p>
             </div>
           </div>
-
-          <!-- Service Items -->
           <div class="svc-list">
             <div class="svc-item" data-svc-reveal="item" data-delay="0">
               <div class="svc-item__index">01</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">Wash & Cut</h4>
-                <p class="svc-item__desc">Precision cutting tailored to your face shape and lifestyle</p>
-              </div>
+              <div class="svc-item__body"><h4 class="svc-item__name">Wash & Cut</h4><p class="svc-item__desc">Precision cutting tailored to your face shape and lifestyle</p></div>
               <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$45</span>
-                <span class="svc-item__plus">+</span>
-              </div>
+              <div class="svc-item__price"><span class="svc-item__amount">$45</span><span class="svc-item__plus">+</span></div>
             </div>
-
             <div class="svc-item" data-svc-reveal="item" data-delay="1">
               <div class="svc-item__index">02</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">Shampoo & Blowdry</h4>
-                <p class="svc-item__desc">Luxurious wash with a polished, salon-perfect finish</p>
-              </div>
+              <div class="svc-item__body"><h4 class="svc-item__name">Shampoo & Blowdry</h4><p class="svc-item__desc">Luxurious wash with a polished, salon-perfect finish</p></div>
               <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$45</span>
-                <span class="svc-item__plus">+</span>
-              </div>
+              <div class="svc-item__price"><span class="svc-item__amount">$45</span><span class="svc-item__plus">+</span></div>
             </div>
-
             <div class="svc-item" data-svc-reveal="item" data-delay="2">
               <div class="svc-item__index">03</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">Wash, Cut & Blow</h4>
-                <p class="svc-item__desc">The complete transformation — cut, styled, and camera-ready</p>
-              </div>
+              <div class="svc-item__body"><h4 class="svc-item__name">Wash, Cut & Blow</h4><p class="svc-item__desc">The complete transformation — cut, styled, and camera-ready</p></div>
               <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$70</span>
-                <span class="svc-item__plus">+</span>
-              </div>
+              <div class="svc-item__price"><span class="svc-item__amount">$70</span><span class="svc-item__plus">+</span></div>
             </div>
-
-            <!-- View More → Hair -->
             <a href="services.html#hair" class="svc-viewmore" data-svc-reveal="item" data-delay="3">
               <span class="svc-viewmore__text">View All Hair Services</span>
-              <span class="svc-viewmore__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
+              <span class="svc-viewmore__arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- ── COLOR ── -->
+      <!-- COLOR -->
       <div class="svc-panel" id="panel-color" role="tabpanel">
         <div class="svc-panel__grid">
-
           <div class="svc-showcase" data-svc-reveal="card">
             <div class="svc-showcase__media">
-              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80" alt="Color mastery" class="svc-showcase__img" />
+              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80" alt="Color mastery" class="svc-showcase__img" loading="lazy" />
               <div class="svc-showcase__overlay"></div>
             </div>
             <div class="svc-showcase__content">
@@ -497,130 +372,45 @@
               <p class="svc-showcase__desc">From subtle dimension to bold transformation — bespoke color formulated exclusively for you.</p>
             </div>
           </div>
-
           <div class="svc-list">
             <div class="svc-item" data-svc-reveal="item" data-delay="0">
               <div class="svc-item__index">01</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">Touch-Up Roots</h4>
-                <p class="svc-item__desc">Seamless root coverage to maintain your perfect shade</p>
-              </div>
+              <div class="svc-item__body"><h4 class="svc-item__name">Touch-Up Roots</h4><p class="svc-item__desc">Seamless root coverage to maintain your perfect shade</p></div>
               <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$70</span>
-                <span class="svc-item__plus">+</span>
-              </div>
+              <div class="svc-item__price"><span class="svc-item__amount">$70</span><span class="svc-item__plus">+</span></div>
             </div>
-
             <div class="svc-item" data-svc-reveal="item" data-delay="1">
               <div class="svc-item__index">02</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">Root Shadow</h4>
-                <p class="svc-item__desc">Softened root transition for a natural, lived-in look</p>
-              </div>
+              <div class="svc-item__body"><h4 class="svc-item__name">Single Process All Over</h4><p class="svc-item__desc">Complete color refresh — rich, even, and beautifully glossy</p></div>
               <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$50</span>
-                <span class="svc-item__plus">+</span>
-              </div>
+              <div class="svc-item__price"><span class="svc-item__amount">$120</span><span class="svc-item__plus">+</span></div>
             </div>
-
             <div class="svc-item" data-svc-reveal="item" data-delay="2">
               <div class="svc-item__index">03</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">Single Process All Over</h4>
-                <p class="svc-item__desc">Complete color refresh — rich, even, and beautifully glossy</p>
-              </div>
+              <div class="svc-item__body"><h4 class="svc-item__name">Highlights — Full Head</h4><p class="svc-item__desc">All-over luminosity for maximum brightness and movement</p></div>
               <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$120</span>
-                <span class="svc-item__plus">+</span>
-              </div>
+              <div class="svc-item__price"><span class="svc-item__amount">$250</span><span class="svc-item__plus">+</span></div>
             </div>
-
             <div class="svc-item" data-svc-reveal="item" data-delay="3">
               <div class="svc-item__index">04</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">Double Process Color</h4>
-                <p class="svc-item__desc">Multi-step artistry for dramatic, show-stopping results</p>
-              </div>
+              <div class="svc-item__body"><h4 class="svc-item__name">Balayage — Full Head</h4><p class="svc-item__desc">Hand-painted, sun-kissed perfection — our signature technique</p></div>
               <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$250</span>
-                <span class="svc-item__plus">+</span>
-              </div>
+              <div class="svc-item__price"><span class="svc-item__amount">$250</span><span class="svc-item__plus">+</span></div>
             </div>
-
-            <div class="svc-item" data-svc-reveal="item" data-delay="4">
-              <div class="svc-item__index">05</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">Highlights — Half Head</h4>
-                <p class="svc-item__desc">Strategically placed dimension where light naturally falls</p>
-              </div>
-              <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$185</span>
-                <span class="svc-item__plus">+</span>
-              </div>
-            </div>
-
-            <div class="svc-item" data-svc-reveal="item" data-delay="5">
-              <div class="svc-item__index">06</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">Highlights — Full Head</h4>
-                <p class="svc-item__desc">All-over luminosity for maximum brightness and movement</p>
-              </div>
-              <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$250</span>
-                <span class="svc-item__plus">+</span>
-              </div>
-            </div>
-
-            <div class="svc-item" data-svc-reveal="item" data-delay="6">
-              <div class="svc-item__index">07</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">Balayage — Full Head</h4>
-                <p class="svc-item__desc">Hand-painted, sun-kissed perfection — our signature technique</p>
-              </div>
-              <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$250</span>
-                <span class="svc-item__plus">+</span>
-              </div>
-            </div>
-
-            <div class="svc-item" data-svc-reveal="item" data-delay="7">
-              <div class="svc-item__index">08</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">Gloss Treatment</h4>
-                <p class="svc-item__desc">Mirror-like shine and tonal enhancement in minutes</p>
-              </div>
-              <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$50</span>
-                <span class="svc-item__plus">+</span>
-              </div>
-            </div>
-
-            <!-- View More → Color -->
-            <a href="services.html#color" class="svc-viewmore" data-svc-reveal="item" data-delay="8">
+            <a href="services.html#color" class="svc-viewmore" data-svc-reveal="item" data-delay="4">
               <span class="svc-viewmore__text">View All Color Services</span>
-              <span class="svc-viewmore__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
+              <span class="svc-viewmore__arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- ── SMOOTHING ── -->
+      <!-- SMOOTHING -->
       <div class="svc-panel" id="panel-smoothing" role="tabpanel">
         <div class="svc-panel__grid">
-
           <div class="svc-showcase" data-svc-reveal="card">
             <div class="svc-showcase__media">
-              <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&q=80" alt="Smoothing treatments" class="svc-showcase__img" />
+              <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&q=80" alt="Smoothing treatments" class="svc-showcase__img" loading="lazy" />
               <div class="svc-showcase__overlay"></div>
             </div>
             <div class="svc-showcase__content">
@@ -629,52 +419,33 @@
               <p class="svc-showcase__desc">Revolutionary frizz-free results that last for months — sleek, smooth, and effortlessly manageable.</p>
             </div>
           </div>
-
           <div class="svc-list">
             <div class="svc-item" data-svc-reveal="item" data-delay="0">
               <div class="svc-item__index">01</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">ProAddiction Treatment</h4>
-                <p class="svc-item__desc">Next-generation smoothing with long-lasting, frizz-free shine</p>
-              </div>
+              <div class="svc-item__body"><h4 class="svc-item__name">ProAddiction Treatment</h4><p class="svc-item__desc">Next-generation smoothing with long-lasting, frizz-free shine</p></div>
               <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$350</span>
-                <span class="svc-item__plus">+</span>
-              </div>
+              <div class="svc-item__price"><span class="svc-item__amount">$350</span><span class="svc-item__plus">+</span></div>
             </div>
-
             <div class="svc-item" data-svc-reveal="item" data-delay="1">
               <div class="svc-item__index">02</div>
-              <div class="svc-item__body">
-                <h4 class="svc-item__name">Keratin Complex</h4>
-                <p class="svc-item__desc">The gold standard in keratin smoothing — silky, manageable hair for months</p>
-              </div>
+              <div class="svc-item__body"><h4 class="svc-item__name">Keratin Complex</h4><p class="svc-item__desc">The gold standard in keratin smoothing — silky, manageable hair for months</p></div>
               <div class="svc-item__divider"></div>
-              <div class="svc-item__price">
-                <span class="svc-item__amount">$300</span>
-                <span class="svc-item__plus">+</span>
-              </div>
+              <div class="svc-item__price"><span class="svc-item__amount">$300</span><span class="svc-item__plus">+</span></div>
             </div>
-
-            <!-- View More → Smoothing -->
             <a href="services.html#smoothing" class="svc-viewmore" data-svc-reveal="item" data-delay="2">
               <span class="svc-viewmore__text">View Smoothing Treatments</span>
-              <span class="svc-viewmore__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
+              <span class="svc-viewmore__arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- ── EXTENSIONS ── -->
+      <!-- EXTENSIONS -->
       <div class="svc-panel" id="panel-extensions" role="tabpanel">
         <div class="svc-panel__grid svc-panel__grid--center">
-
           <div class="svc-showcase svc-showcase--full" data-svc-reveal="card">
             <div class="svc-showcase__media">
-              <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=80" alt="Extensions & updos" class="svc-showcase__img" />
+              <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=80" alt="Extensions & updos" class="svc-showcase__img" loading="lazy" />
               <div class="svc-showcase__overlay"></div>
             </div>
             <div class="svc-showcase__content">
@@ -683,216 +454,99 @@
               <p class="svc-showcase__desc">Every installation and updo is entirely custom — tailored to your hair length, texture, and thickness for a flawless, natural result.</p>
             </div>
           </div>
-
-          <!-- Consultation Card -->
           <div class="svc-consult" data-svc-reveal="item" data-delay="0">
             <div class="svc-consult__glow"></div>
-            <div class="svc-consult__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-            </div>
+            <div class="svc-consult__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
             <h4 class="svc-consult__title">By Consultation Only</h4>
             <p class="svc-consult__desc">Pricing is tailored to your unique needs — let's discuss your vision and create a custom plan.</p>
             <a href="tel:+17185750532" class="svc-consult__btn">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
               <span>(718) 575-0532</span>
             </a>
-            <!-- View More → Extensions -->
-            <a href="services.html#extensions" class="svc-viewmore svc-viewmore--center" data-svc-reveal="item" data-delay="1">
-              <span class="svc-viewmore__text">View Extensions & Up-dos</span>
-              <span class="svc-viewmore__arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Bottom CTA -->
     <footer class="svc-footer" data-svc-reveal="footer">
-      <div class="svc-footer__rule">
-        <span class="svc-footer__rule-line"></span>
-        <span class="svc-footer__rule-diamond">✦</span>
-        <span class="svc-footer__rule-line"></span>
-      </div>
+      <div class="svc-footer__rule"><span class="svc-footer__rule-line"></span><span class="svc-footer__rule-diamond">✦</span><span class="svc-footer__rule-line"></span></div>
       <p class="svc-footer__note">Prices may vary based on hair length, texture, and thickness</p>
       <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-footer__btn">
         <span class="svc-footer__btn-text">Book Your Appointment</span>
-        <span class="svc-footer__btn-arrow">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </span>
+        <span class="svc-footer__btn-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         <span class="svc-footer__btn-shine"></span>
       </a>
       <a href="services.html" class="svc-footer__btn svc-footer__btn--outline">
         <span class="svc-footer__btn-text">View All Services</span>
-        <span class="svc-footer__btn-arrow">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </span>
-        <span class="svc-footer__btn-shine"></span>
+        <span class="svc-footer__btn-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
     </footer>
   </div>
 </section>
 
-<!-- ========== SHOWCASE / GALLERY SECTION ========== -->
+<!-- ========== GALLERY / SHOWCASE SECTION ========== -->
 <section id="showcase" class="gallery">
-
-  <!-- Ambient Background -->
   <div class="gal-bg" aria-hidden="true">
     <div class="gal-bg__grain"></div>
     <div class="gal-bg__orb gal-bg__orb--1"></div>
     <div class="gal-bg__orb gal-bg__orb--2"></div>
-    <div class="gal-bg__orb gal-bg__orb--3"></div>
-    <div class="gal-bg__line gal-bg__line--1"></div>
-    <div class="gal-bg__line gal-bg__line--2"></div>
-    <div class="gal-bg__line gal-bg__line--3"></div>
-    <div class="gal-bg__ring gal-bg__ring--1"></div>
-    <div class="gal-bg__ring gal-bg__ring--2"></div>
-    <!-- Floating particles -->
-    <div class="gal-bg__particles" id="galParticles"></div>
   </div>
 
   <div class="gal-container">
-
-    <!-- ═══════════════════════════════════
-         SECTION HEADER
-         ═══════════════════════════════════ -->
     <header class="gal-header reveal">
       <div class="gal-header__label">
         <span class="gal-header__label-line"></span>
         <span class="gal-header__label-text">Our Portfolio</span>
         <span class="gal-header__label-line"></span>
       </div>
-      <h2 class="gal-header__title">
-        The Art of <em>Transformation</em>
-      </h2>
-      <p class="gal-header__sub">
-        Every style tells a story. Explore real transformations by our master stylists —<br class="hide-mobile" />
-        from subtle refinements to dramatic reinventions.
-      </p>
+      <h2 class="gal-header__title">The Art of <em>Transformation</em></h2>
+      <p class="gal-header__sub">Every style tells a story. Explore real transformations by our master stylists.</p>
     </header>
 
-
-    <!-- ═══════════════════════════════════
-         BEFORE & AFTER SHOWCASE
-         ═══════════════════════════════════ -->
+    <!-- Before & After -->
     <div class="ba-section">
-
       <div class="ba-section__header reveal">
-        <span class="ba-section__badge">
-          <span class="ba-section__badge-dot"></span>
-          Drag to Reveal
-        </span>
+        <span class="ba-section__badge"><span class="ba-section__badge-dot"></span>Drag to Reveal</span>
         <h3 class="ba-section__title">Before & After</h3>
         <p class="ba-section__sub">Slide to see the transformation</p>
       </div>
-
       <div class="ba-grid">
-
-        <!-- Slider 1 — Balayage -->
         <div class="ba-card reveal" data-ba-slider>
           <div class="ba-card__frame">
-            <div class="ba-card__before">
-              <img src="images/airtouchbalbefore.jpeg" alt="Before balayage" class="ba-card__img" />
-              <span class="ba-card__label ba-card__label--before">Before</span>
-            </div>
-            <div class="ba-card__after">
-              <img src="images/airtouchbalafter.jpeg" alt="After balayage" class="ba-card__img" />
-              <span class="ba-card__label ba-card__label--after">After</span>
-            </div>
-            <!-- Slider Handle -->
-            <div class="ba-card__handle" aria-label="Drag to compare before and after">
-              <div class="ba-card__handle-line"></div>
-              <div class="ba-card__handle-knob">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 8l4 4-4 4"/>
-                  <path d="M6 8l-4 4 4 4"/>
-                </svg>
-              </div>
-              <div class="ba-card__handle-line"></div>
-            </div>
-            <!-- Glow effect on drag -->
+            <div class="ba-card__before"><img src="images/airtouchbalbefore.jpeg" alt="Before balayage" class="ba-card__img" loading="lazy" /><span class="ba-card__label ba-card__label--before">Before</span></div>
+            <div class="ba-card__after"><img src="images/airtouchbalafter.jpeg" alt="After balayage" class="ba-card__img" loading="lazy" /><span class="ba-card__label ba-card__label--after">After</span></div>
+            <div class="ba-card__handle" aria-label="Drag to compare"><div class="ba-card__handle-line"></div><div class="ba-card__handle-knob"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8l4 4-4 4"/><path d="M6 8l-4 4 4 4"/></svg></div><div class="ba-card__handle-line"></div></div>
             <div class="ba-card__glow"></div>
           </div>
-          <div class="ba-card__info">
-            <h4 class="ba-card__name">Air - Touch Balayage</h4>
-            <p class="ba-card__desc">Hand-painted highlights for a natural, luminous dimension</p>
-            <span class="ba-card__tag">Color · Balayage</span>
-          </div>
+          <div class="ba-card__info"><h4 class="ba-card__name">Air-Touch Balayage</h4><p class="ba-card__desc">Hand-painted highlights for a natural, luminous dimension</p><span class="ba-card__tag">Color · Balayage</span></div>
         </div>
 
-        <!-- Slider 2 — Highlights -->
         <div class="ba-card reveal" data-ba-slider>
           <div class="ba-card__frame">
-            <div class="ba-card__before">
-              <img src="images/beforehigh.jpeg" alt="Before color correction" class="ba-card__img" />
-              <span class="ba-card__label ba-card__label--before">Before</span>
-            </div>
-            <div class="ba-card__after">
-              <img src="images/afterhigh.jpeg" alt="After color correction" class="ba-card__img" />
-              <span class="ba-card__label ba-card__label--after">After</span>
-            </div>
-            <div class="ba-card__handle" aria-label="Drag to compare before and after">
-              <div class="ba-card__handle-line"></div>
-              <div class="ba-card__handle-knob">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 8l4 4-4 4"/>
-                  <path d="M6 8l-4 4 4 4"/>
-                </svg>
-              </div>
-              <div class="ba-card__handle-line"></div>
-            </div>
+            <div class="ba-card__before"><img src="images/beforehigh.jpeg" alt="Before highlights" class="ba-card__img" loading="lazy" /><span class="ba-card__label ba-card__label--before">Before</span></div>
+            <div class="ba-card__after"><img src="images/afterhigh.jpeg" alt="After highlights" class="ba-card__img" loading="lazy" /><span class="ba-card__label ba-card__label--after">After</span></div>
+            <div class="ba-card__handle" aria-label="Drag to compare"><div class="ba-card__handle-line"></div><div class="ba-card__handle-knob"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8l4 4-4 4"/><path d="M6 8l-4 4 4 4"/></svg></div><div class="ba-card__handle-line"></div></div>
             <div class="ba-card__glow"></div>
           </div>
-          <div class="ba-card__info">
-            <h4 class="ba-card__name">Highlights Transformation</h4>
-            <p class="ba-card__desc">Complete color correction to a flawless, icy blonde finish</p>
-            <span class="ba-card__tag">Color · Highlights</span>
-          </div>
+          <div class="ba-card__info"><h4 class="ba-card__name">Highlights Transformation</h4><p class="ba-card__desc">Complete color correction to a flawless, icy blonde finish</p><span class="ba-card__tag">Color · Highlights</span></div>
         </div>
 
-        <!-- Slider 3 — Keratin Smoothing -->
         <div class="ba-card reveal" data-ba-slider>
           <div class="ba-card__frame">
-            <div class="ba-card__before">
-              <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=80" alt="Before keratin treatment" class="ba-card__img" />
-              <span class="ba-card__label ba-card__label--before">Before</span>
-            </div>
-            <div class="ba-card__after">
-              <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=800&q=80" alt="After keratin treatment" class="ba-card__img" />
-              <span class="ba-card__label ba-card__label--after">After</span>
-            </div>
-            <div class="ba-card__handle" aria-label="Drag to compare before and after">
-              <div class="ba-card__handle-line"></div>
-              <div class="ba-card__handle-knob">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 8l4 4-4 4"/>
-                  <path d="M6 8l-4 4 4 4"/>
-                </svg>
-              </div>
-              <div class="ba-card__handle-line"></div>
-            </div>
+            <div class="ba-card__before"><img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&q=80" alt="Before keratin" class="ba-card__img" loading="lazy" /><span class="ba-card__label ba-card__label--before">Before</span></div>
+            <div class="ba-card__after"><img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=800&q=80" alt="After keratin" class="ba-card__img" loading="lazy" /><span class="ba-card__label ba-card__label--after">After</span></div>
+            <div class="ba-card__handle" aria-label="Drag to compare"><div class="ba-card__handle-line"></div><div class="ba-card__handle-knob"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8l4 4-4 4"/><path d="M6 8l-4 4 4 4"/></svg></div><div class="ba-card__handle-line"></div></div>
             <div class="ba-card__glow"></div>
           </div>
-          <div class="ba-card__info">
-            <h4 class="ba-card__name">Silk Keratin Treatment</h4>
-            <p class="ba-card__desc">From frizzy and unmanageable to mirror-smooth perfection</p>
-            <span class="ba-card__tag">Smoothing · Keratin</span>
-          </div>
+          <div class="ba-card__info"><h4 class="ba-card__name">Silk Keratin Treatment</h4><p class="ba-card__desc">From frizzy and unmanageable to mirror-smooth perfection</p><span class="ba-card__tag">Smoothing · Keratin</span></div>
         </div>
-
       </div>
     </div>
 
-
-    <!-- ═══════════════════════════════════
-         MASONRY GALLERY GRID
-         ═══════════════════════════════════ -->
+    <!-- Mosaic Gallery -->
     <div class="gal-mosaic-section">
-
       <div class="gal-mosaic__header reveal">
         <h3 class="gal-mosaic__title">Our Work</h3>
-        <!-- Filter Tabs -->
         <div class="gal-filters" role="tablist">
           <button class="gal-filter is-active" data-filter="all">All</button>
           <button class="gal-filter" data-filter="color">Color</button>
@@ -901,214 +555,27 @@
           <button class="gal-filter" data-filter="nails">Nails</button>
         </div>
       </div>
-
       <div class="gal-mosaic" id="galMosaic">
-
-        <!-- Row 1 -->
-        <div class="gal-item gal-item--tall" data-category="color" data-gal-reveal>
-          <div class="gal-item__inner">
-            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Balayage color work" class="gal-item__img" loading="lazy" />
-            <div class="gal-item__overlay">
-              <div class="gal-item__overlay-content">
-                <span class="gal-item__cat">Color</span>
-                <h4 class="gal-item__title">Golden Balayage</h4>
-                <p class="gal-item__sub">Hand-painted dimension</p>
-              </div>
-              <div class="gal-item__overlay-cta">
-                <span class="gal-item__view">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </span>
-              </div>
-            </div>
-            <div class="gal-item__shine"></div>
-          </div>
-        </div>
-
-        <div class="gal-item" data-category="cut" data-gal-reveal>
-          <div class="gal-item__inner">
-            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Precision cut" class="gal-item__img" loading="lazy" />
-            <div class="gal-item__overlay">
-              <div class="gal-item__overlay-content">
-                <span class="gal-item__cat">Cut</span>
-                <h4 class="gal-item__title">Textured Bob</h4>
-                <p class="gal-item__sub">Modern precision</p>
-              </div>
-              <div class="gal-item__overlay-cta">
-                <span class="gal-item__view">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </span>
-              </div>
-            </div>
-            <div class="gal-item__shine"></div>
-          </div>
-        </div>
-
-        <div class="gal-item" data-category="style" data-gal-reveal>
-          <div class="gal-item__inner">
-            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80" alt="Blowout styling" class="gal-item__img" loading="lazy" />
-            <div class="gal-item__overlay">
-              <div class="gal-item__overlay-content">
-                <span class="gal-item__cat">Styling</span>
-                <h4 class="gal-item__title">Silk Blowout</h4>
-                <p class="gal-item__sub">Volume & movement</p>
-              </div>
-              <div class="gal-item__overlay-cta">
-                <span class="gal-item__view">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </span>
-              </div>
-            </div>
-            <div class="gal-item__shine"></div>
-          </div>
-        </div>
-
-        <!-- Row 2 -->
-        <div class="gal-item" data-category="color" data-gal-reveal>
-          <div class="gal-item__inner">
-            <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80" alt="Highlights" class="gal-item__img" loading="lazy" />
-            <div class="gal-item__overlay">
-              <div class="gal-item__overlay-content">
-                <span class="gal-item__cat">Color</span>
-                <h4 class="gal-item__title">Honey Highlights</h4>
-                <p class="gal-item__sub">Warm luminosity</p>
-              </div>
-              <div class="gal-item__overlay-cta">
-                <span class="gal-item__view">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </span>
-              </div>
-            </div>
-            <div class="gal-item__shine"></div>
-          </div>
-        </div>
-
-        <div class="gal-item gal-item--tall" data-category="style" data-gal-reveal>
-          <div class="gal-item__inner">
-            <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&q=80" alt="Updo styling" class="gal-item__img" loading="lazy" />
-            <div class="gal-item__overlay">
-              <div class="gal-item__overlay-content">
-                <span class="gal-item__cat">Styling</span>
-                <h4 class="gal-item__title">Bridal Updo</h4>
-                <p class="gal-item__sub">Elegant occasion styling</p>
-              </div>
-              <div class="gal-item__overlay-cta">
-                <span class="gal-item__view">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </span>
-              </div>
-            </div>
-            <div class="gal-item__shine"></div>
-          </div>
-        </div>
-
-        <div class="gal-item" data-category="nails" data-gal-reveal>
-          <div class="gal-item__inner">
-            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80" alt="Nail art" class="gal-item__img" loading="lazy" />
-            <div class="gal-item__overlay">
-              <div class="gal-item__overlay-content">
-                <span class="gal-item__cat">Nails</span>
-                <h4 class="gal-item__title">Luxury Manicure</h4>
-                <p class="gal-item__sub">Nail couture</p>
-              </div>
-              <div class="gal-item__overlay-cta">
-                <span class="gal-item__view">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </span>
-              </div>
-            </div>
-            <div class="gal-item__shine"></div>
-          </div>
-        </div>
-
-        <!-- Row 3 -->
-        <div class="gal-item" data-category="cut" data-gal-reveal>
-          <div class="gal-item__inner">
-            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=80" alt="Layered cut" class="gal-item__img" loading="lazy" />
-            <div class="gal-item__overlay">
-              <div class="gal-item__overlay-content">
-                <span class="gal-item__cat">Cut</span>
-                <h4 class="gal-item__title">Layered Lob</h4>
-                <p class="gal-item__sub">Effortless movement</p>
-              </div>
-              <div class="gal-item__overlay-cta">
-                <span class="gal-item__view">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </span>
-              </div>
-            </div>
-            <div class="gal-item__shine"></div>
-          </div>
-        </div>
-
-        <div class="gal-item" data-category="color" data-gal-reveal>
-          <div class="gal-item__inner">
-            <img src="https://images.unsplash.com/photo-1500840216050-6ffa99d75160?w=600&q=80" alt="Vivid color" class="gal-item__img" loading="lazy" />
-            <div class="gal-item__overlay">
-              <div class="gal-item__overlay-content">
-                <span class="gal-item__cat">Color</span>
-                <h4 class="gal-item__title">Copper Gloss</h4>
-                <p class="gal-item__sub">Rich tonal depth</p>
-              </div>
-              <div class="gal-item__overlay-cta">
-                <span class="gal-item__view">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </span>
-              </div>
-            </div>
-            <div class="gal-item__shine"></div>
-          </div>
-        </div>
-
-        <div class="gal-item" data-category="nails" data-gal-reveal>
-          <div class="gal-item__inner">
-            <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80" alt="Gel nails" class="gal-item__img" loading="lazy" />
-            <div class="gal-item__overlay">
-              <div class="gal-item__overlay-content">
-                <span class="gal-item__cat">Nails</span>
-                <h4 class="gal-item__title">Gel Extensions</h4>
-                <p class="gal-item__sub">Flawless finish</p>
-              </div>
-              <div class="gal-item__overlay-cta">
-                <span class="gal-item__view">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                </span>
-              </div>
-            </div>
-            <div class="gal-item__shine"></div>
-          </div>
-        </div>
-
+        <div class="gal-item gal-item--tall" data-category="color" data-gal-reveal><div class="gal-item__inner"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Golden Balayage" class="gal-item__img" loading="lazy" /><div class="gal-item__overlay"><div class="gal-item__overlay-content"><span class="gal-item__cat">Color</span><h4 class="gal-item__title">Golden Balayage</h4></div></div></div></div>
+        <div class="gal-item" data-category="cut" data-gal-reveal><div class="gal-item__inner"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="Textured Bob" class="gal-item__img" loading="lazy" /><div class="gal-item__overlay"><div class="gal-item__overlay-content"><span class="gal-item__cat">Cut</span><h4 class="gal-item__title">Textured Bob</h4></div></div></div></div>
+        <div class="gal-item" data-category="style" data-gal-reveal><div class="gal-item__inner"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80" alt="Silk Blowout" class="gal-item__img" loading="lazy" /><div class="gal-item__overlay"><div class="gal-item__overlay-content"><span class="gal-item__cat">Styling</span><h4 class="gal-item__title">Silk Blowout</h4></div></div></div></div>
+        <div class="gal-item" data-category="color" data-gal-reveal><div class="gal-item__inner"><img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80" alt="Honey Highlights" class="gal-item__img" loading="lazy" /><div class="gal-item__overlay"><div class="gal-item__overlay-content"><span class="gal-item__cat">Color</span><h4 class="gal-item__title">Honey Highlights</h4></div></div></div></div>
+        <div class="gal-item gal-item--tall" data-category="style" data-gal-reveal><div class="gal-item__inner"><img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&q=80" alt="Bridal Updo" class="gal-item__img" loading="lazy" /><div class="gal-item__overlay"><div class="gal-item__overlay-content"><span class="gal-item__cat">Styling</span><h4 class="gal-item__title">Bridal Updo</h4></div></div></div></div>
+        <div class="gal-item" data-category="nails" data-gal-reveal><div class="gal-item__inner"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80" alt="Luxury Manicure" class="gal-item__img" loading="lazy" /><div class="gal-item__overlay"><div class="gal-item__overlay-content"><span class="gal-item__cat">Nails</span><h4 class="gal-item__title">Luxury Manicure</h4></div></div></div></div>
+        <div class="gal-item" data-category="cut" data-gal-reveal><div class="gal-item__inner"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=80" alt="Layered Lob" class="gal-item__img" loading="lazy" /><div class="gal-item__overlay"><div class="gal-item__overlay-content"><span class="gal-item__cat">Cut</span><h4 class="gal-item__title">Layered Lob</h4></div></div></div></div>
+        <div class="gal-item" data-category="color" data-gal-reveal><div class="gal-item__inner"><img src="https://images.unsplash.com/photo-1500840216050-6ffa99d75160?w=600&q=80" alt="Copper Gloss" class="gal-item__img" loading="lazy" /><div class="gal-item__overlay"><div class="gal-item__overlay-content"><span class="gal-item__cat">Color</span><h4 class="gal-item__title">Copper Gloss</h4></div></div></div></div>
+        <div class="gal-item" data-category="nails" data-gal-reveal><div class="gal-item__inner"><img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600&q=80" alt="Gel Extensions" class="gal-item__img" loading="lazy" /><div class="gal-item__overlay"><div class="gal-item__overlay-content"><span class="gal-item__cat">Nails</span><h4 class="gal-item__title">Gel Extensions</h4></div></div></div></div>
       </div>
     </div>
 
-
-    <!-- ═══════════════════════════════════
-         BOTTOM CTA
-         ═══════════════════════════════════ -->
     <div class="gal-cta reveal">
-      <div class="gal-cta__rule">
-        <span class="gal-cta__rule-line"></span>
-        <span class="gal-cta__rule-diamond">✦</span>
-        <span class="gal-cta__rule-line"></span>
-      </div>
+      <div class="gal-cta__rule"><span class="gal-cta__rule-line"></span><span class="gal-cta__rule-diamond">✦</span><span class="gal-cta__rule-line"></span></div>
       <p class="gal-cta__text">Ready for your own transformation?</p>
       <div class="gal-cta__buttons">
-        <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="gal-cta__btn gal-cta__btn--primary">
-          <span class="gal-cta__btn-text">Book Your Appointment</span>
-          <span class="gal-cta__btn-arrow">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </span>
-          <span class="gal-cta__btn-shine"></span>
-        </a>
-        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="gal-cta__btn gal-cta__btn--outline">
-          <span class="gal-cta__btn-text">See More on Instagram</span>
-          <span class="gal-cta__btn-arrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </span>
-        </a>
+        <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="gal-cta__btn gal-cta__btn--primary"><span class="gal-cta__btn-text">Book Your Appointment</span><span class="gal-cta__btn-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></a>
+        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="gal-cta__btn gal-cta__btn--outline"><span class="gal-cta__btn-text">See More on Instagram</span><span class="gal-cta__btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span></a>
       </div>
     </div>
-
   </div>
 
   <!-- Lightbox -->
@@ -1116,35 +583,186 @@
     <div class="gal-lightbox__backdrop"></div>
     <div class="gal-lightbox__content">
       <img src="" alt="" class="gal-lightbox__img" />
-      <button class="gal-lightbox__close" aria-label="Close">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-      <div class="gal-lightbox__info">
-        <h4 class="gal-lightbox__title"></h4>
-        <p class="gal-lightbox__sub"></p>
+      <button class="gal-lightbox__close" aria-label="Close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      <div class="gal-lightbox__info"><h4 class="gal-lightbox__title"></h4><p class="gal-lightbox__sub"></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WAXING SECTION ========== -->
+<section id="waxing" class="waxing">
+  <div class="waxing__bg" aria-hidden="true">
+    <div class="waxing__bg-orb waxing__bg-orb--1"></div>
+    <div class="waxing__bg-orb waxing__bg-orb--2"></div>
+  </div>
+
+  <div class="waxing__container">
+    <header class="waxing__header reveal">
+      <div class="waxing__label">
+        <span class="waxing__label-line"></span>
+        <span class="waxing__label-text">Waxing Studio</span>
+        <span class="waxing__label-line"></span>
+      </div>
+      <h2 class="waxing__title">Smooth <em>Perfection</em></h2>
+      <p class="waxing__sub">Gentle, precise waxing services for flawless, long-lasting results.</p>
+    </header>
+
+    <div class="waxing__grid">
+      <div class="waxing__col reveal">
+        <h3 class="waxing__col-title">Face & Body</h3>
+        <div class="waxing__item"><span class="waxing__item-name">Eyebrow</span><span class="waxing__item-dots"></span><span class="waxing__item-price">$15+</span></div>
+        <div class="waxing__item"><span class="waxing__item-name">Upper Lip</span><span class="waxing__item-dots"></span><span class="waxing__item-price">$10+</span></div>
+        <div class="waxing__item"><span class="waxing__item-name">Full Face</span><span class="waxing__item-dots"></span><span class="waxing__item-price">$45+</span></div>
+        <div class="waxing__item"><span class="waxing__item-name">Chin</span><span class="waxing__item-dots"></span><span class="waxing__item-price">$12+</span></div>
+        <div class="waxing__item"><span class="waxing__item-name">Underarms</span><span class="waxing__item-dots"></span><span class="waxing__item-price">$20+</span></div>
+      </div>
+      <div class="waxing__col reveal">
+        <h3 class="waxing__col-title">Arms & Legs</h3>
+        <div class="waxing__item"><span class="waxing__item-name">Half Arm</span><span class="waxing__item-dots"></span><span class="waxing__item-price">$25+</span></div>
+        <div class="waxing__item"><span class="waxing__item-name">Full Arm</span><span class="waxing__item-dots"></span><span class="waxing__item-price">$40+</span></div>
+        <div class="waxing__item"><span class="waxing__item-name">Half Leg</span><span class="waxing__item-dots"></span><span class="waxing__item-price">$35+</span></div>
+        <div class="waxing__item"><span class="waxing__item-name">Full Leg</span><span class="waxing__item-dots"></span><span class="waxing__item-price">$60+</span></div>
+        <div class="waxing__item"><span class="waxing__item-name">Bikini</span><span class="waxing__item-dots"></span><span class="waxing__item-price">$40+</span></div>
+      </div>
+    </div>
+
+    <div class="waxing__cta reveal">
+      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="waxing__btn">
+        <span>Book Waxing Appointment</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== REVIEWS SECTION ========== -->
+<section id="reviews" class="reviews">
+  <div class="reviews__bg" aria-hidden="true">
+    <div class="reviews__bg-orb reviews__bg-orb--1"></div>
+    <div class="reviews__bg-orb reviews__bg-orb--2"></div>
+  </div>
+
+  <div class="reviews__container">
+    <header class="reviews__header reveal">
+      <div class="reviews__label">
+        <span class="reviews__label-line"></span>
+        <span class="reviews__label-text">Testimonials</span>
+        <span class="reviews__label-line"></span>
+      </div>
+      <h2 class="reviews__title">What Our <em>Clients</em> Say</h2>
+      <p class="reviews__sub">Real experiences from the people who trust us with their beauty.</p>
+    </header>
+
+    <div class="reviews__grid">
+      <div class="reviews__card reveal">
+        <div class="reviews__stars">★★★★★</div>
+        <p class="reviews__quote">Marina is absolutely amazing! She transformed my hair with the most beautiful balayage. The salon has such a warm, luxurious atmosphere. I won't go anywhere else!</p>
+        <div class="reviews__author">
+          <span class="reviews__name">Sophia R.</span>
+          <span class="reviews__service">Balayage & Highlights</span>
+        </div>
+      </div>
+      <div class="reviews__card reveal">
+        <div class="reviews__stars">★★★★★</div>
+        <p class="reviews__quote">I've been coming to Panache for over 5 years. The attention to detail is unmatched. My keratin treatment lasts for months and my hair has never been healthier.</p>
+        <div class="reviews__author">
+          <span class="reviews__name">Elena M.</span>
+          <span class="reviews__service">Keratin Complex Treatment</span>
+        </div>
+      </div>
+      <div class="reviews__card reveal">
+        <div class="reviews__stars">★★★★★</div>
+        <p class="reviews__quote">Best salon in Forest Hills, hands down. Marina took the time to really understand what I wanted and delivered beyond my expectations. My color is absolutely perfect.</p>
+        <div class="reviews__author">
+          <span class="reviews__name">Amanda K.</span>
+          <span class="reviews__service">Color Correction</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews__cta reveal">
+      <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener" class="reviews__btn">
+        <span>Read More Reviews</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ SECTION ========== -->
+<section id="faq" class="faq">
+  <div class="faq__bg" aria-hidden="true">
+    <div class="faq__bg-orb faq__bg-orb--1"></div>
+    <div class="faq__bg-orb faq__bg-orb--2"></div>
+  </div>
+
+  <div class="faq__container">
+    <header class="faq__header reveal">
+      <div class="faq__label">
+        <span class="faq__label-line"></span>
+        <span class="faq__label-text">Common Questions</span>
+        <span class="faq__label-line"></span>
+      </div>
+      <h2 class="faq__title">Frequently <em>Asked</em></h2>
+      <p class="faq__sub">Everything you need to know before your visit.</p>
+    </header>
+
+    <div class="faq__list">
+      <div class="faq__item reveal" data-faq>
+        <button class="faq__question" aria-expanded="false">
+          <span>Do I need an appointment or do you accept walk-ins?</span>
+          <span class="faq__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq__answer"><p>We accept both! However, we highly recommend booking an appointment to ensure your preferred time and stylist are available. You can book online through Vagaro or call us directly.</p></div>
+      </div>
+      <div class="faq__item reveal" data-faq>
+        <button class="faq__question" aria-expanded="false">
+          <span>What should I expect during my first visit?</span>
+          <span class="faq__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq__answer"><p>Your first visit begins with a detailed consultation where we discuss your goals, hair history, and lifestyle. This helps us create a personalized plan. We recommend arriving 10 minutes early.</p></div>
+      </div>
+      <div class="faq__item reveal" data-faq>
+        <button class="faq__question" aria-expanded="false">
+          <span>How long does a balayage or highlight appointment take?</span>
+          <span class="faq__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq__answer"><p>Balayage and highlight services typically take 2.5 to 4 hours depending on your hair length, thickness, and the desired result. We never rush — quality takes time.</p></div>
+      </div>
+      <div class="faq__item reveal" data-faq>
+        <button class="faq__question" aria-expanded="false">
+          <span>How often should I get a keratin treatment?</span>
+          <span class="faq__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq__answer"><p>Keratin treatments typically last 3-5 months depending on your hair type and care routine. We recommend using sulfate-free shampoos to extend the life of your treatment.</p></div>
+      </div>
+      <div class="faq__item reveal" data-faq>
+        <button class="faq__question" aria-expanded="false">
+          <span>What is your cancellation policy?</span>
+          <span class="faq__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq__answer"><p>We kindly ask for at least 24 hours' notice for cancellations or rescheduling. Late cancellations or no-shows may be subject to a fee. We understand things come up — just let us know!</p></div>
+      </div>
+      <div class="faq__item reveal" data-faq>
+        <button class="faq__question" aria-expanded="false">
+          <span>Do you offer bridal or special occasion packages?</span>
+          <span class="faq__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="faq__answer"><p>Yes! We offer custom bridal and special occasion packages including updos, styling, and makeup coordination. Contact us for a personalized consultation and quote for your special day.</p></div>
       </div>
     </div>
   </div>
-
 </section>
-  
+
 <!-- ========== INSTAGRAM FEED SECTION ========== -->
 <section id="instagram" class="insta">
-
-  <!-- Ambient Background -->
   <div class="insta-bg" aria-hidden="true">
     <div class="insta-bg__grain"></div>
     <div class="insta-bg__orb insta-bg__orb--1"></div>
     <div class="insta-bg__orb insta-bg__orb--2"></div>
-    <div class="insta-bg__orb insta-bg__orb--3"></div>
-    <div class="insta-bg__glow"></div>
-    <div class="insta-bg__line insta-bg__line--1"></div>
-    <div class="insta-bg__line insta-bg__line--2"></div>
   </div>
 
   <div class="insta-container">
-
-    <!-- Section Header -->
     <header class="insta-header reveal">
       <div class="insta-header__label">
         <span class="insta-header__label-line"></span>
@@ -1154,15 +772,10 @@
         <span class="insta-header__label-text">@nycpanachesalon</span>
         <span class="insta-header__label-line"></span>
       </div>
-      <h2 class="insta-header__title">
-        Follow Our <em>Journey</em>
-      </h2>
-      <p class="insta-header__sub">
-        Transformations, behind-the-scenes artistry, and the beauty<br class="hide-mobile" /> that happens every day at Panache.
-      </p>
+      <h2 class="insta-header__title">Follow Our <em>Journey</em></h2>
+      <p class="insta-header__sub">Transformations, behind-the-scenes artistry, and the beauty that happens every day at Panache.</p>
     </header>
 
-    <!-- Elfsight Instagram Feed Widget -->
     <div class="insta-widget reveal">
       <div class="insta-widget__frame">
         <div class="insta-widget__shimmer"></div>
@@ -1172,84 +785,47 @@
       </div>
     </div>
 
-    <!-- Bottom CTA -->
     <div class="insta-cta reveal">
       <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="insta-cta__btn">
-        <span class="insta-cta__btn-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-        </span>
+        <span class="insta-cta__btn-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span>
         <span class="insta-cta__btn-text">Follow @nycpanachesalon</span>
-        <span class="insta-cta__btn-arrow">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </span>
-        <span class="insta-cta__btn-shine"></span>
+        <span class="insta-cta__btn-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
       </a>
     </div>
-
   </div>
 </section>
 
 <!-- ========== CONTACT SECTION ========== -->
 <section id="contact" class="contact">
-
-  <!-- Ambient Background -->
   <div class="contact-bg" aria-hidden="true">
     <div class="contact-bg__grain"></div>
     <div class="contact-bg__orb contact-bg__orb--1"></div>
     <div class="contact-bg__orb contact-bg__orb--2"></div>
-    <div class="contact-bg__orb contact-bg__orb--3"></div>
-    <div class="contact-bg__line contact-bg__line--1"></div>
-    <div class="contact-bg__line contact-bg__line--2"></div>
-    <div class="contact-bg__ring contact-bg__ring--1"></div>
   </div>
 
   <div class="contact-container">
-
-    <!-- Section Header -->
     <header class="contact-header reveal">
       <div class="contact-header__label">
         <span class="contact-header__label-line"></span>
         <span class="contact-header__label-text">Get in Touch</span>
         <span class="contact-header__label-line"></span>
       </div>
-      <h2 class="contact-header__title">
-        Visit <em>Panache</em>
-      </h2>
-      <p class="contact-header__sub">
-        Step into our Forest Hills sanctuary — or reach out to begin<br class="hide-mobile" />
-        your beauty journey today.
-      </p>
+      <h2 class="contact-header__title">Visit <em>Panache</em></h2>
+      <p class="contact-header__sub">Step into our Forest Hills sanctuary — or reach out to begin your beauty journey today.</p>
     </header>
 
-    <!-- ═══ TOP ROW: Form + Booking Side by Side ═══ -->
     <div class="contact-duo reveal">
-
-      <!-- Contact Form -->
       <div class="contact-duo__card contact-duo__card--form">
         <div class="contact-duo__card-header">
-          <div class="contact-duo__card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div>
-            <h3 class="contact-duo__card-title">Send a Message</h3>
-            <p class="contact-duo__card-sub">We'll get back to you within 24 hours</p>
-          </div>
+          <div class="contact-duo__card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><h3 class="contact-duo__card-title">Send a Message</h3><p class="contact-duo__card-sub">We'll get back to you within 24 hours</p></div>
         </div>
-        <div class="contact-duo__widget">
-          <div class="elfsight-app-a212f1f5-b064-4a21-b95e-42f259d903c7" data-elfsight-app-lazy></div>
-        </div>
+        <div class="contact-duo__widget"><div class="elfsight-app-a212f1f5-b064-4a21-b95e-42f259d903c7" data-elfsight-app-lazy></div></div>
       </div>
-
-      <!-- Booking Widget -->
       <div class="contact-duo__card contact-duo__card--book">
         <div class="contact-duo__card-header">
-          <div class="contact-duo__card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          </div>
-          <div>
-            <h3 class="contact-duo__card-title">Book Your Visit</h3>
-            <p class="contact-duo__card-sub">Schedule online via Vagaro</p>
-          </div>
+          <div class="contact-duo__card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div><h3 class="contact-duo__card-title">Book Your Visit</h3><p class="contact-duo__card-sub">Schedule online via Vagaro</p></div>
         </div>
         <div class="contact-duo__widget contact-duo__widget--vagaro">
           <div class="vagaro" style="width:100%;max-width:350px;padding:0;border:0;margin:0 auto;text-align:center;">
@@ -1259,138 +835,66 @@
           </div>
         </div>
       </div>
-
     </div>
 
-    <!-- ═══ BOTTOM ROW: Info Cards ═══ -->
     <div class="contact-info-row">
-
-      <!-- Location -->
       <div class="contact-info-card reveal">
-        <div class="contact-info-card__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
+        <div class="contact-info-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <h4 class="contact-info-card__title">Our Salon</h4>
         <p class="contact-info-card__text">107-12 71st Road<br />Forest Hills, NY 11375</p>
-        <a href="https://maps.google.com/?q=107-12+71st+Rd+Forest+Hills+NY+11375" target="_blank" rel="noopener" class="contact-info-card__link">
-          Get Directions
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
+        <a href="https://maps.google.com/?q=107-12+71st+Rd+Forest+Hills+NY+11375" target="_blank" rel="noopener" class="contact-info-card__link">Get Directions <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></a>
       </div>
-
-      <!-- Phone -->
       <div class="contact-info-card reveal">
-        <div class="contact-info-card__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        </div>
+        <div class="contact-info-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
         <h4 class="contact-info-card__title">Call Us</h4>
         <a href="tel:+17185750532" class="contact-info-card__phone">(718) 575-0532</a>
         <p class="contact-info-card__text contact-info-card__text--sm">Walk-ins welcome · Appointments preferred</p>
       </div>
-
-      <!-- Hours -->
       <div class="contact-info-card reveal">
-        <div class="contact-info-card__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
+        <div class="contact-info-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <h4 class="contact-info-card__title">Hours</h4>
         <div class="contact-hours">
-          <div class="contact-hours__row">
-            <span class="contact-hours__day">Mon</span>
-            <span class="contact-hours__dots"></span>
-            <span class="contact-hours__time">Closed</span>
-          </div>
-          <div class="contact-hours__row">
-            <span class="contact-hours__day"> Tue – Fri</span>
-            <span class="contact-hours__dots"></span>
-            <span class="contact-hours__time">10 AM – 7 PM</span>
-          </div>
-          <div class="contact-hours__row">
-            <span class="contact-hours__day">Sunday</span>
-            <span class="contact-hours__dots"></span>
-            <span class="contact-hours__time">10 AM – 5 PM</span>
-          </div>
+          <div class="contact-hours__row"><span class="contact-hours__day">Mon</span><span class="contact-hours__dots"></span><span class="contact-hours__time">Closed</span></div>
+          <div class="contact-hours__row"><span class="contact-hours__day">Tue – Sat</span><span class="contact-hours__dots"></span><span class="contact-hours__time">10 AM – 7 PM</span></div>
+          <div class="contact-hours__row"><span class="contact-hours__day">Sunday</span><span class="contact-hours__dots"></span><span class="contact-hours__time">10 AM – 5 PM</span></div>
         </div>
       </div>
-
-      <!-- Socials -->
       <div class="contact-info-card reveal">
-        <div class="contact-info-card__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-        </div>
+        <div class="contact-info-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
         <h4 class="contact-info-card__title">Connect</h4>
         <div class="contact-socials-grid">
-          <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="contact-social-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            <span>Instagram</span>
-          </a>
-          <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="contact-social-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            <span>Facebook</span>
-          </a>
-          <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener" class="contact-social-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143z"/></svg>
-            <span>Yelp</span>
-          </a>
+          <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="contact-social-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg><span>Instagram</span></a>
+          <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="contact-social-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span>Facebook</span></a>
+          <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener" class="contact-social-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143z"/></svg><span>Yelp</span></a>
         </div>
       </div>
-
     </div>
 
-    <!-- Map -->
     <div class="contact-map reveal">
       <div class="contact-map__frame">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.123!2d-73.8463!3d40.7209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25e3e8a26e3b7%3A0x4a5b8a4e9e4f3c2d!2s107-12%2071st%20Rd%2C%20Forest%20Hills%2C%20NY%2011375!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade" title="NYC Panache Salon Location">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.123!2d-73.8463!3d40.7209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25e3e8a26e3b7%3A0x4a5b8a4e9e4f3c2d!2s107-12%2071st%20Rd%2C%20Forest%20Hills%2C%20NY%2011375!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="NYC Panache Salon Location"></iframe>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- ========== FOOTER ========== -->
 <footer id="footer" class="footer">
+  <div class="footer__rule-top"><span class="footer__rule-line"></span><span class="footer__rule-diamond">✦</span><span class="footer__rule-line"></span></div>
 
-  <!-- Top Gold Rule -->
-  <div class="footer__rule-top">
-    <span class="footer__rule-line"></span>
-    <span class="footer__rule-diamond">✦</span>
-    <span class="footer__rule-line"></span>
-  </div>
-
-  <!-- Main Footer Content -->
   <div class="footer__main">
     <div class="footer__container">
-
-      <!-- Footer Grid -->
       <div class="footer__grid">
-
-        <!-- Column 1 — Brand -->
         <div class="footer__brand reveal">
-          <a href="#" class="footer__logo-link">
-            <img src="logo.png" alt="NYC Panache Salon" class="footer__logo" />
-          </a>
+          <a href="#" class="footer__logo-link"><img src="logo.png" alt="NYC Panache Salon" class="footer__logo" /></a>
           <p class="footer__tagline">Where Elegance Meets Artistry</p>
-          <p class="footer__brand-desc">
-            A luxury salon experience in the heart of Forest Hills, Queens — crafted for those who expect nothing less than extraordinary.
-          </p>
+          <p class="footer__brand-desc">A luxury salon experience in the heart of Forest Hills, Queens — crafted for those who expect nothing less than extraordinary.</p>
           <div class="footer__social-row">
-            <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="footer__social" aria-label="Instagram">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
-            <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="footer__social" aria-label="Facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </a>
-            <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener" class="footer__social" aria-label="Yelp">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143z"/></svg>
-            </a>
+            <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="footer__social" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="footer__social" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener" class="footer__social" aria-label="Yelp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143z"/></svg></a>
           </div>
         </div>
-
-        <!-- Column 2 — Quick Links -->
         <div class="footer__col reveal">
           <h4 class="footer__col-title">Explore</h4>
           <nav class="footer__nav">
@@ -1399,11 +903,10 @@
             <a href="#showcase" class="footer__nav-link">Gallery</a>
             <a href="#waxing" class="footer__nav-link">Waxing</a>
             <a href="#reviews" class="footer__nav-link">Reviews</a>
+            <a href="#faq" class="footer__nav-link">FAQ</a>
             <a href="#contact" class="footer__nav-link">Contact</a>
           </nav>
         </div>
-
-        <!-- Column 3 — Services -->
         <div class="footer__col reveal">
           <h4 class="footer__col-title">Services</h4>
           <nav class="footer__nav">
@@ -1415,73 +918,42 @@
             <a href="services.html#waxing" class="footer__nav-link">Waxing</a>
           </nav>
         </div>
-
-        <!-- Column 4 — Contact -->
         <div class="footer__col reveal">
           <h4 class="footer__col-title">Visit Us</h4>
           <div class="footer__contact-list">
-            <div class="footer__contact-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>107-12 71st Road 2nd Floor<br />Forest Hills, NY 11375</span>
-            </div>
-            <div class="footer__contact-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-              <a href="tel:+17185750532">(718) 575-0532</a>
-            </div>
-            <div class="footer__contact-item">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>Mon Closed · Tue - Sat 10–7 · Sun 10–5</span>
-            </div>
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>107-12 71st Road 2nd Floor<br />Forest Hills, NY 11375</span></div>
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+17185750532">(718) 575-0532</a></div>
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon Closed · Tue - Sat 10–7 · Sun 10–5</span></div>
           </div>
-
-          <!-- Book CTA -->
-          <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="footer__book-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <span>Book Appointment</span>
-          </a>
+          <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="footer__book-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Book Appointment</span></a>
         </div>
-
       </div>
     </div>
   </div>
 
-  <!-- Bottom Bar -->
   <div class="footer__bottom">
     <div class="footer__bottom-container">
-
-      <!-- Copyright -->
-      <p class="footer__copy">
-        &copy; <span id="footerYear"></span> NYC Panache Salon. All rights reserved.
-      </p>
-
-      <!-- Design Credit -->
+      <p class="footer__copy">&copy; <span id="footerYear"></span> NYC Panache Salon. All rights reserved.</p>
       <a href="https://www.elanstechworld.com" target="_blank" rel="noopener" class="footer__credit">
         <span class="footer__credit-text">Designed & Developed by</span>
         <span class="footer__credit-brand">
           <img src="https://www.elanstechworld.com/assets/images/Elanslogo.jpeg" alt="Elan's Tech World" class="footer__credit-logo" />
           <span class="footer__credit-name">Elan's Tech World</span>
         </span>
-        <span class="footer__credit-arrow">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </span>
+        <span class="footer__credit-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
       </a>
-
     </div>
   </div>
 
-  <!-- Back to Top -->
   <button id="backToTop" class="footer__btt" aria-label="Back to top">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
-
 </footer>
 
-  
-  <!-- Elfsight AI Chatbot (floating) -->
-  <div class="elfsight-app-3fc0671f-332f-4f6f-be9c-1d5d478b085c" data-elfsight-app-lazy></div>
+<!-- Elfsight Widgets (floating) -->
+<div class="elfsight-app-3fc0671f-332f-4f6f-be9c-1d5d478b085c" data-elfsight-app-lazy></div>
+<div class="elfsight-app-df4da5ed-9603-40b2-9108-8019162233d1" data-elfsight-app-lazy></div>
 
-  <div class="elfsight-app-df4da5ed-9603-40b2-9108-8019162233d1" data-elfsight-app-lazy></div>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
