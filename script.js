@@ -41,153 +41,47 @@
     'contact':  '#contact'
   };
 
-  /* ═══════════════════════════════════
-     FLOATING NAV — FIXED
+/* ═══════════════════════════════════
+     FLOATING NAV — NO HIDE/SHOW
+     Links go to actual pages.
      ═══════════════════════════════════ */
   function initFloatingNav() {
     const nav = $('#floatNav');
     if (!nav) return;
 
-    const links = $$('.float-nav__link', nav);
-    const sections = [];
-    let lastY = 0;
-    let scrollDelta = 0;
-    const HIDE_THRESHOLD = 80;  // px of downward scroll before hiding
-    const SHOW_THRESHOLD = 20;  // px of upward scroll before showing
-    let isMenuOpen = false;
-
-    // Build section map from data-nav attributes for active tracking
-    links.forEach(link => {
-      const navKey = link.getAttribute('data-nav');
-      if (navKey && NAV_MAP[navKey]) {
-        const sec = $(NAV_MAP[navKey]);
-        if (sec) sections.push({ el: sec, link });
-      }
-    });
-
+    // Only thing scroll does: toggle the visual "scrolled" style
     function onScroll() {
-      if (isMenuOpen) return;
-
-      const y = window.scrollY;
-      const delta = y - lastY;
-
-      // Scrolled state styling
-      nav.classList.toggle('is-scrolled', y > 60);
-
-      // Accumulate scroll direction
-      if (delta > 0) {
-        // Scrolling down
-        scrollDelta = Math.max(0, scrollDelta + delta);
-        if (scrollDelta > HIDE_THRESHOLD && y > 200) {
-          nav.classList.add('is-hidden');
-        }
-      } else {
-        // Scrolling up
-        scrollDelta = Math.min(0, scrollDelta + delta);
-        if (scrollDelta < -SHOW_THRESHOLD || y < 100) {
-          nav.classList.remove('is-hidden');
-          scrollDelta = 0;
-        }
-      }
-
-      // Reset delta accumulator on direction change
-      if ((delta > 0 && scrollDelta < 0) || (delta < 0 && scrollDelta > 0)) {
-        scrollDelta = 0;
-      }
-
-      lastY = y;
-
-      // Active section tracking (only on homepage)
-      if (isHomepage() && sections.length) {
-        const trigger = y + window.innerHeight * 0.35;
-        let active = null;
-        for (const { el, link } of sections) {
-          if (trigger >= el.offsetTop && trigger < el.offsetTop + el.offsetHeight) {
-            active = link;
-          }
-        }
-        links.forEach(l => l.classList.toggle('active', l === active));
-      }
+      nav.classList.toggle('is-scrolled', window.scrollY > 60);
     }
 
     window.addEventListener('scroll', throttleRAF(onScroll), { passive: true });
-
-    // Click handling — on homepage, scroll to sections
-    links.forEach(l => l.addEventListener('click', e => {
-      const href = l.getAttribute('href');
-      const navKey = l.getAttribute('data-nav');
-
-      // If homepage link, just scroll to top
-      if (href === 'index.html' || href === '/' || href === '#') {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
-      }
-
-      // If on homepage and link has a data-nav mapping, scroll to section
-      if (isHomepage() && navKey && NAV_MAP[navKey]) {
-        e.preventDefault();
-        const target = $(NAV_MAP[navKey]);
-        if (target) {
-          window.scrollTo({
-            top: target.getBoundingClientRect().top + window.scrollY - 90,
-            behavior: 'smooth'
-          });
-        }
-        return;
-      }
-
-      // Hash links scroll to section
-      if (href && href.startsWith('#')) {
-        e.preventDefault();
-        const target = $(href);
-        if (target) {
-          window.scrollTo({
-            top: target.getBoundingClientRect().top + window.scrollY - 90,
-            behavior: 'smooth'
-          });
-        }
-        return;
-      }
-
-      // Otherwise, let the link navigate normally (to subpages)
-    }));
-
-    // Expose menu state setter for mobile menu
-    nav._setMenuOpen = (open) => {
-      isMenuOpen = open;
-      if (open) {
-        nav.classList.add('is-menu-open');
-      } else {
-        nav.classList.remove('is-menu-open');
-        // Reset hidden state when menu closes
-        scrollDelta = 0;
-        lastY = window.scrollY;
-      }
-    };
-
     onScroll();
+
+    // Links navigate normally — no preventDefault, no scroll hijack.
+    // The hrefs in the HTML already point to pages/about.html etc.
+    // Nothing else needed here.
   }
 
   /* ═══════════════════════════════════
-     MOBILE MENU — FIXED
+     MOBILE MENU
      ═══════════════════════════════════ */
   function initMobileMenu() {
     const burger = $('#navBurger');
-    const menu = $('#mobMenu');
-    const nav = $('#floatNav');
+    const menu   = $('#mobMenu');
+    const nav    = $('#floatNav');
     const closeBtn = $('#mobMenuClose');
     if (!burger || !menu) return;
 
     const backdrop = $('.mob-menu__backdrop', menu);
-    const links = $$('.mob-menu__link', menu);
-    let isOpen = false;
-    let animating = false;
+    const links    = $$('.mob-menu__link', menu);
+    let isOpen     = false;
+    let animating  = false;
 
     function open() {
       if (animating || isOpen) return;
       isOpen = true;
       animating = true;
+
       burger.classList.add('is-open');
       burger.setAttribute('aria-expanded', 'true');
       menu.setAttribute('aria-hidden', 'false');
@@ -195,8 +89,8 @@
       menu.classList.add('is-open');
       document.body.style.overflow = 'hidden';
 
-      // Tell nav to hide
-      if (nav && nav._setMenuOpen) nav._setMenuOpen(true);
+      // Hide the floating nav bar while menu is open
+      if (nav) nav.classList.add('is-menu-open');
 
       setTimeout(() => { animating = false; }, 600);
     }
@@ -205,6 +99,7 @@
       if (animating || !isOpen) return;
       isOpen = false;
       animating = true;
+
       burger.classList.remove('is-open');
       burger.setAttribute('aria-expanded', 'false');
       menu.setAttribute('aria-hidden', 'true');
@@ -215,79 +110,24 @@
         document.body.style.overflow = '';
         animating = false;
 
-        // Tell nav to show again
-        if (nav && nav._setMenuOpen) nav._setMenuOpen(false);
+        // Show the floating nav bar again
+        if (nav) nav.classList.remove('is-menu-open');
       }, 550);
     }
 
     burger.addEventListener('click', (e) => {
       e.stopPropagation();
-      if (isOpen) close();
-      else open();
+      if (isOpen) close(); else open();
     });
 
     if (closeBtn) closeBtn.addEventListener('click', close);
     if (backdrop) backdrop.addEventListener('click', close);
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen) close(); });
 
-    // Mobile menu link handling
-    links.forEach(l => l.addEventListener('click', e => {
-      const href = l.getAttribute('href');
-      if (!href || href === '#') return;
-
-      // If on homepage, intercept and scroll to section
-      if (isHomepage()) {
-        // Map the href to a section ID
-        let targetSel = null;
-
-        if (href === 'index.html' || href === '/') {
-          e.preventDefault();
-          close();
-          setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 400);
-          return;
-        }
-
-        // Check if href matches a page that maps to a section
-        if (href.includes('about'))    targetSel = '#about';
-        if (href.includes('services')) targetSel = '#services';
-        if (href.includes('gallery'))  targetSel = '#showcase';
-        if (href.includes('faq'))      targetSel = '#faq';
-        if (href.includes('contact'))  targetSel = '#contact';
-
-        if (targetSel) {
-          e.preventDefault();
-          close();
-          setTimeout(() => {
-            const target = $(targetSel);
-            if (target) {
-              window.scrollTo({
-                top: target.getBoundingClientRect().top + window.scrollY - 90,
-                behavior: 'smooth'
-              });
-            }
-          }, 400);
-          return;
-        }
-      }
-
-      // Hash links
-      if (href.startsWith('#')) {
-        e.preventDefault();
-        close();
-        setTimeout(() => {
-          const target = $(href);
-          if (target) {
-            window.scrollTo({
-              top: target.getBoundingClientRect().top + window.scrollY - 90,
-              behavior: 'smooth'
-            });
-          }
-        }, 400);
-        return;
-      }
-
-      // Otherwise navigate normally
+    // Mobile menu links — just close menu, then let normal navigation happen
+    links.forEach(l => l.addEventListener('click', () => {
       close();
+      // The browser will follow the href naturally after close()
     }));
   }
 
