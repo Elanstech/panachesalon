@@ -125,11 +125,15 @@
     links.forEach(l => l.addEventListener('click', e => {
   const href = l.getAttribute('href');
   if (!href || href === '#') return;
-  if (!href.startsWith('#')) return;
+  if (!href.startsWith('#')) { close(); return; }
   e.preventDefault();
-  const target = $(href);
-  if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
-   }));
+  close();
+  setTimeout(() => {
+    const target = $(href);
+    if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+  }, 400);
+}));
+   
   }
 
   /* ═══════════════════════════════════
