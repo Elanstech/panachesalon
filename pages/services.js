@@ -1,5 +1,6 @@
 /* ╔══════════════════════════════════════════════════╗
-   ║  NYC PANACHE SALON — SERVICES PAGE JS            ║
+   ║  NYC PANACHE SALON — SERVICES PAGE JS v2         ║
+   ║  Cinematic · Apple-level · Warm & Inviting       ║
    ║  Requires: ../script.js (root) loaded first      ║
    ╚══════════════════════════════════════════════════╝ */
 (() => {
@@ -7,12 +8,151 @@
 
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+  const raf = requestAnimationFrame.bind(window);
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const desktop = () => window.innerWidth > 1024;
+
+  function throttleRAF(fn) {
+    let busy = false;
+    return function (...a) {
+      if (busy) return;
+      busy = true;
+      raf(() => { fn.apply(this, a); busy = false; });
+    };
+  }
 
   /* ═══════════════════════════════════
-     STICKY CATEGORY NAV — Active state
+     HERO — Cinematic Entrance Animation
+     ═══════════════════════════════════ */
+  function initHeroEntrance() {
+    const hero = $('#spHero');
+    if (!hero) return;
+
+    const show = (sel, delay) => {
+      const el = $(`[data-sp-anim="${sel}"]`, hero);
+      if (el) setTimeout(() => el.classList.add('is-visible'), delay);
+    };
+
+    // Staggered reveal sequence
+    setTimeout(() => {
+      show('pill', 200);
+      show('eyebrow', 500);
+
+      // Word-by-word reveal
+      $$('[data-sp-anim="word"]', hero).forEach(w => {
+        const d = parseInt(w.dataset.delay || 0, 10);
+        setTimeout(() => w.classList.add('is-visible'), 700 + d * 180);
+      });
+
+      show('sub', 1400);
+      show('rule', 1800);
+      show('ctas', 2100);
+      show('scroll', 2400);
+
+      // Stats stagger
+      $$('[data-sp-anim="stat"]', hero).forEach(s => {
+        const d = parseInt(s.dataset.delay || 0, 10);
+        setTimeout(() => s.classList.add('is-visible'), 2600 + d * 150);
+      });
+    }, 300);
+  }
+
+  /* ═══════════════════════════════════
+     HERO — Multi-layer Parallax
+     ═══════════════════════════════════ */
+  function initHeroParallax() {
+    const hero = $('#spHero');
+    const parallax = $('#spHeroParallax');
+    const content = $('#spHeroContent');
+    if (!hero || !parallax) return;
+
+    let heroH = hero.offsetHeight;
+
+    function onScroll() {
+      const y = window.scrollY;
+      if (y > heroH * 1.2) return;
+
+      const p = y / heroH;
+
+      // Image moves slower (parallax)
+      parallax.style.transform = `translate3d(0, ${y * 0.35}px, 0) scale(${1 + p * 0.04})`;
+
+      // Content moves faster + fades
+      if (content) {
+        content.style.transform = `translate3d(0, ${y * -0.15}px, 0)`;
+        content.style.opacity = String(Math.max(1 - p * 1.6, 0));
+      }
+    }
+
+    window.addEventListener('scroll', throttleRAF(onScroll), { passive: true });
+    window.addEventListener('resize', () => { heroH = hero.offsetHeight; });
+  }
+
+  /* ═══════════════════════════════════
+     HERO — Scroll Indicator Click
+     ═══════════════════════════════════ */
+  function initHeroScroll() {
+    const scroll = $('.sp-hero__scroll');
+    if (!scroll) return;
+
+    scroll.addEventListener('click', () => {
+      const target = $('.sp-marquee') || $('.sp-catnav');
+      if (target) window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
+    });
+
+    // Fade scroll indicator on scroll
+    let hidden = false;
+    window.addEventListener('scroll', throttleRAF(() => {
+      const y = window.scrollY;
+      if (!hidden && y > 100) {
+        scroll.style.opacity = '0';
+        scroll.style.pointerEvents = 'none';
+        hidden = true;
+      } else if (hidden && y <= 100) {
+        scroll.style.opacity = '1';
+        scroll.style.pointerEvents = 'auto';
+        hidden = false;
+      }
+    }), { passive: true });
+  }
+
+  /* ═══════════════════════════════════
+     HERO — Magnetic Buttons (Desktop)
+     ═══════════════════════════════════ */
+  function initHeroMagnetic() {
+    if (!desktop() || reduced) return;
+    $$('.sp-hero__btn').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) * 0.1;
+        const y = (e.clientY - r.top - r.height / 2) * 0.12;
+        btn.style.transform = `translate3d(${x}px, ${y}px, 0) translateY(-3px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+      });
+    });
+  }
+
+  /* ═══════════════════════════════════
+     HERO — Smooth anchor for "Explore Services"
+     ═══════════════════════════════════ */
+  function initHeroCTA() {
+    $$('.sp-hero__btn[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = $(a.getAttribute('href'));
+        if (target) window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
+      });
+    });
+  }
+
+  /* ═══════════════════════════════════
+     STICKY CATEGORY NAV — Active Spy
      ═══════════════════════════════════ */
   function initCatNav() {
     const nav = $('#spCatnav');
+    if (!nav) return;
     const links = $$('.sp-catnav__link', nav);
     const sections = [];
 
@@ -25,40 +165,32 @@
     });
 
     function onScroll() {
-      const y = window.scrollY + 120;
+      const y = window.scrollY + 130;
       let active = null;
       for (const { el, link } of sections) {
         if (y >= el.offsetTop && y < el.offsetTop + el.offsetHeight) active = link;
       }
       links.forEach(l => l.classList.toggle('is-active', l === active));
 
-      // Auto-scroll the active link into view within the nav
       if (active && nav) {
         const inner = $('.sp-catnav__inner', nav);
         if (inner) {
-          const linkRect = active.getBoundingClientRect();
-          const innerRect = inner.getBoundingClientRect();
-          if (linkRect.left < innerRect.left || linkRect.right > innerRect.right) {
+          const lr = active.getBoundingClientRect();
+          const ir = inner.getBoundingClientRect();
+          if (lr.left < ir.left || lr.right > ir.right) {
             active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
           }
         }
       }
     }
 
-    window.addEventListener('scroll', () => requestAnimationFrame(onScroll), { passive: true });
+    window.addEventListener('scroll', throttleRAF(onScroll), { passive: true });
 
-    // Smooth scroll on click
     links.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        const href = link.getAttribute('href');
-        const target = $(href);
-        if (target) {
-          window.scrollTo({
-            top: target.offsetTop - 60,
-            behavior: 'smooth'
-          });
-        }
+        const target = $(link.getAttribute('href'));
+        if (target) window.scrollTo({ top: target.offsetTop - 65, behavior: 'smooth' });
       });
     });
 
@@ -101,10 +233,8 @@
       document.body.style.overflow = '';
     }
 
-    // Attach click to all service cards (not CTA cards)
     $$('.sp-card[data-modal]').forEach(card => {
       card.addEventListener('click', e => {
-        // Don't open if they clicked a link inside
         if (e.target.closest('a')) return;
         openModal(card);
       });
@@ -118,19 +248,17 @@
   }
 
   /* ═══════════════════════════════════
-     CARD HOVER TILT (Desktop only)
+     CARD 3D TILT (Desktop)
      ═══════════════════════════════════ */
   function initCardTilt() {
-    if (window.innerWidth <= 1024) return;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) return;
+    if (!desktop() || reduced) return;
 
     $$('.sp-card:not(.sp-card--cta)').forEach(card => {
       card.addEventListener('mousemove', e => {
         const r = card.getBoundingClientRect();
         const x = (e.clientX - r.left) / r.width - 0.5;
         const y = (e.clientY - r.top) / r.height - 0.5;
-        card.style.transform = `translateY(-5px) perspective(800px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
+        card.style.transform = `translateY(-6px) perspective(800px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
       });
       card.addEventListener('mouseleave', () => {
         card.style.transform = '';
@@ -139,7 +267,7 @@
   }
 
   /* ═══════════════════════════════════
-     STAGGERED REVEAL FOR CARDS
+     STAGGERED CARD REVEAL
      ═══════════════════════════════════ */
   function initCardReveal() {
     const cards = $$('.sp-card');
@@ -148,23 +276,41 @@
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          // Find sibling cards in the same grid
           const grid = e.target.parentElement;
           const siblings = $$('.sp-card', grid);
           const idx = siblings.indexOf(e.target);
           setTimeout(() => {
             e.target.classList.add('visible');
-          }, idx * 60);
+          }, idx * 70);
           obs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
 
     cards.forEach(card => obs.observe(card));
   }
 
   /* ═══════════════════════════════════
-     WAXING ITEMS REVEAL
+     SECTION HEADER REVEAL
+     ═══════════════════════════════════ */
+  function initSectionReveal() {
+    const headers = $$('.sp-section__header, .sp-subheading');
+    if (!headers.length) return;
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    headers.forEach(h => obs.observe(h));
+  }
+
+  /* ═══════════════════════════════════
+     WAXING ITEMS STAGGER REVEAL
      ═══════════════════════════════════ */
   function initWaxReveal() {
     const items = $$('.sp-wax-item');
@@ -186,37 +332,29 @@
 
     items.forEach(item => {
       item.style.opacity = '0';
-      item.style.transform = 'translateX(-12px)';
+      item.style.transform = 'translateX(-15px)';
       item.style.transition = 'opacity .6s var(--ease-out), transform .6s var(--ease-out)';
       obs.observe(item);
     });
   }
 
   /* ═══════════════════════════════════
-     HERO PARALLAX
+     BOTTOM CTA REVEAL
      ═══════════════════════════════════ */
-  function initHeroParallax() {
-    const hero = $('.sp-hero');
-    const img = $('.sp-hero__img');
-    const content = $('.sp-hero__content');
-    if (!hero || !img) return;
+  function initBottomCTA() {
+    const cta = $('.sp-bottom-cta');
+    if (!cta) return;
 
-    let heroH = hero.offsetHeight;
-
-    window.addEventListener('scroll', () => {
-      requestAnimationFrame(() => {
-        const y = window.scrollY;
-        if (y > heroH) return;
-        const p = y / heroH;
-        if (content) {
-          content.style.transform = `translateY(${p * 40}px)`;
-          content.style.opacity = String(Math.max(1 - p * 1.4, 0));
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
         }
-        img.style.transform = `scale(${1.05 + p * 0.06})`;
       });
-    }, { passive: true });
+    }, { threshold: 0.15 });
 
-    window.addEventListener('resize', () => { heroH = hero.offsetHeight; });
+    obs.observe(cta);
   }
 
   /* ═══════════════════════════════════
@@ -228,15 +366,37 @@
   }
 
   /* ═══════════════════════════════════
+     BODY LOADED CLASS
+     ═══════════════════════════════════ */
+  function markLoaded() {
+    document.body.classList.add('loaded');
+  }
+
+  /* ═══════════════════════════════════
      BOOT
      ═══════════════════════════════════ */
   function boot() {
+    markLoaded();
+
+    // Hero
+    initHeroEntrance();
+    initHeroParallax();
+    initHeroScroll();
+    initHeroMagnetic();
+    initHeroCTA();
+
+    // Navigation
     initCatNav();
+
+    // Cards & Content
     initModals();
     initCardTilt();
     initCardReveal();
+    initSectionReveal();
     initWaxReveal();
-    initHeroParallax();
+    initBottomCTA();
+
+    // Footer
     initFooterYear();
 
     console.log('%c✦ NYC Panache — Services Page Ready', 'color:#CB9B51;font-size:12px;font-weight:bold;');
