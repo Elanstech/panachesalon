@@ -59,6 +59,8 @@
 
   /* ═══════════════════════════════════
      HERO — Multi-layer Parallax
+     (Desktop only — disabled on mobile
+      to prevent scroll-back issues)
      ═══════════════════════════════════ */
   function initHeroParallax() {
     const hero = $('#spHero');
@@ -66,25 +68,38 @@
     const content = $('#spHeroContent');
     if (!hero || !parallax) return;
 
+    // Skip parallax entirely on mobile / tablets — causes scroll fighting
+    if (window.innerWidth <= 1024 || reduced) return;
+
     let heroH = hero.offsetHeight;
+    let ticking = false;
 
     function onScroll() {
-      const y = window.scrollY;
-      if (y > heroH * 1.2) return;
+      if (ticking) return;
+      ticking = true;
+      raf(() => {
+        const y = window.scrollY;
+        ticking = false;
+        if (y > heroH * 1.2) {
+          if (content) { content.style.willChange = 'auto'; }
+          return;
+        }
 
-      const p = y / heroH;
+        const p = y / heroH;
 
-      // Image moves slower (parallax)
-      parallax.style.transform = `translate3d(0, ${y * 0.35}px, 0) scale(${1 + p * 0.04})`;
+        // Image moves slower (parallax)
+        parallax.style.transform = `translate3d(0, ${y * 0.35}px, 0) scale(${1 + p * 0.04})`;
 
-      // Content moves faster + fades
-      if (content) {
-        content.style.transform = `translate3d(0, ${y * -0.15}px, 0)`;
-        content.style.opacity = String(Math.max(1 - p * 1.6, 0));
-      }
+        // Content moves faster + fades
+        if (content) {
+          content.style.willChange = 'transform, opacity';
+          content.style.transform = `translate3d(0, ${y * -0.15}px, 0)`;
+          content.style.opacity = String(Math.max(1 - p * 1.6, 0));
+        }
+      });
     }
 
-    window.addEventListener('scroll', throttleRAF(onScroll), { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', () => { heroH = hero.offsetHeight; });
   }
 
