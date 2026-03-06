@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — NYC Panache Salon | Forest Hills, Queens</title>
+  <meta name="description" content="Discover the story behind NYC Panache Salon. Over 25 years of luxury hair artistry in Forest Hills, Queens. Meet Marina Iskiyaeva and experience The Panache Way." />
+
+  <link rel="icon" type="image/svg+xml" href="logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="about.css" />
+</head>
+<body>
+
+<!-- ========== FLOATING NAV BAR ========== -->
+<header class="float-nav" id="floatNav">
+  <div class="float-nav__inner">
+    <a href="index.html" class="float-nav__logo" aria-label="Home">
+      <img src="logo.png" alt="NYC Panache" class="float-nav__logo-img" />
+    </a>
+    <nav class="float-nav__links" id="navLinks">
+      <a href="index.html" class="float-nav__link">Home</a>
+      <a href="index.html#services" class="float-nav__link">Services</a>
+      <a href="index.html#showcase" class="float-nav__link">Gallery</a>
+      <a href="index.html#reviews" class="float-nav__link">Reviews</a>
+      <a href="index.html#contact" class="float-nav__link">Contact</a>
+    </nav>
+    <div class="float-nav__right">
+      <div class="float-nav__socials">
+        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="float-nav__social" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="float-nav__social" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="float-nav__cta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Book Now</span>
+      </a>
+    </div>
+    <button class="float-nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+      <span class="burger-line burger-line--1"></span>
+      <span class="burger-line burger-line--2"></span>
+      <span class="burger-line burger-line--3"></span>
+    </button>
+  </div>
+</header>
+
+<!-- ========== MOBILE MENU OVERLAY ========== -->
+<div class="mob-menu" id="mobMenu" aria-hidden="true">
+  <div class="mob-menu__backdrop"></div>
+  <div class="mob-menu__panel">
+    <button class="mob-menu__close" id="mobMenuClose" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <img src="logo.png" alt="NYC Panache" class="mob-menu__logo" />
+    <nav class="mob-menu__nav">
+      <a href="index.html" class="mob-menu__link">Home</a>
+      <a href="index.html#services" class="mob-menu__link">Services</a>
+      <a href="index.html#showcase" class="mob-menu__link">Gallery</a>
+      <a href="index.html#waxing" class="mob-menu__link">Waxing</a>
+      <a href="index.html#reviews" class="mob-menu__link">Reviews</a>
+      <a href="index.html#faq" class="mob-menu__link">FAQ</a>
+      <a href="index.html#contact" class="mob-menu__link">Contact</a>
+    </nav>
+    <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="mob-menu__cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book Online via Vagaro
+    </a>
+    <div class="mob-menu__footer">
+      <div class="mob-menu__socials">
+        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener">Instagram</a>
+        <span>·</span>
+        <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener">Facebook</a>
+        <span>·</span>
+        <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener">Yelp</a>
+      </div>
+      <p><a href="tel:+17185750532">(718) 575-0532</a></p>
+      <p class="mob-menu__addr">107-12 71st Rd, Forest Hills, NY 11375</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== ABOUT HERO ========== -->
+<section class="abt-hero">
+  <div class="abt-hero__bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80" alt="" class="abt-hero__bg-img" />
+    <div class="abt-hero__gradient"></div>
+    <div class="abt-hero__noise"></div>
+    <div class="abt-hero__vignette"></div>
+  </div>
+  <div class="abt-hero__orbs" aria-hidden="true">
+    <div class="abt-hero__orb abt-hero__orb--1"></div>
+    <div class="abt-hero__orb abt-hero__orb--2"></div>
+  </div>
+
+  <div class="abt-hero__content" data-abt-anim="hero">
+    <nav class="abt-hero__breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="abt-hero__breadcrumb-sep">✦</span>
+      <span>About Us</span>
+    </nav>
+    <h1 class="abt-hero__title">
+      <span class="abt-hero__title-line">Our</span>
+      <span class="abt-hero__title-line abt-hero__title-line--accent">Story</span>
+    </h1>
+    <div class="abt-hero__rule">
+      <span class="abt-hero__rule-line"></span>
+      <span class="abt-hero__rule-diamond">✦</span>
+      <span class="abt-hero__rule-line"></span>
+    </div>
+    <p class="abt-hero__sub">A quarter century of transforming beauty — one client, one masterpiece at a time.</p>
+  </div>
+
+  <div class="abt-hero__scroll" data-abt-anim="scroll">
+    <span class="abt-hero__scroll-label">Discover</span>
+    <div class="abt-hero__scroll-track"><div class="abt-hero__scroll-thumb"></div></div>
+  </div>
+</section>
+
+<!-- ========== MARQUEE ========== -->
+<div class="marquee-ribbon">
+  <div class="marquee-track">
+    <span class="marquee-item">25+ Years of Excellence</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Forest Hills, Queens</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Master-Level Artistry</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Luxury Experience</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Personalized Care</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Premium Products</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">25+ Years of Excellence</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Forest Hills, Queens</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Master-Level Artistry</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Luxury Experience</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Personalized Care</span><span class="marquee-dot">✦</span>
+    <span class="marquee-item">Premium Products</span><span class="marquee-dot">✦</span>
+  </div>
+</div>
+
+<!-- ========== MARINA'S STORY ========== -->
+<section class="abt-story">
+  <div class="abt-story__bg" aria-hidden="true">
+    <div class="abt-story__orb abt-story__orb--1"></div>
+    <div class="abt-story__orb abt-story__orb--2"></div>
+    <div class="abt-story__line abt-story__line--l"></div>
+    <div class="abt-story__line abt-story__line--r"></div>
+  </div>
+  <div class="abt-story__container">
+    <header class="abt-story__header reveal">
+      <span class="abt-label"><span class="abt-label__line"></span><span class="abt-label__text">Meet the Founder</span><span class="abt-label__line"></span></span>
+      <h2 class="abt-section-title">Marina <em>Iskiyaeva</em></h2>
+      <p class="abt-section-sub">The visionary behind every transformation</p>
+    </header>
+
+    <div class="abt-story__grid">
+      <div class="abt-story__visual reveal">
+        <div class="abt-story__img-frame">
+          <img src="images/maria.jpeg" alt="Marina Iskiyaeva — Owner of NYC Panache Salon" class="abt-story__img" loading="lazy" />
+          <div class="abt-story__img-border"></div>
+          <div class="abt-story__img-shine"></div>
+        </div>
+        <div class="abt-story__badge">
+          <span class="abt-story__badge-num">25<sup>+</sup></span>
+          <span class="abt-story__badge-text">Years of<br />Excellence</span>
+        </div>
+        <div class="abt-story__corner abt-story__corner--tl"></div>
+        <div class="abt-story__corner abt-story__corner--br"></div>
+        <div class="abt-story__sig" aria-hidden="true">
+          <svg viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 45C25 15 40 10 55 30C70 50 85 20 100 25C115 30 120 15 140 20C160 25 170 35 190 15" stroke="url(#sigGrad)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".3"/>
+            <defs><linearGradient id="sigGrad" x1="10" y1="30" x2="190" y2="30"><stop stop-color="#8B6914"/><stop offset="1" stop-color="#F6E27A"/></linearGradient></defs>
+          </svg>
+        </div>
+      </div>
+
+      <div class="abt-story__content">
+        <div class="abt-story__text reveal">
+          <p class="abt-story__lead">For over 25 years, Marina Iskiyaeva has poured her heart and soul into the art of beauty — building not just a salon, but a sanctuary where every client walks out feeling like their best self.</p>
+          <p>What started as a young woman's dream to master the craft of hairstyling has blossomed into one of Forest Hills' most beloved beauty destinations. Marina's journey began with a simple belief: that true beauty isn't about following trends — it's about discovering what makes each person uniquely radiant.</p>
+          <p>Through decades of continuous learning, international training, and thousands of transformations, Marina has developed an intuitive understanding of color, texture, and form that sets her apart. She doesn't just do hair — she creates art that moves, breathes, and transforms confidence.</p>
+          <p>Today, NYC Panache Salon stands as a testament to that original vision. Every detail — from the warm, inviting atmosphere to the carefully curated product selection — reflects Marina's unwavering commitment to excellence and her deep respect for the craft.</p>
+        </div>
+
+        <div class="abt-story__quote reveal">
+          <div class="abt-story__quote-mark">"</div>
+          <blockquote>Beauty should never feel rushed, and excellence should never be compromised. Every client deserves to feel like the only person in the room.</blockquote>
+          <cite>— Marina Iskiyaeva</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== THE PANACHE EXPERIENCE ========== -->
+<section class="abt-experience">
+  <div class="abt-experience__bg" aria-hidden="true">
+    <div class="abt-experience__orb abt-experience__orb--1"></div>
+    <div class="abt-experience__orb abt-experience__orb--2"></div>
+  </div>
+
+  <div class="abt-experience__container">
+    <header class="abt-experience__header reveal">
+      <span class="abt-label"><span class="abt-label__line"></span><span class="abt-label__text">Our Process</span><span class="abt-label__line"></span></span>
+      <h2 class="abt-section-title">The Panache <em>Experience</em></h2>
+      <p class="abt-section-sub">More than a service — it's a journey crafted around you</p>
+    </header>
+
+    <div class="abt-exp__intro reveal">
+      <p>At Panache, we believe the difference between a good salon visit and an unforgettable one lies in the details. That's why we've refined every step of your experience into what we call <strong>The Panache Way</strong> — a signature approach that ensures every visit exceeds your expectations.</p>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="abt-timeline">
+      <div class="abt-timeline__line" aria-hidden="true">
+        <div class="abt-timeline__line-fill" id="timelineFill"></div>
+      </div>
+
+      <div class="abt-timeline__step reveal" data-step="1">
+        <div class="abt-timeline__dot">
+          <span class="abt-timeline__dot-num">01</span>
+          <div class="abt-timeline__dot-ring"></div>
+          <div class="abt-timeline__dot-pulse"></div>
+        </div>
+        <div class="abt-timeline__card">
+          <div class="abt-timeline__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h3 class="abt-timeline__title">The Consultation</h3>
+          <p class="abt-timeline__desc">Every masterpiece begins with a conversation. We take the time to truly understand your vision, lifestyle, hair history, and goals. Whether it's a subtle refresh or a dramatic transformation, this is where we align our artistry with your dream.</p>
+          <span class="abt-timeline__tag">Personalized Vision</span>
+        </div>
+      </div>
+
+      <div class="abt-timeline__step abt-timeline__step--right reveal" data-step="2">
+        <div class="abt-timeline__dot">
+          <span class="abt-timeline__dot-num">02</span>
+          <div class="abt-timeline__dot-ring"></div>
+          <div class="abt-timeline__dot-pulse"></div>
+        </div>
+        <div class="abt-timeline__card">
+          <div class="abt-timeline__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="abt-timeline__title">The Custom Plan</h3>
+          <p class="abt-timeline__desc">No templates. No shortcuts. Your stylist creates a tailored plan — selecting the exact techniques, products, and timing that will bring your vision to life while protecting the health and integrity of your hair.</p>
+          <span class="abt-timeline__tag">Bespoke Strategy</span>
+        </div>
+      </div>
+
+      <div class="abt-timeline__step reveal" data-step="3">
+        <div class="abt-timeline__dot">
+          <span class="abt-timeline__dot-num">03</span>
+          <div class="abt-timeline__dot-ring"></div>
+          <div class="abt-timeline__dot-pulse"></div>
+        </div>
+        <div class="abt-timeline__card">
+          <div class="abt-timeline__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 class="abt-timeline__title">The Artistry</h3>
+          <p class="abt-timeline__desc">This is where the magic happens. Using premium products and master-level techniques refined over 25+ years, your stylist brings the plan to life with precision, patience, and passion. Every cut, every stroke of color is intentional.</p>
+          <span class="abt-timeline__tag">Master Craft</span>
+        </div>
+      </div>
+
+      <div class="abt-timeline__step abt-timeline__step--right reveal" data-step="4">
+        <div class="abt-timeline__dot">
+          <span class="abt-timeline__dot-num">04</span>
+          <div class="abt-timeline__dot-ring"></div>
+          <div class="abt-timeline__dot-pulse"></div>
+        </div>
+        <div class="abt-timeline__card">
+          <div class="abt-timeline__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h3 class="abt-timeline__title">The Reveal</h3>
+          <p class="abt-timeline__desc">The moment you've been waiting for. We perfect every detail, style to perfection, and hand you the mirror. This is more than a result — it's a feeling. That rush of confidence, that spark in your eyes — that's the Panache moment.</p>
+          <span class="abt-timeline__tag">Confidence Delivered</span>
+        </div>
+      </div>
+
+      <div class="abt-timeline__step reveal" data-step="5">
+        <div class="abt-timeline__dot">
+          <span class="abt-timeline__dot-num">05</span>
+          <div class="abt-timeline__dot-ring"></div>
+          <div class="abt-timeline__dot-pulse"></div>
+        </div>
+        <div class="abt-timeline__card">
+          <div class="abt-timeline__icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3 class="abt-timeline__title">The Aftercare</h3>
+          <p class="abt-timeline__desc">The Panache experience doesn't end when you leave the chair. We provide personalized aftercare guidance, product recommendations, and a maintenance timeline so your results stay flawless between visits.</p>
+          <span class="abt-timeline__tag">Lasting Beauty</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== OUR VALUES ========== -->
+<section class="abt-values">
+  <div class="abt-values__bg" aria-hidden="true">
+    <div class="abt-values__orb abt-values__orb--1"></div>
+    <div class="abt-values__orb abt-values__orb--2"></div>
+  </div>
+  <div class="abt-values__container">
+    <header class="abt-values__header reveal">
+      <span class="abt-label"><span class="abt-label__line"></span><span class="abt-label__text">What Drives Us</span><span class="abt-label__line"></span></span>
+      <h2 class="abt-section-title">The Panache <em>Promise</em></h2>
+      <p class="abt-section-sub">The principles that guide every service, every day</p>
+    </header>
+
+    <div class="abt-values__grid">
+      <div class="abt-values__card reveal" data-tilt>
+        <div class="abt-values__card-glow"></div>
+        <div class="abt-values__card-num">01</div>
+        <div class="abt-values__card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="abt-values__card-title">Uncompromising Craft</h3>
+        <p class="abt-values__card-desc">We don't cut corners. Every technique, every product, every detail is chosen with the same precision and care that Marina has spent 25+ years perfecting.</p>
+      </div>
+
+      <div class="abt-values__card reveal" data-tilt>
+        <div class="abt-values__card-glow"></div>
+        <div class="abt-values__card-num">02</div>
+        <div class="abt-values__card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3 class="abt-values__card-title">Genuine Connection</h3>
+        <p class="abt-values__card-desc">You're not a number. You're family. We remember your preferences, your story, and your goals — building a relationship that grows with each visit.</p>
+      </div>
+
+      <div class="abt-values__card reveal" data-tilt>
+        <div class="abt-values__card-glow"></div>
+        <div class="abt-values__card-num">03</div>
+        <div class="abt-values__card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3 class="abt-values__card-title">Luxury Without Attitude</h3>
+        <p class="abt-values__card-desc">High-end results in a warm, welcoming atmosphere. We believe luxury should feel comfortable, not intimidating. Every guest is treated like royalty, naturally.</p>
+      </div>
+
+      <div class="abt-values__card reveal" data-tilt>
+        <div class="abt-values__card-glow"></div>
+        <div class="abt-values__card-num">04</div>
+        <div class="abt-values__card-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <h3 class="abt-values__card-title">Hair Health First</h3>
+        <p class="abt-values__card-desc">Beautiful results mean nothing if they come at the cost of your hair's health. We use only premium, professional-grade products and prioritize the long-term vitality of every strand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STATS BANNER ========== -->
+<section class="abt-stats">
+  <div class="abt-stats__inner">
+    <div class="abt-stats__item reveal" data-count="25">
+      <span class="abt-stats__num" data-target="25">0</span><span class="abt-stats__plus">+</span>
+      <span class="abt-stats__label">Years of Excellence</span>
+    </div>
+    <div class="abt-stats__divider"></div>
+    <div class="abt-stats__item reveal" data-count="10000">
+      <span class="abt-stats__num" data-target="10000">0</span><span class="abt-stats__plus">+</span>
+      <span class="abt-stats__label">Happy Clients</span>
+    </div>
+    <div class="abt-stats__divider"></div>
+    <div class="abt-stats__item reveal" data-count="5">
+      <span class="abt-stats__num" data-target="5">5</span>
+      <span class="abt-stats__label">Star Rating</span>
+    </div>
+    <div class="abt-stats__divider"></div>
+    <div class="abt-stats__item reveal" data-count="1">
+      <span class="abt-stats__num" data-target="1">1</span>
+      <span class="abt-stats__label">Mission: Your Confidence</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== THE SALON ========== -->
+<section class="abt-salon">
+  <div class="abt-salon__bg" aria-hidden="true">
+    <div class="abt-salon__orb abt-salon__orb--1"></div>
+    <div class="abt-salon__orb abt-salon__orb--2"></div>
+  </div>
+  <div class="abt-salon__container">
+    <header class="abt-salon__header reveal">
+      <span class="abt-label"><span class="abt-label__line"></span><span class="abt-label__text">Our Space</span><span class="abt-label__line"></span></span>
+      <h2 class="abt-section-title">The <em>Salon</em></h2>
+      <p class="abt-section-sub">A sanctuary designed for transformation</p>
+    </header>
+
+    <div class="abt-salon__content reveal">
+      <p>Nestled on the second floor of 107-12 71st Road in the heart of Forest Hills, NYC Panache Salon is more than a place to get your hair done — it's a retreat from the everyday. The moment you step through our doors, you'll feel the difference.</p>
+      <p>The warm, inviting atmosphere is thoughtfully designed to put you at ease. Natural light floods the space, premium products line the shelves, and every station is equipped with professional-grade tools that allow our team to deliver exceptional results. It's intimate enough to feel personal, yet spacious enough to feel luxurious.</p>
+      <p>We've created an environment where you can truly relax, disconnect from the world, and focus on yourself. Whether you're here for a quick blowout or a multi-hour color transformation, the Panache experience is designed to make every minute feel like an indulgence.</p>
+    </div>
+
+    <div class="abt-salon__details reveal">
+      <div class="abt-salon__detail">
+        <div class="abt-salon__detail-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <h4>Forest Hills, Queens</h4>
+          <p>107-12 71st Road, 2nd Floor<br />Forest Hills, NY 11375</p>
+        </div>
+      </div>
+      <div class="abt-salon__detail">
+        <div class="abt-salon__detail-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <h4>Open 6 Days a Week</h4>
+          <p>Tue – Sat: 10AM – 7PM<br />Sunday: 10AM – 5PM</p>
+        </div>
+      </div>
+      <div class="abt-salon__detail">
+        <div class="abt-salon__detail-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <h4>Get in Touch</h4>
+          <p><a href="tel:+17185750532">(718) 575-0532</a><br />Walk-ins welcome</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="abt-cta">
+  <div class="abt-cta__bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1920&q=80" alt="" class="abt-cta__bg-img" />
+    <div class="abt-cta__overlay"></div>
+  </div>
+  <div class="abt-cta__content reveal">
+    <span class="abt-label abt-label--light"><span class="abt-label__line abt-label__line--light"></span><span class="abt-label__text abt-label__text--light">Begin Your Journey</span><span class="abt-label__line abt-label__line--light"></span></span>
+    <h2 class="abt-cta__title">Ready to Experience <em>Panache</em>?</h2>
+    <p class="abt-cta__sub">Your transformation starts with a conversation. Book your appointment today and discover the difference that 25+ years of dedication makes.</p>
+    <div class="abt-cta__buttons">
+      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="abt-cta__btn abt-cta__btn--primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Book Your Appointment</span>
+      </a>
+      <a href="tel:+17185750532" class="abt-cta__btn abt-cta__btn--ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span>(718) 575-0532</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer id="footer" class="footer">
+  <div class="footer__rule-top"><span class="footer__rule-line"></span><span class="footer__rule-diamond">✦</span><span class="footer__rule-line"></span></div>
+  <div class="footer__main">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand reveal">
+          <a href="index.html" class="footer__logo-link"><img src="logo.png" alt="NYC Panache Salon" class="footer__logo" /></a>
+          <p class="footer__tagline">Where Elegance Meets Artistry</p>
+          <p class="footer__brand-desc">A luxury salon experience in the heart of Forest Hills, Queens — crafted for those who expect nothing less than extraordinary.</p>
+          <div class="footer__social-row">
+            <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="footer__social" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="footer__social" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener" class="footer__social" aria-label="Yelp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col reveal">
+          <h4 class="footer__col-title">Explore</h4>
+          <nav class="footer__nav">
+            <a href="index.html" class="footer__nav-link">Home</a>
+            <a href="about.html" class="footer__nav-link">About Us</a>
+            <a href="index.html#services" class="footer__nav-link">Our Services</a>
+            <a href="index.html#showcase" class="footer__nav-link">Gallery</a>
+            <a href="index.html#reviews" class="footer__nav-link">Reviews</a>
+            <a href="index.html#contact" class="footer__nav-link">Contact</a>
+          </nav>
+        </div>
+        <div class="footer__col reveal">
+          <h4 class="footer__col-title">Services</h4>
+          <nav class="footer__nav">
+            <a href="services.html#hair" class="footer__nav-link">Hair Artistry</a>
+            <a href="services.html#color" class="footer__nav-link">Color & Balayage</a>
+            <a href="services.html#smoothing" class="footer__nav-link">Smoothing Treatments</a>
+            <a href="services.html#nails" class="footer__nav-link">Nail Couture</a>
+            <a href="services.html#waxing" class="footer__nav-link">Waxing</a>
+          </nav>
+        </div>
+        <div class="footer__col reveal">
+          <h4 class="footer__col-title">Visit Us</h4>
+          <div class="footer__contact-list">
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>107-12 71st Road 2nd Floor<br />Forest Hills, NY 11375</span></div>
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+17185750532">(718) 575-0532</a></div>
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon Closed · Tue-Sat 10–7 · Sun 10–5</span></div>
+          </div>
+          <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="footer__book-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Book Appointment</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="footer__bottom-container">
+      <p class="footer__copy">&copy; <span id="footerYear"></span> NYC Panache Salon. All rights reserved.</p>
+      <a href="https://www.elanstechworld.com" target="_blank" rel="noopener" class="footer__credit">
+        <span class="footer__credit-line"></span>
+        <span class="footer__credit-inner">
+          <img src="https://www.elanstechworld.com/assets/images/Elanslogo.jpeg" alt="Elan's Tech World" class="footer__credit-logo" />
+          <span class="footer__credit-stack">
+            <span class="footer__credit-label">Crafted by</span>
+            <span class="footer__credit-name">Elan's Tech World</span>
+          </span>
+        </span>
+        <span class="footer__credit-line"></span>
+      </a>
+    </div>
+  </div>
+  <button id="backToTop" class="footer__btt" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+</footer>
+
+<script src="about.js"></script>
+</body>
+</html>
