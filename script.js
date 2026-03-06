@@ -1,11 +1,10 @@
 /* ╔══════════════════════════════════════════════════╗
-   ║  NYC PANACHE SALON — MASTER JS (Clean Rebuild)   ║
-   ║  Zero duplicates · Fast boot · Bug-free           ║
+   ║  NYC PANACHE SALON — MASTER JS (Fixed Header)    ║
+   ║  Nav click fix · Same-page scroll · Reliable     ║
    ╚══════════════════════════════════════════════════╝ */
 (() => {
   'use strict';
 
-  // ── Helpers ──
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
   const raf = requestAnimationFrame.bind(window);
@@ -27,55 +26,151 @@
     return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
   }
 
+  // Detect if we're on the homepage
+  function isHomepage() {
+    const path = window.location.pathname;
+    return path === '/' || path.endsWith('/index.html') || path.endsWith('/index.htm') || path === '';
+  }
+
+  // Map data-nav values to section IDs
+  const NAV_MAP = {
+    'about':    '#about',
+    'services': '#services',
+    'showcase': '#showcase',
+    'faq':      '#faq',
+    'contact':  '#contact'
+  };
+
   /* ═══════════════════════════════════
-     FLOATING NAV
+     FLOATING NAV — FIXED
      ═══════════════════════════════════ */
   function initFloatingNav() {
     const nav = $('#floatNav');
     if (!nav) return;
+
     const links = $$('.float-nav__link', nav);
     const sections = [];
     let lastY = 0;
+    let scrollDelta = 0;
+    const HIDE_THRESHOLD = 80;  // px of downward scroll before hiding
+    const SHOW_THRESHOLD = 20;  // px of upward scroll before showing
+    let isMenuOpen = false;
 
+    // Build section map from data-nav attributes for active tracking
     links.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        const sec = $(href);
+      const navKey = link.getAttribute('data-nav');
+      if (navKey && NAV_MAP[navKey]) {
+        const sec = $(NAV_MAP[navKey]);
         if (sec) sections.push({ el: sec, link });
       }
     });
 
     function onScroll() {
+      if (isMenuOpen) return;
+
       const y = window.scrollY;
+      const delta = y - lastY;
+
+      // Scrolled state styling
       nav.classList.toggle('is-scrolled', y > 60);
-      if (y > 300 && y > lastY + 8) nav.classList.add('is-hidden');
-      else if (y < lastY - 4 || y < 100) nav.classList.remove('is-hidden');
+
+      // Accumulate scroll direction
+      if (delta > 0) {
+        // Scrolling down
+        scrollDelta = Math.max(0, scrollDelta + delta);
+        if (scrollDelta > HIDE_THRESHOLD && y > 200) {
+          nav.classList.add('is-hidden');
+        }
+      } else {
+        // Scrolling up
+        scrollDelta = Math.min(0, scrollDelta + delta);
+        if (scrollDelta < -SHOW_THRESHOLD || y < 100) {
+          nav.classList.remove('is-hidden');
+          scrollDelta = 0;
+        }
+      }
+
+      // Reset delta accumulator on direction change
+      if ((delta > 0 && scrollDelta < 0) || (delta < 0 && scrollDelta > 0)) {
+        scrollDelta = 0;
+      }
+
       lastY = y;
 
-      const trigger = y + window.innerHeight * 0.35;
-      let active = null;
-      for (const { el, link } of sections) {
-        if (trigger >= el.offsetTop && trigger < el.offsetTop + el.offsetHeight) active = link;
+      // Active section tracking (only on homepage)
+      if (isHomepage() && sections.length) {
+        const trigger = y + window.innerHeight * 0.35;
+        let active = null;
+        for (const { el, link } of sections) {
+          if (trigger >= el.offsetTop && trigger < el.offsetTop + el.offsetHeight) {
+            active = link;
+          }
+        }
+        links.forEach(l => l.classList.toggle('active', l === active));
       }
-      links.forEach(l => l.classList.toggle('active', l === active));
     }
 
     window.addEventListener('scroll', throttleRAF(onScroll), { passive: true });
 
+    // Click handling — on homepage, scroll to sections
     links.forEach(l => l.addEventListener('click', e => {
-  const href = l.getAttribute('href');
-  if (!href || href === '#') return;
-  if (!href.startsWith('#')) return;
-  e.preventDefault();
-  const target = $(href);
-  if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
-   }));
+      const href = l.getAttribute('href');
+      const navKey = l.getAttribute('data-nav');
+
+      // If homepage link, just scroll to top
+      if (href === 'index.html' || href === '/' || href === '#') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      // If on homepage and link has a data-nav mapping, scroll to section
+      if (isHomepage() && navKey && NAV_MAP[navKey]) {
+        e.preventDefault();
+        const target = $(NAV_MAP[navKey]);
+        if (target) {
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.scrollY - 90,
+            behavior: 'smooth'
+          });
+        }
+        return;
+      }
+
+      // Hash links scroll to section
+      if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const target = $(href);
+        if (target) {
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.scrollY - 90,
+            behavior: 'smooth'
+          });
+        }
+        return;
+      }
+
+      // Otherwise, let the link navigate normally (to subpages)
+    }));
+
+    // Expose menu state setter for mobile menu
+    nav._setMenuOpen = (open) => {
+      isMenuOpen = open;
+      if (open) {
+        nav.classList.add('is-menu-open');
+      } else {
+        nav.classList.remove('is-menu-open');
+        // Reset hidden state when menu closes
+        scrollDelta = 0;
+        lastY = window.scrollY;
+      }
+    };
 
     onScroll();
   }
 
   /* ═══════════════════════════════════
-     MOBILE MENU
+     MOBILE MENU — FIXED
      ═══════════════════════════════════ */
   function initMobileMenu() {
     const burger = $('#navBurger');
@@ -90,50 +185,110 @@
     let animating = false;
 
     function open() {
-      if (animating) return;
-      isOpen = true; animating = true;
+      if (animating || isOpen) return;
+      isOpen = true;
+      animating = true;
       burger.classList.add('is-open');
       burger.setAttribute('aria-expanded', 'true');
       menu.setAttribute('aria-hidden', 'false');
       menu.classList.remove('is-closing');
       menu.classList.add('is-open');
-      if (nav) nav.classList.add('is-menu-open');
       document.body.style.overflow = 'hidden';
+
+      // Tell nav to hide
+      if (nav && nav._setMenuOpen) nav._setMenuOpen(true);
+
       setTimeout(() => { animating = false; }, 600);
     }
 
     function close() {
-      if (animating) return;
-      isOpen = false; animating = true;
+      if (animating || !isOpen) return;
+      isOpen = false;
+      animating = true;
       burger.classList.remove('is-open');
       burger.setAttribute('aria-expanded', 'false');
       menu.setAttribute('aria-hidden', 'true');
       menu.classList.add('is-closing');
-      if (nav) nav.classList.remove('is-menu-open');
+
       setTimeout(() => {
         menu.classList.remove('is-open', 'is-closing');
         document.body.style.overflow = '';
         animating = false;
+
+        // Tell nav to show again
+        if (nav && nav._setMenuOpen) nav._setMenuOpen(false);
       }, 550);
     }
 
-    burger.addEventListener('click', () => isOpen ? close() : open());
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isOpen) close();
+      else open();
+    });
+
     if (closeBtn) closeBtn.addEventListener('click', close);
     if (backdrop) backdrop.addEventListener('click', close);
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen) close(); });
 
+    // Mobile menu link handling
     links.forEach(l => l.addEventListener('click', e => {
-  const href = l.getAttribute('href');
-  if (!href || href === '#') return;
-  if (!href.startsWith('#')) { close(); return; }
-  e.preventDefault();
-  close();
-  setTimeout(() => {
-    const target = $(href);
-    if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
-  }, 400);
-}));
-   
+      const href = l.getAttribute('href');
+      if (!href || href === '#') return;
+
+      // If on homepage, intercept and scroll to section
+      if (isHomepage()) {
+        // Map the href to a section ID
+        let targetSel = null;
+
+        if (href === 'index.html' || href === '/') {
+          e.preventDefault();
+          close();
+          setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 400);
+          return;
+        }
+
+        // Check if href matches a page that maps to a section
+        if (href.includes('about'))    targetSel = '#about';
+        if (href.includes('services')) targetSel = '#services';
+        if (href.includes('gallery'))  targetSel = '#showcase';
+        if (href.includes('faq'))      targetSel = '#faq';
+        if (href.includes('contact'))  targetSel = '#contact';
+
+        if (targetSel) {
+          e.preventDefault();
+          close();
+          setTimeout(() => {
+            const target = $(targetSel);
+            if (target) {
+              window.scrollTo({
+                top: target.getBoundingClientRect().top + window.scrollY - 90,
+                behavior: 'smooth'
+              });
+            }
+          }, 400);
+          return;
+        }
+      }
+
+      // Hash links
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        close();
+        setTimeout(() => {
+          const target = $(href);
+          if (target) {
+            window.scrollTo({
+              top: target.getBoundingClientRect().top + window.scrollY - 90,
+              behavior: 'smooth'
+            });
+          }
+        }, 400);
+        return;
+      }
+
+      // Otherwise navigate normally
+      close();
+    }));
   }
 
   /* ═══════════════════════════════════
@@ -155,7 +310,7 @@
     const socials = $('[data-hero-anim="socials"]', hero);
     let heroH = hero.offsetHeight;
 
-    // ── Video: force loop reliably ──
+    // Video
     if (video) {
       video.loop = true;
       video.muted = true;
@@ -163,17 +318,8 @@
       video.setAttribute('loop', '');
       video.setAttribute('muted', '');
       video.setAttribute('playsinline', '');
-
-      // Robust loop fallback
-      video.addEventListener('ended', () => {
-        video.currentTime = 0;
-        video.play().catch(() => {});
-      });
-
-      // Start playback
+      video.addEventListener('ended', () => { video.currentTime = 0; video.play().catch(() => {}); });
       video.play().catch(() => {});
-
-      // Pause/play on visibility
       new IntersectionObserver(entries => {
         entries.forEach(e => {
           if (e.isIntersecting) video.play().catch(() => {});
@@ -182,7 +328,7 @@
       }, { threshold: 0.05 }).observe(hero);
     }
 
-    // ── Entrance animation ──
+    // Entrance
     function play() {
       const show = (el, delay) => { if (el) setTimeout(() => el.classList.add('is-visible'), delay); };
       show(pill, 100);
@@ -198,7 +344,7 @@
     }
     setTimeout(play, 200);
 
-    // ── Parallax scroll ──
+    // Parallax
     window.addEventListener('scroll', throttleRAF(() => {
       const y = window.scrollY;
       if (y > heroH) {
@@ -214,7 +360,7 @@
       if (video) video.style.transform = `scale(${1 + p * 0.06})`;
     }), { passive: true });
 
-    // ── Scroll indicator ──
+    // Scroll indicator
     if (scroll) {
       let scrollHidden = false;
       scroll.addEventListener('click', () => {
@@ -232,7 +378,7 @@
   }
 
   /* ═══════════════════════════════════
-     HERO MAGNETIC BUTTONS (Desktop)
+     HERO MAGNETIC BUTTONS
      ═══════════════════════════════════ */
   function initHeroMagnetic() {
     if (!desktop() || reduced) return;
@@ -313,7 +459,7 @@
   }
 
   /* ═══════════════════════════════════
-     GOLD TRAIL CURSOR (Desktop)
+     GOLD TRAIL CURSOR
      ═══════════════════════════════════ */
   function initGoldTrail() {
     if (!desktop() || reduced) return;
@@ -337,7 +483,7 @@
   }
 
   /* ═══════════════════════════════════
-     SERVICES SECTION
+     SERVICES
      ═══════════════════════════════════ */
   function initServices() {
     const section = $('#services');
@@ -398,7 +544,7 @@
       });
     }
 
-    // Scroll reveal for service items
+    // Reveal
     const items = $$('[data-svc-reveal]', section);
     if (items.length) {
       const obs = new IntersectionObserver(entries => {
@@ -437,8 +583,7 @@
      BEFORE & AFTER SLIDERS
      ═══════════════════════════════════ */
   function initBeforeAfter() {
-    const allSliders = $$('[data-ba-slider]');
-    allSliders.forEach((card, cardIdx) => {
+    $$('[data-ba-slider]').forEach((card, cardIdx) => {
       const frame = $('.ba-card__frame', card);
       const after = $('.ba-card__after', card);
       const handle = $('.ba-card__handle', card);
@@ -467,7 +612,6 @@
       frame.addEventListener('touchend', () => { dragging = false; frame.classList.remove('is-dragging'); });
       frame.addEventListener('click', e => { if (!dragging) setPos(getPct(e.clientX)); });
 
-      // Intro animation
       new IntersectionObserver((entries, obs) => {
         entries.forEach(e => {
           if (e.isIntersecting) {
@@ -547,7 +691,7 @@
   }
 
   /* ═══════════════════════════════════
-     GALLERY TILT (Desktop)
+     GALLERY TILT
      ═══════════════════════════════════ */
   function initGalleryTilt() {
     if (!desktop() || reduced) return;
@@ -563,7 +707,7 @@
   }
 
   /* ═══════════════════════════════════
-     GALLERY LIGHTBOX
+     LIGHTBOX
      ═══════════════════════════════════ */
   function initLightbox() {
     const lb = $('#galLightbox');
@@ -620,7 +764,7 @@
   }
 
   /* ═══════════════════════════════════
-     WAXING ITEMS REVEAL
+     WAXING REVEAL
      ═══════════════════════════════════ */
   function initWaxingReveal() {
     const items = $$('.waxing__item');
@@ -673,7 +817,7 @@
   }
 
   /* ═══════════════════════════════════
-     COUNTER ANIMATION (About badge)
+     COUNTER (About badge)
      ═══════════════════════════════════ */
   function initCounter() {
     const badge = $('.about__badge-number');
@@ -699,7 +843,7 @@
   }
 
   /* ═══════════════════════════════════
-     ACTIVE HOUR INDICATOR
+     ACTIVE HOURS
      ═══════════════════════════════════ */
   function initActiveHours() {
     const rows = $$('.contact-hours__row');
@@ -734,7 +878,7 @@
   }
 
   /* ═══════════════════════════════════
-     BOOT — Single entry point
+     BOOT
      ═══════════════════════════════════ */
   function boot() {
     document.body.classList.add('loaded');
@@ -769,23 +913,16 @@
     initFooter();
     initGoldTrail();
 
-    // Deferred (non-critical)
+    // Deferred
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => {
-        initCounter();
-        initActiveHours();
-      }, { timeout: 2000 });
+      requestIdleCallback(() => { initCounter(); initActiveHours(); }, { timeout: 2000 });
     } else {
-      setTimeout(() => {
-        initCounter();
-        initActiveHours();
-      }, 1500);
+      setTimeout(() => { initCounter(); initActiveHours(); }, 1500);
     }
 
     console.log('%c✦ NYC Panache Salon — Ready', 'color:#CB9B51;font-size:13px;font-weight:bold;');
   }
 
-  // ── Start ──
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
   } else {
