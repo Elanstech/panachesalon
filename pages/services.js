@@ -164,11 +164,15 @@
 
   /* ═══════════════════════════════════
      STICKY CATEGORY NAV — Active Spy
+     Uses manual horizontal scroll only,
+     never scrollIntoView (which hijacks
+     vertical page scroll on mobile).
      ═══════════════════════════════════ */
   function initCatNav() {
     const nav = $('#spCatnav');
     if (!nav) return;
-    const links = $$('.sp-catnav__link', nav);
+    const inner = $('.sp-catnav__inner', nav);
+    const links = $('.sp-catnav__link', nav);
     const sections = [];
 
     links.forEach(link => {
@@ -179,37 +183,53 @@
       }
     });
 
+    // Scroll the nav container horizontally (NOT the page)
+    function scrollNavToLink(link) {
+      if (!inner) return;
+      const linkLeft = link.offsetLeft;
+      const linkW = link.offsetWidth;
+      const innerW = inner.offsetWidth;
+      const scrollTarget = linkLeft - (innerW / 2) + (linkW / 2);
+      inner.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+    }
+
     function onScroll() {
-      const y = window.scrollY + 130;
+      // Get the sticky nav height for offset calculation
+      const navH = nav.offsetHeight || 60;
+      const y = window.scrollY + navH + 20;
       let active = null;
+
       for (const { el, link } of sections) {
-        if (y >= el.offsetTop && y < el.offsetTop + el.offsetHeight) active = link;
+        const top = el.offsetTop;
+        const bottom = top + el.offsetHeight;
+        if (y >= top && y < bottom) active = link;
       }
+
       links.forEach(l => l.classList.toggle('is-active', l === active));
 
-      if (active && nav) {
-        const inner = $('.sp-catnav__inner', nav);
-        if (inner) {
-          const lr = active.getBoundingClientRect();
-          const ir = inner.getBoundingClientRect();
-          if (lr.left < ir.left || lr.right > ir.right) {
-            active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-          }
-        }
-      }
+      // Auto-scroll the nav horizontally only
+      if (active) scrollNavToLink(active);
     }
 
     window.addEventListener('scroll', throttleRAF(onScroll), { passive: true });
 
+    // Click handler — calculate offset accounting for sticky nav
     links.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        const target = $(link.getAttribute('href'));
-        if (target) window.scrollTo({ top: target.offsetTop - 65, behavior: 'smooth' });
+        const href = link.getAttribute('href');
+        const target = $(href);
+        if (!target) return;
+
+        const navH = nav.offsetHeight || 60;
+        const targetTop = target.getBoundingClientRect().top + window.scrollY - navH - 10;
+
+        window.scrollTo({ top: targetTop, behavior: 'smooth' });
       });
     });
 
-    onScroll();
+    // Initial check (deferred so layout is settled)
+    setTimeout(onScroll, 100);
   }
 
   /* ═══════════════════════════════════
