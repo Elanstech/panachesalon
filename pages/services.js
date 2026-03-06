@@ -1,5 +1,6 @@
 /* ╔══════════════════════════════════════════════════╗
    ║  NYC PANACHE — SERVICES PAGE JS                  ║
+   ║  NO parallax opacity — mobile scroll safe        ║
    ║  Extends script.js (nav, reveal, footer, etc.)   ║
    ╚══════════════════════════════════════════════════╝ */
 (() => {
@@ -7,18 +8,73 @@
 
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+  const raf = requestAnimationFrame.bind(window);
+  const desktop = () => window.innerWidth > 1024;
 
   function throttleRAF(fn) {
     let busy = false;
     return function (...a) {
       if (busy) return;
       busy = true;
-      requestAnimationFrame(() => { fn.apply(this, a); busy = false; });
+      raf(() => { fn.apply(this, a); busy = false; });
     };
   }
 
   /* ═══════════════════════════════════
-     STICKY CATEGORY NAV — Active tracking
+     HERO VIDEO — Force loop + play
+     ═══════════════════════════════════ */
+  function initHeroVideo() {
+    const video = $('.svc-hero__video');
+    if (!video) return;
+
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true;
+
+    video.addEventListener('ended', () => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    });
+
+    video.play().catch(() => {});
+
+    // Pause when off-screen, play when visible
+    const hero = $('.svc-hero');
+    if (hero) {
+      new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) video.play().catch(() => {});
+          else video.pause();
+        });
+      }, { threshold: 0.05 }).observe(hero);
+    }
+  }
+
+  /* ═══════════════════════════════════
+     HERO PARALLAX — Desktop only, NO opacity changes
+     Only moves the video slightly — never blocks scroll
+     ═══════════════════════════════════ */
+  function initHeroParallax() {
+    if (!desktop()) return;
+    const hero = $('.svc-hero');
+    const video = $('.svc-hero__video');
+    if (!hero || !video) return;
+
+    let heroH = hero.offsetHeight;
+
+    window.addEventListener('scroll', throttleRAF(() => {
+      const y = window.scrollY;
+      if (y > heroH) return;
+      const p = y / heroH;
+      // Only scale the video — never touch opacity or pointer-events
+      video.style.transform = `scale(${1 + p * 0.08})`;
+    }), { passive: true });
+
+    window.addEventListener('resize', () => { heroH = hero.offsetHeight; });
+  }
+
+  /* ═══════════════════════════════════
+     STICKY CATEGORY NAV — Scroll spy
      ═══════════════════════════════════ */
   function initCatNav() {
     const nav = $('#catNav');
@@ -35,30 +91,21 @@
       }
     });
 
-    // Scroll spy
     function onScroll() {
       const y = window.scrollY;
-      const offset = 160; // nav + cat-nav height
-
-      // Add shadow when scrolled
       const hero = $('.svc-hero');
-      if (hero) {
-        nav.classList.toggle('is-scrolled', y > hero.offsetHeight - 100);
-      }
+      if (hero) nav.classList.toggle('is-scrolled', y > hero.offsetHeight - 100);
 
-      // Active section tracking
+      const offset = nav.offsetHeight + 80;
       let active = null;
       for (const { el, link } of sections) {
         const top = el.offsetTop - offset;
-        const bottom = top + el.offsetHeight;
-        if (y >= top && y < bottom) {
-          active = link;
-        }
+        if (y >= top && y < top + el.offsetHeight) active = link;
       }
 
       links.forEach(l => l.classList.toggle('is-active', l === active));
 
-      // Scroll active link into view on mobile
+      // Scroll active into view on mobile
       if (active && window.innerWidth <= 768) {
         active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       }
@@ -66,45 +113,36 @@
 
     window.addEventListener('scroll', throttleRAF(onScroll), { passive: true });
 
-    // Smooth scroll on click
+    // Smooth scroll click
     links.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        const href = link.getAttribute('href');
-        const target = $(href);
+        const target = $(link.getAttribute('href'));
         if (target) {
-          const offset = nav.offsetHeight + 20;
           window.scrollTo({
-            top: target.getBoundingClientRect().top + window.scrollY - offset,
+            top: target.getBoundingClientRect().top + window.scrollY - nav.offsetHeight - 20,
             behavior: 'smooth'
           });
         }
       });
     });
 
+    // Hero "Explore Menu" button
+    const heroBtn = $('.svc-hero__btn--primary');
+    if (heroBtn) {
+      heroBtn.addEventListener('click', e => {
+        e.preventDefault();
+        const target = $(heroBtn.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.scrollY - nav.offsetHeight - 20,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+
     onScroll();
-  }
-
-  /* ═══════════════════════════════════
-     HERO PARALLAX (subtle)
-     ═══════════════════════════════════ */
-  function initHeroParallax() {
-    const hero = $('.svc-hero');
-    const img = $('.svc-hero__img');
-    const content = $('.svc-hero__content');
-    if (!hero || !img) return;
-
-    const heroH = hero.offsetHeight;
-
-    window.addEventListener('scroll', throttleRAF(() => {
-      const y = window.scrollY;
-      if (y > heroH) return;
-      const p = y / heroH;
-      if (content) {
-        content.style.transform = `translate3d(0, -${p * 40}px, 0)`;
-        content.style.opacity = String(Math.max(1 - p * 1.8, 0));
-      }
-    }), { passive: true });
   }
 
   /* ═══════════════════════════════════
@@ -117,30 +155,27 @@
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          // Find siblings in same grid
           const grid = e.target.closest('.svc-grid');
           if (grid) {
             const siblings = $$('.svc-card.reveal', grid);
             const idx = siblings.indexOf(e.target);
-            setTimeout(() => {
-              e.target.classList.add('visible');
-            }, idx * 60);
+            setTimeout(() => e.target.classList.add('visible'), idx * 50);
           } else {
             e.target.classList.add('visible');
           }
           obs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.04, rootMargin: '0px 0px -20px 0px' });
 
     cards.forEach(c => obs.observe(c));
   }
 
   /* ═══════════════════════════════════
-     CARD HOVER TILT (Desktop)
+     CARD TILT — Desktop only
      ═══════════════════════════════════ */
   function initCardTilt() {
-    if (window.innerWidth <= 1024) return;
+    if (!desktop()) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     $$('.svc-card__inner').forEach(card => {
@@ -150,51 +185,57 @@
         const y = (e.clientY - r.top) / r.height - 0.5;
         card.style.transform = `perspective(800px) rotateY(${x * 3}deg) rotateX(${-y * 3}deg) translateY(-6px)`;
       });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
     });
   }
 
   /* ═══════════════════════════════════
-     SCROLL PROGRESS BAR (top of page)
+     SCROLL PROGRESS BAR
      ═══════════════════════════════════ */
   function initScrollProgress() {
     const bar = document.createElement('div');
-    Object.assign(bar.style, {
-      position: 'fixed',
-      top: '0',
-      left: '0',
-      height: '3px',
-      width: '0%',
-      background: 'linear-gradient(90deg, #8B6914, #F6E27A, #CB9B51)',
-      zIndex: '999999',
-      transition: 'width 0.1s ease-out',
-      borderRadius: '0 2px 2px 0',
-      boxShadow: '0 0 10px rgba(203,155,81,.3)',
-      pointerEvents: 'none'
-    });
+    bar.className = 'svc-progress';
     document.body.appendChild(bar);
 
     window.addEventListener('scroll', throttleRAF(() => {
       const h = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
-      bar.style.width = `${pct}%`;
+      bar.style.width = h > 0 ? `${(window.scrollY / h) * 100}%` : '0%';
     }), { passive: true });
+  }
+
+  /* ═══════════════════════════════════
+     HASH SCROLL ON LOAD
+     ═══════════════════════════════════ */
+  function initHashScroll() {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const target = $(hash);
+    if (!target) return;
+
+    // Wait for layout then scroll
+    setTimeout(() => {
+      const nav = $('#catNav');
+      const offset = nav ? nav.offsetHeight + 20 : 100;
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - offset,
+        behavior: 'smooth'
+      });
+    }, 600);
   }
 
   /* ═══════════════════════════════════
      BOOT
      ═══════════════════════════════════ */
   function boot() {
-    // Mark loaded for shared styles
     document.body.classList.add('loaded');
 
-    initCatNav();
+    initHeroVideo();
     initHeroParallax();
+    initCatNav();
     initCardReveal();
     initCardTilt();
     initScrollProgress();
+    initHashScroll();
 
     console.log('%c✦ NYC Panache — Services Page Ready', 'color:#CB9B51;font-size:13px;font-weight:bold;');
   }
