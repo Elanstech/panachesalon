@@ -18,6 +18,8 @@
 
   <link rel="stylesheet" href="styles.css" />
 
+  <!-- Elfsight — deferred -->
+  <script src="https://elfsightcdn.com/platform.js" async defer></script>
 </head>
 <body>
 
@@ -154,6 +156,7 @@
       </a>
     </div>
 
+    <img src="logo.png" alt="" class="hero-watermark" aria-hidden="true" />
   </div>
 
   <div class="hero-bottom">
@@ -222,7 +225,7 @@
     <div class="about__grid">
       <div class="about__visual reveal">
         <div class="about__image-frame">
-          <img src="images/maria.jpeg" alt="Marina Iskiyaeva — Owner of NYC Panache Salon" class="about__image" loading="lazy" />
+          <img src="images/marina.jpeg" alt="Marina Iskiyaeva — Owner of NYC Panache Salon" class="about__image" loading="lazy" />
           <div class="about__image-border"></div>
           <div class="about__image-shine"></div>
         </div>
@@ -814,17 +817,17 @@
       <p class="contact-header__sub">Step into our Forest Hills sanctuary — or reach out to begin your beauty journey today.</p>
     </header>
 
-    <div class="contact-duo reveal">
-      <div class="contact-duo__card contact-duo__card--form">
-        <div class="contact-duo__card-header">
-          <div class="contact-duo__card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-          <div><h3 class="contact-duo__card-title">Send a Message</h3><p class="contact-duo__card-sub">We'll get back to you within 24 hours</p></div>
+    <div class="contact-form-wrap reveal">
+      <div class="contact-form-card">
+        <div class="contact-form-card__header">
+          <div class="contact-form-card__icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><h3 class="contact-form-card__title">Send a Message</h3><p class="contact-form-card__sub">We'll get back to you within 24 hours</p></div>
         </div>
-        <div class="contact-duo__widget"><div class="elfsight-app-a212f1f5-b064-4a21-b95e-42f259d903c7" data-elfsight-app-lazy></div></div>
+        <div class="contact-form-card__widget">
+          <div class="elfsight-app-a212f1f5-b064-4a21-b95e-42f259d903c7" data-elfsight-app-lazy></div>
+        </div>
       </div>
-      <div class="contact-duo__card contact-duo__card--book">
-        <div class="contact-duo__card-header">
-          <div class="contact-duo__card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+    </div>
 
     <div class="contact-info-row">
       <div class="contact-info-card reveal">
@@ -924,12 +927,15 @@
     <div class="footer__bottom-container">
       <p class="footer__copy">&copy; <span id="footerYear"></span> NYC Panache Salon. All rights reserved.</p>
       <a href="https://www.elanstechworld.com" target="_blank" rel="noopener" class="footer__credit">
-        <span class="footer__credit-text">Designed & Developed by</span>
-        <span class="footer__credit-brand">
+        <span class="footer__credit-line"></span>
+        <span class="footer__credit-inner">
           <img src="https://www.elanstechworld.com/assets/images/Elanslogo.jpeg" alt="Elan's Tech World" class="footer__credit-logo" />
-          <span class="footer__credit-name">Elan's Tech World</span>
+          <span class="footer__credit-stack">
+            <span class="footer__credit-label">Crafted by</span>
+            <span class="footer__credit-name">Elan's Tech World</span>
+          </span>
         </span>
-        <span class="footer__credit-arrow"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></span>
+        <span class="footer__credit-line"></span>
       </a>
     </div>
   </div>
