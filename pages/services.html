@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — NYC Panache Salon | Forest Hills, Queens</title>
+  <meta name="description" content="Explore our full menu of luxury hair, color, smoothing, nail, threading, waxing & makeup services at NYC Panache Salon in Forest Hills, Queens." />
+  <link rel="icon" type="image/svg+xml" href="logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Main site styles (root vars, nav, footer, utilities) -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Services page-specific styles -->
+  <link rel="stylesheet" href="services.css" />
+</head>
+<body>
+
+<!-- ========== FLOATING NAV BAR (same as index) ========== -->
+<header class="float-nav" id="floatNav">
+  <div class="float-nav__inner">
+    <a href="index.html" class="float-nav__logo" aria-label="Home">
+      <img src="logo.png" alt="NYC Panache" class="float-nav__logo-img" />
+    </a>
+    <nav class="float-nav__links" id="navLinks">
+      <a href="index.html#about" class="float-nav__link">About</a>
+      <a href="services.html" class="float-nav__link active">Services</a>
+      <a href="index.html#showcase" class="float-nav__link">Gallery</a>
+      <a href="index.html#waxing" class="float-nav__link">Waxing</a>
+      <a href="index.html#reviews" class="float-nav__link">Reviews</a>
+      <a href="pages/faq.html" class="float-nav__link">FAQ</a>
+      <a href="pages/contact.html" class="float-nav__link">Contact</a>
+    </nav>
+    <div class="float-nav__right">
+      <div class="float-nav__socials">
+        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="float-nav__social" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="float-nav__social" aria-label="Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="float-nav__cta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Book Now</span>
+      </a>
+    </div>
+    <button class="float-nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+      <span class="burger-line burger-line--1"></span>
+      <span class="burger-line burger-line--2"></span>
+      <span class="burger-line burger-line--3"></span>
+    </button>
+  </div>
+</header>
+
+<!-- ========== MOBILE MENU OVERLAY ========== -->
+<div class="mob-menu" id="mobMenu" aria-hidden="true">
+  <div class="mob-menu__backdrop"></div>
+  <div class="mob-menu__panel">
+    <button class="mob-menu__close" id="mobMenuClose" aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <img src="logo.png" alt="NYC Panache" class="mob-menu__logo" />
+    <nav class="mob-menu__nav">
+      <a href="index.html#about" class="mob-menu__link">About</a>
+      <a href="services.html" class="mob-menu__link">Services</a>
+      <a href="index.html#showcase" class="mob-menu__link">Gallery</a>
+      <a href="index.html#waxing" class="mob-menu__link">Waxing</a>
+      <a href="index.html#reviews" class="mob-menu__link">Reviews</a>
+      <a href="pages/faq.html" class="mob-menu__link">FAQ</a>
+      <a href="pages/contact.html" class="mob-menu__link">Contact</a>
+    </nav>
+    <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="mob-menu__cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Book Online via Vagaro
+    </a>
+    <div class="mob-menu__footer">
+      <div class="mob-menu__socials">
+        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener">Instagram</a>
+        <span>·</span>
+        <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener">Facebook</a>
+        <span>·</span>
+        <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener">Yelp</a>
+      </div>
+      <p><a href="tel:+17185750532">(718) 575-0532</a></p>
+      <p class="mob-menu__addr">107-12 71st Rd, Forest Hills, NY 11375</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SERVICES HERO ========== -->
+<section class="svc-hero" id="svc-hero">
+  <div class="svc-hero__bg">
+    <div class="svc-hero__img-wrap">
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80" alt="NYC Panache Salon Interior" class="svc-hero__img" />
+    </div>
+    <div class="svc-hero__overlay"></div>
+    <div class="svc-hero__noise"></div>
+    <div class="svc-hero__orb svc-hero__orb--1"></div>
+    <div class="svc-hero__orb svc-hero__orb--2"></div>
+  </div>
+  <div class="svc-hero__content">
+    <div class="svc-hero__pill" data-anim="fade-up" data-delay="0">
+      <span class="svc-hero__pill-dot"></span>
+      <span>Full Service Menu</span>
+    </div>
+    <h1 class="svc-hero__title" data-anim="fade-up" data-delay="1">
+      Our <em>Services</em>
+    </h1>
+    <p class="svc-hero__sub" data-anim="fade-up" data-delay="2">
+      Precision artistry, luxury-level care — every service crafted for perfection.
+    </p>
+    <div class="svc-hero__rule" data-anim="fade-up" data-delay="3">
+      <span class="svc-hero__rule-line"></span>
+      <span class="svc-hero__rule-diamond">✦</span>
+      <span class="svc-hero__rule-line"></span>
+    </div>
+  </div>
+  <div class="svc-hero__scroll" data-anim="fade-up" data-delay="4">
+    <span>Explore Below</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+</section>
+
+<!-- ========== STICKY CATEGORY NAV ========== -->
+<nav class="cat-nav" id="catNav">
+  <div class="cat-nav__inner">
+    <a href="#hair" class="cat-nav__link is-active" data-cat="hair">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7c0 3-2 8-8 14C6 15 4 10 4 7a8 8 0 1116 0z"/></svg>
+      <span>Hair</span>
+    </a>
+    <a href="#color" class="cat-nav__link" data-cat="color">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20 14.5 14.5 0 000-20"/></svg>
+      <span>Color</span>
+    </a>
+    <a href="#treatments" class="cat-nav__link" data-cat="treatments">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <span>Treatments</span>
+    </a>
+    <a href="#nails" class="cat-nav__link" data-cat="nails">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      <span>Nails</span>
+    </a>
+    <a href="#threading" class="cat-nav__link" data-cat="threading">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span>Threading</span>
+    </a>
+    <a href="#waxing" class="cat-nav__link" data-cat="waxing">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+      <span>Waxing</span>
+    </a>
+    <a href="#makeup" class="cat-nav__link" data-cat="makeup">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>Makeup</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ========== SERVICE SECTIONS ========== -->
+<main class="svc-main">
+
+  <!-- ── HAIR SERVICES ── -->
+  <section class="svc-section" id="hair">
+    <div class="svc-section__bg"><div class="svc-section__orb svc-section__orb--1"></div><div class="svc-section__orb svc-section__orb--2"></div></div>
+    <div class="svc-section__container">
+      <div class="svc-section__header reveal">
+        <span class="svc-section__number">01</span>
+        <div class="svc-section__label">
+          <span class="svc-section__label-line"></span>
+          <span class="svc-section__label-text">Signature Collection</span>
+          <span class="svc-section__label-line"></span>
+        </div>
+        <h2 class="svc-section__title">Hair <em>Services</em></h2>
+        <p class="svc-section__sub">Expert cuts, blowouts & styling by master-level artists with 25+ years of precision craft.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card reveal" data-price="varies">
+          <div class="svc-card__inner">
+            <div class="svc-card__top">
+              <h3 class="svc-card__name">Wash, Cut & Blow-Dry</h3>
+              <span class="svc-card__price">$85<sup>+</sup></span>
+            </div>
+            <p class="svc-card__desc">A customized haircut designed by your stylist to fit your individual style, includes professional blow dry. Price may vary depending on length and density.</p>
+            <div class="svc-card__footer">
+              <span class="svc-card__tag">Short to Medium</span>
+              <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="svc-card reveal" data-price="varies">
+          <div class="svc-card__inner">
+            <div class="svc-card__top">
+              <h3 class="svc-card__name">Wash, Cut & Blow-Dry</h3>
+              <span class="svc-card__price">$85<sup>+</sup></span>
+            </div>
+            <p class="svc-card__desc">Medium-long thick hair. Price may vary depending on length and thickness.</p>
+            <div class="svc-card__footer">
+              <span class="svc-card__tag">Medium-Long / Thick</span>
+              <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-card__inner">
+            <div class="svc-card__top">
+              <h3 class="svc-card__name">Shampoo & Cut (No Style)</h3>
+              <span class="svc-card__price">Varies</span>
+            </div>
+            <p class="svc-card__desc">A refreshing wash and cut for medium to long hair, tailored to enhance your unique style and promote hair health. Price varies based on hair length and thickness.</p>
+            <div class="svc-card__footer">
+              <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-card__inner">
+            <div class="svc-card__top">
+              <h3 class="svc-card__name">Women's Blow-Dry</h3>
+              <span class="svc-card__price">$45<sup>+</sup></span>
+            </div>
+            <p class="svc-card__desc">Professional styling and finishing service using a blow dryer and professional styling brush. Price may vary depending on length and density.</p>
+            <div class="svc-card__footer">
+              <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-card__inner">
+            <div class="svc-card__top">
+              <h3 class="svc-card__name">Bang Trim</h3>
+              <span class="svc-card__price">$15</span>
+            </div>
+            <p class="svc-card__desc">Quick precision trim to keep your bangs looking fresh and perfectly shaped.</p>
+            <div class="svc-card__footer">
+              <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-card__inner">
+            <div class="svc-card__top">
+              <h3 class="svc-card__name">Special Occasions / Up-Dos</h3>
+              <span class="svc-card__price">Varies</span>
+            </div>
+            <p class="svc-card__desc">An elegant style where the hair is pulled up and away from the neck. Price may vary depending on length and density.</p>
+            <div class="svc-card__footer">
+              <span class="svc-card__tag">Bridal · Events</span>
+              <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-card__inner">
+            <div class="svc-card__top">
+              <h3 class="svc-card__name">Wash & Blow-Dry on Extensions</h3>
+              <span class="svc-card__price">$75<sup>+</sup></span>
+            </div>
+            <p class="svc-card__desc">Refreshes your look with a thorough wash and a flawless blow-dry, tailored to your specific hair type. Prices may vary based on the length and thickness of your extensions.</p>
+            <div class="svc-card__footer">
+              <span class="svc-card__tag">Extensions</span>
+              <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-card__inner">
+            <div class="svc-card__top">
+              <h3 class="svc-card__name">Extensions Move-Up</h3>
+              <span class="svc-card__price">Consult</span>
+            </div>
+            <p class="svc-card__desc">Professional move-up appointment for existing extensions. By consultation only.</p>
+            <div class="svc-card__footer">
+              <span class="svc-card__tag">Extensions</span>
+              <a href="tel:+17185750532" class="svc-card__book">Call<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-card__inner">
+            <div class="svc-card__top">
+              <h3 class="svc-card__name">Hair Extensions Install</h3>
+              <span class="svc-card__price">Consult</span>
+            </div>
+            <p class="svc-card__desc">Every installation is entirely custom — tailored to your hair length, texture, and thickness for a flawless, natural result.</p>
+            <div class="svc-card__footer">
+              <span class="svc-card__tag">By Consultation</span>
+              <a href="tel:+17185750532" class="svc-card__book">Call<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-card__inner">
+            <div class="svc-card__top">
+              <h3 class="svc-card__name">Perm</h3>
+              <span class="svc-card__price">Varies</span>
+            </div>
+            <p class="svc-card__desc">Classic perm service. Call for consultation and pricing based on your hair type.</p>
+            <div class="svc-card__footer">
+              <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COLOR SERVICES ── -->
+  <section class="svc-section svc-section--alt" id="color">
+    <div class="svc-section__bg"><div class="svc-section__orb svc-section__orb--1"></div><div class="svc-section__orb svc-section__orb--2"></div></div>
+    <div class="svc-section__container">
+      <div class="svc-section__header reveal">
+        <span class="svc-section__number">02</span>
+        <div class="svc-section__label"><span class="svc-section__label-line"></span><span class="svc-section__label-text">Color Atelier</span><span class="svc-section__label-line"></span></div>
+        <h2 class="svc-section__title">Color <em>Services</em></h2>
+        <p class="svc-section__sub">From subtle dimension to bold transformation — bespoke color formulated exclusively for you.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Ammonia-Free Color Touch-Up</h3><span class="svc-card__price">$75<sup>+</sup></span></div><p class="svc-card__desc">Gentle, ammonia-free root coverage for a seamless, natural finish.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">10-Min Express Touch-Up</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Quick express root coverage for busy schedules.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Touch-Up Color</h3><span class="svc-card__price">$70–$100</span></div><p class="svc-card__desc">Prices may vary depending on hair density and root growth.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Single Process / All Over Color</h3><span class="svc-card__price">$100–$160</span></div><p class="svc-card__desc">All over color, price varies depending on length and density of hair.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Double Process Color (Roots to Ends)</h3><span class="svc-card__price">$250<sup>+</sup></span></div><p class="svc-card__desc">By consultation only. Full root-to-end coverage.</p><div class="svc-card__footer"><span class="svc-card__tag">Consultation</span><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Double Process Color Touch-Up</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Touch up is only for the roots. Extra fees may apply if it's more than 2 inches of growth.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Root Shadow</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Price varies depending on thickness and length.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Color Correction</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Price varies depending on length and thickness. Consultation required.</p><div class="svc-card__footer"><span class="svc-card__tag">Consultation</span><a href="tel:+17185750532" class="svc-card__book">Call<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Color Gloss</h3><span class="svc-card__price">$50<sup>+</sup></span></div><p class="svc-card__desc">Semi-permanent creme hair color available in many shades. Adds shine to any hair type — non-oxidative and non-damaging. Price varies.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Clear Gloss</h3><span class="svc-card__price">$65<sup>+</sup></span></div><p class="svc-card__desc">Crystal-clear gloss for brilliant shine without color change.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+      </div>
+
+      <!-- Highlights & Balayage Sub-Section -->
+      <div class="svc-subsection reveal">
+        <h3 class="svc-subsection__title">Highlights & Balayage</h3>
+        <div class="svc-grid">
+          <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Full Head Highlight</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Full head highlights. A highlight creates a contrast and brightening effect throughout the hair. Price varies by length and texture.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+          <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">1/2 Head Highlights</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Prices may vary depending on length and density.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+          <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Highlights — Top Crown</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Highlights applied to the top crown area for a natural sun-kissed look.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+          <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Highlights — Face Framing</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Color applied using a minimum number of foils to achieve highlights in desired locations. Prices may vary depending on hair length and density.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+          <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Lowlights — Full Head</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Done with color to add lowlights for dimension on existing color or done together with highlights. Price may vary.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+          <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Lowlights — Partial</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Partial lowlight application for subtle depth and dimension.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+          <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Balayage — Full Head</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Hand-painted, sun-kissed perfection — our signature technique. Price varies with length and texture. Please call for details.</p><div class="svc-card__footer"><span class="svc-card__tag">Signature</span><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+          <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Balayage — 1/2 Head</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Half-head balayage application. Price may vary.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+          <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Partial Balayage (Top Crown)</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Balayage focused on the top crown for natural luminosity.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+          <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Ombré</h3><span class="svc-card__price">$250–$350</span></div><p class="svc-card__desc">Prices may vary depending on length and texture.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TREATMENTS ── -->
+  <section class="svc-section" id="treatments">
+    <div class="svc-section__bg"><div class="svc-section__orb svc-section__orb--1"></div><div class="svc-section__orb svc-section__orb--2"></div></div>
+    <div class="svc-section__container">
+      <div class="svc-section__header reveal">
+        <span class="svc-section__number">03</span>
+        <div class="svc-section__label"><span class="svc-section__label-line"></span><span class="svc-section__label-text">Transformation Suite</span><span class="svc-section__label-line"></span></div>
+        <h2 class="svc-section__title">Smoothing & <em>Treatments</em></h2>
+        <p class="svc-section__sub">Revolutionary frizz-free results and deep nourishing treatments that transform your hair.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Keratin Smoothing Treatment</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">A smoothing treatment that lasts 3–5 months. Makes hair shiny and frizz free. Price varies.</p><div class="svc-card__footer"><span class="svc-card__tag">3–5 Months</span><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">ProAddiction Protein</h3><span class="svc-card__price">Varies</span></div><p class="svc-card__desc">Multi-protein smoothing system that provides instant results for hair straightening. Balanced formula for perfectly straight hair regardless of coarseness or previous chemical processes. Reconstructive capabilities restore shine, vitality, and elasticity.</p><div class="svc-card__footer"><span class="svc-card__tag">Smoothing</span><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Split End Treatment (Add-On)</h3><span class="svc-card__price">$35<sup>+</sup></span></div><p class="svc-card__desc">Brazilian blowout professional split end repairing treatment. Reconstructs & repairs weak, broken strands. Seals split ends instantly. Protects against heat styling and future damage. Price may vary depending on length and density.</p><div class="svc-card__footer"><span class="svc-card__tag">Add-On</span><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Moisture Treatment</h3><span class="svc-card__price">$35<sup>+</sup></span></div><p class="svc-card__desc">Deep hydration treatment for dry, damaged hair.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Moroccan Oil Moisturizing</h3><span class="svc-card__price">$35<sup>+</sup></span></div><p class="svc-card__desc">Luxurious Moroccan oil infusion for deep nourishment and shine.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Dry Scalp Treatment</h3><span class="svc-card__price">$35<sup>+</sup></span></div><p class="svc-card__desc">Soothing treatment for dry, irritated scalp.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Oily Scalp Treatment</h3><span class="svc-card__price">$35<sup>+</sup></span></div><p class="svc-card__desc">Balancing treatment for oily scalp and roots.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Olaplex</h3><span class="svc-card__price">$50<sup>+</sup></span></div><p class="svc-card__desc">Bond-building treatment that repairs and strengthens damaged hair from the inside out.</p><div class="svc-card__footer"><span class="svc-card__tag">Premium</span><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">B3 Treatment</h3><span class="svc-card__price">$50<sup>+</sup></span></div><p class="svc-card__desc">Advanced Brazilian bond builder treatment for ultimate hair restoration.</p><div class="svc-card__footer"><span class="svc-card__tag">Premium</span><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NAILS ── -->
+  <section class="svc-section svc-section--alt" id="nails">
+    <div class="svc-section__bg"><div class="svc-section__orb svc-section__orb--1"></div><div class="svc-section__orb svc-section__orb--2"></div></div>
+    <div class="svc-section__container">
+      <div class="svc-section__header reveal">
+        <span class="svc-section__number">04</span>
+        <div class="svc-section__label"><span class="svc-section__label-line"></span><span class="svc-section__label-text">Nail Couture</span><span class="svc-section__label-line"></span></div>
+        <h2 class="svc-section__title">Nail <em>Services</em></h2>
+        <p class="svc-section__sub">From classic manicures to gel artistry — flawless nails crafted with precision.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Mani & Pedi</h3><span class="svc-card__price">$48</span></div><p class="svc-card__desc">Classic manicure and pedicure combo.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Manicure</h3><span class="svc-card__price">$15</span></div><p class="svc-card__desc">Classic manicure service.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Pedicure</h3><span class="svc-card__price">$33</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">French Manicure</h3><span class="svc-card__price">$20</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">French Pedicure</h3><span class="svc-card__price">$38</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Spa Manicure</h3><span class="svc-card__price">$25</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Spa Pedicure</h3><span class="svc-card__price">$65</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Gel Manicure (Hands)</h3><span class="svc-card__price">$45<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Gel French Mani (Hands)</h3><span class="svc-card__price">$50<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Gel Pedicure</h3><span class="svc-card__price">$55<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Gel French Pedi (Feet)</h3><span class="svc-card__price">$60<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Silk Wrap Fills</h3><span class="svc-card__price">$45</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Color Powder</h3><span class="svc-card__price">$50<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Glue with Powder Fills</h3><span class="svc-card__price">$40</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Soak Off Nails</h3><span class="svc-card__price">$10<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Polish Change — Hands</h3><span class="svc-card__price">$10</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Polish Change — Feet</h3><span class="svc-card__price">$10</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Nail Replacement</h3><span class="svc-card__price">$8</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Tips Full Set</h3><span class="svc-card__price">$65</span></div><p class="svc-card__desc">Price varies depending on length of nail.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Silk Nails Full Set (Hands)</h3><span class="svc-card__price">$70</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THREADING ── -->
+  <section class="svc-section" id="threading">
+    <div class="svc-section__bg"><div class="svc-section__orb svc-section__orb--1"></div><div class="svc-section__orb svc-section__orb--2"></div></div>
+    <div class="svc-section__container">
+      <div class="svc-section__header reveal">
+        <span class="svc-section__number">05</span>
+        <div class="svc-section__label"><span class="svc-section__label-line"></span><span class="svc-section__label-text">Precision Threading</span><span class="svc-section__label-line"></span></div>
+        <h2 class="svc-section__title">Threading <em>Services</em></h2>
+        <p class="svc-section__sub">A cotton thread pulled along unwanted hair in a twisting motion, trapping hair and lifting it right out of the follicle.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Brow Shaping</h3><span class="svc-card__price">$15<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Brow Maintenance</h3><span class="svc-card__price">$0</span></div><p class="svc-card__desc">Complimentary with other services.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Full Face</h3><span class="svc-card__price">$0<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Lips</h3><span class="svc-card__price">$0</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Chin</h3><span class="svc-card__price">$0</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Side-Burns</h3><span class="svc-card__price">$0</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Eyebrow Tinting</h3><span class="svc-card__price">$15</span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WAXING ── -->
+  <section class="svc-section svc-section--alt" id="waxing">
+    <div class="svc-section__bg"><div class="svc-section__orb svc-section__orb--1"></div><div class="svc-section__orb svc-section__orb--2"></div></div>
+    <div class="svc-section__container">
+      <div class="svc-section__header reveal">
+        <span class="svc-section__number">06</span>
+        <div class="svc-section__label"><span class="svc-section__label-line"></span><span class="svc-section__label-text">Waxing Studio</span><span class="svc-section__label-line"></span></div>
+        <h2 class="svc-section__title">Waxing <em>Services</em></h2>
+        <p class="svc-section__sub">Gentle, precise waxing services for flawless, long-lasting results.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Eyebrow</h3><span class="svc-card__price">$15<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Upper Lip</h3><span class="svc-card__price">$10<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Full Face</h3><span class="svc-card__price">$45<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Chin</h3><span class="svc-card__price">$12<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Underarms</h3><span class="svc-card__price">$20<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Half Arm</h3><span class="svc-card__price">$25<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Full Arm</h3><span class="svc-card__price">$40<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Half Leg</h3><span class="svc-card__price">$35<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Full Leg</h3><span class="svc-card__price">$60<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Bikini</h3><span class="svc-card__price">$40<sup>+</sup></span></div><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MAKEUP ── -->
+  <section class="svc-section" id="makeup">
+    <div class="svc-section__bg"><div class="svc-section__orb svc-section__orb--1"></div><div class="svc-section__orb svc-section__orb--2"></div></div>
+    <div class="svc-section__container">
+      <div class="svc-section__header reveal">
+        <span class="svc-section__number">07</span>
+        <div class="svc-section__label"><span class="svc-section__label-line"></span><span class="svc-section__label-text">Beauty Studio</span><span class="svc-section__label-line"></span></div>
+        <h2 class="svc-section__title">Makeup <em>Services</em></h2>
+        <p class="svc-section__sub">Flawless looks for every occasion — from everyday elegance to your wedding day.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Wedding Make-Up</h3><span class="svc-card__price">$250<sup>+</sup></span></div><p class="svc-card__desc">Special makeup for weddings. Includes consultation and trial options.</p><div class="svc-card__footer"><span class="svc-card__tag">Bridal</span><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Makeup</h3><span class="svc-card__price">$125</span></div><p class="svc-card__desc">Professional makeup application for any occasion.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+        <div class="svc-card reveal"><div class="svc-card__inner"><div class="svc-card__top"><h3 class="svc-card__name">Consultation</h3><span class="svc-card__price">Free</span></div><p class="svc-card__desc">Complimentary consultation to discuss your vision and create a custom plan.</p><div class="svc-card__footer"><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-card__book">Book<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== BOTTOM CTA ========== -->
+<section class="svc-cta">
+  <div class="svc-cta__bg"><div class="svc-cta__orb svc-cta__orb--1"></div><div class="svc-cta__orb svc-cta__orb--2"></div></div>
+  <div class="svc-cta__container reveal">
+    <div class="svc-cta__rule"><span class="svc-cta__rule-line"></span><span class="svc-cta__rule-diamond">✦</span><span class="svc-cta__rule-line"></span></div>
+    <h2 class="svc-cta__title">Ready for Your <em>Transformation?</em></h2>
+    <p class="svc-cta__sub">Prices may vary based on hair length, texture, and thickness. Book online or call for a personalized consultation.</p>
+    <div class="svc-cta__buttons">
+      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="svc-cta__btn svc-cta__btn--primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Book Your Appointment</span>
+      </a>
+      <a href="tel:+17185750532" class="svc-cta__btn svc-cta__btn--ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span>(718) 575-0532</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER (same as index) ========== -->
+<footer id="footer" class="footer">
+  <div class="footer__rule-top"><span class="footer__rule-line"></span><span class="footer__rule-diamond">✦</span><span class="footer__rule-line"></span></div>
+  <div class="footer__main">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand reveal">
+          <a href="index.html" class="footer__logo-link"><img src="logo.png" alt="NYC Panache Salon" class="footer__logo" /></a>
+          <p class="footer__tagline">Where Elegance Meets Artistry</p>
+          <p class="footer__brand-desc">A luxury salon experience in the heart of Forest Hills, Queens.</p>
+          <div class="footer__social-row">
+            <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="footer__social" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="footer__social" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener" class="footer__social" aria-label="Yelp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col reveal">
+          <h4 class="footer__col-title">Visit Us</h4>
+          <div class="footer__contact-list">
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>107-12 71st Road 2nd Floor<br />Forest Hills, NY 11375</span></div>
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+17185750532">(718) 575-0532</a></div>
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon Closed · Tue–Sat 10–7 · Sun 10–5</span></div>
+          </div>
+          <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="footer__book-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Book Appointment</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="footer__bottom-container">
+      <p class="footer__copy">&copy; <span id="footerYear"></span> NYC Panache Salon. All rights reserved.</p>
+      <a href="https://www.elanstechworld.com" target="_blank" rel="noopener" class="footer__credit">
+        <span class="footer__credit-text">Crafted by</span>
+        <span class="footer__credit-brand">
+          <img src="https://www.elanstechworld.com/assets/images/Elanslogo.jpeg" alt="Elan's Tech World" class="footer__credit-logo" />
+          <span class="footer__credit-name">Elan's Tech World</span>
+        </span>
+      </a>
+    </div>
+  </div>
+  <button id="backToTop" class="footer__btt" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+</footer>
+
+<!-- Main site JS (nav, mobile menu, scroll reveal, back to top, footer year) -->
+<script src="script.js"></script>
+<!-- Services page-specific JS -->
+<script src="services.js"></script>
+</body>
+</html>
