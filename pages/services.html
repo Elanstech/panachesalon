@@ -19,21 +19,22 @@
 </head>
 <body>
 
-<!-- ========== FLOATING NAV BAR (same as index) ========== -->
+<!-- ========== FLOATING NAV BAR ========== -->
 <header class="float-nav" id="floatNav">
   <div class="float-nav__inner">
-    <a href="index.html" class="float-nav__logo" aria-label="Home">
+    <a href="../index.html" class="float-nav__logo" aria-label="Home">
       <img src="../logo.png" alt="NYC Panache" class="float-nav__logo-img" />
     </a>
+
     <nav class="float-nav__links" id="navLinks">
-      <a href="index.html#about" class="float-nav__link">About</a>
-      <a href="services.html" class="float-nav__link active">Services</a>
-      <a href="index.html#showcase" class="float-nav__link">Gallery</a>
-      <a href="index.html#waxing" class="float-nav__link">Waxing</a>
-      <a href="index.html#reviews" class="float-nav__link">Reviews</a>
-      <a href="pages/faq.html" class="float-nav__link">FAQ</a>
-      <a href="pages/contact.html" class="float-nav__link">Contact</a>
+      <a href="../index.html" class="float-nav__link" data-nav="about">Home</a>
+      <a href="about.html" class="float-nav__link" data-nav="about">About Us</a>
+      <a href="services.html" class="float-nav__link" data-nav="services">Services</a>
+      <a href="gallery.html" class="float-nav__link" data-nav="showcase">Gallery</a>
+      <a href="faq.html" class="float-nav__link" data-nav="faq">FAQ</a>
+      <a href="contact.html" class="float-nav__link" data-nav="contact">Contact</a>
     </nav>
+
     <div class="float-nav__right">
       <div class="float-nav__socials">
         <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="float-nav__social" aria-label="Instagram">
@@ -48,6 +49,7 @@
         <span>Book Now</span>
       </a>
     </div>
+
     <button class="float-nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
       <span class="burger-line burger-line--1"></span>
       <span class="burger-line burger-line--2"></span>
@@ -65,13 +67,12 @@
     </button>
     <img src="logo.png" alt="NYC Panache" class="mob-menu__logo" />
     <nav class="mob-menu__nav">
-      <a href="index.html#about" class="mob-menu__link">About</a>
+      <a href="../index.html" class="mob-menu__link">Home</a>
+      <a href="about.html" class="mob-menu__link">About</a>
       <a href="services.html" class="mob-menu__link">Services</a>
-      <a href="index.html#showcase" class="mob-menu__link">Gallery</a>
-      <a href="index.html#waxing" class="mob-menu__link">Waxing</a>
-      <a href="index.html#reviews" class="mob-menu__link">Reviews</a>
-      <a href="pages/faq.html" class="mob-menu__link">FAQ</a>
-      <a href="pages/contact.html" class="mob-menu__link">Contact</a>
+      <a href="gallery.html" class="mob-menu__link">Gallery</a>
+      <a href="faq.html" class="mob-menu__link">FAQ</a>
+      <a href="contact.html" class="mob-menu__link">Contact</a>
     </nav>
     <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="mob-menu__cta">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
