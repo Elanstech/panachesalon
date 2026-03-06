@@ -15,7 +15,7 @@
 
   <!-- Root Styles + Services Styles -->
   <link rel="stylesheet" href="../styles.css" />
-  <link rel="stylesheet" href="services.css" />
+  <link rel="stylesheet" href="../services.css" />
 </head>
 <body>
 
@@ -82,25 +82,114 @@
   </div>
 </div>
 
-<!-- ========== SERVICES HERO ========== -->
-<section class="sp-hero">
-  <div class="sp-hero__bg">
+<!-- ========== SERVICES HERO — Full Viewport ========== -->
+<section class="sp-hero" id="spHero">
+  <div class="sp-hero__parallax" id="spHeroParallax">
     <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80" alt="" class="sp-hero__img" />
-    <div class="sp-hero__overlay"></div>
-    <div class="sp-hero__noise"></div>
   </div>
+  <div class="sp-hero__overlay"></div>
+  <div class="sp-hero__vignette"></div>
+  <div class="sp-hero__noise"></div>
+
   <div class="sp-hero__orbs" aria-hidden="true">
     <div class="sp-hero__orb sp-hero__orb--1"></div>
     <div class="sp-hero__orb sp-hero__orb--2"></div>
+    <div class="sp-hero__orb sp-hero__orb--3"></div>
   </div>
-  <div class="sp-hero__content">
-    <div class="sp-hero__pill"><span class="sp-hero__pill-dot"></span><span>Our Services</span></div>
-    <h1 class="sp-hero__title">Crafted for <em>Perfection</em></h1>
-    <p class="sp-hero__sub">Every service at Panache is an experience — precision artistry delivered with luxury-level care.</p>
-    <div class="sp-hero__rule"><span class="sp-hero__rule-line"></span><span class="sp-hero__rule-diamond">✦</span><span class="sp-hero__rule-line"></span></div>
+
+  <div class="sp-hero__lines" aria-hidden="true">
+    <div class="sp-hero__line sp-hero__line--1"></div>
+    <div class="sp-hero__line sp-hero__line--2"></div>
+    <div class="sp-hero__line sp-hero__line--3"></div>
   </div>
-  <div class="sp-hero__scroll"><span>Explore</span><div class="sp-hero__scroll-track"><div class="sp-hero__scroll-thumb"></div></div></div>
+
+  <div class="sp-hero__content" id="spHeroContent">
+    <div class="sp-hero__pill" data-sp-anim="pill">
+      <span class="sp-hero__pill-dot"></span>
+      <span>Our Services</span>
+    </div>
+
+    <span class="sp-hero__eyebrow" data-sp-anim="eyebrow">The Art of Beauty</span>
+
+    <h1 class="sp-hero__title">
+      <span class="sp-hero__title-line">
+        <span class="sp-hero__title-word" data-sp-anim="word" data-delay="0">Crafted</span>
+      </span>
+      <span class="sp-hero__title-line">
+        <span class="sp-hero__title-word" data-sp-anim="word" data-delay="1">for&nbsp;</span>
+        <span class="sp-hero__title-word sp-hero__title-accent" data-sp-anim="word" data-delay="2">Perfection</span>
+      </span>
+    </h1>
+
+    <p class="sp-hero__sub" data-sp-anim="sub">
+      Every service at Panache is an experience — precision artistry delivered with luxury-level care, crafted for those who expect nothing less than extraordinary.
+    </p>
+
+    <div class="sp-hero__rule" data-sp-anim="rule">
+      <span class="sp-hero__rule-line"></span>
+      <span class="sp-hero__rule-diamond">✦</span>
+      <span class="sp-hero__rule-line"></span>
+    </div>
+
+    <div class="sp-hero__ctas" data-sp-anim="ctas">
+      <a href="#hair" class="sp-hero__btn sp-hero__btn--primary">
+        <span>Explore Services</span>
+        <span class="sp-hero__btn-shine"></span>
+      </a>
+      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="sp-hero__btn sp-hero__btn--ghost">
+        <span>Book Appointment</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="sp-hero__bottom">
+    <div class="sp-hero__scroll" data-sp-anim="scroll">
+      <span>Scroll</span>
+      <div class="sp-hero__scroll-track"><div class="sp-hero__scroll-thumb"></div></div>
+    </div>
+  </div>
+
+  <div class="sp-hero__stats">
+    <div class="sp-hero__stat" data-sp-anim="stat" data-delay="0">
+      <span class="sp-hero__stat-num">25+</span>
+      <span class="sp-hero__stat-label">Years Experience</span>
+    </div>
+    <div class="sp-hero__stat" data-sp-anim="stat" data-delay="1">
+      <span class="sp-hero__stat-num">50+</span>
+      <span class="sp-hero__stat-label">Services Offered</span>
+    </div>
+    <div class="sp-hero__stat" data-sp-anim="stat" data-delay="2">
+      <span class="sp-hero__stat-num">5★</span>
+      <span class="sp-hero__stat-label">Client Rated</span>
+    </div>
+    <div class="sp-hero__stat" data-sp-anim="stat" data-delay="3">
+      <span class="sp-hero__stat-num">1000s</span>
+      <span class="sp-hero__stat-label">Happy Clients</span>
+    </div>
+  </div>
 </section>
+
+<!-- ========== MARQUEE RIBBON ========== -->
+<div class="sp-marquee">
+  <div class="sp-marquee__track">
+    <span class="sp-marquee__item">Hair Artistry</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Color Mastery</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Nail Couture</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Smoothing Treatments</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Balayage</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Waxing Perfection</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Keratin Complex</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Extensions</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Hair Artistry</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Color Mastery</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Nail Couture</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Smoothing Treatments</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Balayage</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Waxing Perfection</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Keratin Complex</span><span class="sp-marquee__dot">✦</span>
+    <span class="sp-marquee__item">Extensions</span><span class="sp-marquee__dot">✦</span>
+  </div>
+</div>
 
 <!-- ========== CATEGORY NAV ========== -->
 <nav class="sp-catnav" id="spCatnav">
@@ -119,6 +208,16 @@
 
 <!-- ========== SERVICES SECTIONS ========== -->
 <main class="sp-main">
+  <div class="sp-main__orbs" aria-hidden="true">
+    <div class="sp-main__orb sp-main__orb--1"></div>
+    <div class="sp-main__orb sp-main__orb--2"></div>
+    <div class="sp-main__orb sp-main__orb--3"></div>
+  </div>
+  <div class="sp-main__lines" aria-hidden="true">
+    <div class="sp-main__deco-line sp-main__deco-line--1"></div>
+    <div class="sp-main__deco-line sp-main__deco-line--2"></div>
+  </div>
+  <div class="sp-main__inner">
 
   <!-- ——— HAIR ——— -->
   <section class="sp-section" id="hair">
@@ -567,6 +666,7 @@
     </div>
   </section>
 
+  </div><!-- /.sp-main__inner -->
 </main>
 
 <!-- ========== SERVICE MODAL ========== -->
@@ -648,6 +748,6 @@
 
 <!-- Root JS + Services JS -->
 <script src="../script.js"></script>
-<script src="services.js"></script>
+<script src="../services.js"></script>
 </body>
 </html>
