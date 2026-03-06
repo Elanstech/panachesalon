@@ -54,8 +54,8 @@ ul,ol{list-style:none}
 .float-nav.is-menu-open{transform:translateX(-50%) translateY(-140%);opacity:0;pointer-events:none}
 
 .float-nav__logo{display:flex;align-items:center;flex-shrink:0;transition:transform .4s var(--ease-out)}
-.float-nav__logo:hover{transform:scale(1.05)}
-.float-nav__logo-img{height:120px;width:auto;filter:drop-shadow(0 2px 10px rgba(138,105,20,.18))}
+.float-nav__logo:hover{transform:scale(1.10)}
+.float-nav__logo-img{height:150px;width:auto;filter:drop-shadow(0 2px 10px rgba(138,105,20,.18))}
 
 .float-nav__links{display:flex;align-items:center;gap:4px}
 .float-nav__link{font-family:var(--font-mono);font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--text-secondary);padding:10px 18px;border-radius:100px;position:relative;transition:all .35s var(--ease-out);white-space:nowrap}
