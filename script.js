@@ -63,12 +63,13 @@
     window.addEventListener('scroll', throttleRAF(onScroll), { passive: true });
 
     links.forEach(l => l.addEventListener('click', e => {
-      const href = l.getAttribute('href');
-      if (!href || href === '#') return;
-      e.preventDefault();
-      const target = $(href);
-      if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
-    }));
+  const href = l.getAttribute('href');
+  if (!href || href === '#') return;
+  if (!href.startsWith('#')) return;
+  e.preventDefault();
+  const target = $(href);
+  if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+   }));
 
     onScroll();
   }
@@ -122,15 +123,13 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen) close(); });
 
     links.forEach(l => l.addEventListener('click', e => {
-      const href = l.getAttribute('href');
-      if (!href || href === '#') return;
-      e.preventDefault();
-      close();
-      setTimeout(() => {
-        const target = $(href);
-        if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
-      }, 400);
-    }));
+  const href = l.getAttribute('href');
+  if (!href || href === '#') return;
+  if (!href.startsWith('#')) return;
+  e.preventDefault();
+  const target = $(href);
+  if (target) window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+   }));
   }
 
   /* ═══════════════════════════════════
