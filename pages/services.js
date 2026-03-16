@@ -172,7 +172,7 @@
     const nav = $('#spCatnav');
     if (!nav) return;
     const inner = $('.sp-catnav__inner', nav);
-    const links = $('.sp-catnav__link', nav);
+    const links = $$('.sp-catnav__link', nav);
     const sections = [];
 
     links.forEach(link => {
