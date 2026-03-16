@@ -1,7 +1,3 @@
-
-<!-- ============================================================
-     FILE 1 OF 3:  pages/gallery.html
-     ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,6 +91,7 @@
     <div class="gp-hero__orb gp-hero__orb--1"></div>
     <div class="gp-hero__orb gp-hero__orb--2"></div>
     <div class="gp-hero__grid"></div>
+    <div class="gp-hero__particles" id="heroParticles"></div>
   </div>
   <div class="gp-hero__container">
     <nav class="gp-breadcrumb" aria-label="Breadcrumb">
@@ -118,30 +115,31 @@
       <span class="gp-tag">Smoothing</span>
     </div>
   </div>
-  <div class="gp-hero__scroll" aria-hidden="true">
-    <span></span><span></span><span></span>
+  <div class="gp-hero__scroll-hint" aria-hidden="true">
+    <div class="gp-hero__scroll-line"></div>
+    <span class="gp-hero__scroll-text">Scroll to explore</span>
   </div>
 </section>
 
 <!-- ========== STATS STRIP ========== -->
 <div class="gp-stats">
   <div class="gp-stats__inner">
-    <div class="gp-stat">
+    <div class="gp-stat" data-stat>
       <span class="gp-stat__num" data-count="25">0</span><span class="gp-stat__plus">+</span>
       <span class="gp-stat__label">Years of Excellence</span>
     </div>
     <span class="gp-stats__div">✦</span>
-    <div class="gp-stat">
+    <div class="gp-stat" data-stat>
       <span class="gp-stat__num" data-count="500">0</span><span class="gp-stat__plus">+</span>
       <span class="gp-stat__label">Happy Clients</span>
     </div>
     <span class="gp-stats__div">✦</span>
-    <div class="gp-stat">
+    <div class="gp-stat" data-stat>
       <span class="gp-stat__num" data-count="8">0</span>
       <span class="gp-stat__label">Service Categories</span>
     </div>
     <span class="gp-stats__div">✦</span>
-    <div class="gp-stat">
+    <div class="gp-stat" data-stat>
       <span class="gp-stat__num" data-count="5">0</span>
       <span class="gp-stat__label">Star Rating</span>
     </div>
@@ -162,7 +160,6 @@
     </div>
 
     <div class="gp-ba__grid">
-
       <!-- BA 1 — Air-Touch Balayage -->
       <div class="gp-ba-card reveal" data-ba>
         <div class="gp-ba-card__slider">
@@ -252,7 +249,6 @@
           <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="gp-ba-card__cta">Book This Service <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -275,10 +271,10 @@
       <button class="gp-filt" data-filter="smoothing">Smoothing</button>
       <button class="gp-filt" data-filter="extensions">Extensions</button>
       <button class="gp-filt" data-filter="style">Style & Cut</button>
+      <div class="gp-filt__indicator"></div>
     </div>
 
     <div class="gp-mosaic__grid" id="gpGrid">
-
       <!-- 1 — Balayage -->
       <div class="gp-tile gp-tile--tall" data-cat="color" data-title="Balayage" data-desc="Hand-painted balayage for a natural, sun-kissed look" data-grev>
         <div class="gp-tile__inner">
@@ -354,7 +350,7 @@
         </div>
       </div>
 
-      <!-- 6 — Weft Extensions After -->
+      <!-- 6 — Weft Extensions -->
       <div class="gp-tile" data-cat="extensions" data-title="Weft Hair Extensions" data-desc="Seamless length and volume with natural weft extensions" data-grev>
         <div class="gp-tile__inner">
           <img src="../images/wefthairextafter.jpeg" alt="Weft Hair Extensions Result" loading="lazy" class="gp-tile__img" />
@@ -369,7 +365,7 @@
         </div>
       </div>
 
-      <!-- 7 — Beige Ash Blonde Highlights — ⚠️ CONFIRM filename -->
+      <!-- 7 — Beige Ash Blonde -->
       <div class="gp-tile gp-tile--tall" data-cat="color" data-title="Beige Ash Blonde Highlights" data-desc="Cool, muted blonde with a soft beige tone and a flawless blowout" data-grev>
         <div class="gp-tile__inner">
           <img src="../images/beige-ash-blonde-highlight-blowout.jpeg" alt="Beige Ash Blonde Highlights & Blowout" loading="lazy" class="gp-tile__img" />
@@ -384,7 +380,7 @@
         </div>
       </div>
 
-      <!-- 8 — Color Touchup Haircut Blowout — ⚠️ CONFIRM filename -->
+      <!-- 8 — Color Touchup -->
       <div class="gp-tile" data-cat="style" data-title="Color, Touchup & Blowout" data-desc="Root touchup, haircut, and a polished blowout finish" data-grev>
         <div class="gp-tile__inner">
           <img src="../images/color-touchup-haircut-blowout.jpeg" alt="Color Touchup Haircut Blowout" loading="lazy" class="gp-tile__img" />
@@ -413,7 +409,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -436,6 +431,7 @@
       <div class="gp-spot__media">
         <img src="../images/airtouchbalafter.jpeg" alt="Balayage service" loading="lazy" />
         <div class="gp-spot__media-badge">Color</div>
+        <div class="gp-spot__media-glow"></div>
       </div>
       <div class="gp-spot__body">
         <span class="gp-spot__eyebrow">Signature Service</span>
@@ -447,15 +443,16 @@
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Works on all hair types & base colors</li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Toner + blowout included</li>
         </ul>
-        <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="gp-spot__btn">Book Balayage</a>
+        <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="gp-spot__btn">Book Balayage <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
 
-    <!-- Spotlight 2 — Keratin / Smoothing -->
+    <!-- Spotlight 2 — Keratin -->
     <div class="gp-spot gp-spot--reverse reveal">
       <div class="gp-spot__media">
         <img src="../images/keratin.jpeg" alt="Keratin smoothing treatment" loading="lazy" />
         <div class="gp-spot__media-badge">Smoothing</div>
+        <div class="gp-spot__media-glow"></div>
       </div>
       <div class="gp-spot__body">
         <span class="gp-spot__eyebrow">Transformation Treatment</span>
@@ -467,7 +464,7 @@
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Results last 3 – 5 months</li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Use sulfate-free shampoo to extend</li>
         </ul>
-        <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="gp-spot__btn">Book Smoothing</a>
+        <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="gp-spot__btn">Book Smoothing <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
 
@@ -476,6 +473,7 @@
       <div class="gp-spot__media">
         <img src="../images/wefthairextafter.jpeg" alt="Weft hair extensions" loading="lazy" />
         <div class="gp-spot__media-badge">Extensions</div>
+        <div class="gp-spot__media-glow"></div>
       </div>
       <div class="gp-spot__body">
         <span class="gp-spot__eyebrow">Custom Installation</span>
@@ -487,10 +485,9 @@
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Completely natural-looking finish</li>
           <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Call (718) 575-0532 to start</li>
         </ul>
-        <a href="tel:+17185750532" class="gp-spot__btn">Call to Consult</a>
+        <a href="tel:+17185750532" class="gp-spot__btn">Call to Consult <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -526,6 +523,14 @@
     <div class="gp-lb__info">
       <h4 class="gp-lb__title"></h4>
       <p class="gp-lb__desc"></p>
+    </div>
+    <div class="gp-lb__nav">
+      <button class="gp-lb__prev" aria-label="Previous image">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button class="gp-lb__next" aria-label="Next image">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
     </div>
   </div>
 </div>
