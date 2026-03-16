@@ -180,8 +180,12 @@
     if (!filters.length || !tiles.length) return;
     let active = 'all';
 
+    function indicatorVisible() {
+      return indicator && getComputedStyle(indicator).display !== 'none';
+    }
+
     function moveIndicator(btn) {
-      if (!indicator || !btn) return;
+      if (!indicatorVisible() || !btn) return;
       const parent = indicator.parentElement;
       const pr = parent.getBoundingClientRect();
       const br = btn.getBoundingClientRect();
@@ -189,7 +193,7 @@
       indicator.style.width = `${br.width}px`;
     }
 
-    // Initial position
+    // Initial position (only if visible)
     const firstActive = filters.find(f => f.classList.contains('is-active'));
     if (firstActive) requestAnimationFrame(() => moveIndicator(firstActive));
 
