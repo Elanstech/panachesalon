@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — NYC Panache Salon | Forest Hills, Queens</title>
+  <meta name="description" content="Frequently asked questions about NYC Panache Salon — appointments, services, pricing, cancellations, and more. Everything you need to know before your visit." />
+  <link rel="icon" type="image/svg+xml" href="../logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="faq.css" />
+</head>
+<body>
+
+<!-- ========== FLOATING NAV ========== -->
+<header class="float-nav" id="floatNav">
+  <div class="float-nav__inner">
+    <a href="../index.html" class="float-nav__logo" aria-label="Home">
+      <img src="../logo.png" alt="NYC Panache" class="float-nav__logo-img" />
+    </a>
+    <nav class="float-nav__links" id="navLinks">
+      <a href="../index.html" class="float-nav__link">Home</a>
+      <a href="about.html" class="float-nav__link">About Us</a>
+      <a href="services.html" class="float-nav__link">Services</a>
+      <a href="gallery.html" class="float-nav__link">Gallery</a>
+      <a href="faq.html" class="float-nav__link active">FAQ</a>
+      <a href="contact.html" class="float-nav__link">Contact</a>
+    </nav>
+    <div class="float-nav__right">
+      <div class="float-nav__socials">
+        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="float-nav__social" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="float-nav__social" aria-label="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      </div>
+      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="float-nav__cta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Book Now</span></a>
+    </div>
+    <button class="float-nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+      <span class="burger-line burger-line--1"></span>
+      <span class="burger-line burger-line--2"></span>
+      <span class="burger-line burger-line--3"></span>
+    </button>
+  </div>
+</header>
+
+<!-- ========== MOBILE MENU ========== -->
+<div class="mob-menu" id="mobMenu" aria-hidden="true">
+  <div class="mob-menu__backdrop"></div>
+  <div class="mob-menu__panel">
+    <button class="mob-menu__close" id="mobMenuClose" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <img src="../logo.png" alt="NYC Panache" class="mob-menu__logo" />
+    <nav class="mob-menu__nav">
+      <a href="../index.html" class="mob-menu__link">Home</a>
+      <a href="about.html" class="mob-menu__link">About</a>
+      <a href="services.html" class="mob-menu__link">Services</a>
+      <a href="gallery.html" class="mob-menu__link">Gallery</a>
+      <a href="faq.html" class="mob-menu__link">FAQ</a>
+      <a href="contact.html" class="mob-menu__link">Contact</a>
+    </nav>
+    <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="mob-menu__cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Book Online via Vagaro</a>
+    <div class="mob-menu__footer">
+      <div class="mob-menu__socials"><a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener">Instagram</a><span>·</span><a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener">Facebook</a><span>·</span><a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener">Yelp</a></div>
+      <p><a href="tel:+17185750532">(718) 575-0532</a></p>
+      <p class="mob-menu__addr">107-12 71st Rd, Forest Hills, NY 11375</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========== PAGE HERO ========== -->
+<section class="fq-hero">
+  <div class="fq-hero__bg" aria-hidden="true">
+    <div class="fq-hero__orb fq-hero__orb--1"></div>
+    <div class="fq-hero__orb fq-hero__orb--2"></div>
+    <div class="fq-hero__grid"></div>
+  </div>
+  <div class="fq-hero__container">
+    <nav class="fq-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html" class="fq-breadcrumb__link">Home</a>
+      <span class="fq-breadcrumb__sep">✦</span>
+      <span class="fq-breadcrumb__current">FAQ</span>
+    </nav>
+    <div class="fq-hero__label">
+      <span class="fq-hero__label-line"></span>
+      <span class="fq-hero__label-text">Common Questions</span>
+      <span class="fq-hero__label-line"></span>
+    </div>
+    <h1 class="fq-hero__title">Frequently <em>Asked</em></h1>
+    <p class="fq-hero__sub">Everything you need to know before your visit — from booking to aftercare. Can't find your answer? Give us a call.</p>
+  </div>
+</section>
+
+<!-- ========== CATEGORY JUMP LINKS ========== -->
+<div class="fq-jumps">
+  <div class="fq-jumps__inner">
+    <a href="#general" class="fq-jump is-active" data-jump="general">General</a>
+    <a href="#hair-color" class="fq-jump" data-jump="hair-color">Hair & Color</a>
+    <a href="#smoothing" class="fq-jump" data-jump="smoothing">Smoothing</a>
+    <a href="#extensions" class="fq-jump" data-jump="extensions">Extensions</a>
+    <a href="#nails-waxing" class="fq-jump" data-jump="nails-waxing">Nails & Waxing</a>
+    <a href="#policies" class="fq-jump" data-jump="policies">Policies</a>
+  </div>
+</div>
+
+<!-- ========== FAQ SECTIONS ========== -->
+<main class="fq-main">
+  <div class="fq-main__bg" aria-hidden="true">
+    <div class="fq-main__orb fq-main__orb--1"></div>
+    <div class="fq-main__orb fq-main__orb--2"></div>
+  </div>
+  <div class="fq-main__container">
+
+    <!-- ── GENERAL ── -->
+    <section class="fq-section" id="general">
+      <div class="fq-section__header reveal">
+        <div class="fq-section__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h2 class="fq-section__title">General</h2>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>Do I need an appointment or do you accept walk-ins?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>We accept both! However, we highly recommend booking an appointment to ensure your preferred time and stylist are available. You can book online through <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener">Vagaro</a> or call us directly at <a href="tel:+17185750532">(718) 575-0532</a>.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>What should I expect during my first visit?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Your first visit begins with a detailed consultation where we discuss your goals, hair history, and lifestyle. This helps us create a personalized plan that's tailored specifically to you. We recommend arriving 10 minutes early so you can settle in and enjoy the experience from the start.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>What are your hours of operation?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>We're open Tuesday through Saturday from 10 AM to 7 PM, and Sunday from 10 AM to 5 PM. We are closed on Mondays.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>Where are you located?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>We're located at 107-12 71st Road, 2nd Floor, Forest Hills, NY 11375 — just steps from the Forest Hills LIRR station and right between Queens Blvd and Austin Street. <a href="https://maps.google.com/?q=107-12+71st+Rd+Forest+Hills+NY+11375" target="_blank" rel="noopener">Get directions →</a></p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>Is there parking nearby?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Yes! There is metered street parking available on 71st Road and surrounding streets. There are also several parking garages within a short walk on Queens Boulevard.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>How do I book an appointment online?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>You can book directly through our <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener">Vagaro booking page</a>. Select your service, choose your preferred date and time, and you'll receive a confirmation instantly. You can also call us at <a href="tel:+17185750532">(718) 575-0532</a>.</p></div>
+      </div>
+    </section>
+
+    <!-- ── HAIR & COLOR ── -->
+    <section class="fq-section" id="hair-color">
+      <div class="fq-section__header reveal">
+        <div class="fq-section__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h2 class="fq-section__title">Hair & Color</h2>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>How long does a balayage or highlight appointment take?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Balayage and highlight services typically take 2.5 to 4 hours depending on your hair length, thickness, and the desired result. We never rush — quality takes time. A toner and blowout are included in every color service.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>What's the difference between balayage and traditional highlights?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Traditional highlights use foils and create uniform, even streaks of color. Balayage is a freehand painting technique that produces softer, more natural-looking dimension with no harsh grow-out lines. During your consultation, Marina will recommend which technique best suits your hair goals.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>What is air-touch balayage?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Air-touch is an advanced balayage variation where a blow-dryer is used to separate fine hairs before painting. This isolates shorter and thinner strands, leaving them uncolored for a hyper-natural, incredibly dimensional result. It's our signature technique and ideal for anyone who wants sun-kissed depth without harsh lines.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>How often should I touch up my roots?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>For single-process color or root touchups, we typically recommend every 4–6 weeks. Balayage and highlights can be stretched longer — usually 8–12 weeks — thanks to the soft, blended grow-out.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>Can you do color corrections?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Absolutely. Color corrections are one of Marina's specialties. Whether you have uneven color, banding, brassiness, or damage from a previous salon, we'll assess the situation during a consultation and create a custom correction plan. Please note that corrections may require multiple sessions.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>What products do you use?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>We use only professional-grade, salon-exclusive products from trusted brands. Our color lines, smoothing treatments, and styling products are carefully selected for performance, hair health, and longevity. We're happy to discuss specific product recommendations during your visit.</p></div>
+      </div>
+    </section>
+
+    <!-- ── SMOOTHING ── -->
+    <section class="fq-section" id="smoothing">
+      <div class="fq-section__header reveal">
+        <div class="fq-section__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h2 class="fq-section__title">Smoothing Treatments</h2>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>How often should I get a keratin treatment?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Keratin treatments typically last 3–5 months depending on your hair type and care routine. We recommend using sulfate-free shampoos to extend the life of your treatment. Most clients come in 2–3 times per year.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>What's the difference between Keratin Complex and ProAddiction?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Keratin Complex is the gold-standard keratin treatment — it dramatically reduces frizz and curl for 3–5 months. ProAddiction is our newer, next-generation system that is formaldehyde-free, lasts up to 5 months, and leaves an extraordinary gloss. Both will cut your daily styling time significantly. Marina can recommend the best option during your consultation.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>Can I color my hair after a smoothing treatment?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Yes, but timing matters. We recommend doing your color service first, or waiting at least 2 weeks after a smoothing treatment before coloring. This ensures maximum longevity for both treatments. We'll guide you through the best scheduling during your consultation.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>Will a keratin treatment make my hair completely straight?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Not necessarily — and that's by design. Keratin treatments are primarily about eliminating frizz and making hair more manageable. They soften curl and wave, but how straight the result is depends on your natural texture and the formula used. If you want to maintain some wave while removing frizz, we can absolutely do that.</p></div>
+      </div>
+    </section>
+
+    <!-- ── EXTENSIONS ── -->
+    <section class="fq-section" id="extensions">
+      <div class="fq-section__header reveal">
+        <div class="fq-section__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h2 class="fq-section__title">Extensions & Up-Dos</h2>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>How do I know if extensions are right for me?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Extensions are great for adding length, volume, or both. They work on most hair types, but the best way to find out is through a free consultation. Marina will assess your natural hair's health, texture, and thickness to determine the best extension method and create a custom plan.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>Why is extension pricing by consultation only?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Every extension installation is entirely custom — tailored to your hair length, texture, thickness, and desired result. The amount of hair needed, the method used, and the time involved vary significantly from person to person. A consultation ensures you receive an accurate, personalized quote with no surprises.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>How long do weft extensions last?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Hand-sewn weft extensions typically last 6–8 weeks before needing a move-up appointment, where the wefts are repositioned as your natural hair grows. With proper care, the hair itself can be reused for multiple installations.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>Do you offer bridal or special occasion packages?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Yes! We offer custom bridal and special occasion packages including updos, styling, and makeup coordination. Whether it's your wedding day, prom, or a special event, we'll create a look that's perfect for you. Contact us for a personalized consultation and quote for your special day.</p></div>
+      </div>
+    </section>
+
+    <!-- ── NAILS & WAXING ── -->
+    <section class="fq-section" id="nails-waxing">
+      <div class="fq-section__header reveal">
+        <div class="fq-section__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <h2 class="fq-section__title">Nails & Waxing</h2>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>What nail services do you offer?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>We offer a full range of nail services including classic manicures, gel manicures, classic pedicures, gel pedicures, and nail art. Every service is delivered with the same meticulous care and attention to detail that defines Panache.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>What waxing services are available?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>We offer facial waxing (eyebrow, upper lip, chin, full face), body waxing (underarms, half arm, full arm, half leg, full leg), and bikini waxing. Our technique is gentle, precise, and designed for long-lasting results with minimal discomfort.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>How often should I get waxed?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>For best results, we recommend waxing every 3–4 weeks. This allows hair to grow to the ideal length for effective removal and helps achieve smoother, longer-lasting results over time as the hair grows back finer.</p></div>
+      </div>
+    </section>
+
+    <!-- ── POLICIES ── -->
+    <section class="fq-section" id="policies">
+      <div class="fq-section__header reveal">
+        <div class="fq-section__icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h2 class="fq-section__title">Policies</h2>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>What is your cancellation policy?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>We kindly ask for at least 24 hours' notice for cancellations or rescheduling. Late cancellations or no-shows may be subject to a fee. We understand things come up — just let us know as soon as possible and we'll do our best to accommodate you.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>Do prices vary based on hair length or thickness?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Yes — our listed prices are starting points. Final pricing may vary based on hair length, thickness, texture, and the complexity of the service. We'll always discuss pricing with you during your consultation before beginning any work, so there are no surprises.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>What forms of payment do you accept?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>We accept all major credit and debit cards, Apple Pay, Google Pay, and cash. Payment is collected at the end of your service.</p></div>
+      </div>
+
+      <div class="fq-item reveal" data-faq>
+        <button class="fq-item__q" aria-expanded="false">
+          <span>Do you offer gift cards?</span>
+          <span class="fq-item__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="fq-item__a"><p>Yes! Gift cards are available for purchase in-salon and make the perfect gift for any occasion. Contact us to purchase one or stop by the salon.</p></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ========== STILL HAVE QUESTIONS CTA ========== -->
+<section class="fq-cta">
+  <div class="fq-cta__container reveal">
+    <div class="fq-cta__card">
+      <div class="fq-cta__icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <h2 class="fq-cta__title">Still Have Questions?</h2>
+      <p class="fq-cta__sub">We'd love to hear from you. Give us a call or send us a message — we typically respond within 24 hours.</p>
+      <div class="fq-cta__buttons">
+        <a href="tel:+17185750532" class="fq-cta__btn fq-cta__btn--primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (718) 575-0532
+        </a>
+        <a href="contact.html" class="fq-cta__btn fq-cta__btn--outline">
+          Send a Message
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="fq-cta__btn fq-cta__btn--outline">
+          Book Appointment
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer id="footer" class="footer">
+  <div class="footer__rule-top"><span class="footer__rule-line"></span><span class="footer__rule-diamond">✦</span><span class="footer__rule-line"></span></div>
+  <div class="footer__main">
+    <div class="footer__container">
+      <div class="footer__grid">
+        <div class="footer__brand reveal">
+          <a href="../index.html" class="footer__logo-link"><img src="../logo.png" alt="NYC Panache Salon" class="footer__logo" /></a>
+          <p class="footer__tagline">Where Elegance Meets Artistry</p>
+          <p class="footer__brand-desc">A luxury salon experience in the heart of Forest Hills, Queens — crafted for those who expect nothing less than extraordinary.</p>
+          <div class="footer__social-row">
+            <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="footer__social" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="footer__social" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener" class="footer__social" aria-label="Yelp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__col reveal"><h4 class="footer__col-title">Explore</h4><nav class="footer__nav"><a href="about.html" class="footer__nav-link">About Us</a><a href="services.html" class="footer__nav-link">Our Services</a><a href="gallery.html" class="footer__nav-link">Gallery</a><a href="faq.html" class="footer__nav-link">FAQ</a><a href="contact.html" class="footer__nav-link">Contact</a></nav></div>
+        <div class="footer__col reveal"><h4 class="footer__col-title">Services</h4><nav class="footer__nav"><a href="services.html#hair" class="footer__nav-link">Hair Artistry</a><a href="services.html#color" class="footer__nav-link">Color & Balayage</a><a href="services.html#smoothing" class="footer__nav-link">Smoothing Treatments</a><a href="services.html#extensions" class="footer__nav-link">Extensions & Updos</a><a href="services.html#waxing" class="footer__nav-link">Waxing</a></nav></div>
+        <div class="footer__col reveal"><h4 class="footer__col-title">Visit Us</h4><div class="footer__contact-list"><div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>107-12 71st Road 2nd Floor<br/>Forest Hills, NY 11375</span></div><div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+17185750532">(718) 575-0532</a></div><div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon Closed · Tue–Sat 10–7 · Sun 10–5</span></div></div><a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="footer__book-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Book Appointment</span></a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom"><div class="footer__bottom-container"><p class="footer__copy">&copy; <span id="footerYear"></span> NYC Panache Salon. All rights reserved.</p><a href="https://www.elanstechworld.com" target="_blank" rel="noopener" class="footer__credit"><span class="footer__credit-line"></span><span class="footer__credit-inner"><img src="https://www.elanstechworld.com/assets/images/Elanslogo.jpeg" alt="Elan's Tech World" class="footer__credit-logo" /><span class="footer__credit-stack"><span class="footer__credit-label">Crafted by</span><span class="footer__credit-name">Elan's Tech World</span></span></span><span class="footer__credit-line"></span></a></div></div>
+  <button id="backToTop" class="footer__btt" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg></button>
+</footer>
+
+<script src="faq.js"></script>
+</body>
+</html>
