@@ -1,49 +1,333 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
+
+  <!-- =================================================================== -->
+  <!-- BASIC META                                                          -->
+  <!-- =================================================================== -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — NYC Panache Salon | Forest Hills, Queens</title>
-  <meta name="description" content="Get in touch with NYC Panache Salon. Visit us at 107-12 71st Rd, Forest Hills, Queens NY 11375 or call (718) 575-0532. Book your appointment today." />
-  <link rel="icon" type="image/svg+xml" href="../logo.png" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#8B6914" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+  <!-- =================================================================== -->
+  <!-- PRIMARY SEO                                                         -->
+  <!-- =================================================================== -->
+  <title>Contact NYC Panache Salon | 107-12 71st Rd, Forest Hills Queens — (718) 575-0532</title>
+  <meta name="description" content="Visit or contact NYC Panache Salon at 107-12 71st Road, 2nd Floor, Forest Hills, NY 11375. Call (718) 575-0532 or book online. Open Tue–Sat 10–7, Sun 10–5. Free consultations, walk-ins welcome." />
+  <meta name="keywords" content="NYC Panache Salon contact, hair salon Forest Hills phone, salon address 11375, Forest Hills Queens salon directions, book hair salon Queens, (718) 575-0532, hair salon 71st Road, salon hours Forest Hills, free consultation Queens salon" />
+  <meta name="author" content="NYC Panache Salon" />
+  <meta name="publisher" content="NYC Panache Salon" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="bingbot" content="index, follow" />
+  <meta name="rating" content="general" />
+  <meta name="language" content="English" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.nycpanachesalon.com/pages/contact.html" />
+  <link rel="alternate" hreflang="en-US" href="https://www.nycpanachesalon.com/pages/contact.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.nycpanachesalon.com/pages/contact.html" />
+
+  <!-- =================================================================== -->
+  <!-- GEO / LOCAL SEO — THE CRITICAL ONES FOR A CONTACT PAGE              -->
+  <!-- =================================================================== -->
+  <meta name="geo.region" content="US-NY" />
+  <meta name="geo.placename" content="Forest Hills, Queens, New York" />
+  <meta name="geo.position" content="40.7209;-73.8463" />
+  <meta name="ICBM" content="40.7209, -73.8463" />
+
+  <!-- =================================================================== -->
+  <!-- OPEN GRAPH / FACEBOOK                                               -->
+  <!-- =================================================================== -->
+  <meta property="og:type" content="business.business" />
+  <meta property="og:site_name" content="NYC Panache Salon" />
+  <meta property="og:title" content="Contact NYC Panache Salon | Forest Hills, Queens" />
+  <meta property="og:description" content="Visit us at 107-12 71st Rd, Forest Hills NY 11375. Call (718) 575-0532. Open 6 days a week — free consultations, walk-ins welcome." />
+  <meta property="og:url" content="https://www.nycpanachesalon.com/pages/contact.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://www.nycpanachesalon.com/images/og-image.jpg" />
+  <meta property="og:image:secure_url" content="https://www.nycpanachesalon.com/images/og-image.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="NYC Panache Salon — Forest Hills, Queens" />
+
+  <!-- Business contact structured in OG too -->
+  <meta property="business:contact_data:street_address" content="107-12 71st Road, 2nd Floor" />
+  <meta property="business:contact_data:locality" content="Forest Hills" />
+  <meta property="business:contact_data:region" content="NY" />
+  <meta property="business:contact_data:postal_code" content="11375" />
+  <meta property="business:contact_data:country_name" content="United States" />
+  <meta property="business:contact_data:phone_number" content="+1-718-575-0532" />
+  <meta property="business:contact_data:website" content="https://www.nycpanachesalon.com/" />
+  <meta property="place:location:latitude" content="40.7209" />
+  <meta property="place:location:longitude" content="-73.8463" />
+  <meta property="article:publisher" content="https://www.facebook.com/nycpanacheforesthills" />
+
+  <!-- =================================================================== -->
+  <!-- TWITTER CARD                                                        -->
+  <!-- =================================================================== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact NYC Panache Salon | Forest Hills, Queens" />
+  <meta name="twitter:description" content="Visit us at 107-12 71st Rd, Forest Hills NY 11375. Call (718) 575-0532 or book online." />
+  <meta name="twitter:image" content="https://www.nycpanachesalon.com/images/og-image.jpg" />
+  <meta name="twitter:image:alt" content="NYC Panache Salon — Forest Hills, Queens" />
+
+  <!-- =================================================================== -->
+  <!-- FAVICONS                                                            -->
+  <!-- =================================================================== -->
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Sitemap pointer -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <!-- =================================================================== -->
+  <!-- PRECONNECT / PRELOAD                                                -->
+  <!-- =================================================================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.vagaro.com" />
+  <link rel="dns-prefetch" href="https://elfsightcdn.com" />
+  <link rel="dns-prefetch" href="https://www.google.com" />
+  <link rel="dns-prefetch" href="https://maps.google.com" />
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="contact.css" />
   <script src="https://elfsightcdn.com/platform.js" async defer></script>
+
+  <!-- =================================================================== -->
+  <!-- STRUCTURED DATA — ContactPage + full LocalBusiness + Actions        -->
+  <!-- Contact pages need the fullest possible NAP (Name, Address, Phone)  -->
+  <!-- schema — this is the #1 signal for Google's Local Pack rankings.    -->
+  <!-- =================================================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://www.nycpanachesalon.com/pages/contact.html#webpage",
+        "url": "https://www.nycpanachesalon.com/pages/contact.html",
+        "name": "Contact NYC Panache Salon | Forest Hills, Queens NY",
+        "description": "Contact information, directions, hours, and booking details for NYC Panache Salon in Forest Hills, Queens. Call (718) 575-0532 or book online via Vagaro.",
+        "isPartOf": { "@id": "https://www.nycpanachesalon.com/#website" },
+        "about": { "@id": "https://www.nycpanachesalon.com/#business" },
+        "mainEntity": { "@id": "https://www.nycpanachesalon.com/#business" },
+        "datePublished": "2024-01-01",
+        "dateModified": "2026-04-21",
+        "inLanguage": "en-US",
+        "breadcrumb": { "@id": "https://www.nycpanachesalon.com/pages/contact.html#breadcrumb" },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://www.nycpanachesalon.com/images/og-image.jpg"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.nycpanachesalon.com/pages/contact.html#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.nycpanachesalon.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://www.nycpanachesalon.com/pages/contact.html" }
+        ]
+      },
+      {
+        "@type": ["HairSalon", "BeautySalon", "LocalBusiness"],
+        "@id": "https://www.nycpanachesalon.com/#business",
+        "name": "NYC Panache Salon",
+        "alternateName": ["Panache Salon", "NYC Panache", "Panache Forest Hills"],
+        "description": "Luxury hair salon in Forest Hills, Queens NY offering expert balayage, highlights, keratin smoothing, extensions, nails, and waxing with 25+ years of master-level artistry.",
+        "url": "https://www.nycpanachesalon.com/",
+        "telephone": "+1-718-575-0532",
+        "email": "info@nycpanachesalon.com",
+        "image": [
+          "https://www.nycpanachesalon.com/images/og-image.jpg",
+          "https://www.nycpanachesalon.com/images/maria.jpeg"
+        ],
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.nycpanachesalon.com/logo.png",
+          "width": 300,
+          "height": 300
+        },
+        "priceRange": "$$-$$$",
+        "currenciesAccepted": "USD",
+        "paymentAccepted": "Cash, Credit Card, Debit Card, Apple Pay, Google Pay",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "107-12 71st Road, 2nd Floor",
+          "addressLocality": "Forest Hills",
+          "addressRegion": "NY",
+          "postalCode": "11375",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.7209,
+          "longitude": -73.8463
+        },
+        "hasMap": "https://maps.google.com/?q=107-12+71st+Rd+Forest+Hills+NY+11375",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Monday",
+            "opens": "00:00",
+            "closes": "00:00",
+            "validFrom": "2024-01-01"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "10:00",
+            "closes": "19:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Sunday",
+            "opens": "10:00",
+            "closes": "17:00"
+          }
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+1-718-575-0532",
+            "contactType": "customer service",
+            "areaServed": "US",
+            "availableLanguage": ["English"],
+            "hoursAvailable": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "10:00",
+                "closes": "19:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Sunday",
+                "opens": "10:00",
+                "closes": "17:00"
+              }
+            ]
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+1-718-575-0532",
+            "contactType": "reservations",
+            "areaServed": "US",
+            "availableLanguage": ["English"]
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/nycpanachesalon/",
+          "https://www.facebook.com/nycpanacheforesthills",
+          "https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3",
+          "https://www.vagaro.com/nycpanachesalonforesthills/services"
+        ],
+        "areaServed": [
+          { "@type": "City", "name": "New York" },
+          { "@type": "AdministrativeArea", "name": "Queens" },
+          { "@type": "Place", "name": "Forest Hills" },
+          { "@type": "Place", "name": "Rego Park" },
+          { "@type": "Place", "name": "Kew Gardens" },
+          { "@type": "Place", "name": "Middle Village" },
+          { "@type": "Place", "name": "Jackson Heights" },
+          { "@type": "Place", "name": "Astoria" },
+          { "@type": "Place", "name": "Manhattan" }
+        ],
+        "publicAccess": true,
+        "slogan": "Where Elegance Meets Artistry",
+        "potentialAction": [
+          {
+            "@type": "ReserveAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.vagaro.com/nycpanachesalonforesthills/services",
+              "inLanguage": "en-US",
+              "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/IOSPlatform",
+                "http://schema.org/AndroidPlatform"
+              ]
+            },
+            "result": {
+              "@type": "Reservation",
+              "name": "Salon Appointment Booking"
+            }
+          },
+          {
+            "@type": "CommunicateAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "tel:+17185750532"
+            },
+            "name": "Call NYC Panache Salon"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.nycpanachesalon.com/#website",
+        "url": "https://www.nycpanachesalon.com/",
+        "name": "NYC Panache Salon",
+        "inLanguage": "en-US",
+        "publisher": { "@id": "https://www.nycpanachesalon.com/#business" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Screen-reader utility -->
+  <style>
+    .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;}
+  </style>
+
 </head>
 <body>
 
+<a href="#main" class="sr-only">Skip to main content</a>
+
 <!-- ========== FLOATING NAV ========== -->
-<header class="float-nav" id="floatNav">
+<header class="float-nav" id="floatNav" role="banner">
   <div class="float-nav__inner">
-    <a href="../index.html" class="float-nav__logo" aria-label="Home">
-      <img src="../logo.png" alt="NYC Panache" class="float-nav__logo-img" />
+    <a href="../index.html" class="float-nav__logo" aria-label="NYC Panache Salon — Home">
+      <img src="../logo.png" alt="NYC Panache Salon logo" class="float-nav__logo-img" width="120" height="40" />
     </a>
-    <nav class="float-nav__links" id="navLinks">
+    <nav class="float-nav__links" id="navLinks" aria-label="Primary navigation">
       <a href="../index.html"    class="float-nav__link">Home</a>
       <a href="about.html"       class="float-nav__link">About Us</a>
       <a href="services.html"    class="float-nav__link">Services</a>
       <a href="gallery.html"     class="float-nav__link">Gallery</a>
       <a href="faq.html"         class="float-nav__link">FAQ</a>
-      <a href="contact.html"     class="float-nav__link active">Contact</a>
+      <a href="contact.html"     class="float-nav__link active" aria-current="page">Contact</a>
     </nav>
     <div class="float-nav__right">
       <div class="float-nav__socials">
-        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="float-nav__social" aria-label="Instagram">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener noreferrer" class="float-nav__social" aria-label="NYC Panache Salon on Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
         </a>
-        <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="float-nav__social" aria-label="Facebook">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener noreferrer" class="float-nav__social" aria-label="NYC Panache Salon on Facebook">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </a>
       </div>
-      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="float-nav__cta">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener noreferrer" class="float-nav__cta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         <span>Book Now</span>
       </a>
     </div>
-    <button class="float-nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+    <button class="float-nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobMenu">
       <span class="burger-line burger-line--1"></span>
       <span class="burger-line burger-line--2"></span>
       <span class="burger-line burger-line--3"></span>
@@ -56,28 +340,28 @@
   <div class="mob-menu__backdrop"></div>
   <div class="mob-menu__panel">
     <button class="mob-menu__close" id="mobMenuClose" aria-label="Close menu">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
-    <img src="../logo.png" alt="NYC Panache" class="mob-menu__logo" />
-    <nav class="mob-menu__nav">
+    <img src="../logo.png" alt="NYC Panache Salon logo" class="mob-menu__logo" />
+    <nav class="mob-menu__nav" aria-label="Mobile navigation">
       <a href="../index.html" class="mob-menu__link">Home</a>
       <a href="about.html"    class="mob-menu__link">About</a>
       <a href="services.html" class="mob-menu__link">Services</a>
       <a href="gallery.html"  class="mob-menu__link">Gallery</a>
       <a href="faq.html"      class="mob-menu__link">FAQ</a>
-      <a href="contact.html"  class="mob-menu__link">Contact</a>
+      <a href="contact.html"  class="mob-menu__link" aria-current="page">Contact</a>
     </nav>
-    <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="mob-menu__cta">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener noreferrer" class="mob-menu__cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Book Online via Vagaro
     </a>
     <div class="mob-menu__footer">
       <div class="mob-menu__socials">
-        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener noreferrer">Instagram</a>
         <span>·</span>
-        <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener noreferrer">Facebook</a>
         <span>·</span>
-        <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener">Yelp</a>
+        <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener noreferrer">Yelp</a>
       </div>
       <p><a href="tel:+17185750532">(718) 575-0532</a></p>
       <p class="mob-menu__addr">107-12 71st Rd, Forest Hills, NY 11375</p>
@@ -85,8 +369,11 @@
   </div>
 </div>
 
+<!-- ========== MAIN CONTENT WRAPPER ========== -->
+<main id="main" role="main">
+
 <!-- ========== PAGE HERO ========== -->
-<section class="cp-hero">
+<section class="cp-hero" aria-labelledby="cp-hero-heading">
   <div class="cp-hero__bg" aria-hidden="true">
     <div class="cp-hero__orb cp-hero__orb--1"></div>
     <div class="cp-hero__orb cp-hero__orb--2"></div>
@@ -95,56 +382,62 @@
   <div class="cp-hero__container">
     <nav class="cp-breadcrumb" aria-label="Breadcrumb">
       <a href="../index.html" class="cp-breadcrumb__link">Home</a>
-      <span class="cp-breadcrumb__sep">✦</span>
-      <span class="cp-breadcrumb__current">Contact</span>
+      <span class="cp-breadcrumb__sep" aria-hidden="true">✦</span>
+      <span class="cp-breadcrumb__current" aria-current="page">Contact</span>
     </nav>
     <div class="cp-hero__label">
       <span class="cp-hero__label-line"></span>
       <span class="cp-hero__label-text">Get in Touch</span>
       <span class="cp-hero__label-line"></span>
     </div>
-    <h1 class="cp-hero__title">Visit <em>Panache</em></h1>
+    <h1 class="cp-hero__title" id="cp-hero-heading">
+      Visit <em>Panache</em>
+      <span class="sr-only"> — Contact NYC Panache Salon in Forest Hills, Queens NY</span>
+    </h1>
     <p class="cp-hero__sub">Step into our Forest Hills sanctuary — or reach out to begin your beauty journey today.</p>
   </div>
 </section>
 
-<!-- ========== QUICK INFO STRIP ========== -->
-<div class="cp-quick">
+<!-- ========== QUICK INFO STRIP (with microdata for extra NAP reinforcement) ========== -->
+<div class="cp-quick" itemscope itemtype="https://schema.org/HairSalon">
+  <meta itemprop="name" content="NYC Panache Salon" />
+  <meta itemprop="url" content="https://www.nycpanachesalon.com/" />
   <div class="cp-quick__inner">
-    <a href="tel:+17185750532" class="cp-quick__item">
-      <div class="cp-quick__icon">
+    <a href="tel:+17185750532" class="cp-quick__item" aria-label="Call NYC Panache Salon">
+      <div class="cp-quick__icon" aria-hidden="true">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
       </div>
       <div class="cp-quick__text">
         <span class="cp-quick__label">Call Us</span>
-        <span class="cp-quick__value">(718) 575-0532</span>
+        <span class="cp-quick__value" itemprop="telephone">(718) 575-0532</span>
       </div>
     </a>
-    <div class="cp-quick__div">✦</div>
+    <div class="cp-quick__div" aria-hidden="true">✦</div>
     <div class="cp-quick__item">
-      <div class="cp-quick__icon">
+      <div class="cp-quick__icon" aria-hidden="true">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       </div>
       <div class="cp-quick__text">
         <span class="cp-quick__label">Hours</span>
-        <span class="cp-quick__value">Tue–Sat 10–7 · Sun 10–5</span>
+        <span class="cp-quick__value"><time itemprop="openingHours" datetime="Tu,We,Th,Fr,Sa 10:00-19:00">Tue–Sat 10–7</time> · <time itemprop="openingHours" datetime="Su 10:00-17:00">Sun 10–5</time></span>
       </div>
     </div>
-    <div class="cp-quick__div">✦</div>
-    <a href="https://maps.google.com/?q=107-12+71st+Rd+Forest+Hills+NY+11375" target="_blank" rel="noopener" class="cp-quick__item">
-      <div class="cp-quick__icon">
+    <div class="cp-quick__div" aria-hidden="true">✦</div>
+    <a href="https://maps.google.com/?q=107-12+71st+Rd+Forest+Hills+NY+11375" target="_blank" rel="noopener noreferrer" class="cp-quick__item" aria-label="Get directions to NYC Panache Salon">
+      <div class="cp-quick__icon" aria-hidden="true">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
       </div>
       <div class="cp-quick__text">
         <span class="cp-quick__label">Location</span>
-        <span class="cp-quick__value">107-12 71st Rd, Forest Hills</span>
+        <span class="cp-quick__value" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress">107-12 71st Rd</span>, <span itemprop="addressLocality">Forest Hills</span></span>
       </div>
     </a>
   </div>
 </div>
 
 <!-- ========== MAIN CONTENT — FORM + INFO ========== -->
-<section class="cp-main">
+<section class="cp-main" aria-labelledby="cp-main-heading">
+  <h2 class="sr-only" id="cp-main-heading">Send a Message and Salon Contact Information</h2>
   <div class="cp-main__bg" aria-hidden="true">
     <div class="cp-main__orb cp-main__orb--1"></div>
     <div class="cp-main__orb cp-main__orb--2"></div>
@@ -152,88 +445,92 @@
   <div class="cp-main__container">
 
     <!-- Contact Form Card -->
-    <div class="cp-form-card reveal">
+    <article class="cp-form-card reveal" aria-labelledby="cp-form-heading">
       <div class="cp-form-card__header">
-        <div class="cp-form-card__icon">
+        <div class="cp-form-card__icon" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
         <div>
-          <h2 class="cp-form-card__title">Send a Message</h2>
+          <h2 class="cp-form-card__title" id="cp-form-heading">Send a Message</h2>
           <p class="cp-form-card__sub">We'll get back to you within 24 hours</p>
         </div>
       </div>
       <div class="cp-form-card__body">
         <div class="elfsight-app-a212f1f5-b064-4a21-b95e-42f259d903c7" data-elfsight-app-lazy></div>
       </div>
-    </div>
+    </article>
 
-    <!-- Info Cards Grid -->
-    <div class="cp-info-grid">
+    <!-- Info Cards Grid (address uses microdata) -->
+    <address class="cp-info-grid" style="font-style:normal;" itemscope itemtype="https://schema.org/HairSalon">
+      <meta itemprop="name" content="NYC Panache Salon" />
 
       <!-- Location -->
-      <div class="cp-info-card reveal">
-        <div class="cp-info-card__icon">
+      <article class="cp-info-card reveal">
+        <div class="cp-info-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
         <h3 class="cp-info-card__title">Our Salon</h3>
-        <p class="cp-info-card__text">107-12 71st Road, 2nd Floor<br />Forest Hills, NY 11375</p>
-        <a href="https://maps.google.com/?q=107-12+71st+Rd+Forest+Hills+NY+11375" target="_blank" rel="noopener" class="cp-info-card__link">
+        <p class="cp-info-card__text" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          <span itemprop="streetAddress">107-12 71st Road, 2nd Floor</span><br />
+          <span itemprop="addressLocality">Forest Hills</span>, <span itemprop="addressRegion">NY</span> <span itemprop="postalCode">11375</span>
+        </p>
+        <a href="https://maps.google.com/?q=107-12+71st+Rd+Forest+Hills+NY+11375" target="_blank" rel="noopener noreferrer" class="cp-info-card__link">
           Get Directions
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
         </a>
-      </div>
+      </article>
 
       <!-- Phone -->
-      <div class="cp-info-card reveal">
-        <div class="cp-info-card__icon">
+      <article class="cp-info-card reveal">
+        <div class="cp-info-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         </div>
         <h3 class="cp-info-card__title">Call Us</h3>
-        <a href="tel:+17185750532" class="cp-info-card__phone">(718) 575-0532</a>
-        <p class="cp-info-card__text cp-info-card__text--sm">Walk-ins welcome · Appointments preferred</p>
-      </div>
+        <a href="tel:+17185750532" class="cp-info-card__phone" itemprop="telephone">(718) 575-0532</a>
+        <p class="cp-info-card__text cp-info-card__text--sm">Walk-ins welcome · Appointments preferred · Free consultations</p>
+      </article>
 
       <!-- Hours -->
-      <div class="cp-info-card reveal">
-        <div class="cp-info-card__icon">
+      <article class="cp-info-card reveal">
+        <div class="cp-info-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <h3 class="cp-info-card__title">Hours</h3>
         <div class="cp-hours">
-          <div class="cp-hours__row"><span class="cp-hours__day">Monday</span><span class="cp-hours__dots"></span><span class="cp-hours__time">Closed</span></div>
-          <div class="cp-hours__row"><span class="cp-hours__day">Tue – Sat</span><span class="cp-hours__dots"></span><span class="cp-hours__time" id="cpTueSat">10 AM – 7 PM</span></div>
-          <div class="cp-hours__row"><span class="cp-hours__day">Sunday</span><span class="cp-hours__dots"></span><span class="cp-hours__time" id="cpSun">10 AM – 5 PM</span></div>
+          <div class="cp-hours__row"><span class="cp-hours__day">Monday</span><span class="cp-hours__dots" aria-hidden="true"></span><span class="cp-hours__time">Closed</span></div>
+          <div class="cp-hours__row"><span class="cp-hours__day">Tue – Sat</span><span class="cp-hours__dots" aria-hidden="true"></span><span class="cp-hours__time" id="cpTueSat"><time itemprop="openingHours" datetime="Tu,We,Th,Fr,Sa 10:00-19:00">10 AM – 7 PM</time></span></div>
+          <div class="cp-hours__row"><span class="cp-hours__day">Sunday</span><span class="cp-hours__dots" aria-hidden="true"></span><span class="cp-hours__time" id="cpSun"><time itemprop="openingHours" datetime="Su 10:00-17:00">10 AM – 5 PM</time></span></div>
         </div>
-      </div>
+      </article>
 
       <!-- Connect -->
-      <div class="cp-info-card reveal">
-        <div class="cp-info-card__icon">
+      <article class="cp-info-card reveal">
+        <div class="cp-info-card__icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
         </div>
         <h3 class="cp-info-card__title">Connect</h3>
         <div class="cp-socials">
-          <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="cp-social-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener noreferrer" class="cp-social-btn" itemprop="sameAs">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             <span>Instagram</span>
           </a>
-          <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="cp-social-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener noreferrer" class="cp-social-btn" itemprop="sameAs">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             <span>Facebook</span>
           </a>
-          <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener" class="cp-social-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143z"/></svg>
+          <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener noreferrer" class="cp-social-btn" itemprop="sameAs">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143z"/></svg>
             <span>Yelp</span>
           </a>
         </div>
-      </div>
+      </article>
 
-    </div>
+    </address>
   </div>
 </section>
 
 <!-- ========== MAP ========== -->
-<section class="cp-map">
+<section class="cp-map" aria-labelledby="cp-map-heading">
   <div class="cp-map__container">
     <div class="cp-section-header reveal">
       <div class="cp-label">
@@ -241,39 +538,42 @@
         <span class="cp-label__text">Find Us</span>
         <span class="cp-label__line"></span>
       </div>
-      <h2 class="cp-section-title">In the Heart of <em>Forest Hills</em></h2>
-      <p class="cp-section-sub">Located on 71st Road between Queens Blvd and Austin Street — just steps from the Forest Hills LIRR station.</p>
+      <h2 class="cp-section-title" id="cp-map-heading">In the Heart of <em>Forest Hills</em></h2>
+      <p class="cp-section-sub">Located on 71st Road between Queens Blvd and Austin Street — just steps from the Forest Hills LIRR station. We proudly serve clients from Forest Hills, Rego Park, Kew Gardens, Middle Village, Jackson Heights, Astoria, and throughout Queens and Manhattan.</p>
     </div>
     <div class="cp-map__frame reveal">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.123!2d-73.8463!3d40.7209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25e3e8a26e3b7%3A0x4a5b8a4e9e4f3c2d!2s107-12%2071st%20Rd%2C%20Forest%20Hills%2C%20NY%2011375!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="NYC Panache Salon Location"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.123!2d-73.8463!3d40.7209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25e3e8a26e3b7%3A0x4a5b8a4e9e4f3c2d!2s107-12%2071st%20Rd%2C%20Forest%20Hills%2C%20NY%2011375!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="NYC Panache Salon Location Map — 107-12 71st Rd, Forest Hills NY 11375"></iframe>
     </div>
   </div>
 </section>
 
 <!-- ========== BOOK CTA STRIP ========== -->
-<section class="cp-cta">
+<section class="cp-cta" aria-labelledby="cp-cta-heading">
   <div class="cp-cta__container reveal">
     <div class="cp-cta__left">
       <span class="cp-cta__eyebrow">Ready for your transformation?</span>
-      <h2 class="cp-cta__title">Book Your <em>Appointment</em></h2>
-      <p class="cp-cta__sub">Walk-ins welcome. Appointments preferred. Call us or book instantly online.</p>
+      <h2 class="cp-cta__title" id="cp-cta-heading">Book Your <em>Appointment</em></h2>
+      <p class="cp-cta__sub">Walk-ins welcome. Appointments preferred. Free consultations — call us or book instantly online.</p>
     </div>
     <div class="cp-cta__right">
-      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="cp-cta__btn cp-cta__btn--primary">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener noreferrer" class="cp-cta__btn cp-cta__btn--primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Book Online via Vagaro
       </a>
-      <a href="tel:+17185750532" class="cp-cta__btn cp-cta__btn--outline">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <a href="tel:+17185750532" class="cp-cta__btn cp-cta__btn--outline" aria-label="Call NYC Panache Salon at (718) 575-0532">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         (718) 575-0532
       </a>
     </div>
   </div>
 </section>
 
+</main>
+<!-- /main -->
+
 <!-- ========== FOOTER ========== -->
-<footer id="footer" class="footer">
-  <div class="footer__rule-top"><span class="footer__rule-line"></span><span class="footer__rule-diamond">✦</span><span class="footer__rule-line"></span></div>
+<footer id="footer" class="footer" role="contentinfo">
+  <div class="footer__rule-top"><span class="footer__rule-line"></span><span class="footer__rule-diamond" aria-hidden="true">✦</span><span class="footer__rule-line"></span></div>
   <div class="footer__main">
     <div class="footer__container">
       <div class="footer__grid">
@@ -282,14 +582,14 @@
           <p class="footer__tagline">Where Elegance Meets Artistry</p>
           <p class="footer__brand-desc">A luxury salon experience in the heart of Forest Hills, Queens — crafted for those who expect nothing less than extraordinary.</p>
           <div class="footer__social-row">
-            <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener" class="footer__social" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-            <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener" class="footer__social" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-            <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener" class="footer__social" aria-label="Yelp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143z"/></svg></a>
+            <a href="https://www.instagram.com/nycpanachesalon/" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="NYC Panache Salon on Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="https://www.facebook.com/nycpanacheforesthills" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="NYC Panache Salon on Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://www.yelp.com/biz/nyc-panache-salon-forest-hills-3" target="_blank" rel="noopener noreferrer" class="footer__social" aria-label="NYC Panache Salon on Yelp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.16 12.594l-4.995 1.433c-.96.276-1.74-.8-1.176-1.63l2.986-4.403c.395-.583 1.27-.404 1.44.293l.96 3.922c.118.482-.35.93-.832.8l-.383-.108v-.307zm-8.274 5.89l1.174-5.087c.22-.95 1.593-1.008 1.897-.08l1.6 4.898c.21.642-.363 1.265-1.024 1.112l-3.027-.7c-.482-.112-.762-.655-.62-1.143z"/></svg></a>
           </div>
         </div>
         <div class="footer__col reveal">
           <h4 class="footer__col-title">Explore</h4>
-          <nav class="footer__nav">
+          <nav class="footer__nav" aria-label="Footer primary navigation">
             <a href="about.html" class="footer__nav-link">About Us</a>
             <a href="services.html" class="footer__nav-link">Our Services</a>
             <a href="gallery.html" class="footer__nav-link">Gallery</a>
@@ -299,7 +599,7 @@
         </div>
         <div class="footer__col reveal">
           <h4 class="footer__col-title">Services</h4>
-          <nav class="footer__nav">
+          <nav class="footer__nav" aria-label="Footer services navigation">
             <a href="services.html#hair" class="footer__nav-link">Hair Artistry</a>
             <a href="services.html#color" class="footer__nav-link">Color & Balayage</a>
             <a href="services.html#smoothing" class="footer__nav-link">Smoothing Treatments</a>
@@ -310,12 +610,12 @@
         <div class="footer__col reveal">
           <h4 class="footer__col-title">Visit Us</h4>
           <div class="footer__contact-list">
-            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>107-12 71st Road 2nd Floor<br />Forest Hills, NY 11375</span></div>
-            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+17185750532">(718) 575-0532</a></div>
-            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon Closed · Tue–Sat 10–7 · Sun 10–5</span></div>
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>107-12 71st Road 2nd Floor<br />Forest Hills, NY 11375</span></div>
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.11 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:+17185750532">(718) 575-0532</a></div>
+            <div class="footer__contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Mon Closed · Tue–Sat 10–7 · Sun 10–5</span></div>
           </div>
-          <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener" class="footer__book-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <a href="https://www.vagaro.com/nycpanachesalonforesthills/services" target="_blank" rel="noopener noreferrer" class="footer__book-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             <span>Book Appointment</span>
           </a>
         </div>
@@ -325,7 +625,7 @@
   <div class="footer__bottom">
     <div class="footer__bottom-container">
       <p class="footer__copy">&copy; <span id="footerYear"></span> NYC Panache Salon. All rights reserved.</p>
-      <a href="https://www.elanstechworld.com" target="_blank" rel="noopener" class="footer__credit">
+      <a href="https://www.elanstechworld.com" target="_blank" rel="noopener noreferrer" class="footer__credit">
         <span class="footer__credit-line"></span>
         <span class="footer__credit-inner">
           <img src="https://www.elanstechworld.com/assets/images/Elanslogo.jpeg" alt="Elan's Tech World" class="footer__credit-logo" />
@@ -339,7 +639,7 @@
     </div>
   </div>
   <button id="backToTop" class="footer__btt" aria-label="Back to top">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
   </button>
 </footer>
 
