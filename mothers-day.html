@@ -33,31 +33,14 @@
 <!-- Existing site stylesheet (reuses brand variables, nav, footer, fonts) -->
 <link rel="stylesheet" href="styles.css" />
 
-<!-- ===== GOOGLE ADS CONVERSION TRACKING =====
-     Replace AW-XXXXXXXXX with your Google Ads ID,
-     and AbC-DefGhIjK with the conversion label. -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17560295562"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'AW-XXXXXXXXX');
-  function trackBooking(service){
-    gtag('event', 'conversion', {
-      'send_to': 'AW-XXXXXXXXX/AbC-DefGhIjK',
-      'event_category': 'Booking',
-      'event_label': service,
-      'value': service === 'blowout-makeup' ? 149.99 : 140.00,
-      'currency': 'USD'
-    });
-  }
-  function trackCall(){
-    gtag('event', 'conversion', {
-      'send_to': 'AW-XXXXXXXXX/PhoneConvLabel',
-      'event_category': 'Call',
-      'event_label': 'PhoneClick'
-    });
-  }
+
+  gtag('config', 'AW-17560295562');
 </script>
 
 <!-- Landing page–specific styles only -->
