@@ -1,6 +1,6 @@
 # NYC Panache Salon
 
-> Luxury hair salon in Forest Hills, Queens NY. Specializing in balayage, highlights, keratin smoothing, hair extensions, nails, waxing, and bridal styling. Owned by master stylist Marina Iskiyaeva with over 25 years of experience.
+> Hair salon in Forest Hills, Queens NY. Specializing in balayage, highlights, keratin smoothing, hair extensions, nails, waxing, and bridal styling. Owned by master stylist Marina Iskiyaeva with over 25 years of experience.
 
 ## Business Information
 
@@ -18,23 +18,28 @@
 - Tuesday – Saturday: 10 AM – 7 PM
 - Sunday: 10 AM – 5 PM
 
-## Signature Services & Pricing (starting prices)
+## Services & Pricing (starting prices)
 
 - Wash & Cut: from $55
-- Wash, Cut & Blow-Dry: from $70–$85
-- Touch-Up Roots: from $70
-- Single Process Color: from $120
-- Highlights — Full Head: from $250
-- Balayage — Full Head: from $250
-- Air-Touch Balayage: signature technique, starts at $250
-- Ombre: $250–$350
-- Keratin Complex Smoothing: from $300 (lasts 3–5 months)
-- ProAddiction Smoothing Treatment: from $350 (next-generation, formaldehyde-free)
-- Hair Extensions: by consultation only
-- Bridal / Updo Styling: custom quote
-- Waxing: Eyebrow $15+, Upper Lip $10+, Full Face $45+, Bikini $40+, Full Leg $60+
-- Manicure: $15 | Pedicure: $33 | Gel Manicure: $45+
-- Wedding Makeup: from $250
+- Shampoo, Cut & Blowdry: from $75
+- Blowout: from $45
+- Touch-Up Color: from $70
+- Single Process Color: from $180
+- Partial Balayage: from $200 | Half Head: from $250 | Full Head: from $350
+- Highlights: Face Framing from $150, Half Head from $200, Full Head from $350
+- Air-Touch Balayage: signature technique, priced as balayage
+- Ombre: from $350
+- Keratin Complex Smoothing: priced at a free consultation (lasts 3–5 months)
+- ProAddiction Smoothing Treatment: priced at a free consultation (formaldehyde-free)
+- Hand-Tied Hair Extensions: from $175 per row; installs by free consultation
+- Special Occasion Updo: from $250 | Bridal Hair: from $350
+- Waxing: Brow Shaping $15, Upper Lip $10, Full Face $45, Bikini $20, Brazilian $45, Full Leg $50
+- Classic Manicure: $15 | Gel Manicure: $45 | Gel Pedicure: $55
+- Special Occasion Makeup: from $125 | Bridal Makeup: from $250
+
+## Reviews
+
+- Google rating: 4.5 out of 5 from 235 reviews (November 2026)
 
 ## What Makes NYC Panache Salon Different
 
@@ -49,11 +54,14 @@
 ## Key Pages
 
 - [Home](https://www.nycpanachesalon.com/)
-- [About Marina & Our Story](https://www.nycpanachesalon.com/pages/about.html)
-- [Full Service Menu & Pricing](https://www.nycpanachesalon.com/pages/services.html)
-- [Gallery of Transformations](https://www.nycpanachesalon.com/pages/gallery.html)
-- [Frequently Asked Questions](https://www.nycpanachesalon.com/pages/faq.html)
-- [Contact & Location](https://www.nycpanachesalon.com/pages/contact.html)
+- [About Marina & Our Story](https://www.nycpanachesalon.com/about/)
+- [Full Service Menu & Pricing](https://www.nycpanachesalon.com/services/)
+- [Gallery of Transformations](https://www.nycpanachesalon.com/gallery/)
+- [Frequently Asked Questions](https://www.nycpanachesalon.com/faq/)
+- [Contact & Location](https://www.nycpanachesalon.com/contact/)
+- [Balayage & Highlights](https://www.nycpanachesalon.com/balayage/)
+- [Keratin & ProAddiction Smoothing](https://www.nycpanachesalon.com/keratin-smoothing/)
+- [Hair Extensions](https://www.nycpanachesalon.com/hair-extensions/)
 
 ## Payment
 

@@ -1,0 +1,280 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/about.html",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/about",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/about/",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/services.html",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/services",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/services/",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/gallery.html",
+      "destination": "/gallery/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/gallery",
+      "destination": "/gallery/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/gallery/",
+      "destination": "/gallery/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/faq.html",
+      "destination": "/faq/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/faq",
+      "destination": "/faq/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/faq/",
+      "destination": "/faq/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/contact.html",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/contact",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/contact/",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/pages",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/services-pricing/",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/services-pricing",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/logo.png",
+      "destination": "/images/logo.png",
+      "permanent": true
+    },
+    {
+      "source": "/images/ProAddiction.jpeg",
+      "destination": "/images/proaddiction-smoothing.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/afterhigh.jpeg",
+      "destination": "/images/highlights-caramel-after.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/beforehigh.jpeg",
+      "destination": "/images/highlights-before.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/airtouchbal.jpeg",
+      "destination": "/images/balayage-icy-blonde.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/airtouchbalafter.jpeg",
+      "destination": "/images/airtouch-balayage-after.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/airtouchbalbefore.jpeg",
+      "destination": "/images/airtouch-balayage-before.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/balayage.jpeg",
+      "destination": "/images/balayage-icy-blonde.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/beige-ash-blonde-highlight-blowout.jpeg",
+      "destination": "/images/beige-ash-blonde-highlights.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/color-touchup-haircut-blowout.jpeg",
+      "destination": "/images/color-cut-blowout.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/dimensional-highlights.jpeg",
+      "destination": "/images/dimensional-highlights.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/double-process-bleach-blonde.jpeg",
+      "destination": "/images/platinum-blonde.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/keratin.jpeg",
+      "destination": "/images/keratin-smoothing.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/maria.jpeg",
+      "destination": "/images/marina-iskiyaeva.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/wefthairextafter.jpeg",
+      "destination": "/images/weft-extensions-after.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/wefthairextbefore.jpeg",
+      "destination": "/images/weft-extensions-before.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/airtouch-after.jpg",
+      "destination": "/images/airtouch-balayage-after.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/airtouch-before.jpg",
+      "destination": "/images/airtouch-balayage-before.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/balayage-caramel.jpg",
+      "destination": "/images/highlights-caramel-after.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/balayage-icy.jpg",
+      "destination": "/images/balayage-icy-blonde.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/beige-ash-highlights.jpg",
+      "destination": "/images/beige-ash-blonde-highlights.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/dimensional-highlights.jpg",
+      "destination": "/images/dimensional-highlights.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/extensions-after.jpg",
+      "destination": "/images/weft-extensions-after.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/extensions-before.jpg",
+      "destination": "/images/weft-extensions-before.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/highlights-before.jpg",
+      "destination": "/images/highlights-before.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/keratin-smoothing.jpg",
+      "destination": "/images/keratin-smoothing.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/marina.jpg",
+      "destination": "/images/marina-iskiyaeva.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/platinum-blonde.jpg",
+      "destination": "/images/platinum-blonde.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/images/lp/proaddiction-smoothing.jpg",
+      "destination": "/images/proaddiction-smoothing.jpg",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+    {
+      "source": "/video/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+    {
+      "source": "/(css|js)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    }
+  ]
+}
