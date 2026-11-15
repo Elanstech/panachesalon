@@ -25,6 +25,16 @@
   // Mon closed · Tue–Sat 10–7 · Sun 10–5   (index = day: 0 Sun … 6 Sat)
   var HOURS = { 0: [10, 17], 1: null, 2: [10, 19], 3: [10, 19], 4: [10, 19], 5: [10, 19], 6: [10, 19] };
   var DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  // Holiday closures (New York date). Dec 24 is open regular hours.
+  var CLOSED = { '2026-11-26': 'Thanksgiving', '2026-12-25': 'Christmas', '2026-12-31': "New Year's Eve", '2027-01-01': "New Year's Day" };
+  function nyDay(offset) {
+    try {
+      var p = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'short' })
+        .formatToParts(new Date(Date.now() + (offset || 0) * 86400000));
+      var o = {}; p.forEach(function (x) { o[x.type] = x.value; });
+      return { ymd: o.year + '-' + o.month + '-' + o.day, day: DAYS.indexOf(o.weekday) };
+    } catch (e) { return null; }
+  }
   function fmt(h) { return (h % 12 || 12) + (h < 12 ? ' AM' : ' PM'); }
   function nyNow() {
     try {
@@ -37,16 +47,21 @@
     var n = nyNow(); if (!n || n.day < 0) return;
     $$('[data-day]').forEach(function (tr) { tr.classList.toggle('is-today', parseInt(tr.getAttribute('data-day'), 10) === n.day); });
     var els = $$('[data-open-status]'); if (!els.length) return;
-    var today = HOURS[n.day], html = '', open = false;
+    var t0 = nyDay(0), holiday = t0 && CLOSED[t0.ymd];
+    var today = holiday ? null : HOURS[n.day], html = '', open = false;
     if (today && n.mins >= today[0] * 60 && n.mins < today[1] * 60) {
       open = true;
       html = '<strong>Open now</strong> until ' + fmt(today[1]) + '. Call for same-day availability.';
     } else if (today && n.mins < today[0] * 60) {
       html = '<strong>Opens today at ' + fmt(today[0]) + '.</strong> Book online anytime.';
     } else {
-      for (var i = 1; i <= 7; i++) {
-        var d = (n.day + i) % 7;
-        if (HOURS[d]) { html = '<strong>Closed now.</strong> Opens ' + (i === 1 ? 'tomorrow' : DAYS[d]) + ' at ' + fmt(HOURS[d][0]) + '. Book online anytime.'; break; }
+      for (var i = 1; i <= 10; i++) {
+        var nd = nyDay(i), d = nd ? nd.day : (n.day + i) % 7;
+        if (HOURS[d] && !(nd && CLOSED[nd.ymd])) {
+          html = (holiday ? '<strong>Closed today for ' + holiday + '.</strong>' : '<strong>Closed now.</strong>') +
+            ' Opens ' + (i === 1 ? 'tomorrow' : DAYS[d]) + ' at ' + fmt(HOURS[d][0]) + '. Book online anytime.';
+          break;
+        }
       }
     }
     els.forEach(function (el) {
@@ -56,6 +71,12 @@
   }
   openLine();
   setInterval(openLine, 60000);
+
+  /* ---- Time-limited offers: removed from their data-offer-end date (New York) ---- */
+  (function () {
+    var t = nyDay(0); if (!t) return;
+    $$('[data-offer-end]').forEach(function (el) { if (t.ymd >= el.getAttribute('data-offer-end')) el.parentNode.removeChild(el); });
+  })();
 
   /* ---- Sticky Call / Book bar on phones ---- */
   var bar = $('#bar');
